@@ -26,6 +26,7 @@ html, body { margin: 0; padding: 0; background: #111; }
   --year-left: 50%;
   --head-bottom: 246px;
   --head-left: 48px;
+  --head-max: 620px;
   --bg-top: 0px;
   --bg-w: 1280px;
   --bg-h: 670px;
@@ -74,8 +75,9 @@ html, body { margin: 0; padding: 0; background: #111; }
   background: var(--cream);
   padding: calc(10px * var(--sf)) calc(22px * var(--sf)) calc(12px * var(--sf));
   box-sizing: border-box;
-  max-width: calc(620px * var(--sf));
+  max-width: var(--head-max);
 }
+
 .h1 {
   font-size: calc(52px * var(--sf));
   font-weight: 700;
@@ -241,15 +243,16 @@ const CHAPTERS = {
   },
   ch3: {
     series: '全7回の解説・第3回',
-    h1: '無料のロボットは、<span class="em">誰のため</span>',
-    h2: '便利さの先で、誰のために働く',
+    // line 2 rewritten to drop the repeated「誰のため」; h1 wraps so the box ends left of the robot's head
+    h1: '無料のロボットは、<br><span class="em">誰のため</span>',
+    h2: '便利さの代わりに、何を渡す？',
     bg: {
       1280: '../../bg/series/ch3_b_1280x670.png',
       1920: '../../bg/series/ch3_b_1920x1080.png'
     },
     layout: {
-      1280: { yearTop: 128, yearSize: 80, yearLeft: '1120px', yearColor: '#1B2638', headBottom: 422, headLeft: 48, bgTop: 0, biblio: 168, band: 122 },
-      1920: { yearTop: 210, yearSize: 120, yearLeft: '1680px', yearColor: '#1B2638', headBottom: 680, headLeft: 72, bgTop: 0, biblio: 270, band: 200 }
+      1280: { yearTop: 128, yearSize: 80, yearLeft: '1120px', yearColor: '#1B2638', headBottom: 364, headLeft: 48, headMax: 470, bgTop: 0, biblio: 168, band: 122 },
+      1920: { yearTop: 210, yearSize: 120, yearLeft: '1680px', yearColor: '#1B2638', headBottom: 606, headLeft: 72, headMax: 705, bgTop: 0, biblio: 270, band: 200 }
     }
   },
   ch4: {
@@ -287,8 +290,8 @@ const CHAPTERS = {
       1920: '../../bg/series/ch6_b_1920x1080.png'
     },
     layout: {
-      1280: { yearTop: 128, yearSize: 92, yearLeft: '800px', yearColor: '#1B2638', headBottom: 422, headLeft: 48, bgTop: 0, biblio: 168, band: 122 },
-      1920: { yearTop: 210, yearSize: 138, yearLeft: '1200px', yearColor: '#1B2638', headBottom: 680, headLeft: 72, bgTop: 0, biblio: 270, band: 200 }
+      1280: { yearTop: 128, yearSize: 80, yearLeft: '810px', yearColor: '#1B2638', headBottom: 422, headLeft: 48, bgTop: 0, biblio: 168, band: 122 },
+      1920: { yearTop: 210, yearSize: 120, yearLeft: '1215px', yearColor: '#1B2638', headBottom: 680, headLeft: 72, bgTop: 0, biblio: 270, band: 200 }
     }
   }
 };
@@ -315,6 +318,7 @@ stage.style.setProperty('--year-left', L.yearLeft);
 stage.style.setProperty('--year-color', L.yearColor);
 stage.style.setProperty('--head-bottom', L.headBottom + 'px');
 stage.style.setProperty('--head-left', L.headLeft + 'px');
+stage.style.setProperty('--head-max', (L.headMax != null ? L.headMax : 620 * (size1920 ? 1.5 : 1)) + 'px');
 stage.style.setProperty('--bg-top', L.bgTop + 'px');
 
 document.getElementById('series').textContent = pack.series;

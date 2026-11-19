@@ -46,11 +46,27 @@ def measure(page, w, h):
             ok: Math.min(i.x, i.y, i.right, i.bottom) >= MIN && !i.overflow
           }));
           const head = items.find(i => i.sel === '.headline');
+          const year = items.find(i => i.sel === '.year');
+          let yearHead = null;
+          if (head && year) {
+            const yR = year.x + year.w, yB = year.y + year.h;
+            const hR = head.x + head.w, hB = head.y + head.h;
+            const dx = yR < head.x ? head.x - yR : (hR < year.x ? year.x - hR : 0);
+            const dy = yB < head.y ? head.y - yB : (hB < year.y ? year.y - hB : 0);
+            const overlap = dx === 0 && dy === 0;
+            const gap = overlap ? 0 : (dx === 0 ? dy : (dy === 0 ? dx : Math.hypot(dx, dy)));
+            yearHead = {
+              gap: +gap.toFixed(1), dx: +dx.toFixed(1), dy: +dy.toFixed(1),
+              overlap: overlap, ok: gap >= MIN && !overlap,
+              year: {left:+year.x.toFixed(1), top:+year.y.toFixed(1), w:+year.w.toFixed(1), h:+year.h.toFixed(1)},
+              head: {left:+head.x.toFixed(1), top:+head.y.toFixed(1), w:+head.w.toFixed(1), h:+head.h.toFixed(1)}
+            };
+          }
           return { clearance, fail: clearance.filter(c => !c.ok), headline: head && {
             left: +head.x.toFixed(1), top: +head.y.toFixed(1),
             right: +(W-head.x-head.w).toFixed(1), bottom: +(H-head.y-head.h).toFixed(1),
             w: +head.w.toFixed(1), h: +head.h.toFixed(1)
-          }};
+          }, yearHead};
         }""",
         [w, h, MIN_EDGE],
     )
@@ -84,9 +100,21 @@ def main():
                 dest = root / raw.name
                 dest.write_bytes(raw.read_bytes())
                 info = measure(page, w, h)
-                report[f"{ch}_{w}x{h}"] = {"clearance": info["clearance"], "headline": info["headline"]}
+                report[f"{ch}_{w}x{h}"] = {"clearance": info["clearance"], "headline": info["headline"], "yearHead": info.get("yearHead")}
                 print(f"=== {ch} {w}x{h}  size={im.size} bytes={raw.stat().st_size}")
                 print("  headline box", info["headline"])
+                yh = info.get("yearHead")
+                if yh:
+                    flag = "OK " if yh["ok"] else "FAIL"
+                    print(f"  {flag} year-headline gap={yh['gap']}px  dx={yh['dx']} dy={yh['dy']} overlap={yh['overlap']}")
+                    if not yh["ok"]:
+                        fails.append(f"{ch}_{w}x{h}:year-head-gap")
+                head = info.get("headline") or {}
+                # headline must sit fully below the top band (z-index covers anything under it)
+                band_h = 200 if h == 1080 else 122
+                if head and head.get("top", 0) < band_h - 1:
+                    print(f"  FAIL headline under top band: top={head['top']} band={band_h}")
+                    fails.append(f"{ch}_{w}x{h}:headline-under-band")
                 for c in info["clearance"]:
                     flag = "OK " if c["ok"] else "FAIL"
                     print(f"  {flag} {c['sel']:18} font={c['font']:8} edge={c['minEdge']:.1f} L{c['left']:.0f} T{c['top']:.0f} R{c['right']:.0f} B{c['bottom']:.0f}  {c['text'][:48]}")
@@ -129,7 +157,9 @@ def main():
         contact.paste(im, (x, y + lab))
     cp = out / "contact_series_banners_1280.jpg"
     contact.convert("RGB").save(cp, quality=90, optimize=True)
-    print("contact", cp)
+    dest_c = root / "contact_series_banners_1280.jpg"
+    dest_c.write_bytes(cp.read_bytes())
+    print("contact", dest_c)
     (out / "clearance.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     if fails:
         print("FAILED", fails)
