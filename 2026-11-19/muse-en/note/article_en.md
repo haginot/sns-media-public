@@ -38,7 +38,7 @@ Muse [currently has no ads](https://www.axios.com/2026/09/08/meta-debuts-muse-pe
 
 Meta also says [your browsing and bookings in Muse may indirectly affect the ads you see elsewhere](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). **Having no ads isn't the same as having nothing to do with ads.**
 
-![Diagram contrasting the current absence of ads with guarantees about the future](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig01.png)
+![Diagram contrasting the current absence of ads with guarantees about the future](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig01.png)
 
 **Training**
 
@@ -54,7 +54,7 @@ In the Canly Tech Blog section "[3.6 Data handling, and what hasn't arrived yet 
 
 Meta has said it plans to [take a fee from businesses on transactions Muse helps complete](https://www.medianama.com/wp-content/uploads/2026/10/META-Q3-2026-Earnings-Call-Transcript.pdf). Most people will use Muse for free, and there's a personal subscription for anyone who wants more powerful models or more usage. Meta's explanation doesn't include the fee rate or a start date.
 
-![Diagram sorting out revenue, ads, and training, reading "no ads now" separately from any guarantee about the future](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig02.png)
+![Diagram sorting out revenue, ads, and training, reading "no ads now" separately from any guarantee about the future](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig02.png)
 
 Whether to trust it is ultimately your call. What I can do is lay out what can actually be said today, rather than rounding it off to "they supposedly can't see your data."
 
@@ -80,7 +80,7 @@ On the show, I compared Muse to "your own cloud PC," "a permit," and "a watchdog
 
 I also said that "you'll always get a confirmation before any unintended action." That was too broad. **What's explicitly confirmed every time is purchases. The documents don't support saying you'll be asked every time before a booking is confirmed.**
 
-![Diagram showing the three analogies (dedicated cloud PC, permit, watchdog) aren't safety guarantees; only purchases are stated to need confirmation every time](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig03.png)
+![Diagram showing the three analogies (dedicated cloud PC, permit, watchdog) aren't safety guarantees; only purchases are stated to need confirmation every time](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig03.png)
 
 ### 2-2. Having your own cloud PC doesn't settle "what you allow"
 
@@ -88,7 +88,7 @@ On the show, I said that giving Muse its own VM matters for safety too, but I di
 
 According to Meta, Muse [runs in a dedicated, isolated VM in the cloud, one per user](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). It's separate from your own computer, but it still holds permissions over whatever you connect: email, calendar, shopping, and so on. **Isolation and permission management are two different things.**
 
-![Diagram of isolation vs. permission management: your PC and the dedicated cloud VM are separate, but operating permissions on connected services remain](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig04.png)
+![Diagram of isolation vs. permission management: your PC and the dedicated cloud VM are separate, but operating permissions on connected services remain](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig04.png)
 
 Since the comment raised vulnerabilities, here's how Meta describes the assumptions behind its design. In the Canly Tech Blog section "[3.1 Secure VM: two isolated security domains on one machine (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.1-secure-vm%EF%BC%9A1%E5%8F%B0%E3%81%AE%E4%B8%8A%E3%81%AB%E3%80%81%E9%9A%94%E9%9B%A2%E3%81%95%E3%82%8C%E3%81%9F2%E3%81%A4%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3)," I wrote:
 
@@ -116,13 +116,13 @@ I go deeper on the watchdog and the approval system in the Canly Tech Blog secti
 
 On sites where your payment details are already saved, Muse detects the checkout screen and [shows you the details and asks for approval every time](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). Reading data, on the other hand, and operations you've already allowed may go ahead without asking, and there's no basis for saying a booking will be confirmed with you every time. I suspect that's why some situations look "fully automatic."
 
-![Diagram: isolation differs from permission management, Sentinel judges connector actions and outbound traffic, and only purchases are confirmed every time](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig05.png)
+![Diagram: isolation differs from permission management, Sentinel judges connector actions and outbound traffic, and only purchases are confirmed every time](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig05.png)
 
 **"Instructions" on external pages**
 
 When an AI ends up following "instructions" planted on an external page, that's called prompt injection. Meta says it treats external information as untrusted input and has multiple layers of defense, but [the defense isn't airtight](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). Instructions on a page are not the same as permission from you.
 
-![Diagram: instructions on external pages are untrusted input handled with layered defenses; page instructions aren't the user's permission; defense isn't complete](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig06.png)
+![Diagram: instructions on external pages are untrusted input handled with layered defenses; page instructions aren't the user's permission; defense isn't complete](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig06.png)
 
 On the show, I said the odds of it accidentally going all the way through to payment are quite low but not zero. What the documents confirm is that an approval mechanism exists and that the risk isn't zero. How low it is, I can't confirm.
 
@@ -132,7 +132,7 @@ On the show, I said the odds of it accidentally going all the way through to pay
 
 Here's what I'd check before and after handing something off. Some of these come from Meta's [connector development guidelines](https://platform.muse.ai/docs), but those are requirements for developers. I haven't confirmed that Muse behaves this way on every path.
 
-![A 10-item checklist for users, based on developer guidelines; Muse may not behave this way in every situation](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig07.png)
+![A 10-item checklist for users, based on developer guidelines; Muse may not behave this way in every situation](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig07.png)
 
 1. Don't ask again right away if you don't hear back. You could end up with a duplicate request. The guidelines require checking status before retrying.
 2. Don't confuse sending a request with a confirmed booking. A quote, a pending request, and a confirmation are different things. Pending isn't booked.
@@ -145,7 +145,7 @@ Here's what I'd check before and after handing something off. Some of these come
 9. Know what you can take with you if you switch. You can [download the files on your VM, including memory](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). Whether conversations and in-progress work can move to another AI is a separate question.
 10. Don't judge reliability from one success. Look at how many cases were tried, under what conditions, and what happens when it fails.
 
-![Diagram: sending a request differs from confirming a booking; distinguish quote, pending, and confirmed. A developer requirement, not a guarantee on every path](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig08.png)
+![Diagram: sending a request differs from confirming a booking; distinguish quote, pending, and confirmed. A developer requirement, not a guarantee on every path](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig08.png)
 
 None of this makes things completely safe. My position is that you should weigh the convenience and the checkpoints together. When your family or coworkers start asking AI to make bookings or purchases, I hope this list helps you talk through which parts you'll check yourselves.
 
@@ -159,7 +159,7 @@ Amazon blocks access from Muse. The reasons it gave the press were [agent transp
 
 Meanwhile, the maintainer list for UCP (Universal Commerce Protocol), a shared standard for AI-driven purchasing, [includes someone from Amazon](https://raw.githubusercontent.com/Universal-Commerce-Protocol/.github/main/MAINTAINERS.md). Helping build a standard isn't the same as agreeing to accept Muse, and **Meta hasn't said Muse uses UCP, either.**
 
-![Diagram: single-use card numbers apply to Muse Wallet on first-time sites; why Amazon blocks; UCP listing ≠ Muse acceptance; Meta hasn't said Muse uses UCP](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig09.png)
+![Diagram: single-use card numbers apply to Muse Wallet on first-time sites; why Amazon blocks; UCP listing ≠ Muse acceptance; Meta hasn't said Muse uses UCP](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig09.png)
 
 The standard has its own rules for finalizing a purchase. Under UCP, unless an extension called AP2 Mandates is supported, [the user must manually finalize checkout on a trusted screen](https://ucp.dev/2026-08-25/specification/shopping/checkout/).
 
@@ -203,7 +203,7 @@ Instead of a ranking, here are the criteria I use to compare agents.
 
 My first impression was that Muse's capabilities are close to existing agents like OpenClaw and Hermes. That isn't based on a feature-by-feature comparison. If there's a difference, I think it lies in something a feature list doesn't capture: whether it actually finishes what you asked.
 
-![Diagram of overlap between Muse and existing agents, and experience differences that don't show up in feature tables (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig10.png)
+![Diagram of overlap between Muse and existing agents, and experience differences that don't show up in feature tables (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig10.png)
 
 Getting started is different, too. I think having to set up and maintain your own server has held back adoption. As I mentioned, the official descriptions of dots and Grok Bot say they use cloud computers as well. Meta says Muse works without learning anything special, and that it's [available in Japan on iOS, Android, and on the web at muse.ai](https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/).
 
@@ -211,7 +211,7 @@ I think working from a phone matters a lot. According to [a survey by Japan's Mi
 
 According to Meta, Muse [keeps working in the cloud after you close the app, and comes back to you when it needs approval for changes, sending email, purchases, and so on](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/). I couldn't confirm from the published documents when the dedicated environment is paused or resumed.
 
-![Venn diagram of Muse, OpenClaw, and Hermes overlap, with experience absent from feature tables shown below an iceberg's waterline](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig11.png)
+![Venn diagram of Muse, OpenClaw, and Hermes overlap, with experience absent from feature tables shown below an iceberg's waterline](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig11.png)
 
 **Criterion two: "where do I need to check things myself?"**
 
@@ -231,7 +231,7 @@ Meta says [Muse can't see your passwords or payment methods](https://about.fb.co
 
 When you use Muse's wallet (Stripe Link at launch) on a site you're buying from for the first time, Meta says [a single-use card number is passed to the shop](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). On sites where your payment details are already saved, it asks for approval every time you buy. Neither means the other party keeps no information.
 
-![Diagram of how personal information is handed over at the end of a purchase](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig12.png)
+![Diagram of how personal information is handed over at the end of a purchase](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig12.png)
 
 As of November 8, 2026, Japan isn't among the supported regions for [Stripe's agent payment mechanism, "Shared Payment Tokens"](https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens). That's just the scope of that one mechanism. I haven't been able to confirm whether Muse's Link wallet works in Japan.
 
@@ -267,7 +267,7 @@ When I first published this post, it was still a draft, but v1.0 was released on
 
 I first wrote the explanation below from the draft spec. I've since rechecked these points against [v1.0](https://personalagentprotocol.org/docs/spec) (November 19, 2026), and they still hold. One caveat: the business sites I checked that day (four US Shopify stores, two Japanese Shopify stores, and Mercury) still publish version 0.4 in their `poppy.json` files.
 
-![Sharing passwords vs. Poppy v1.0's scoped permissions. Web Bot Auth only proves the key holder's signature. Poppy is on for all Muse users, but the 7 sites checked on Nov 19 still serve version 0.4](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig13.png)
+![Sharing passwords vs. Poppy v1.0's scoped permissions. Web Bot Auth only proves the key holder's signature. Poppy is on for all Muse users, but the 7 sites checked on Nov 19 still serve version 0.4](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig13.png)
 
 The spec gives you a different user ID for each company, so you can't be identified by matching IDs across them. But it doesn't stop matching through information shared by other routes, such as email addresses.
 
@@ -303,19 +303,19 @@ Muse can operate a site's screen through a cloud browser. According to Meta, it 
 
 Meta also says it integrates APIs with service providers, and that for services with an API or a CLI (a command-line interface you operate with text commands), [Muse can build its own connectors](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). A connector is what links the AI to an outside service.
 
-![Diagram mapping person → app → service on smartphones to Muse → connector → service for agents (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig14.png)
+![Diagram mapping person → app → service on smartphones to Muse → connector → service for agents (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig14.png)
 
 Most smartphone apps took services that already existed on the web and made them easier to view and use. Along the same lines, my read is that **for AI, the "app" may be the connector**. Meta also provides how-to guides, but a how-to guide isn't the same as an app with a screen. This analogy is my own framing.
 
 For tasks that involve comparing terms, I think data organized field by field is easier for AI to work with. I'm not saying human-facing screens should go away, and I haven't verified that APIs are always faster or safer. My view is that connection methods suited to each task need to mature before agents can really spread.
 
-![Diagram mapping people, apps, and services to Muse, connectors, and services](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig15.png)
+![Diagram mapping people, apps, and services to Muse, connectors, and services](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig15.png)
 
 ### 8-2. Convenience alone won't drive adoption. You need a reason to use it
 
 From here on, this is mostly my own read. People often talk about a "chasm" between enthusiasts and the mainstream when a new technology spreads. I think personal agents need more than convenience to cross it. They need a reason you can't avoid using them.
 
-![Diagram explaining the chasm and network effects (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig16.png)
+![Diagram explaining the chasm and network effects (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig16.png)
 
 For smartphones, that reason was connecting with people through social media and the like. Network effects, where each person gets more value as more people join, played a part.
 
@@ -325,7 +325,7 @@ Most companies building frontier models seem to be leaning toward enterprise, ce
 
 I expect the big players to embed AI inside their own ecosystems, too. But as users, we'll want comparisons that include options beyond any single service. In the long run, I think personal agents that sit outside any one ecosystem have the edge.
 
-![Diagram of the chasm and network effects](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig17.png)
+![Diagram of the chasm and network effects](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig17.png)
 
 ### 8-3. Why doesn't the usage allowance drain faster? My "don't re-read the same context" hypothesis
 
@@ -337,7 +337,7 @@ But **public API pricing isn't the pricing of the consumer Muse app.** What the 
 
 You also can't assume the app's usage allowance works the same way. How the app uses caching, and how that shows up in the allowance, isn't clear from the documents I checked.
 
-![Diagram: Model API prompt caching makes tokens cheaper and faster without removing them; whether the Muse app caches or counts it toward limits is unconfirmed](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig18.png)
+![Diagram: Model API prompt caching makes tokens cheaper and faster without removing them; whether the Muse app caches or counts it toward limits is unconfirmed](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig18.png)
 
 Agents that reuse the same instructions and history over and over should pair well with caching, as long as the fixed portion and the cache lifetime line up. Simply staying resident doesn't make reuse happen.
 
@@ -357,7 +357,7 @@ Neither the dedicated workspace nor the watchdog guarantees complete safety, and
 
 What I find most interesting is the question beyond that: what is an "app" for AI? Just as the ability to build apps became a competitive edge in the smartphone era, offering connection methods that AI can easily use may become the edge now. It's still a hypothesis, but I think the people running shops and services, small shops included, stand to gain the most from thinking about it now.
 
-![Diagram: users check what they connect, permit, and what got done; hypothesis that AI-friendly entry points may set services apart (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig19.png)
+![Diagram: users check what they connect, permit, and what got done; hypothesis that AI-friendly entry points may set services apart (author's analysis)](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig19.png)
 
 Thank you to everyone who commented. Those who shared worries and those who shared enthusiasm both gave me plenty to think about going forward.
 
