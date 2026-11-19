@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>人の手は、1回と、なしと、なし</title>
+<style>
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP"), local("Noto Sans CJK JP Regular"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc") format("truetype");
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP Bold"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc") format("truetype");
+    font-weight: 700; font-style: normal;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F3EDE0; }
+  body.s1280 { width: 1280px; height: 670px; }
+  html.s1280 { width: 1280px; height: 670px; }
+  #stage {
+    position: relative; width: 1920px; height: 1080px;
+    background-color: #F3EDE0;
+    background-image:
+      repeating-linear-gradient(to right, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 24px),
+      repeating-linear-gradient(to bottom, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 24px);
+    font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+    color: #1A2E3B;
+  }
+  body.s1280 #stage { width: 1280px; height: 670px; }
+  .margin-line { position: absolute; left: 48px; top: 0; bottom: 0; width: 3px; background: #C9897A; }
+  body.s1280 .margin-line { left: 40px; }
+
+  .fig-no {
+    position: absolute; left: 68px; top: 44px;
+    font-size: 22px; font-weight: 700; color: #5C564E; line-height: 1.2;
+  }
+  h1 {
+    position: absolute; left: 68px; top: 78px; width: 1804px;
+    font-size: 64px; font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.03em; font-feature-settings: "palt";
+  }
+  h1 .once { color: #C45C26; }
+  h1 .none { color: #215A7A; }
+  .sub {
+    position: absolute; left: 72px; top: 196px; width: 1800px;
+    font-size: 26px; font-weight: 400; color: #3D4A52; line-height: 1.3;
+  }
+
+  .runs {
+    position: absolute; left: 68px; top: 236px; width: 1804px; height: 704px;
+    display: flex; gap: 14px;
+  }
+  .run {
+    flex: 1;
+    background: #FFF8EC;
+    border: 3px solid #1A2E3B;
+    padding: 16px 16px 12px;
+    display: flex; flex-direction: column;
+  }
+  .run .kicker {
+    display: flex; align-items: baseline; justify-content: space-between;
+    line-height: 1.2; margin-bottom: 4px;
+  }
+  .run .place {
+    font-size: 22px; font-weight: 700; color: #5C564E;
+    letter-spacing: 0.04em;
+  }
+  .run .pr {
+    font-size: 20px; font-weight: 700; color: #1A2E3B;
+  }
+  .run .hero {
+    display: flex; align-items: baseline; gap: 14px;
+    margin: 2px 0 14px;
+    line-height: 1;
+  }
+  .run .hero .num {
+    font-size: 64px; font-weight: 700; letter-spacing: -0.04em;
+    font-feature-settings: "palt"; line-height: 1.05;
+  }
+  .run.cloud .hero .num { color: #C45C26; }
+  .run.night .hero .num { color: #215A7A; }
+  .run.claude .hero .num { color: #1A2E3B; }
+  .run .hero .lab {
+    font-size: 24px; font-weight: 700;
+    letter-spacing: -0.02em; font-feature-settings: "palt";
+    line-height: 1.15;
+  }
+
+  .track {
+    height: 168px;
+    border: 3px solid #1A2E3B;
+    background: #EFE8D6;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .t-label {
+    position: absolute; top: 12px; font-size: 22px; font-weight: 700; color: #3D4A52; line-height: 1.2;
+  }
+  .t-label.start { left: 24px; }
+  .t-label.end { right: 24px; }
+  .rail {
+    position: absolute; left: 24px; right: 52px; top: 118px; height: 14px;
+    background: #1A2E3B;
+  }
+  .rail-head {
+    position: absolute; right: 16px; top: 97px; width: 0; height: 0;
+    border-top: 28px solid transparent;
+    border-bottom: 28px solid transparent;
+    border-left: 32px solid #1A2E3B;
+  }
+  .person {
+    position: absolute; left: 50%; margin-left: -36px; top: 36px; width: 72px; height: 120px;
+  }
+  .moon {
+    position: absolute; left: 50%; margin-left: -44px; top: 40px; width: 88px; height: 72px;
+  }
+  .gem {
+    position: absolute; left: 50%; margin-left: -36px; top: 40px; width: 72px; height: 72px;
+  }
+
+  .facts {
+    display: flex; flex-direction: column; gap: 0; margin-top: auto;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: baseline;
+    gap: 12px;
+    line-height: 1.25;
+    border-top: 2px solid #1A2E3B;
+    padding: 9px 0 8px;
+  }
+  .row .k { font-size: 22px; font-weight: 700; color: #5C564E; }
+  .row .v {
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.02em; font-feature-settings: "palt";
+  }
+  .row .v .gap { display: inline-block; width: 1.1em; }
+  .row .v .dim { font-weight: 700; color: #3D4A52; font-size: 18px; }
+
+  .footer {
+    position: absolute; left: 68px; right: 48px; top: 960px; height: 80px;
+    border-top: 2px solid #1A2E3B; padding-top: 10px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 28px;
+  }
+  .footer p { font-size: 18px; font-weight: 400; color: #3D4A52; line-height: 1.4; }
+  .footer .src { font-weight: 700; color: #1A2E3B; white-space: nowrap; text-align: right; }
+
+  body.s1280 .fig-no { left: 52px; top: 42px; font-size: 15px; }
+  body.s1280 h1 { left: 52px; top: 58px; width: 1176px; font-size: 40px; }
+  body.s1280 .sub { left: 54px; top: 102px; width: 1174px; font-size: 13px; }
+  body.s1280 .runs { left: 52px; top: 126px; width: 1176px; height: 430px; gap: 8px; }
+  body.s1280 .run { padding: 8px 8px 6px; border-width: 2px; }
+  body.s1280 .run .place, body.s1280 .run .pr { font-size: 12px; }
+  body.s1280 .run .hero { margin: 0 0 8px; gap: 8px; }
+  body.s1280 .run .hero .num { font-size: 32px; }
+  body.s1280 .run .hero .lab { font-size: 13px; }
+  body.s1280 .track { height: 90px; margin-bottom: 5px; border-width: 2px; }
+  body.s1280 .t-label { top: 6px; font-size: 13px; }
+  body.s1280 .t-label.start { left: 14px; }
+  body.s1280 .t-label.end { right: 14px; }
+  body.s1280 .rail { left: 14px; right: 34px; top: 68px; height: 8px; }
+  body.s1280 .rail-head { right: 10px; top: 56px; border-top-width: 16px; border-bottom-width: 16px; border-left-width: 18px; }
+  body.s1280 .person { margin-left: -22px; top: 18px; width: 44px; height: 74px; }
+  body.s1280 .moon { margin-left: -26px; top: 18px; width: 44px; height: 36px; }
+  body.s1280 .gem { margin-left: -18px; top: 16px; width: 36px; height: 36px; }
+  body.s1280 .row { grid-template-columns: 72px 1fr; gap: 4px; padding: 3px 0 2px; border-top-width: 2px; }
+  body.s1280 .row .k { font-size: 11px; }
+  body.s1280 .row .v { font-size: 12px; }
+  body.s1280 .row .v .dim { font-size: 11px; }
+  body.s1280 .footer { left: 52px; right: 48px; top: 560px; height: 90px; padding-top: 6px; }
+  body.s1280 .footer p { font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="margin-line"></div>
+  <div class="fig-no">図　自律実行の比較</div>
+  <h1>人の手は、<span class="once">1回</span>と、<span class="none">なし</span></h1>
+  <div class="sub">三度走らせた。クラウドと夜間のプルリクエストは、本線にはまだ入れていない。Claude Code は、プルリクエストを開いていない。</div>
+
+  <div class="runs">
+    <div class="run cloud">
+      <div class="kicker">
+        <div class="place">クラウド</div>
+        <div class="pr">プルリクエスト #1</div>
+      </div>
+      <div class="hero">
+        <div class="num">1回</div>
+        <div class="lab">人が入った</div>
+      </div>
+      <div class="track">
+        <div class="t-label start">開始</div>
+        <div class="t-label end">約6分</div>
+        <div class="rail"></div>
+        <div class="rail-head"></div>
+        <svg class="person" viewBox="0 0 72 120" aria-hidden="true">
+          <circle cx="36" cy="16" r="14" fill="#1A2E3B"/>
+          <rect x="24" y="32" width="24" height="10" fill="#1A2E3B"/>
+          <rect x="23" y="42" width="26" height="36" fill="#C45C26"/>
+          <rect x="6" y="42" width="15" height="9" fill="#1A2E3B"/>
+          <rect x="51" y="42" width="15" height="9" fill="#1A2E3B"/>
+          <rect x="23" y="78" width="10" height="42" fill="#1A2E3B"/>
+          <rect x="39" y="78" width="10" height="42" fill="#1A2E3B"/>
+        </svg>
+      </div>
+      <div class="facts">
+        <div class="row"><div class="k">道具</div><div class="v">image_pins.py</div></div>
+        <div class="row"><div class="k">結果</div><div class="v">古いリンク 0件<span class="gap"></span><span class="dim">リンク176本を確認</span></div></div>
+        <div class="row"><div class="k">自動テスト</div><div class="v">通過</div></div>
+        <div class="row"><div class="k">モデル</div><div class="v">Grok 4.7</div></div>
+      </div>
+    </div>
+
+    <div class="run night">
+      <div class="kicker">
+        <div class="place">夜間</div>
+        <div class="pr">プルリクエスト #2</div>
+      </div>
+      <div class="hero">
+        <div class="num">なし</div>
+        <div class="lab">人の手は入っていない</div>
+      </div>
+      <div class="track">
+        <div class="t-label start">23:05</div>
+        <div class="t-label end">23:14</div>
+        <div class="rail"></div>
+        <div class="rail-head"></div>
+        <svg class="moon" viewBox="0 0 88 72" aria-hidden="true">
+          <path fill="#215A7A" d="M56 4c-8 3-14 8-18 15-6 12-5 26 3 36 6 8 16 13 26 13-6 3-12 4-18 4-20 0-36-15-36-34S29 4 49 4c2 0 5 0 7 0z"/>
+        </svg>
+      </div>
+      <div class="facts">
+        <div class="row"><div class="k">道具</div><div class="v">figure_check.py</div></div>
+        <div class="row"><div class="k">結果</div><div class="v">ずれを 2件 検出<span class="gap"></span><span class="dim">直してはいない</span></div></div>
+        <div class="row"><div class="k">自動テスト</div><div class="v">12件すべて通過</div></div>
+        <div class="row"><div class="k">走り方</div><div class="v">poteto-mode<span class="gap"></span><span class="dim">Grok 4.7</span></div></div>
+      </div>
+    </div>
+
+    <div class="run claude">
+      <div class="kicker">
+        <div class="place">Claude Code</div>
+        <div class="pr">PRは開いていない</div>
+      </div>
+      <div class="hero">
+        <div class="num">なし</div>
+        <div class="lab">人の手は入っていない</div>
+      </div>
+      <div class="track">
+        <div class="t-label start">開始</div>
+        <div class="t-label end">約10分</div>
+        <div class="rail"></div>
+        <div class="rail-head"></div>
+        <svg class="gem" viewBox="0 0 72 72" aria-hidden="true">
+          <path fill="#1A2E3B" d="M36 4 L68 36 L36 68 L4 36 Z"/>
+        </svg>
+      </div>
+      <div class="facts">
+        <div class="row"><div class="k">道具</div><div class="v">poteto-mode<span class="gap"></span><span class="dim">Feature</span></div></div>
+        <div class="row"><div class="k">結果</div><div class="v">27件 → 0件<span class="gap"></span><span class="dim">80本が107本に</span></div></div>
+        <div class="row"><div class="k">自動テスト</div><div class="v">14件すべて通過</div></div>
+        <div class="row"><div class="k">作業時間</div><div class="v">610秒</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>夜間の2件は、分岐の時点ですでにあったずれ。この実行では直していない。Claude Code は手元だけ（プッシュしていない）。夜間の時刻は2026年11月19日、日本時間。</p>
+    <p class="src">実行ログ　pstack実践ガイド</p>
+  </div>
+</div>
+</body>
+</html>

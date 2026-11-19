@@ -10,7 +10,7 @@ REV = Path("/tmp/pstack-fig-review")
 REV.mkdir(parents=True, exist_ok=True)
 OUT.mkdir(parents=True, exist_ok=True)
 
-JOBS = ["fig_before_after", "fig_timeline"]
+JOBS = ["fig_before_after", "fig_timeline", "fig_timeline_v2", "fig_flow", "map_overview", "map_full"]
 SIZES = [(1920, 1080), (1280, 670)]
 
 

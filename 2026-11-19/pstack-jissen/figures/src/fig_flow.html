@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Featureの手順</title>
+<style>
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP"), local("Noto Sans CJK JP Regular"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc") format("truetype");
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP Bold"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc") format("truetype");
+    font-weight: 700; font-style: normal;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F3EDE0; }
+  body.s1280 { width: 1280px; height: 670px; }
+  html.s1280 { width: 1280px; height: 670px; }
+  #stage {
+    position: relative; width: 1920px; height: 1080px;
+    background-color: #F3EDE0;
+    background-image:
+      repeating-linear-gradient(to right, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 24px),
+      repeating-linear-gradient(to bottom, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 24px);
+    font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+    color: #1A2E3B;
+  }
+  body.s1280 #stage { width: 1280px; height: 670px; }
+  .margin-line { position: absolute; left: 48px; top: 0; bottom: 0; width: 3px; background: #C9897A; }
+  body.s1280 .margin-line { left: 40px; }
+
+  .fig-no { position: absolute; left: 68px; top: 44px; font-size: 22px; font-weight: 700; color: #5C564E; line-height: 1.2; }
+  h1 {
+    position: absolute; left: 68px; top: 78px; width: 1804px;
+    font-size: 72px; font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.03em; font-feature-settings: "palt";
+  }
+  h1 .acc { color: #C45C26; }
+  .sub {
+    position: absolute; left: 72px; top: 166px; width: 1800px;
+    font-size: 26px; font-weight: 400; color: #3D4A52; line-height: 1.3;
+  }
+
+  .steps {
+    position: absolute; left: 68px; top: 220px; width: 1804px; height: 280px;
+    display: flex; align-items: stretch;
+  }
+  .step {
+    flex: 1; background: #FFF8EC; border: 3px solid #1A2E3B;
+    padding: 14px 12px 12px; display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .step.skip { background: #EFE8D6; }
+  .step .num { font-size: 18px; font-weight: 700; color: #C45C26; line-height: 1.2; margin-bottom: 8px; }
+  .ico { width: 56px; height: 56px; margin: 0 0 10px; flex: none; }
+  .step .ttl {
+    font-size: 24px; font-weight: 700; line-height: 1.25;
+    letter-spacing: -0.02em; font-feature-settings: "palt";
+  }
+  .step .note { font-size: 16px; font-weight: 400; color: #5C564E; margin-top: 6px; line-height: 1.3; }
+  .arr {
+    width: 28px; flex: none; background: #1A2E3B;
+    clip-path: polygon(0 38%, 52% 38%, 52% 16%, 100% 50%, 52% 84%, 52% 62%, 0 62%);
+    margin: 0 4px; align-self: center; height: 40px;
+  }
+
+  .runs {
+    position: absolute; left: 68px; top: 520px; width: 1804px; height: 420px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .run {
+    flex: 1; background: #FFF8EC; border: 3px solid #1A2E3B;
+    display: grid; grid-template-columns: 220px 1fr 300px;
+    align-items: center; padding: 0 20px; gap: 16px;
+  }
+  .run .who { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+  .run .place { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; font-feature-settings: "palt"; }
+  .run .pr { font-size: 20px; font-weight: 700; color: #5C564E; }
+  .bar {
+    position: relative; height: 28px; background: #EFE8D6; border: 3px solid #1A2E3B;
+  }
+  .bar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: #215A7A; }
+  .run.cloud .bar .fill { background: #C45C26; width: 100%; }
+  .run.night .bar .fill { background: #215A7A; width: 100%; }
+  .run.claude .bar .fill { background: #1A2E3B; width: 87.5%; } /* 7 of 8; PR skipped */
+  .person-mark {
+    position: absolute; left: 43.75%; top: 50%;
+    width: 54px; height: 54px; margin: -27px 0 0 -27px;
+  }
+  .run .human {
+    font-size: 32px; font-weight: 700; letter-spacing: -0.02em; font-feature-settings: "palt";
+    text-align: right; line-height: 1.15;
+  }
+  .run.cloud .human { color: #C45C26; }
+  .run.night .human, .run.claude .human { color: #215A7A; }
+  .run .human em { display: block; font-style: normal; font-size: 18px; font-weight: 700; color: #5C564E; margin-top: 2px; }
+
+  .footer {
+    position: absolute; left: 68px; right: 48px; top: 960px; height: 80px;
+    border-top: 2px solid #1A2E3B; padding-top: 10px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 28px;
+  }
+  .footer p { font-size: 18px; font-weight: 400; color: #3D4A52; line-height: 1.4; }
+  .footer .src { font-weight: 700; color: #1A2E3B; white-space: nowrap; text-align: right; }
+
+  body.s1280 .fig-no { left: 52px; top: 42px; font-size: 14px; }
+  body.s1280 h1 { left: 52px; top: 58px; width: 1176px; font-size: 40px; }
+  body.s1280 .sub { left: 54px; top: 104px; width: 1174px; font-size: 15px; }
+  body.s1280 .steps { left: 52px; top: 132px; width: 1176px; height: 168px; }
+  body.s1280 .step { padding: 6px 4px 5px; border-width: 2px; }
+  body.s1280 .step .num { font-size: 11px; margin-bottom: 3px; }
+  body.s1280 .ico { width: 28px; height: 28px; margin-bottom: 4px; }
+  body.s1280 .step .ttl { font-size: 13px; }
+  body.s1280 .step .note { font-size: 10px; margin-top: 2px; }
+  body.s1280 .arr { width: 14px; height: 22px; margin: 0 2px; }
+  body.s1280 .runs { left: 52px; top: 310px; width: 1176px; height: 248px; gap: 8px; }
+  body.s1280 .run { grid-template-columns: 130px 1fr 160px; padding: 0 10px; gap: 8px; border-width: 2px; }
+  body.s1280 .run .place { font-size: 18px; }
+  body.s1280 .run .pr { font-size: 12px; }
+  body.s1280 .bar { height: 16px; border-width: 2px; }
+  body.s1280 .person-mark { width: 32px; height: 32px; margin: -16px 0 0 -16px; }
+  body.s1280 .run .human { font-size: 18px; }
+  body.s1280 .run .human em { font-size: 11px; }
+  body.s1280 .footer { left: 52px; right: 40px; top: 568px; height: 90px; padding-top: 6px; }
+  body.s1280 .footer p { font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="margin-line"></div>
+  <div class="fig-no">図　Feature の手順</div>
+  <h1>人が入るのは、<span class="acc">どこか</span></h1>
+  <div class="sub">Claude Code が辿った Feature の8手順。クラウドでは、実装に入る前に人が一度入った。</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="8" fill="#215A7A"/><circle cx="28" cy="28" r="18" fill="none" stroke="#1A2E3B" stroke-width="4"/><path d="M28 2v8M28 46v8M2 28h8M46 28h8" stroke="#1A2E3B" stroke-width="4"/></svg>
+      <div class="ttl">範囲をたどる</div>
+    </div>
+    <div class="arr"></div>
+    <div class="step">
+      <div class="num">2</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="10" width="20" height="36" fill="#EFE8D6" stroke="#1A2E3B" stroke-width="3"/><rect x="30" y="10" width="20" height="22" fill="#C45C26" stroke="#1A2E3B" stroke-width="3"/><rect x="30" y="36" width="20" height="10" fill="#FFF8EC" stroke="#1A2E3B" stroke-width="3"/></svg>
+      <div class="ttl">形を決める</div>
+    </div>
+    <div class="arr"></div>
+    <div class="step">
+      <div class="num">3</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><rect x="8" y="8" width="40" height="10" fill="#1A2E3B"/><rect x="8" y="23" width="40" height="10" fill="#C45C26"/><rect x="8" y="38" width="40" height="10" fill="#215A7A"/></svg>
+      <div class="ttl">点検を書く</div>
+    </div>
+    <div class="arr"></div>
+    <div class="step">
+      <div class="num">4</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="16" cy="16" r="8" fill="#1A2E3B"/><rect x="10" y="26" width="12" height="20" fill="#1A2E3B"/><circle cx="40" cy="20" r="8" fill="#C45C26"/><rect x="34" y="30" width="12" height="16" fill="#C45C26"/><path d="M22 18h10" stroke="#1A2E3B" stroke-width="4"/></svg>
+      <div class="ttl">実装を任せる</div>
+    </div>
+    <div class="arr"></div>
+    <div class="step">
+      <div class="num">5</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><path d="M8 30l12 12 28-28" fill="none" stroke="#215A7A" stroke-width="7" stroke-linejoin="miter"/></svg>
+      <div class="ttl">同じ面で<br>確かめる</div>
+    </div>
+    <div class="arr"></div>
+    <div class="step">
+      <div class="num">6</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><rect x="8" y="8" width="40" height="10" fill="#1A2E3B"/><rect x="8" y="23" width="28" height="10" fill="#1A2E3B"/><rect x="8" y="38" width="18" height="10" fill="#1A2E3B"/></svg>
+      <div class="ttl">小さく分ける</div>
+    </div>
+    <div class="arr"></div>
+    <div class="step">
+      <div class="num">7</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="none" stroke="#1A2E3B" stroke-width="4"/><rect x="25" y="14" width="6" height="18" fill="#1A2E3B"/><rect x="25" y="36" width="6" height="6" fill="#1A2E3B"/></svg>
+      <div class="ttl">争点を<br>問い直す</div>
+    </div>
+    <div class="arr"></div>
+    <div class="step skip">
+      <div class="num">8</div>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><rect x="8" y="10" width="40" height="36" fill="#FFF8EC" stroke="#1A2E3B" stroke-width="3"/><rect x="14" y="18" width="28" height="5" fill="#1A2E3B"/><rect x="14" y="28" width="20" height="5" fill="#8A8476"/><rect x="14" y="38" width="16" height="5" fill="#8A8476"/></svg>
+      <div class="ttl">PRを開く</div>
+      <div class="note">Claude は省いた</div>
+    </div>
+  </div>
+
+  <div class="runs">
+    <div class="run cloud">
+      <div class="who"><div class="place">クラウド</div><div class="pr">プルリクエスト #1</div></div>
+      <div class="bar">
+        <div class="fill"></div>
+        <svg class="person-mark" viewBox="0 0 54 54" aria-hidden="true">
+          <circle cx="27" cy="27" r="26" fill="#FFF8EC" stroke="#1A2E3B" stroke-width="3"/>
+          <circle cx="27" cy="16" r="7" fill="#1A2E3B"/>
+          <rect x="20" y="25" width="14" height="10" fill="#C45C26"/>
+          <rect x="20" y="35" width="5" height="10" fill="#1A2E3B"/>
+          <rect x="29" y="35" width="5" height="10" fill="#1A2E3B"/>
+        </svg>
+      </div>
+      <div class="human">人が1回入った<em>実装に入る前</em></div>
+    </div>
+    <div class="run night">
+      <div class="who"><div class="place">夜間</div><div class="pr">プルリクエスト #2</div></div>
+      <div class="bar"><div class="fill"></div></div>
+      <div class="human">なし<em>人の手は入っていない</em></div>
+    </div>
+    <div class="run claude">
+      <div class="who"><div class="place">Claude Code</div><div class="pr">PRは開いていない</div></div>
+      <div class="bar"><div class="fill"></div></div>
+      <div class="human">なし<em>人の手は入っていない</em></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>手順は Feature プレイブックの8項。クラウドの人が入った位置は、設計のあと・実装の前。夜間のバーは、人の手が入らなかったことだけを示し、同じ8項を全部辿ったとは書いていない。Claude Code は第8項（PRを開く）を指示どおり省いた。</p>
+    <p class="src">実行ログ　pstack実践ガイド</p>
+  </div>
+</div>
+</body>
+</html>
