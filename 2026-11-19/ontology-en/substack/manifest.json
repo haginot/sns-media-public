@@ -1,0 +1,214 @@
+{
+  "status": "DRAFT — NOT PUBLISHED. No Substack sign-in or publish was performed.",
+  "prepared": "2026-11-19 12:26 JST",
+  "source_article": "2026-11-19/ontology-en/note_en.md",
+  "source_commit": "236eb31",
+  "english_figures_commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+  "image_commit": "f5d2e84cd4969d628ad3f81965073cd651ceec52",
+  "title": "Ontology on Japanese TV: The Parts I Didn't Get To",
+  "title_status": "Confirmed by HAGINO (commit 236eb31).",
+  "placeholders": [],
+  "counts": {
+    "mermaid_blocks_converted": 0,
+    "markdown_tables_converted": 2,
+    "code_blocks_left_as_code": 0,
+    "english_figures_embedded": 11,
+    "placeholders_left": 0,
+    "missing_figures": [
+      "F6 (intentional gap in the original set)"
+    ]
+  },
+  "replacements": [
+    {
+      "type": "markdown_table",
+      "source": "note_en.md table (['Item', 'Ontology in the general sense (computer science)', \"Palantir's Foundry Ontology\"])",
+      "source_lines": "187-195",
+      "header": [
+        "Item",
+        "Ontology in the general sense (computer science)",
+        "Palantir's Foundry Ontology"
+      ],
+      "n_data_rows": 7,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Link text is underlined in the PNG; URLs are listed here and in Sources.",
+      "replacement": {
+        "file": "images/note_table_01_side_by_side.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/f5d2e84cd4969d628ad3f81965073cd651ceec52/2026-11-19/ontology-en/substack/images/table_01_side_by_side.png",
+        "sha256": "78d0ed074b81552a61140e0d3398d3d5e6946c7fd809e152cca88a67c67662f6",
+        "width": 1600,
+        "height": 665,
+        "bytes": 282348
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "note_en.md table (['On the show', 'Closest Palantir term'])",
+      "source_lines": "235-247",
+      "header": [
+        "On the show",
+        "Closest Palantir term"
+      ],
+      "n_data_rows": 11,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Link text is underlined in the PNG; URLs are listed here and in Sources.",
+      "replacement": {
+        "file": "images/note_table_02_show_terms.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/f5d2e84cd4969d628ad3f81965073cd651ceec52/2026-11-19/ontology-en/substack/images/table_02_show_terms.png",
+        "sha256": "13184a89b1ad6ad4fac696574dc6e1066cc09ba661afe2f1ba2f6fc76df0e047",
+        "width": 1600,
+        "height": 831,
+        "bytes": 299318
+      }
+    }
+  ],
+  "figures": [
+    {
+      "file": "F1.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F1.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "a4ace89c35b25d8097da5e6861837252f21799133746a14f4ca79ad2550177d8",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 398209,
+      "caption": "Key visual. “A blueprint of meaning” — “It's more than just data.” On the ontology base sit semantic elements (dots and lines) and kinetic elements (approval and write-back).",
+      "alt": "Key visual. “A blueprint of meaning” — “It's more than just data.” On the ontology base sit semantic elements (dots and lines) and kinetic elements (approval and write-back).",
+      "id": "F1",
+      "placeholder": false
+    },
+    {
+      "file": "F2.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F2.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "17983feb46d3bd582b26985a632e4ca7c1e317efe005c5bb9b633f4cc93b64ec",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 387623,
+      "caption": "A triplet example. Person “Takahiro Hagino” — appears on → show “OpenClaw Demo Explained” — covers → theme “AI.” Properties: air date, viewership.",
+      "alt": "A triplet example. Person “Takahiro Hagino” — appears on → show “OpenClaw Demo Explained” — covers → theme “AI.” Properties: air date, viewership.",
+      "id": "F2",
+      "placeholder": false
+    },
+    {
+      "file": "F3.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F3.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "5b4051e7b244c05f6196abbf9d65072e9afedb2cd0ea70c4e306e5be8382e761",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 483100,
+      "caption": "Left: the blueprint of meaning (types, relations, constraints). Right: the instance graph built from that blueprint (also called a knowledge graph). Both, plus the moving parts (actions, functions, and dynamic security), sit inside one outline: what Foundry collectively calls the “Ontology.” The conclusion: the blueprint and the graph are different layers. A note adds that this is not a graph in the math-function sense.",
+      "alt": "Left: the blueprint of meaning (types, relations, constraints). Right: the instance graph built from that blueprint (also called a knowledge graph). Both, plus the moving parts (actions, functions, and dynamic security), sit inside one outline: what Foundry collectively calls the “Ontology.” The conclusion: the blueprint and the graph are different layers. A note adds that this is not a graph in the math-function sense.",
+      "id": "F3",
+      "placeholder": false
+    },
+    {
+      "file": "F4.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F4.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "5feda3c200d55e354348bbeb22a5d705727a22acb0e0d3a6840e8df11e97de40",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 460898,
+      "caption": "The three building blocks of a decision: data (objects and links), logic (rules and models), and action (verbs, permissions, and write-back), each with a short form of the official question underneath. A pill notes that the architecture write-up adds security, as a fourth. A footnote says the premise is collaboration among operators, analysts, specialists, and AI.",
+      "alt": "The three building blocks of a decision: data (objects and links), logic (rules and models), and action (verbs, permissions, and write-back), each with a short form of the official question underneath. A pill notes that the architecture write-up adds security, as a fourth. A footnote says the premise is collaboration among operators, analysts, specialists, and AI.",
+      "id": "F4",
+      "placeholder": false
+    },
+    {
+      "file": "F5.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F5.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "1a432d550aeb5f0fd525d20726d34a9344324613d4c2ad7dee0fc9946fc5e149",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 440686,
+      "caption": "Excel (you can attach meaning, but permissions, transactions, and side effects are not guaranteed to be controlled) versus an ontology of semantic elements plus kinetic elements, with “submission criteria (validation)” under the kinetic plate. The closer: meaning alone is not enough to control what an agent does.",
+      "alt": "Excel (you can attach meaning, but permissions, transactions, and side effects are not guaranteed to be controlled) versus an ontology of semantic elements plus kinetic elements, with “submission criteria (validation)” under the kinetic plate. The closer: meaning alone is not enough to control what an agent does.",
+      "id": "F5",
+      "placeholder": false
+    },
+    {
+      "file": "F7.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F7.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "5dc4032f32e32f0869c2be7f5c542a092eeccfcf6e5cee143cb47f1cccac8e6c",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 387630,
+      "caption": "An analogy from the show: closer to a “contract” than to “memory.” Memory easily becomes fuzzy; in contracts and internal rules, what's written is what counts. Above a set amount, a general manager must approve; higher still requires a board resolution.",
+      "alt": "An analogy from the show: closer to a “contract” than to “memory.” Memory easily becomes fuzzy; in contracts and internal rules, what's written is what counts. Above a set amount, a general manager must approve; higher still requires a board resolution.",
+      "id": "F7",
+      "placeholder": false
+    },
+    {
+      "file": "F8.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F8.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "5fc672b50a79c2b3bb11b633f9df7caeece29c12cf58d00a91430a895e9a6ad9",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 399430,
+      "caption": "Cancel and return are different actions. Depending on the order object's shipment status (a property), the action is cancel before shipment and return after shipment.",
+      "alt": "Cancel and return are different actions. Depending on the order object's shipment status (a property), the action is cancel before shipment and return after shipment.",
+      "id": "F8",
+      "placeholder": false
+    },
+    {
+      "file": "F9.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F9.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "828834957539a4528c7d01fa7d5419bf18ba5012c1c04d6e31954310ee294e37",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 404188,
+      "caption": "A hypothetical scenario with dummy data. Detect a cancellation → walk the graph for candidates → a person approves → sync to related systems (show planning data, description field, promo clearance, contacting the talent). The dashed line: even in autonomous mode, responsibility remains.",
+      "alt": "A hypothetical scenario with dummy data. Detect a cancellation → walk the graph for candidates → a person approves → sync to related systems (show planning data, description field, promo clearance, contacting the talent). The dashed line: even in autonomous mode, responsibility remains.",
+      "id": "F9",
+      "placeholder": false
+    },
+    {
+      "file": "F10.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F10.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "540b1bc0aa28a82e53146995f1d71c4f85bdca781c99a0b95ead8dc68f9eee37",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 436462,
+      "caption": "Small maps for expense reports, orders and returns, and appearance booking join into a world map. Write down the rules, data, systems, and permissions. For individuals and small teams, a shared file every agent can read may be enough; for large enterprises, choosing a platform becomes a decision.",
+      "alt": "Small maps for expense reports, orders and returns, and appearance booking join into a world map. Write down the rules, data, systems, and permissions. For individuals and small teams, a shared file every agent can read may be enough; for large enterprises, choosing a platform becomes a decision.",
+      "id": "F10",
+      "placeholder": false
+    },
+    {
+      "file": "F11.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F11.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "c80e54f1df8bed407be12040351ce7cd22776669243a341b03cbd69e9f28e800",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 465762,
+      "caption": "On the left, ontology in the general sense is the blueprint layer (classes, relations, constraints; RDF, OWL, SHACL), drawn as one plate. On the right, Foundry is three plates inside one outline — “what Foundry collectively calls the ‘Ontology.’” From the bottom: blueprint (object types, link types, and properties), contents (objects and links), and moving parts (actions, functions, submission criteria, security, and write-back). A dotted line joins the two blueprint plates: “Same layer.”",
+      "alt": "On the left, ontology in the general sense is the blueprint layer (classes, relations, constraints; RDF, OWL, SHACL), drawn as one plate. On the right, Foundry is three plates inside one outline — “what Foundry collectively calls the ‘Ontology.’” From the bottom: blueprint (object types, link types, and properties), contents (objects and links), and moving parts (actions, functions, submission criteria, security, and write-back). A dotted line joins the two blueprint plates: “Same layer.”",
+      "id": "F11",
+      "placeholder": false
+    },
+    {
+      "file": "F12.jpg",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F12.jpg",
+      "commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
+      "sha256": "0c27447a1064845f75655429bb19bcf6a446ce047586460de385f1cc7ba53e23",
+      "width": 2752,
+      "height": 1536,
+      "bytes": 507653,
+      "caption": "Where each product draws the line called “ontology.” Left, Foundry Ontology: definitions, contents, and moving parts in one solid box. Right, the Fabric IQ ontology (preview): entities, relationships, and rules in a solid box, bound to existing data with no separate store. The graph sits outside the box, dashed, as an optional outer runtime that by default does not load instances.",
+      "alt": "Where each product draws the line called “ontology.” Left, Foundry Ontology: definitions, contents, and moving parts in one solid box. Right, the Fabric IQ ontology (preview): entities, relationships, and rules in a solid box, bound to existing data with no separate store. The graph sits outside the box, dashed, as an optional outer runtime that by default does not load instances.",
+      "id": "F12",
+      "placeholder": false
+    }
+  ],
+  "notes": [
+    "F1 is the 4a47e52 wording (“My third time on a Japanese TV show”), verified visually.",
+    "F3 is the 9cc8b3b fix (“Not a graph in the math-function sense”), verified visually. No pending flag.",
+    "All 11 figure URLs are pinned to 236eb31, which contains both the new F1 and the fixed F3."
+  ]
+}

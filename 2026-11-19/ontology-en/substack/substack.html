@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ontology on Japanese TV: The Parts I Didn&#x27;t Get To</title>
+</head>
+<body>
+<!-- Substack-ready draft. NOT published. -->
+<h1>Ontology on Japanese TV: The Parts I Didn't Get To</h1>
+<blockquote>
+<p><em>This is an English version of my original Japanese post on note, <a href="https://note.com/haginota/n/nbf04863132cf">「PIVOTで話した「オントロジー」と、話しきれなかったこと」</a> (Japanese), published on November 16, 2026 (JST). The figures have been redrawn with English labels. Links marked "(Japanese)" go to Japanese-language sources. For the engineering details, see my companion technical article on the Canly Tech Blog.</em></p>
+</blockquote>
+<p>I'm Takahiro Hagino. On November 14, 2026, my <a href="https://www.youtube.com/watch?v=_V7IF1XdNLQ">third appearance</a> (Japanese) on <a href="https://pivotmedia.co.jp/movie/15261">a Japanese business TV show</a> (Japanese) went live. The topic was how far companies can automate with AI, and what the "ontology" that keeps coming up in that conversation actually is.</p>
+<p>Last time I was on, I talked about Meta's personal AI agent, "Muse." Afterwards I wrote up <a href="https://note.com/haginota/n/nba922eb92cd9">what I didn't get to say on the show</a> (Japanese) on note. I'd like to do the same this time.</p>
+<p><a href="https://note.com/haginota/n/nba922eb92cd9">https://note.com/haginota/n/nba922eb92cd9</a></p>
+<p>The comments that came in after the episode went out were sharp. Honestly, some raised points I couldn't fully answer on the spot either. In some places I left things as analogies. In others I oversimplified. In this post, I'll first lay out what I said on the show. Then I'll separate ontology in the general sense from what <a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">Palantir's Foundry Ontology</a> means. Finally, I'll follow up on the questions that came up most in the comments, and I'll keep facts and my own views apart.</p>
+<p>A few caveats first.</p>
+<ul>
+<li>This post is my personal view. It is not the official view of the show's producer, Palantir, or my employer. It is not a partnership or sponsored post.</li>
+<li>I summarize what I said on the show. For my exact wording, please watch the episode itself (timestamps are approximate).</li>
+<li>Facts and numbers come with sources. When I'm guessing or giving an opinion, I flag it with phrases like "I think" or "my view is." I checked the sources on November 16, 2026 (Japan time).</li>
+<li>I worked from auto-generated captions for the transcript. I've fixed errors in proper nouns. Where I still need to do a final check against the audio, I've left a draft marker.</li>
+</ul>
+<p>Here's the episode.</p>
+<p><a href="https://www.youtube.com/watch?v=_V7IF1XdNLQ">https://www.youtube.com/watch?v=_V7IF1XdNLQ</a></p>
+<p><a href="https://pivotmedia.co.jp/movie/15261">https://pivotmedia.co.jp/movie/15261</a></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F1.jpg" alt="Key visual. “A blueprint of meaning” — “It's more than just data.” On the ontology base sit semantic elements (dots and lines) and kinetic elements (approval and write-back).">
+<figcaption>Figure: Key visual. "A blueprint of meaning." "It's more than just data." On top of the ontology base sit semantic elements (dots and lines) and kinetic elements (approval and writeback).</figcaption>
+</figure>
+<hr />
+<h2>1. What I said on the show</h2>
+<p>Here's roughly what I covered on the show. Everything below is a summary.</p>
+<h3>Ontology isn't a new word</h3>
+<p>The word "ontology" didn't just appear in the last few months. It has long drawn attention as a way to convey the meaning of the words AI handles, the same way we would to a person. I said it's back in the spotlight because companies are now trying to run AI agents accurately and safely (around 03:00 and around 04:07).</p>
+<p>On the big shift behind this, I'll stick to facts I've been able to confirm. The <a href="https://arxiv.org/abs/2005.14165">GPT-3 paper</a> came out in 2020. <a href="https://openai.com/index/chatgpt/">ChatGPT was released</a> on November 30, 2022, and <a href="https://openai.com/index/gpt-4-research/">GPT-4 was announced</a> on March 14, 2023. When I mentioned a big shift around 16:10 in the episode, I meant the period when ChatGPT was released.</p>
+<p>I have my own history with this, too. I spent about 10 years at BizReach working with the text of resumes and job postings. Matching keywords alone won't tell you the intent behind the words. Plain natural language can't fully hand meaning over to a computer, and that problem has been around for a long time.</p>
+<h3>Personal agents and company agents face different conditions</h3>
+<p>I said this in my <a href="https://www.youtube.com/watch?v=PeZHAztFgqc">first appearance</a> (Japanese) (the OpenClaw episode, May 19, 2026), and I touched on it again in <a href="https://www.youtube.com/watch?v=_V7IF1XdNLQ">this episode</a> (around 06:00): as a consumer, I use a personal agent (OpenClaw) for shopping, bookings, and parts of my daily life. As an individual, if it buys the wrong thing or makes a booking I didn't intend, I can sometimes just cancel it later or get in touch with whoever's on the other end.</p>
+<p>A company can't work that way. An order nobody placed, or a leak of personal data, becomes a question of trust. More people and more systems are involved, so the setup gets more complex. That's where ontology becomes necessary. That's how I framed it on the show.</p>
+<p>On how far adoption has gotten, the show cited a figure of "3% as of the end of last year" (around 05:00). When I checked primary sources afterwards, I did find a survey close to that number. In a press release published on December 19, 2025, <a href="https://www.yano.co.jp/press-release/show/press_id/3991">Yano Research Institute</a> (Japanese) reported that of 215 companies that said they use generative AI, 3.3% said they were "currently using" AI agents. <strong>That is not 3% of all companies.</strong> The base is companies that already use generative AI. The show also touched on the view that "even as it grows, it will stay below 10%," but I haven't been able to find a source for that. So here I'm sticking to the sourced 3.3%.</p>
+<h3>Ontology is a "blueprint of meaning"</h3>
+<p>At the heart of what I said on the show was this definition (around 07:12):</p>
+<p>A blueprint that lets humans and AI share information about the same real world as meaning. A blueprint of meaning.</p>
+<p>In practice, you define real-world concepts as objects (dots) and connect them with relationships (lines). Take my first appearance (the OpenClaw episode). Link the person "Takahiro Hagino" to the show "OpenClaw Demo Explained" with "appears on," and his role as a guest becomes visible. Link the show to the theme "AI" with "covers," and that becomes the show's theme.</p>
+<p>A set of three like this, close to subject–predicate–object, is sometimes called a triplet. In information technology standards, the <a href="https://www.w3.org/TR/rdf11-concepts/">RDF "triple"</a> is the equivalent. <a href="https://www.palantir.com/docs/jp/foundry/ontology/core-concepts">Palantir's official terms</a>, which I'll come to later, are different. They don't talk about triples. They use objects, links, and properties.</p>
+<p>Objects have properties. For a show, those might be the air date or the viewer count. As you define the properties too, the reality we see gets mirrored in the data structure. In that sense, I said, an ontology is sometimes called a digital twin. <a href="https://www.palantir.com/docs/jp/foundry/ontology/core-concepts">Palantir's documentation</a> also describes it as <a href="https://www.palantir.com/docs/jp/foundry/ontology/overview">"a digital twin of the organization."</a></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F2.jpg" alt="A triplet example. Person “Takahiro Hagino” — appears on → show “OpenClaw Demo Explained” — covers → theme “AI.” Properties: air date, viewership.">
+<figcaption>Figure: A triplet example. Person "Takahiro Hagino" — appears on → show "OpenClaw Demo Explained" — covers → theme "AI." Properties are air date and viewership.</figcaption>
+</figure>
+<p>For a word with several meanings, I used "Python." In a conversation about programming, it's a language. In a conversation about reptiles, it's a snake. An ontology's job is to write down what a word means in a given context and how concepts relate to each other. That said, one commenter pointed out that this example alone doesn't prove we still need ontology today. I'll come back to that in Section 3.3.</p>
+<h3>The blueprint and the actual data graph are different layers</h3>
+<p>When you connect dots (concepts) with lines (relationships), you get what's called a graph. Depending on the context, it's also called a knowledge graph.</p>
+<p>This is the distinction I most wanted to get across on the show. <strong>The blueprint layer and the actual data graph layer are different.</strong> The blueprint says what kinds of things exist and what relationships are possible. You follow it to build a graph of actual people and shows.</p>
+<p>On the show, I also said "the ontology itself is not a graph" (around 15:02). I stand by the direction, but I'll put it more precisely here. In <a href="https://www.w3.org/TR/owl2-mapping-to-rdf/">W3C's OWL</a>, an ontology itself can be written out as an RDF graph. So rather than flatly saying "it's not a graph," I think it's better to say that the type definitions and the actual data graph you build from them are different layers.</p>
+<p>There's one thing I didn't get to say on the show. In Palantir's Foundry, the word "Ontology" covers this blueprint, the actual data graph, and the components that make things happen. Whether the layers differ is one question. How much you bundle under a single name is another. I'll separate the two in Section 2.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F3.jpg" alt="Left: the blueprint of meaning (types, relations, constraints). Right: the instance graph built from that blueprint (also called a knowledge graph). Both, plus the moving parts (actions, functions, and dynamic security), sit inside one outline: what Foundry collectively calls the “Ontology.” The conclusion: the blueprint and the graph are different layers. A note adds that this is not the &quot;graph&quot; of a mathematical function.">
+<figcaption>Figure: On the left, the ontology (types, relations, constraints = the blueprint of meaning). On the right, the instance graph built from it (also called a knowledge graph). An outer outline wraps both, plus the "moving parts" (actions, functions, security), and marks "the scope Foundry collectively calls the 'Ontology.'" The conclusion: "The blueprint and the graph are different layers." Note: "Not the same meaning as the graph of a function."</figcaption>
+</figure>
+<p>A viewer flagged how I used the word "graph" around 14:47. I'll untangle that in Section 3.1.</p>
+<h3>Excel can represent an ontology, but it can't guarantee control over actions</h3>
+<p>At the extreme, you don't even need to build a graph. You can represent an ontology in Excel. Palantir's own explanation maps object types to datasets, objects to rows, and <a href="https://www.palantir.com/docs/jp/foundry/ontology/core-concepts">properties to columns</a>.</p>
+<p>But putting meaning into a table doesn't give you control. Take expense reports. Decisions there have to follow internal policies and approval rules. With only a table, nothing guarantees that the system enforces those rules. You're relying on the AI to "check" them every time. On the show, I called this enforcement validation. In Palantir's official terms, it corresponds to <a href="https://www.palantir.com/docs/jp/foundry/action-types/submission-criteria">"submission criteria"</a>, which decide whether an <a href="https://www.palantir.com/docs/jp/foundry/action-types/overview">action</a> is allowed to run. (They used to be called validations.)</p>
+<p>One caveat. Excel does have <a href="https://support.microsoft.com/en-us/office/apply-data-validation-to-cells-29fecbcc-d1b9-42c1-9d76-eff3ce5f7249">"data validation"</a>, which checks the values entered into cells. What's hard to guarantee is something else: <strong>who may do what to external systems, and under which conditions</strong> (control over permissions, transactions, and side effects). I'm not claiming that Excel can't validate anything at all.</p>
+<p>I also used an analogy on the show: an ontology is closer to a "contract" than to "AI memory." Memory tends to get fuzzy. With a contract, what's written is what counts, and work proceeds on that basis. The analogy is my own. Palantir's product documentation doesn't use the word "contract." That said, <a href="https://blog.palantir.com/ontology-finding-meaning-in-data-palantir-rfx-blog-series-1-399bd1a5971b">Palantir's official blog</a> does refer to "the centralized contract the ontology represents." The point there is that if the logic tied to objects is also kept in a form that can be changed, applications can use that contract more easily. In the product documentation's own terms, I think the closest match is permissions, submission criteria, and auditing of changes.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F7.jpg" alt="An analogy from the show: closer to a “contract” than to “memory.” Memory easily becomes fuzzy; in contracts and internal rules, what's written is what counts. Above a set amount, a general manager must approve; higher still requires a board resolution.">
+<figcaption>Figure: My analogy from the show: closer to a "contract" than to "memory." Memory tends to get fuzzy. In contracts and internal rules, what's written is what counts. Above a set amount, a general manager must approve. Above a higher amount, it takes a board resolution.</figcaption>
+</figure>
+<h3>The specialists who structure the work, and the problems nobody planned for</h3>
+<p>Humans have to decide where to draw the lines: how finely to split concepts, and where to stop splitting. On the show, I introduced the FDE as a specialist role that does this work. As I framed it, one of the core parts of an FDE's job today is to structure frontline work and turn it into an ontology.</p>
+<p>I haven't, however, been able to confirm in official sources the causal claim that "Palantir created the FDE role because it knew the ontology would become a competitive advantage." That was my interpretation on the show. <a href="https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87">Palantir's 2019 blog post</a> describes the FDE (a role also called Delta internally) as someone who deploys the platform at the customer's site and solves the customer's problems. As a statement of fact, I'll go no further than this: "building the ontology is one of the core parts of an FDE's job today."</p>
+<p>What I described as the role's real strength is judgment on problems nobody planned for, the kind you can't handle by writing every branch into a workflow in advance. For example, an order that has already shipped can't be "canceled." It has to be handled as a "return." Giving the two operations different names isn't enough. You also have to define the rules that go with each one. Good staff carry a "world map" in their heads and use it to adapt on the fly. My view on the show was that if that map can be shared, AI can also see which information to look up and whom to contact.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F8.jpg" alt="Cancel and return are different actions. Depending on the order object's shipment status (a property), the action is cancel before shipment and return after shipment.">
+<figcaption>Figure: Cancel and return are different actions. The order object's shipment status (a property) decides which applies: cancel before shipment, return after shipment.</figcaption>
+</figure>
+<h3>The demo (a simulation with fictional data)</h3>
+<p>In the second half of the show, I walked viewers through a hypothetical scenario based on how the show's producer makes its programs. A guest cancels, the system looks for a stand-in, a person approves the choice, and the change then syncs to the related systems. It was a simulation running on fictional data. As I explained it, the graph underneath is machine-readable, and the system suggests candidates by tracing past appearances, topics, and conditions.</p>
+<p>The names and amounts were dummy data. They aren't the actual appearance terms of any real person. In principle, you could remove the approval step and let the system run on its own. Even then, if the information it relies on hasn't been updated for the new guest, the follow-up work will go wrong. (On the show, I described that follow-up work as the promotion-related syncing.)</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F9.jpg" alt="A hypothetical scenario with dummy data. Detect a cancellation → walk the graph for candidates → a person approves → sync to related systems (show planning data, description field, promo clearance, contacting the talent). The dashed line: even in autonomous mode, responsibility remains.">
+<figcaption>Figure: A hypothetical scenario with dummy data. Detect a cancellation → trace the graph for candidates → a person approves → sync to related systems (planning data, description field, checking clearance for promo materials, contacting the performer). Dotted line: "Even running autonomously without approval, responsibility remains."</figcaption>
+</figure>
+<h3>Getting started: draw a small map of the work in front of you</h3>
+<p>You don't need to map the whole company at the start. Begin with the work that's most burdensome, takes longest to decide, or involves the most people and systems. For each piece of work, write down the rules, the data, where the data lives, and the permissions needed to act on it. Once you have a few small maps, they start to connect, and you get closer to a world map.</p>
+<p>On the show, I said that individuals and small organizations may not need a formal ontology platform at all. A shared file that every agent reads may be enough. Large companies can't get away with that. In my view, companies now have to decide where ontology-centered platforms fit for them.</p>
+<p>On the show, I mentioned Microsoft, Palantir, and Databricks. Here I'll stick to what I could confirm. Microsoft <a href="https://blog.fabric.microsoft.com/en-us/blog/from-data-platform-to-intelligence-platform-introducing-microsoft-fabric-iq">announced Fabric IQ in preview</a> on November 18, 2025, and announced general availability at <a href="https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/">Build in June 2026</a>. However, as of November 16, 2026, <a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview">Microsoft Learn</a> still lists the core "ontology" feature as being in preview. Databricks <a href="https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents">announced Genie Ontology</a> on June 16, 2026, and <a href="https://www.databricks.com/blog/announcing-ga-genie-ontology">made it generally available</a> on November 11, 2026. Palantir's own documentation calls its ontology-centered software architecture its <a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">biggest differentiator</a>. In Section 2.4, I'll cover how the scope of what each company calls an "ontology" differs.</p>
+<p>Any talk of a "scramble" among these companies, or of which one is better, isn't my assessment, and I don't intend to compare them. On the show, I said one company "was the first to offer" this. Whether that's true depends on the criteria, so in this article I'll call it "one of the companies that started early." I also couldn't confirm from public price lists which one costs more or less, so I won't cover pricing here.</p>
+<p>When different parts of a company use different tools, a company-wide map is harder to build. On the show, we discussed examples where each department uses a different tool, such as Dify, Claude, or Gemini.</p>
+<p>I acknowledged the risk of lock-in on the show as well. Even so, I believe a world map is an important piece of putting agents to work in real business.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F10.jpg" alt="Small maps for expense reports, orders and returns, and appearance booking join into a world map. Write down the rules, data, systems, and permissions. For individuals and small teams, a shared file every agent can read may be enough; for large enterprises, choosing a platform becomes a decision.">
+<figcaption>Figure: Small maps for expense reports, orders and returns, and scheduling appearances connect into a world map. Write down the rules, data, systems, and permissions. For individuals and small teams, a file that every agent reads may be enough. For large companies, choosing a platform becomes a real decision (my view).</figcaption>
+</figure>
+<hr />
+<h2>2. What does the "blueprint of meaning" cover?</h2>
+<p>On the show, I used the single word "ontology" for two different things, one after the other. One is ontology in the general sense, as philosophy and computer science have used it. The other is Foundry Ontology, which Palantir puts at the center of its products. Viewers commented that I was "mixing up the layers," and I think part of the reason was that I didn't keep the two apart. This section treats them separately.</p>
+<h3>2.1 Ontology in the general sense: a blueprint of meaning</h3>
+<p>A definition often cited in computer science is <a href="https://tomgruber.org/writing/ontolingua-kaj-1993.pdf">Gruber's "an explicit specification of a conceptualization."</a> <a href="https://doi.org/10.1016/S0169-023X(97)00056-6">Studer et al.</a> restated it as "a formal, explicit specification of a shared conceptualization." <a href="https://link.springer.com/chapter/10.1007/978-3-540-92673-3_0">Guarino et al.</a> distinguish the ontology as an artifact from the conceptualization it tries to represent.</p>
+<p>There are also standards for writing ontologies down. RDF is <a href="https://www.w3.org/TR/rdf11-concepts/">a data model that represents graphs as triples</a>. OWL is a language for defining classes, properties, and individuals, along with what they mean, and <a href="https://www.w3.org/TR/owl2-mapping-to-rdf/">an OWL ontology</a> can also be written as an RDF graph. <a href="https://www.w3.org/TR/shacl/">SHACL</a> is a standard for writing down the constraints an RDF graph must satisfy, and for validating them. Entities and relationships collected as a graph according to the blueprint are called a <a href="https://arxiv.org/abs/2003.02320">knowledge graph</a>. Knowledge graph research covers a lot of ground: data models, querying (SPARQL, for example), validation, and reasoning.</p>
+<p>What these standards define is meaning, reasoning, constraints, and queries. Some specs, such as <a href="https://www.w3.org/TR/sparql11-update/">SPARQL 1.1 Update</a>, do update the graph itself. But none of them specify how to write into business systems: transactions, permissions, and control of side effects. When people say "ontology" in the general sense, the core is the blueprint: types, relationships, and constraints.</p>
+<p>In my research, I describe two mirror-image errors that distort this debate. The first is the <strong>graph fallacy</strong>: assuming that connected data is an ontology. The second is the <strong>formalism fallacy</strong>: assuming that anything not written in a specific formal language (OWL, for example) isn't an ontology. I think my "dots and lines" explanation on the show came across as leaning toward the first.</p>
+<h3>2.2 Foundry Ontology: the blueprint, plus its contents and moving parts</h3>
+<p><a href="https://www.palantir.com/docs/foundry/ontology/core-concepts">Palantir's English documentation</a> first describes an ontology as "a categorization of the world," then explains that in Foundry it is "the digital twin of an organization." Datasets and models are mapped to object types, properties, link types, and action types, and brought together in one place.</p>
+<p>Foundry also <strong>separates types from instances</strong>. An object is one instance of an object type and corresponds to one row in a dataset. A link, likewise, is <a href="https://www.palantir.com/docs/foundry/ontology/core-concepts">one instance of a link type</a>. In Section 1, I wrote that "the blueprint and the graph of real data are different layers." That holds in Foundry too.</p>
+<p>What differs is how much the word "ontology" covers. In general, it usually means the blueprint: types, relationships, and constraints. Foundry calls the whole package "the Ontology": the blueprint, its contents (objects and links), and the moving parts (actions, functions, and dynamic security).</p>
+<p>As I read it, the name Foundry Ontology covers the graph (the data layer of objects and links) and extends to the execution platform. Here are the official statements I base that reading on:</p>
+<ul>
+<li>It includes both semantic elements (objects, properties, links) and <a href="https://www.palantir.com/docs/foundry/ontology/overview">kinetic elements</a> (actions, functions, dynamic security)</li>
+<li>It states explicitly that the ontology is <a href="https://www.palantir.com/docs/foundry/architecture-center/ontology-system">not a "semantic layer"</a>. Semantics must be paired with kinetics, and actions are written back to operational and edge systems</li>
+<li>An action is <a href="https://www.palantir.com/docs/foundry/action-types/overview">a single transaction</a> based on user-defined logic, and the latest state, with edits applied, is kept in a writeback dataset</li>
+<li><a href="https://www.palantir.com/docs/foundry/action-types/submission-criteria">Submission criteria</a> (formerly called validations) determine whether an action may run</li>
+<li>Ontology data is protected by <a href="https://www.palantir.com/docs/foundry/object-permissioning/managing-object-security">object and property policies</a>, or by the data source's policies</li>
+<li>Functions are <a href="https://www.palantir.com/docs/foundry/functions/overview">logic written in TypeScript or Python</a></li>
+</ul>
+<p>A note on the word "graph." Palantir itself describes the ontology as a graph in some materials. Its July 2023 <a href="https://www.palantir.com/assets/xrfr7uokpv1b/2T3BgBpe3drnqBaSTCXl6O/bdc9445d10053eb84b3f9487e63fc2d7/Whitepaper_-_Accelerating_Research_and_Development_in_the_Semiconductor_Industry.pdf">white paper for the semiconductor industry</a> says the ontology lets you build a "knowledge graph," and an <a href="https://blog.palantir.com/ontology-finding-meaning-in-data-palantir-rfx-blog-series-1-399bd1a5971b">official blog post</a> refers to an "object graph" defined by the ontology. But the central phrase in the <a href="https://www.palantir.com/docs/foundry/ontology/core-concepts">product documentation</a> isn't "graph." It's <a href="https://www.palantir.com/docs/foundry/ontology/overview">"the digital twin of an organization."</a> Both are Palantir's own words, and I read them as emphasizing different sides of the same thing.</p>
+<p>Why build the moving parts right in? I think it has to do with how demanding the environments it has been used in are. Palantir is used in defense, among other fields. On July 31, 2025, for example, the U.S. Army <a href="https://www.army.mil/article/287506/u_s_army_awards_enterprise_service_agreement_to_enhance_military_readiness_and_drive_operational_efficiency">announced an enterprise agreement</a> with Palantir. It consolidates 75 contracts (15 prime contracts and 60 related ones) into one, runs for up to 10 years, and has a ceiling of $10 billion. The announcement also notes that this figure is a ceiling, not a committed payment. In environments like defense, where a wrong action is unacceptable, you have to constrain what AI and systems can see and do, using permissions, submission criteria, and audit logs. I call these constraints, which defense-grade settings demand, a "harness." That isn't Palantir's term; it's my own view.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F11.jpg" alt="On the left, ontology in the general sense is the blueprint layer (classes, relations, constraints; RDF, OWL, SHACL), drawn as one plate. On the right, Foundry is three plates inside one outline — “what Foundry collectively calls the ‘Ontology.’” From the bottom: blueprint (object types, link types, and properties), contents (objects and links), and moving parts (actions, functions, submission criteria, security, and write-back). A dotted line joins the two blueprint plates: “Same layer.”">
+<figcaption>Figure: On the left, "ontology in the general sense," the blueprint layer (classes, relations, constraints; standards: RDF / OWL / SHACL), is drawn as a single plate. On the right, "Foundry Ontology" is drawn as three plates. From the bottom: the blueprint (object types, link types, properties), the contents (objects and links), and the moving parts (actions, functions, submission criteria, security, writeback). The three plates remain separate layers, and the outline around them is labeled "what Foundry collectively calls the 'Ontology.'" A dotted line joins the left and right blueprint plates: "This is the same layer."</figcaption>
+</figure>
+<h3>2.3 Side by side</h3>
+<p>Here is a rough comparison of the two on the same points. The left column reflects the general view; the right column uses the wording of Palantir's English documentation.</p>
+<p><strong>Ontology in the general sense vs. Palantir's Foundry Ontology</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/f5d2e84cd4969d628ad3f81965073cd651ceec52/2026-11-19/ontology-en/substack/images/table_01_side_by_side.png" alt="Table: Side-by-side comparison of ontology in the general sense (computer science) and Palantir's Foundry Ontology">
+<figcaption>Table: Side-by-side comparison of ontology in the general sense (computer science) and Palantir's Foundry Ontology</figcaption>
+</figure>
+<p>In the table, "outside the scope" means the standards don't specify it. A platform that uses OWL or RDF may, of course, have its own separate mechanisms for writing and permissions.</p>
+<h3>2.4 Microsoft Fabric IQ draws the line differently</h3>
+<p>For contrast, here's a quick look at the ontology in Microsoft Fabric IQ. The <a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview">Microsoft Learn page</a> is titled "What is ontology (preview)?", and as of November 16, 2026, the feature is still in preview.</p>
+<p>According to that page, an ontology binds definitions of entities, properties, relationships, rules, metrics, and so on to existing enterprise data. It doesn't need to be a separate data store. The graph (Graph in Microsoft Fabric) is an "optional runtime layer" for cases where the relationship paths themselves matter. By default, the schema graph built from the ontology doesn't load instance data. When you need the data, the graph can <a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview">materialize the related data</a>.</p>
+<p>In short, Fabric IQ draws the "ontology" line mainly around the definitions and leaves graph execution as a separate layer you can opt into. Foundry uses "ontology" for the definitions, the contents, and the components that make things happen, all together. Neither approach is better. They just draw the line in different places.</p>
+<p>When comparing products, I find there are fewer mix-ups if you don't line up their nouns (object, entity, graph) side by side. Instead, first map each product onto neutral roles: "definitions," "connection to real data," "queries," "writes and execution," and "permissions." Then compare. I also think official documentation can only confirm that a feature exists. Claims about benefits, such as "it improves accuracy or productivity," should be read as a separate matter.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F12.jpg" alt="Where each product draws the line called “ontology.” Left, Foundry Ontology: definitions, contents, and moving parts in one solid box. Right, the Fabric IQ ontology (preview): entities, relationships, and rules in a solid box, bound to existing data with no separate store. The graph sits outside the box, dashed, as an optional outer runtime that by default does not load instances.">
+<figcaption>Figure: How much each product calls an "ontology." Left, <a href="https://www.palantir.com/docs/foundry/ontology/core-concepts">Palantir's Foundry Ontology</a>: definitions (object types, etc.), contents (objects and links), and the components that make things happen (actions, <a href="https://www.palantir.com/docs/foundry/functions/overview">functions</a>, dynamic security) all sit inside one solid box. Right, the <a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview">Fabric IQ ontology</a> (preview): definitions (entities, properties, relationships, rules, metrics) sit in a solid box, with an arrow to existing data labeled "bind (not a separate data store)." The graph sits outside the box in a dotted outline: "Optional runtime layer. Does not load instances by default."</figcaption>
+</figure>
+<h3>2.5 Matching the show's wording to Palantir's terms</h3>
+<p>Here I map the words used on the show to Palantir's terms. My starting point is the <a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">Japanese platform overview</a>. Many of the Japanese docs carry a note saying they were machine-translated from English and that their accuracy hasn't been verified, so I checked each term against the English version before using it.</p>
+<p>Palantir's own one-line summary: the ontology is designed to represent an enterprise's <strong>decisions</strong>, <a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">not just its data</a>. A decision can be <a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">broken down into three parts</a>:</p>
+<ul>
+<li><strong>Data</strong>: facts about the real world and the business that give a decision its context. Data is integrated as objects and links.</li>
+<li><strong>Logic</strong>: organizational and business rules, models, and analyses that act as guardrails.</li>
+<li><strong>Action</strong>: the "motion" of a decision. Actions control how decisions are carried out in the real world. In Palantir's words, they are the enterprise's "verbs."</li>
+</ul>
+<p>The <a href="https://www.palantir.com/docs/jp/foundry/architecture-center/ontology-system">architecture write-up</a> adds <strong>security</strong> as a fourth element. I see permissions not as an option you bolt on later, but as a component that's there from the start.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F4.jpg" alt="The three building blocks of a decision: data (objects and links), logic (rules and models), and action (verbs, permissions, and write-back), each with a short form of the official question underneath. A pill notes that the architecture write-up adds security, as a fourth. A footnote says the premise is collaboration among operators, analysts, specialists, and AI.">
+<figcaption>Figure: The three building blocks of a decision: data (objects and links), logic (rules and models), and action (verbs, permissions, and writeback). Under each is a summary of the official question. A note says collaboration is a premise.</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-19/ontology-en/figs/F5.jpg" alt="Excel (you can attach meaning, but permissions, transactions, and side effects are not guaranteed to be controlled) versus an ontology of semantic elements plus kinetic elements, with “submission criteria (validation)” under the kinetic plate. The closer: meaning alone is not enough to control what an agent does.">
+<figcaption>Figure: Excel (you can attach meaning, but there's no guarantee you can control permissions, transactions, and side effects) versus an ontology made of semantic elements plus kinetic elements, with "submission criteria (validation)." The closing line: "Meaning alone can't fully control what an agent does."</figcaption>
+</figure>
+<p><strong>How the show put it, and the closest Palantir terms</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/f5d2e84cd4969d628ad3f81965073cd651ceec52/2026-11-19/ontology-en/substack/images/table_02_show_terms.png" alt="Table: Wording used on the show and the closest Palantir term">
+<figcaption>Table: Wording used on the show and the closest Palantir term</figcaption>
+</figure>
+<p>According to the docs, once you've modeled your data, it can also serve as connective tissue across the company (the official docs call this a "business bus") through <a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">APIs and the Ontology SDK</a>. Actions also include <a href="https://www.palantir.com/docs/jp/foundry/action-types/overview">side effects</a> such as notifications.</p>
+<hr />
+<h2>3. What I couldn't fully cover on the show</h2>
+<p>This part fills in the places where I simplified things on the show and responds to points viewers raised in the comments. I took those points not as criticism but as material for making my explanation more accurate. Quoted comments keep the original wording, and I note when I quote only part of one.</p>
+<h3>3.1 Untangling "graph" at 14:47</h3>
+<p>Around 14:47, the host took "graph" to mean a plot of a function on X and Y axes. I replied that "a graph is points connected by lines." I meant it as a simple opening analogy, but I mixed up two concepts. As @thara6890 rightly pointed out in the comments:</p>
+<blockquote>
+<p>14:47 I think a graph on a coordinate plane (a visual representation of the set of ordered pairs that satisfy a function) and a graph in graph theory (a set of nodes and edges) are completely different concepts.</p>
+<p>(Though I do think some of the latter can be represented on a coordinate plane.)</p>
+</blockquote>
+<p>I think this explanation is correct. The "graph of y=2x+1" you learn in junior high school is the set of ordered pairs (x, f(x)) that satisfy the function, which appears as a curve on a coordinate plane. The "graph" in a knowledge graph is a <a href="https://diestel-graph-theory.com/">graph in the graph-theory sense</a>: a pair G=(V,E) made up of a set of vertices and a set of edges. It assumes neither coordinates nor continuity.</p>
+<p>"Points connected by lines" works as an introduction to the second kind (a graph as a network). But it doesn't make the two the same thing. A function's graph isn't "points connected by lines." It's the set of points itself. My explanation on the show was sloppy here.</p>
+<p>I covered the blueprint and graph layers in Sections 1 and 2. Keeping the two concepts apart is not the same as saying you shouldn't use the word "graph" at all.</p>
+<h3>3.2 Ontology, semantics, and causality are different layers</h3>
+<p>@猛-c4w made this point:</p>
+<blockquote>
+<p>Aren't you mixing up ontology with semantics, causality, and so on? You're lumping things from different layers together and calling them all ontology!!</p>
+</blockquote>
+<p>There's something to that. In academic terms, you can roughly separate the layers like this:</p>
+<ul>
+<li><strong>Ontology</strong>: a <a href="https://tomgruber.org/writing/ontolingua-kaj-1993.pdf">formal specification</a> of <a href="https://link.springer.com/chapter/10.1007/978-3-540-92673-3_0">what exists and how things relate</a></li>
+<li><strong>Semantics</strong>: what words and metrics mean. In BI, the word also shows up in "semantic layer," which centralizes definitions such as "revenue"</li>
+<li><strong>Causality</strong>: the theory of how outcomes change when you intervene</li>
+</ul>
+<p>In my research, I found several artifacts that sit next to ontology and look similar but are different: controlled vocabularies, taxonomies, data schemas, knowledge graphs, semantic layers, digital twins, and others. I don't see them as a single staircase from simple to advanced. Each one answers a different question. A semantic layer answers "How do we calculate this metric?" A digital twin answers "What state is this thing in right now?" An ontology answers "Which kinds of things and relationships do we accept as a shared premise?"</p>
+<p>On the show, I talked about "contacting the supplier when inventory drops by half." Strictly speaking, that isn't only about what exists. It's procedural and causal knowledge. In Palantir's terms, it belongs not just in the type definitions but also in logic (functions) and actions.</p>
+<p>As I wrote in Section 2, Palantir uses "ontology" as a <a href="https://www.palantir.com/docs/foundry/architecture-center/ontology-system">broad term</a> that covers the layer of meaning plus contents, motion, and permissions. On the show, I didn't separate the general sense from this broad one. In this article, I write "ontology in the general sense" for the general meaning and "Foundry Ontology" for Palantir's product.</p>
+<p>@ksngyz also brought up how this relates to ontology in philosophy (the study of being). Ontology in information science is a different thing that borrowed the philosophical term. The second half of that comment comes very close to a problem I've been thinking about:</p>
+<blockquote>
+<p>That was a joke, though. I thought the arrival of LLMs had, in a sense, let us bypass the ontology problem from traditional AI research. But it's interesting that once you actually try to roll this out into real enterprise work, the ontology problem stands in the way again. In a way, it's like a game of cat and mouse.</p>
+</blockquote>
+<p>I think the part that only seemed to be bypassed was language understanding. The part you can't fully bypass is responsibility and permissions.</p>
+<p>@bghk-g9r's comment is also exactly right: "We have to keep in mind that it is only someone's approximation." An ontology isn't reality itself. It's a model built from a particular point of view. As I see it, you need to state clearly whose approximation it is, and run it so that you can fix it when it drifts from reality (version control and approvals).</p>
+<h3>3.3 Why ontology still matters in the age of LLMs</h3>
+<p>@nikko8x sent me this counterargument:</p>
+<blockquote>
+<p>In the old days, before LLMs, computers needed an ontology to understand things. But today's LLMs should be able to tell from context whether "python" means a snake or a programming language. It's hard to think of an example where we still need an ontology.</p>
+</blockquote>
+<p>As a response to the Python example from the show, I think this is fair. Today's LLMs are quite good at resolving ambiguous words from context. That example alone makes a weak case that we still need ontology today.</p>
+<p>What I really wanted to get across on the show was <strong>control over actions</strong>, more than avoiding mix-ups in meaning. Who may do what, in which system, under what conditions? We shouldn't leave that to an LLM's on-the-spot judgment alone. The system itself should guarantee it. Concretely, that means permissions, submission criteria and auditing.</p>
+<p>Even as language understanding improves, one report found that accuracy on questions about enterprise data went up when the data was provided as a knowledge graph (with an ontology). In <a href="https://arxiv.org/abs/2311.07509">a published benchmark</a> using GPT-4, asking questions directly over SQL in a zero-shot setting (no examples given) scored 16%, compared with 54% via the knowledge graph. This is a single experiment. It doesn't mean every business task will produce the same numbers. But I think it gives some grounds for saying we can't flatly claim that once the model understands meaning, plain natural language is all you need.</p>
+<p>Some of you may ask, "Isn't this just jargon for things we always thought about anyway?" That's half true. What matters isn't the terminology. It's recording the definitions of meaning and the conditions for action in a form people can verify later.</p>
+<p>My own experiments point the same way (they're unpublished and not peer-reviewed). Using a fictional business process, I built a test with AI agents. I gave the same business knowledge in three forms: a plain-text document, a glossary, and a formal ontology. I compared these with a condition where no knowledge was given at all. Across the 2,117 runs I analyzed, whether any business knowledge was given made a difference of 25.7 to 49.3 points in score. By contrast, writing the same knowledge as an ontology instead of a plain-text document added only about 2.3 points, and only on tasks involving tricky definitions or decision rules. On step-by-step procedural tasks, I saw no difference. The main analysis was statistically significant. But when I re-ran it under more conservative conditions, the gain shrank to about 2.0 points and could no longer be called significant. This is a result from one fictional business process, and it hasn't been peer-reviewed. Even so, I don't read it as "turning knowledge into an ontology dramatically boosts performance." What helps first is simply providing the knowledge. Formalizing it helps with details such as judging edge cases, and with checks before execution.</p>
+<h3>3.4 The brakes are actions and permissions, not warning labels</h3>
+<p>You can attach meaning in Excel too. As I noted earlier, what's hard to guarantee there is permissions, transactions and control over side effects.</p>
+<p>In <a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">Palantir's official basic pattern</a>, an AI agent doesn't change things directly. It drafts a proposal, a person reviews it, and only then is the change committed to the ontology. In the show's demo, the system offered candidates, a human approved one, and the result was then passed on to related systems. I think that flow is close to this pattern. In principle, you could also remove the approval step and let the system run autonomously. If you do, the responsibility that remains belongs to whoever decided to remove that safeguard.</p>
+<p>@BullGo-s8c wrote about the limits of Human in the Loop:</p>
+<blockquote>
+<p>People talk about Human in the Loop, but in the end AI agents can't do everything on their own. All it does is widen the range of tasks you can hand off. But that also means a heavy review burden on humans for the output. And since the reasoning in between is often a black box that you can't always trace back, it raises the question: can you truly take responsibility for something you don't actually understand?</p>
+<p>It's like putting an artificial foreign object into the body. I have a feeling that someday there'll be a massive accident that brings society to a standstill.</p>
+</blockquote>
+<p>I accept that we can't see all of the intermediate reasoning. Even so, I think the ontology side can keep a per-action record of what was done, under which permissions and under what conditions, so that it can be audited. That doesn't make the review burden itself go away. I won't claim this problem is solved.</p>
+<p>As automation advances, people turn into monitors, and it becomes harder for them to step in when it matters. Bainbridge described this paradox in 1983 as the <a href="https://doi.org/10.1016/0005-1098(83)90046-8">"ironies of automation"</a>. On the show's website, a commenter named とんでもない子 (Tondemonaiko) pointed out the same dynamic:</p>
+<blockquote>
+<p>Even if the accuracy of "ontology" improves, the basic problem that "AI can make mistakes" will always remain. So I think people who can do the final check will be especially important in government, local authorities and companies. What do you think?</p>
+<p>And I think the biggest concern is that, as we keep using AI and AI agents, we may become a society where it's hard to develop "people who can do the final check."</p>
+<p>(Tondemonaiko, comment on the show's website, excerpt)</p>
+</blockquote>
+<p>In my view, we'll keep needing people who can do the final check. That's exactly why I think it's important to keep a process in which people judge the proposals, so that their practice at judging never drops to zero. An ontology isn't a device for eliminating mistakes. I see it as closer to a device for deciding in advance how far the damage can spread when something goes wrong, and for keeping a record you can trace afterward.</p>
+<p>In <a href="https://note.com/haginota/n/nba922eb92cd9">my previous article on Muse</a> (Japanese), I wrote that "isolation and permission management are separate issues." The same thinking applies to enterprise ontologies. A request written in a file (a warning label) can't restrict permissions by itself. As I see it, the brakes are the submission criteria and the permission settings.</p>
+<h3>3.5 How to connect small maps, and who maintains them</h3>
+<p>Many of you also asked whether building the map is too much work in itself, and whether it can be automated.</p>
+<blockquote>
+<p>Isn't building the ontology map itself way too much work? Can't ontology building be automated? (@雅-f2c, around 2026-11-15, excerpt)</p>
+<p>There was talk about whether humans or AI should build the ontology. I guess you'd have AI do it and have humans check the important parts? (@hiroyukik2588, around 2026-11-15, excerpt)</p>
+</blockquote>
+<p>On the show, I said it depends on your policy: build it under human review, or have AI draw it. If you choose AI, the question of whether the company can take responsibility remains. I think @hiroyukik2588's reading, "AI builds it, and people check the important parts," is close to where the industry is heading now. For example, Databricks describes Genie Ontology as <a href="https://www.databricks.com/blog/announcing-ga-genie-ontology">built by agents and governed by humans</a>. On the research side, there are also <a href="https://arxiv.org/abs/2307.16648">attempts to learn ontologies with LLMs</a>. I won't make a definite call here on whether it can be automated.</p>
+<p>Wonderwall, a commenter on the show's website, summed it up as "ontology ≈ business specification" and then asked about differences in granularity:</p>
+<blockquote>
+<p>So ontology is roughly a business specification.</p>
+<p>(omitted)</p>
+<p>But how detailed or rough the specs are varies from one business process to another. I still didn't quite understand how you'd even that out.</p>
+<p>(Wonderwall, comment on the show's website, excerpt)</p>
+</blockquote>
+<p>When departments define things at different levels of detail, there are several approaches. You can align them under shared higher-level concepts, give them common properties or interfaces, and, where needed, use a shared ontology. Palantir's documentation says that <a href="https://www.palantir.com/docs/foundry/object-link-types/link-types-overview">links across different ontologies</a> aren't possible, and that in that case you should consider a shared ontology. This is one concrete way to do what I described on the show as "connecting regional maps into a world map."</p>
+<p>The worry that locking your definitions into a single product makes it hard to leave is also reasonable. On the show, I acknowledged the lock-in risk that @大江戸太郎-s5o raised. One option, I think, is to keep the blueprint in a form that can also be exported to a standard format. The definitions themselves can be written in standards such as <a href="https://www.w3.org/TR/rdf11-concepts/">W3C's RDF</a> and <a href="https://www.w3.org/TR/owl2-mapping-to-rdf/">OWL</a>.</p>
+<p>However, as we saw in Section 2, the standards cover meaning, constraints and queries (plus graph updates). Even if you can export class and relationship names, the mapping to data, the permissions and the meaning of operations don't come with them. As I see it, you don't judge portability by asking, "Can it be exported to a standard format?" You test it. Export a small slice, rerun the same questions and operations in a different environment, and write down what was lost. Only then, I think, do you know how much you can actually take with you.</p>
+<p>(One note to put a number in perspective. The same comment mentioned "a huge digital deficit worth a large share of GDP." According to the <a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd211400.html">Ministry of Internal Affairs and Communications white paper</a> (Japanese), Japan's net payments on digital-related trade (the so-called digital deficit) in 2025 were about 6.6 trillion yen. The white paper itself notes that this category also includes trade in services outside the digital field. Comparing it with nominal GDP only gives a rough figure, but by my estimate it's on the order of 1%, not "a large share.")</p>
+<h3>3.6 FDEs, and the "isn't this just office work?" comment</h3>
+<p>On FDEs, what I could confirm as fact is what I wrote earlier. It's a role that <a href="https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87">deploys the platform on site at the customer</a> and solves their problems. Building ontologies may now be one of the core parts of that job. Tying the origin of the role directly to ontology is only my own interpretation.</p>
+<p>@4500-b3b left this comment:</p>
+<blockquote>
+<p>This is clerical work. Show me ontology in the engineering domain. Nobody's doing that.</p>
+</blockquote>
+<p>I think it's fair to feel that the show's examples, like expense reports and making a TV show, looked like office work. But "nobody is doing this in engineering" isn't accurate. Engineering has a long track record here. Examples include <a href="https://www.iso.org/standard/29557.html">ISO 15926</a> for plant lifecycle data, the top-level ontology <a href="https://www.iso.org/standard/74572.html">ISO/IEC 21838-2</a> (BFO), the <a href="https://www.industrialontologies.org/">Industrial Ontologies Foundry</a> for manufacturing, and the <a href="https://webstore.iec.ch/en/publication/65628">Asset Administration Shell</a> (IEC 63278-1) for digital twins of equipment. <a href="https://www.palantir.com/docs/jp/foundry/architecture-center/ontology-system">Palantir's official examples</a> also lean toward engineering: aircraft and flights, <a href="https://www.palantir.com/docs/foundry/object-link-types/link-types-overview">manufacturing plants</a>, work orders and so on.</p>
+<p>Next time I write about this, I want to include at least one manufacturing example.</p>
+<hr />
+<h2>4. The most common questions in the comments</h2>
+<p>About two days after release (around 11:00 on November 16, 2026, Japan time), there were 29 <a href="https://www.youtube.com/watch?v=_V7IF1XdNLQ">YouTube comments</a> (Japanese), including one official pinned comment and one reply, and 2 <a href="https://pivotmedia.co.jp/movie/15261">comments on the show's website</a> (Japanese). Here I'll just list the most common questions and where this article addresses them. I won't go any further into my reading of individual comments.</p>
+<ul>
+<li><strong>Who builds the map, and how? Can it be automated?</strong> Sections 3.5 and 3.6.</li>
+<li><strong>If we have LLMs, don't we no longer need ontology?</strong> Section 3.3. I accept the point that the Python example alone is weak.</li>
+<li><strong>The layers of terminology are mixed up, and so are the meanings of "graph."</strong> Section 2, Sections 3.1 and 3.2.</li>
+<li><strong>Even with a human in the loop, what about responsibility and the review burden? Will people who can do the final check still be developed?</strong> Section 3.4.</li>
+<li><strong>How well does this fit the culture of Japanese workplaces and organizations?</strong> We couldn't go into this in depth on the show. I don't mean to dismiss decisions made through casual conversation or the mood on the ground. But I think the real issue isn't to stop at "AI can't be used here." It's whether we can move toward a form where the reasons behind a decision can be traced later. This is a question I'd rather not rush to answer.</li>
+<li><strong>Will we get locked into a platform? Can we own this ourselves?</strong> Sections 2.4 and 3.5.</li>
+</ul>
+<p>Commenters also asked for some topics to be covered in a future episode or follow-up: the actual building process, integration across departments, what FDEs actually do, and concrete case studies. I haven't been able to cover them fully in this article. I'm taking them as homework.</p>
+<hr />
+<h2>5. Summary</h2>
+<p>Here are three things I hope you'll take away.</p>
+<ol>
+<li><strong>An ontology is a blueprint of meaning, and it sits on a different layer from a graph of real data.</strong> Palantir's Foundry Ontology keeps those layers separate, but it still uses the name "Ontology" for all of them together: the blueprint, the contents, and the components that make things happen. Each product draws its own line on what that name covers. "Dots and lines" works as an introduction, but the graph of a function and a graph as a network are two different things.</li>
+<li><strong>The brakes are submission criteria and permissions, not memory or written warnings.</strong> You can write down meaning in Excel too. The hard part is guaranteeing who may do what, and under which conditions. You can't get AI errors down to zero. In a company, what comes first is deciding how far a mistake can reach and how it gets recorded.</li>
+<li><strong>Don't start with a world map of the whole company.</strong> A small map of one heavy-workload task is enough to start with. For an individual or a small organization, a shared file may be enough. In a large organization, choosing a platform becomes a real decision, but I won't rank the options here.</li>
+</ol>
+<p>Thank you to everyone who left comments. Your feedback helped me separate the layers I had blurred together on the show. If I write a follow-up, I'll add it here.</p>
+<hr />
+<h2>Sources</h2>
+<p>All sources were checked on November 16, 2026 (Japan time).</p>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=_V7IF1XdNLQ">PIVOT (a Japanese business video show), "What Is an Ontology?" full episode (YouTube, published November 14, 2026; Japanese, title translated)</a></p>
+</li>
+<li>
+<p><a href="https://pivotmedia.co.jp/movie/15261">PIVOT (a Japanese business video show), "What Is an Ontology?" (Japanese, title translated)</a></p>
+</li>
+<li>
+<p><a href="https://note.com/haginota/n/nba922eb92cd9">Takahiro Hagino, "200,000 YouTube views and No. 1 on PIVOT's weekly ranking. The kind words, the worries that remain, and my answers to the PIVOT comments" (note; Japanese, title translated)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/jp/foundry/platform-overview/overview">Palantir, "Platform overview" (Japanese version)</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2005.14165">Tom Brown et al., "Language Models are Few-Shot Learners," 2020</a></p>
+</li>
+<li>
+<p><a href="https://openai.com/index/chatgpt/">OpenAI, "Introducing ChatGPT" (November 30, 2022)</a></p>
+</li>
+<li>
+<p><a href="https://openai.com/index/gpt-4-research/">OpenAI, "GPT-4" (March 14, 2023)</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=PeZHAztFgqc">PIVOT (a Japanese business video show), "How Much Can OpenClaw Automate?" (published May 19, 2026; Japanese, title translated)</a> / <a href="https://pivotmedia.co.jp/movie/14402">also</a></p>
+</li>
+<li>
+<p><a href="https://www.yano.co.jp/press-release/show/press_id/3991">Yano Research Institute, "Corporate Survey on the Use of Generative AI" (press release, December 19, 2025; Japanese, title translated)</a></p>
+</li>
+<li>
+<p><a href="https://www.w3.org/TR/rdf11-concepts/">W3C, "RDF 1.1 Concepts and Abstract Syntax"</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/jp/foundry/ontology/core-concepts">Palantir, "Ontology core concepts" (Japanese version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/jp/foundry/ontology/overview">Palantir, "Building the ontology" (Japanese version, title translated)</a></p>
+</li>
+<li>
+<p><a href="https://www.w3.org/TR/owl2-mapping-to-rdf/">W3C, "OWL 2 Web Ontology Language Mapping to RDF Graphs"</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/jp/foundry/action-types/overview">Palantir, "Action types" (Japanese version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/jp/foundry/action-types/submission-criteria">Palantir, "Submission criteria" (Japanese version)</a></p>
+</li>
+<li>
+<p><a href="https://support.microsoft.com/en-us/office/apply-data-validation-to-cells-29fecbcc-d1b9-42c1-9d76-eff3ce5f7249">Microsoft, "Apply data validation to cells"</a></p>
+</li>
+<li>
+<p><a href="https://blog.palantir.com/ontology-finding-meaning-in-data-palantir-rfx-blog-series-1-399bd1a5971b">Palantir Blog, "Ontology: Finding meaning in data (Palantir RFx Blog Series #1)"</a></p>
+</li>
+<li>
+<p><a href="https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87">Palantir Blog, "Dev versus Delta: Demystifying engineering roles at Palantir" (April 8, 2019)</a></p>
+</li>
+<li>
+<p><a href="https://blog.fabric.microsoft.com/en-us/blog/from-data-platform-to-intelligence-platform-introducing-microsoft-fabric-iq">Microsoft Fabric Blog, "From data platform to intelligence platform: Introducing Microsoft Fabric IQ" (November 18, 2025)</a></p>
+</li>
+<li>
+<p><a href="https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/">Microsoft Azure Blog, "Microsoft Build 2026: Building agentic apps with Microsoft Fabric and Microsoft databases"</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview">Microsoft Learn, "What is ontology (preview)? (Fabric IQ)" (marked as preview as of November 16, 2026)</a></p>
+</li>
+<li>
+<p><a href="https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents">Databricks, "Introducing Genie, Genie Ontology, and Genie Agents" (June 16, 2026)</a></p>
+</li>
+<li>
+<p><a href="https://www.databricks.com/blog/announcing-ga-genie-ontology">Databricks, "Announcing the GA of Genie Ontology" (November 11, 2026)</a></p>
+</li>
+<li>
+<p><a href="https://tomgruber.org/writing/ontolingua-kaj-1993.pdf">Thomas R. Gruber, "A Translation Approach to Portable Ontology Specifications," 1993</a></p>
+</li>
+<li>
+<p><a href="https://doi.org/10.1016/S0169-023X(97)00056-6">Rudi Studer, V. Richard Benjamins, Dieter Fensel, "Knowledge engineering: Principles and methods," Data &amp; Knowledge Engineering 25(1–2): 161–197, 1998, DOI: 10.1016/S0169-023X(97)00056-6</a></p>
+</li>
+<li>
+<p><a href="https://link.springer.com/chapter/10.1007/978-3-540-92673-3_0">Nicola Guarino, Daniel Oberle, Steffen Staab, "What Is an Ontology?," 2009, DOI: 10.1007/978-3-540-92673-3_0</a></p>
+</li>
+<li>
+<p><a href="https://www.w3.org/TR/shacl/">W3C, "Shapes Constraint Language (SHACL)"</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2003.02320">Aidan Hogan et al., "Knowledge Graphs," ACM Computing Surveys, 2021</a></p>
+</li>
+<li>
+<p><a href="https://www.w3.org/TR/sparql11-update/">W3C, "SPARQL 1.1 Update" (W3C Recommendation, March 21, 2013)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/ontology/core-concepts">Palantir, "Core concepts" (Ontology, English version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/ontology/overview">Palantir, "Ontology building: Overview" (English version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/architecture-center/ontology-system">Palantir, "Ontology system" (Architecture center, English version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/action-types/overview">Palantir, "Action types: Overview" (English version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/action-types/submission-criteria">Palantir, "Submission criteria" (English version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/object-permissioning/managing-object-security">Palantir, "Manage object security" (English version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/functions/overview">Palantir, "Functions: Overview" (English version)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/assets/xrfr7uokpv1b/2T3BgBpe3drnqBaSTCXl6O/bdc9445d10053eb84b3f9487e63fc2d7/Whitepaper_-_Accelerating_Research_and_Development_in_the_Semiconductor_Industry.pdf">Palantir, "Accelerating Research and Development in the Semiconductor Industry" (white paper, July 2023)</a></p>
+</li>
+<li>
+<p><a href="https://www.army.mil/article/287506/u_s_army_awards_enterprise_service_agreement_to_enhance_military_readiness_and_drive_operational_efficiency">U.S. Army, "U.S. Army Awards Enterprise Service Agreement to Enhance Military Readiness and Drive Operational Efficiency" (July 31, 2025)</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/jp/foundry/architecture-center/ontology-system">Palantir, "Ontology system" (Architecture center, Japanese version)</a></p>
+</li>
+<li>
+<p><a href="https://diestel-graph-theory.com/">Reinhard Diestel, <em>Graph Theory</em> (definition G=(V,E))</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2311.07509">Juan Sequeda, Dean Allemang, Bryon Jacob, "A Benchmark to Understand the Role of Knowledge Graphs on Large Language Model's Accuracy for Question Answering on Enterprise SQL Databases," 2023</a></p>
+</li>
+<li>
+<p><a href="https://doi.org/10.1016/0005-1098(83)90046-8">Lisanne Bainbridge, "Ironies of Automation," Automatica, 1983</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2307.16648">Hamed Babaei Giglou, Jennifer D'Souza, Sören Auer, "LLMs4OL: Large Language Models for Ontology Learning," 2023</a></p>
+</li>
+<li>
+<p><a href="https://www.palantir.com/docs/foundry/object-link-types/link-types-overview">Palantir, "Link types overview"</a></p>
+</li>
+<li>
+<p><a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd211400.html">Ministry of Internal Affairs and Communications (Japan), <em>White Paper on Information and Communications</em>, 2026 edition (digital balance of payments) (Japanese)</a></p>
+</li>
+<li>
+<p><a href="https://www.iso.org/standard/74572.html">ISO/IEC 21838-2:2021 (Basic Formal Ontology)</a></p>
+</li>
+<li>
+<p><a href="https://www.industrialontologies.org/">Industrial Ontologies Foundry</a></p>
+</li>
+<li>
+<p><a href="https://webstore.iec.ch/en/publication/65628">IEC 63278-1 (Asset Administration Shell)</a></p>
+</li>
+<li>
+<p><a href="https://www.iso.org/standard/29557.html">ISO 15926-2:2003 (lifecycle data model for process plants)</a></p>
+</li>
+</ul>
+</body>
+</html>
