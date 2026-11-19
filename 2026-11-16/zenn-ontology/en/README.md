@@ -5,6 +5,26 @@
 Prepared: **2026-11-19 (JST)**
 Author: **Takahiro Hagino (萩野貴拓), CAIO / Chief AI Officer at Canly (カンリー)**
 
+## Title options (revision 2)
+
+| # | Title | Note |
+|---|---|---|
+| 1 | **Reading Palantir's Foundry Ontology as DDD Domain Modeling** | **Working title** (used as H1). Keeps "can be read as," not "is." |
+| 2 | Foundry Ontology Through a DDD Lens | Shorter |
+| 3 | I Explained Ontology on Japanese TV. Here's the Engineering Behind It | Leads with the TV appearance |
+
+Suggested Substack subtitle: *What I explained on a Japanese TV show, unpacked for engineers: objects, actions, submission criteria, and letting AI propose while humans approve.*
+
+## Revision 2 (2026-11-19 JST)
+
+Following HAGINO's steering:
+
+- **PIVOT → "a Japanese TV show" / "the show"** throughout the body (readers outside Japan don't know PIVOT). "PIVOT" remains only in the top note's quoted Japanese title and in the reference list, where it identifies the link ("PIVOT (a Japanese business video show)"). Disclaimers now say "the show's production company".
+- **Native-English edit pass:** `claude -p` (Opus) as an experienced English tech editor, in 5 chunks (short sentences, natural headings, no Japanese-isms), then Grok Bot's review against the Japanese and the first-pass English. Checks: all 31 code blocks byte-identical; URL set identical; numbers identical (formatting only); key hedges and terms verified (e.g. "readable as," 15:02, "unpublished" ×5, "AI proposes, humans approve," "harness," "defense-grade," p=0.0027, 137, 2,117, 25.7/49.3, "that was my own analogy," "This is not an implementation of…").
+- **Figures unchanged**, and the fig4/6/7 mismatches below are deliberately left as they are (HAGINO hasn't decided).
+- `substack/` (prepared separately) was built from revision 1 of `article_en.md` and needs regenerating from this revision.
+- Word count after revision: **12,130** whitespace tokens for the whole file; **~11,000** excluding code blocks and link targets.
+
 ## Source of truth
 
 - Original Japanese article: [【PIVOTでオントロジーを解説しました】PalantirのFoundry OntologyはDDDのドメインモデリングとして読めるという話](https://zenn.dev/canly/articles/121db874319244)
@@ -39,10 +59,10 @@ Author: **Takahiro Hagino (萩野貴拓), CAIO / Chief AI Officer at Canly (カ�
 4. **Code is quoted, not localized.** Zenn-style fence titles (e.g. `js:path（7〜12行目）`) became italic lines above plain fences, for Substack. Japanese UI labels, error messages, and data values inside code stay as written; a note at the top says so. Japanese code comments and the Mermaid labels are translated. Substack does not render Mermaid or Markdown tables natively, so these need manual handling (image or reformat) when pasting.
 5. **マスター → "master"** (authoritative source of a value), kept consistently instead of "system of record".
 6. **番組 → "show" / "episode"** depending on context; 出演者 → "guest" / "cast member"; 予約 → "booking".
-7. **Translated titles in the reference list** are marked "(Japanese; title translated)". The English H1 title is a translation of the Zenn title and should be confirmed by Hagino before posting.
-8. **Experiment caveats are retained**: unpublished, not peer-reviewed; 2,117 runs; a single fictional business; 25.7–49.3 points is the effect of providing knowledge, not ontology form; +2.3 points and p=0.0027 in the main analysis; ≈2.0 points and not significant after correction in the conservative analysis; all 137 invalid plans blocked only on the newly prepared tasks; gates are not substitutes for knowledge. None is generalized to PIVOT operations.
+7. **Translated titles in the reference list** are marked "(Japanese; title translated)". The English H1 is now a short working title (see Title options), not a literal translation of the Zenn title. HAGINO should confirm it before posting.
+8. **Experiment caveats are retained**: unpublished, not peer-reviewed; 2,117 runs; a single fictional business; 25.7–49.3 points is the effect of providing knowledge, not ontology form; +2.3 points and p=0.0027 in the main analysis; ≈2.0 points and not significant after correction in the conservative analysis; all 137 invalid plans blocked only on the newly prepared tasks; gates are not substitutes for knowledge. None is generalized to the show's real operations.
 9. **Original figure inconsistencies left unchanged** (see `figures_text_en.md`): figure 4 has six steps while its caption lists five; figure 6 simplifies the timing of `check_plan` relative to approval; figure 7 has −0.5 for Experiment II only in the image, not in the article body. These are not translation changes. Do not change them without editorial approval.
-10. **This is a long technical piece** (~10.9k body-prose words plus code and references). It has not been shortened, split, or editorially rewritten, because that would risk losing caveats. Substack formatting and email length may merit a later editorial pass.
+10. **This is a long technical piece** (~10.9k body-prose words plus code and references). Revision 2 is a line-level fluency edit only. Nothing was cut, split, or summarized, because that would risk losing caveats. Email length may still call for a later decision.
 
 ## Figure inventory
 
@@ -54,11 +74,11 @@ Author: **Takahiro Hagino (萩野貴拓), CAIO / Chief AI Officer at Canly (カ�
 6. **fig6** — AI proposes, humans approve
 7. **fig7** — knowledge provision vs. ontology-form effects
 
-The English figure artwork has **not** yet been created; `figures_text_en.md` is the illustrator handoff. The images embedded in `article_en.md` are still the existing Japanese PNGs at immutable raw.githubusercontent.com commit URLs.
+English figure artwork now exists in `figures/` and the Substack build in `substack/` (separate commits). `article_en.md` itself still embeds the original Japanese PNGs at immutable commit URLs; it was left unchanged in revision 2 per the "don't change figures" instruction.
 
 ## Before publishing
 
-- Final author/editor review of English wording.
-- Produce English figures from `figures_text_en.md`, verify every number/caveat, and update image links.
+- HAGINO picks the title.
+- Regenerate `substack/` from this revision of `article_en.md`.
 - Paste/import into Substack and check code fences, tables, inline citations, and the Mermaid block. Some Markdown elements may need manual layout adjustment in Substack's editor.
 - Publish only when separately authorized in the actual Substack workflow. No publish action was requested of this executor task.
