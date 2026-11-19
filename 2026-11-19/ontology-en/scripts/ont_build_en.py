@@ -33,7 +33,7 @@ def F3():   # v3: blueprint layer vs instance graph layer stay separate; Foundry
     for x in (n1,n2): f.slab(x,700,A)
     f.conn([(n1+A+G,700),(n2-A-G,700)]); f.text('appears on',1580,645,44)
     f.text('Takahiro Hagino',n1,900,44); f.text('OpenClaw Demo Explained',n2,900,44,wrap='OpenClaw Demo⏎Explained')
-    f.pill('Not the same “graph” as in Functions',1580,1010,42)
+    f.pill('Not a graph in the math-function sense',1580,1010,42)
     K=f.slab(2310,700,230,accent='blue'); f.face(K,[('Moving parts','h',None)],fs=56)
     f.conn([(n2+A+G,700),(2310-230-G,700)])
     f.rule([(2310,int(BOT(700,230))+G),(2310,940)]); f.text('Actions, Functions, and dynamic security',2310,1010,44,wrap='Actions, Functions,⏎and dynamic security')
