@@ -1,0 +1,6 @@
+/* Grok Bot tone for pstack figures: light grey stage, white rounded cards, thin lines, flat fills. */
+#stage { background-image: none !important; background-color: #F4F5F7 !important; color: #111111; }
+html, body { background: #F4F5F7 !important; }
+.margin-line { display: none !important; }
+.gb-bots { position: absolute; display: flex; align-items: flex-end; gap: 10px; pointer-events: none; }
+.gb-bot { display: block; }

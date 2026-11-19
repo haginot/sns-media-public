@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>古いリンクは、27件から0件へ</title>
+<style>
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP"), local("Noto Sans CJK JP Regular"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc") format("truetype");
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP Bold"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc") format("truetype");
+    font-weight: 700; font-style: normal;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F4F5F7; }
+  body.s1280 { width: 1280px; height: 670px; }
+  html.s1280 { width: 1280px; height: 670px; }
+  #stage {
+    position: relative; width: 1920px; height: 1080px;
+    background-color: #F4F5F7;
+    background-image:
+      repeating-linear-gradient(to right, #E3E5EA 0, #E3E5EA 1px, #F4F5F7 1px, #F4F5F7 24px),
+      repeating-linear-gradient(to bottom, #E3E5EA 0, #E3E5EA 1px, #F4F5F7 1px, #F4F5F7 24px);
+    font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+    color: #111111;
+  }
+  body.s1280 #stage { width: 1280px; height: 670px; }
+  .margin-line { position: absolute; left: 48px; top: 0; bottom: 0; width: 3px; background: #F4F5F7; }
+  body.s1280 .margin-line { left: 40px; }
+
+  .fig-no {
+    position: absolute; left: 68px; top: 44px;
+    font-size: 22px; font-weight: 700; color: #5F6368; line-height: 1.2;
+  }
+  h1 {
+    position: absolute; left: 68px; top: 78px; width: 1804px;
+    font-size: 92px; font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.03em; font-feature-settings: "palt";
+  }
+  h1 .lead { color: #111111; }
+  h1 .before { color: #FF6801; }
+  h1 .after { color: #1386FF; }
+  h1 .arrow {
+    display: inline-block; color: #111111;
+    margin: 0 0.12em 0 0.08em; letter-spacing: 0;
+  }
+  .sub {
+    position: absolute; left: 72px; top: 196px; width: 1800px;
+    font-size: 28px; font-weight: 400; color: #45484D; line-height: 1.3;
+  }
+
+  .panels {
+    position: absolute; left: 68px; top: 250px; width: 1804px; height: 548px;
+    display: flex; align-items: stretch;
+  }
+  .panel {
+    flex: 1;
+    background: #FFFFFF;
+    border: 3px solid #111111;
+    padding: 20px 24px 16px;
+    display: flex; flex-direction: column;
+  }
+  .panel .hd {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 12px; line-height: 1.2;
+  }
+  .panel .when {
+    font-size: 40px; font-weight: 700;
+    letter-spacing: -0.02em; font-feature-settings: "palt";
+  }
+  .panel .kind {
+    font-size: 24px; font-weight: 700; color: #5F6368;
+  }
+  .panel.before .when { color: #FF6801; }
+  .panel.after .when { color: #1386FF; }
+
+  .pin-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+    padding: 4px 6px 0;
+  }
+  .pin { width: 60px; height: 84px; display: block; }
+
+  .flow-arr {
+    width: 88px; flex: none;
+    background: #111111;
+    clip-path: polygon(0 38%, 52% 38%, 52% 16%, 100% 50%, 52% 84%, 52% 62%, 0 62%);
+    margin: 0 12px; align-self: center; height: 96px;
+  }
+
+  .facts {
+    position: absolute; left: 68px; top: 816px; width: 1804px; height: 140px;
+    display: flex; gap: 16px;
+  }
+  .fact {
+    flex: 1;
+    background: #F1F3F6;
+    border: 3px solid #111111;
+    padding: 18px 32px 14px;
+    display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+    gap: 16px;
+  }
+  .fact .l { font-size: 28px; font-weight: 700; color: #5F6368; line-height: 1.2; }
+  .fact .v {
+    font-size: 64px; font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.03em; font-feature-settings: "palt";
+    color: #111111;
+  }
+  .fact .v em { font-style: normal; font-size: 30px; font-weight: 700; margin-left: 6px; color: #45484D; }
+
+  .footer {
+    position: absolute; left: 68px; right: 48px; top: 976px; height: 64px;
+    border-top: 2px solid #111111; padding-top: 10px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 28px;
+  }
+  .footer p { font-size: 18px; font-weight: 400; color: #45484D; line-height: 1.4; }
+  .footer .src { font-weight: 700; color: #111111; white-space: nowrap; text-align: right; }
+
+  /* 1280x670: keep 40px text clearance */
+  body.s1280 .fig-no { left: 52px; top: 44px; font-size: 16px; }
+  body.s1280 h1 { left: 52px; top: 62px; width: 1176px; font-size: 56px; }
+  body.s1280 .sub { left: 54px; top: 128px; width: 1174px; font-size: 18px; }
+  body.s1280 .panels { left: 52px; top: 160px; width: 1176px; height: 308px; }
+  body.s1280 .panel { padding: 10px 14px 8px; border-width: 2px; }
+  body.s1280 .panel .hd { margin-bottom: 6px; }
+  body.s1280 .panel .when { font-size: 26px; }
+  body.s1280 .panel .kind { font-size: 16px; }
+  body.s1280 .pin { width: 36px; height: 50px; }
+  body.s1280 .flow-arr { width: 52px; height: 58px; margin: 0 8px; }
+  body.s1280 .facts { left: 52px; top: 480px; width: 1176px; height: 86px; gap: 10px; }
+  body.s1280 .fact { padding: 10px 18px 8px; border-width: 2px; }
+  body.s1280 .fact .l { font-size: 18px; }
+  body.s1280 .fact .v { font-size: 36px; }
+  body.s1280 .fact .v em { font-size: 18px; }
+  body.s1280 .footer { left: 52px; right: 48px; top: 578px; height: 52px; padding-top: 6px; }
+  body.s1280 .footer p { font-size: 14px; }
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div id="stage">
+  <div class="margin-line"></div>
+  <div class="fig-no">図　古いリンクの確認</div>
+  <h1><span class="lead">古いリンクは、</span><span class="before">27件</span><span class="arrow">→</span><span class="after">0件</span></h1>
+  <div class="sub">image_pins.py で一度、直した。</div>
+
+  <div class="panels">
+    <div class="panel before">
+      <div class="hd">
+        <div class="when">直す前</div>
+        <div class="kind">古いリンク 27</div>
+      </div>
+      <div class="pin-grid" id="pins"></div>
+    </div>
+    <div class="flow-arr"></div>
+    <div class="panel after">
+      <div class="hd">
+        <div class="when">直したあと</div>
+        <div class="kind">古いリンク 0</div>
+      </div>
+      <div class="pin-grid empty" id="empty-pins"></div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact">
+      <div class="l">直したファイル</div>
+      <div class="v">2<em>つ</em></div>
+    </div>
+    <div class="fact">
+      <div class="l">直した行</div>
+      <div class="v">27<em>行</em></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>確認は、コミット 29962d4 をきれいな状態で取り出して流した結果。直したあとの古いリンクは 0件。</p>
+    <p class="src">image_pins.py　pstack実践ガイド</p>
+  </div>
+</div>
+<script>
+  const pin = `<svg class="pin" viewBox="0 0 60 84" aria-hidden="true">
+    <path fill="#FF6801" d="M30 2c13.3 0 24 10.7 24 24 0 8.5-4.5 16-11.3 20.3L30 82 17.3 46.3C10.5 42 6 34.5 6 26 6 12.7 16.7 2 30 2z"/>
+    <circle cx="30" cy="26" r="9" fill="#FFFFFF"/>
+    <circle cx="30" cy="26" r="4.5" fill="#111111"/>
+  </svg>`;
+  const empty = `<svg class="pin" viewBox="0 0 60 84" aria-hidden="true">
+    <path fill="#F1F3F6" stroke="#A0A4AB" stroke-width="3"
+      d="M30 3.5c12.4 0 22.5 10.1 22.5 22.5 0 7.8-4.1 14.8-10.5 18.8L30 79 17.9 44.8C11.6 40.8 7.5 33.8 7.5 26 7.5 13.6 17.6 3.5 30 3.5z"/>
+  </svg>`;
+  document.getElementById('pins').innerHTML = Array.from({length: 27}, () => pin).join('');
+  document.getElementById('empty-pins').innerHTML = Array.from({length: 27}, () => empty).join('');
+</script>
+<script src="../../../banner/grokbot/src/chars.js"></script>
+<script src="theme.js"></script>
+<script src="patch_fig_before_after.js"></script>
+</body>
+</html>
