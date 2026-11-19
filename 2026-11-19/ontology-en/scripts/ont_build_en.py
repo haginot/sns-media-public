@@ -11,7 +11,7 @@ def fig(fn): FIG[fn.__name__]=fn; return fn
 @fig
 def F1():   # key visual: one base plate (ontology) carries semantics (dots & lines) and kinetics (approval & write-back)
     f=Fig('F1')
-    f.pill('Third appearance on PIVOT',200,470,44,left=True)
+    f.pill('My third time on a Japanese TV show',200,470,44,left=True)
     f.text('A blueprint of meaning',200,650,120,anchor='lm',kind='h',wrap='A blueprint⏎of meaning',pitch=1.25)
     f.text("It's more than just data",206,880,60,anchor='lm',kind='t')
     b=f.slab(1900,1060,540,accent='violet'); f.face(b,[('Ontology','h',None)],fs=76)
