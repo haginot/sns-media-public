@@ -1,0 +1,39 @@
+.kick{position:absolute;left:72px;top:64px;font-weight:700;font-size:30px;letter-spacing:-.5px;color:var(--ink);display:flex;align-items:center;gap:14px;white-space:nowrap}
+.kick:before{content:"";width:10px;height:34px;background:var(--grad);display:block}
+.main{position:absolute;left:68px;font-weight:900;color:var(--ink);line-height:1.08;white-space:nowrap}
+.foot{position:absolute;left:72px;bottom:44px;font-weight:700;font-size:24px;color:var(--sub);letter-spacing:.2px}
+.foot b{color:var(--ink);font-weight:700}
+.big{position:absolute;font-weight:900;color:var(--ink);white-space:nowrap}
+.card{position:absolute;white-space:nowrap;line-height:1.15}
+.card .ty{font-family:"KitMono";font-weight:500;font-size:30px;letter-spacing:.2px}
+.card .jp{font-weight:900;font-size:40px;letter-spacing:-1px;color:var(--ink)}
+.codechip{position:absolute;white-space:nowrap;font-family:"KitMono";font-weight:500;font-size:31px;line-height:1.25;color:var(--ink);background:#0E1226;border:2px solid #6A6F8A;border-radius:6px;padding:4px 14px}
+.thumb{position:absolute;outline:1px solid #4A4F6A}
+.card .jp,.card .ty.s{text-shadow:2px 0 0 #0E1226,-2px 0 0 #0E1226,0 2px 0 #0E1226,0 -2px 0 #0E1226,2px 2px 0 #0E1226,-2px -2px 0 #0E1226,2px -2px 0 #0E1226,-2px 2px 0 #0E1226}
+
+.typepill{position:absolute;white-space:nowrap;font-family:"KitMono";font-weight:500;font-size:28px;line-height:1.2;color:var(--ink);background:#0E1226;border-radius:22px;padding:5px 18px}
+.ecard{position:absolute;white-space:nowrap;line-height:1.08}
+.ecard .en{font-weight:800;font-size:37px;letter-spacing:-.6px;color:#fff}
+.ecard .ja{font-weight:700;font-size:22px;letter-spacing:.5px;color:#A9ABB8;margin-top:5px}
+.ecard .en,.ecard .ja{text-shadow:2px 0 0 #0E1226,-2px 0 0 #0E1226,0 2px 0 #0E1226,0 -2px 0 #0E1226,2px 2px 0 #0E1226,-2px -2px 0 #0E1226,2px -2px 0 #0E1226,-2px 2px 0 #0E1226}
+
+
+
+
+
+
+
+
+/* dimmed illustration so the title dominates */
+body.dim .ecard .en{color:#B8BCC8}
+body.dim .ecard .ja{color:#7E8192}
+body.dim .codechip{color:#A3A7B6;border-color:#383C52}
+body.dim .typepill{color:#A3A7B6}
+
+/* final: illustration TEXT only, solid opaque low-contrast colors (no opacity/alpha) */
+body.txtdim .ecard .en{color:#6B6F86;font-size:31px}
+body.txtdim .ecard .ja{color:#4E5266;font-size:19px}
+body.txtdim .codechip{color:#6A6590;font-size:28px}
+body.txtdim .typepill{color:#6A6590;font-size:26px}
+body.txtdim .codechip.onechip{font-size:31px;padding:5px 16px;border-color:#6A6590}
+.legendtxt{position:absolute;white-space:nowrap;font-family:"KitMono";font-weight:500;font-size:26px;line-height:1.2;color:#6A6590}

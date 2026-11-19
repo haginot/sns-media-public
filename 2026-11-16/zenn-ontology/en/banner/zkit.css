@@ -1,0 +1,31 @@
+/* Canly Tech Blog figures — tokens from figure_brief.md. 1600×900 CSS px, rendered at 1.25x → 2000×1125.
+   Brief sizes are given at 2000px; CSS px = brief px / 1.25 (title 64→~52, label 34→27, sub 26→21, note 20→16). */
+@font-face{font-family:"KitLat";src:url(fonts/InterTight.ttf) format("truetype");font-weight:100 900;font-style:normal;}
+@font-face{font-family:"FUnbounded";src:url(fonts/Unbounded.ttf) format("truetype");font-weight:200 900;font-style:normal;}
+@font-face{font-family:"KitMono";src:url(fonts/IBMPlexMono-Regular.ttf);font-weight:400;}
+@font-face{font-family:"KitMono";src:url(fonts/IBMPlexMono-Medium.ttf);font-weight:500;}
+:root{ --g1:#CD1DFB; --g2:#8745E3; --g3:#237FC0; --grad:linear-gradient(90deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%); --orange:#E8913A; --blue:#3D8BD9; }
+body.dark{ --bg:#0E1226; --panel:#1D2030; --line:#303240; --ink:#FFFFFF; --body:#EFEFEF; --sub:#A9ABB8; --note:#7E8192;
+  --lattice:rgba(48,50,64,.38); --plate:rgba(29,32,48,.55); --plateLine:#3A3F58; --top:#262A3D; --sideA:#1D2030; --sideB:#171A28; --edge:#4A4F6A; --link:#A9ABB8; --deny:#E8913A; }
+body.light{ --bg:#FFFFFF; --panel:#F4F5F8; --line:#D9DBE3; --ink:#0E1226; --body:#303240; --sub:#606370; --note:#606370;
+  --lattice:rgba(217,219,227,.75); --plate:rgba(244,245,248,.7); --plateLine:#C9CCD6; --top:#FFFFFF; --sideA:#ECEDF2; --sideB:#E1E3EA; --edge:#9A9EAD; --link:#606370; --deny:#D9781F; }
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--bg);color:var(--body);
+  font-family:"KitLat",sans-serif;font-feature-settings:"kern" 1,"liga" 1;-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1600px;height:900px}
+svg#fig{position:absolute;inset:0}
+.title{position:absolute;left:64px;top:44px;font-weight:900;font-size:54px;line-height:1.2;letter-spacing:-1.5px;color:var(--ink);white-space:nowrap}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lab{position:absolute;font-weight:700;font-size:27px;line-height:1.3;color:var(--ink)}
+.sub{position:absolute;font-weight:500;font-size:21px;line-height:1.45;color:var(--body)}
+.subc{font-weight:500;font-size:21px;line-height:1.45;color:var(--sub)}
+.mono{font-family:"KitMono",monospace;font-weight:500;letter-spacing:.01em}
+.nt{position:absolute;font-weight:500;font-size:16px;line-height:1.4;color:var(--note)}
+.fict{position:absolute;right:56px;bottom:30px;font-weight:500;font-size:17px;color:var(--sub)}
+.panel{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.chip{display:inline-block;font-family:"KitMono";font-weight:500;font-size:17px;padding:2px 10px;border:1.5px solid var(--edge);border-radius:4px;color:var(--ink);background:var(--bg)}
+.t-jp{font-family:"KitLat";font-weight:700;fill:var(--ink)}
+.t-jpb{font-family:"KitLat";font-weight:900;fill:var(--ink)}
+.t-sub{font-family:"KitLat";font-weight:500;fill:var(--sub)}
+.t-mono{font-family:"KitMono";font-weight:500;fill:var(--sub)}
+.t-monoink{font-family:"KitMono";font-weight:500;fill:var(--ink)}

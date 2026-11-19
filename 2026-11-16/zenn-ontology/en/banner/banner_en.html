@@ -1,0 +1,123 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Foundry Ontology Through a DDD Lens — Canly Tech Blog</title>
+<link rel="stylesheet" href="zkit.css"><link rel="stylesheet" href="zban.css"></head>
+<body><div id="stage"><svg id="fig" width="1600" height="900" viewBox="0 0 1600 900"></svg>
+<svg id="hero" width="1600" height="900" viewBox="0 0 1600 900" style="position:absolute;inset:0;z-index:5"></svg></div>
+<script src="iso.js"></script><script src="zlib.js"></script><script src="zban_head.js"></script><script>
+// English cover banner for the Canly Tech Blog ontology article.
+// Layout, palette and diagram match Japanese final_v4 (commit be6acc8):
+//   v=a Unbounded DDD in a gradient box, "Domain-Driven Design" ruby under the box,
+//   one rotated skos:closeMatch label on the top arrow (ObjectType→Entity),
+//   other two arrows unlabeled, no legend, no thumbnail, no logos.
+// Approved title: "Foundry Ontology Through a DDD Lens"
+const Q=new URLSearchParams(location.search);
+const DIM=Q.get('dim')==='1';
+const TXT=Q.get('txt')!=='0';
+const num=(k,d)=>Q.has(k)?parseFloat(Q.get(k)):d;
+Iso.init({theme:'dark',unit:118,origin:[680+num('ox',20),548+num('oy',30)]}); if(TXT) document.body.classList.add('txtdim');
+const {P,box,plate,line}=Iso;
+Iso.lattice({step:0.5});
+const lanes=[['ObjectType','','Entity',''],
+             ['LinkType','','Association',''],
+             ['ActionType','','Command','']];
+const Y0=2.6, Y1=-2.2, S=0.95, xs=[0,1.5,3.0];
+plate(-1.2,Y0-1.4,5.6,Y0+3.5,0,{fill:'rgba(29,32,48,.65)'});
+plate(-1.2,Y1-3.5,5.6,Y1+1.4,0,{fill:'rgba(29,32,48,.65)'});
+lanes.forEach((l,i)=>{ box(xs[i],Y1-S/2,S,S,0.28,0); });
+lanes.forEach((l,i)=>{ const x=xs[i]+S/2; line([[x,Y0-S/2-0.05,0.02],[x,Y1+S/2+0.12,0.02]],DIM?{stroke:'#6F6A92',sw:3,arrow:true}:{stroke:'url(#pv)',sw:4,arrow:true}); });
+lanes.forEach((l,i)=>{ box(xs[i],Y0-S/2,S,S,0.8,0,DIM?{topStroke:'#7C70A6',topSw:2.5}:{topStroke:'url(#pv)',topSw:3}); });
+[[6.2,-2.0],[-1.9,4.6],[-2.6,2.2],[1.0,5.8],[2.6,5.4]].forEach(([x,y])=>box(x,y,S,S,0.18,0));
+[-1.5,4.5].forEach(x=>line([[x+S/2,7,0.02],[x+S/2,-7,0.02]],{stroke:DIM?'rgba(111,106,146,.35)':'rgba(135,69,227,.45)',sw:2,dash:'6 8'}));
+if(DIM){ document.body.classList.add('dim'); [...document.getElementById('fig').children].forEach((e,i)=>{ if(e.tagName!=='defs' && i>1) e.setAttribute('opacity','0.55'); }); }
+function ecard(x,y,en,ja,a){
+  const inner = ja ? `<div class="en">${en}</div><div class="ja">${ja}</div>` : `<div class="en">${en}</div>`;
+  const d=Z.div('ecard',inner);
+  const r=d.getBoundingClientRect();
+  d.style.textAlign=a; d.style.left=(a==='r'?x-r.width:x)+'px'; d.style.top=(y-r.height/2)+'px'; return d;
+}
+function pill(x,y,t,border,a){ const d=Z.div('typepill',t,{border}); const r=d.getBoundingClientRect(); d.style.left=(a==='r'?x-r.width:x)+'px'; d.style.top=(y-r.height/2)+'px'; return d; }
+let HA,HB,HC,HCe; const CM=Q.get('cm')||'top'; const ONECHIP=CM!=='chips';
+if(CM==='top'){ // one label on the top arrow (ObjectType→Entity), rotated to the arrow's angle
+  const FG=document.getElementById('fig'), x0=xs[0]+S/2;
+  const p0=P(x0,Y0-S/2-0.05,0.02), p1=P(x0,Y1+S/2+0.12,0.02); const ang=Math.atan2(p1[1]-p0[1],p1[0]-p0[0]);
+  const f=num('tlf',0.56), mx=p0[0]+(p1[0]-p0[0])*f, my=p0[1]+(p1[1]-p0[1])*f, off=num('tlo',14);
+  const nx=Math.sin(ang), ny=-Math.cos(ang);
+  const cx=mx+nx*off, cy=my+ny*off;
+  const t=document.createElementNS('http://www.w3.org/2000/svg','text'); t.id='arrowLbl'; t.textContent='skos:closeMatch';
+  t.setAttribute('x',cx); t.setAttribute('y',cy); t.setAttribute('text-anchor','middle');
+  t.setAttribute('style',`font-family:KitMono;font-weight:500;font-size:${num('tls',29)}px;fill:#6A6590`);
+  if(Q.get('tlh')!=='1') t.setAttribute('transform',`rotate(${ang*180/Math.PI} ${cx} ${cy})`);
+  FG.appendChild(t); }
+lanes.forEach(([oe,oj,de,dj],i)=>{
+  const x=xs[i]+S/2, a=P(x,Y0,0.8), b=P(x,Y1,0.28), m=P(x,0,0);
+  ecard(a[0]-96,a[1]+4,oe,oj,'r'); const ce=ecard(b[0]+70+num('ldx',10),b[1]-4+num('ldy',0),de,dj,'l'); if(i===2){HC=b;HCe=ce;}
+  if(!ONECHIP) chip(m[0],m[1],'skos:closeMatch'); if(i===0){HA=a;HB=b;}
+});
+pill(HA[0]-96,HA[1]-80,'OntologyConcept',DIM?'2px solid #5C5280':'2.5px solid #A86BF0','r');
+{ const PP=Q.get('pp')||'cmd', bd=DIM?'2px solid #444A62':'2.5px solid #6A6F8A'; let dp;
+  if(PP==='old') dp=pill(HB[0]+70+num('pbx',TXT?60:0),HB[1]-86,'DDDConcept',bd,'l');
+  else if(PP==='ent'){ const e=P(xs[0]+S,Y1-S/2,0.28); dp=pill(e[0]+num('pdx',24),e[1]+num('pdy',40),'DDDConcept',bd,'l'); }
+  else { const r=HCe.getBoundingClientRect(); dp=pill(r.left+num('pdx',0), r.bottom+num('pdy',64),'DDDConcept',bd,'l'); }
+  dp.id='dddpill'; }
+header(); footer('<b>Canly Tech Blog</b>');
+
+const NS='http://www.w3.org/2000/svg', H=document.getElementById('hero');
+const mk=(t,a,p=H)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const defs=mk('defs',{}); const g=mk('linearGradient',{id:'pvb',x1:0,y1:0,x2:1,y2:0},defs);
+[['0','#CD1DFB'],['0.5','#8745E3'],['1','#237FC0']].forEach(([o,c])=>mk('stop',{offset:o,'stop-color':c},g));
+
+(async()=>{
+await Promise.all([
+  document.fonts.load('900 100px KitLat','Foundry Ontology Through a Lens'),
+  document.fonts.load('700 40px KitLat','I talked about ontology on a Japanese business TV show Domain-Driven Design Canly Tech Blog'),
+  document.fonts.load('900 100px FUnbounded','DDD'),
+  document.fonts.load('500 29px KitMono','skos:closeMatch OntologyConcept DDDConcept ObjectType')
+]);
+// Default sizes are starting points; render.py may pass measured params.
+const s1=num('s1',104), ls1=num('ls1',-0.03), s2=num('s2',118), ls2=num('ls2',-0.03);
+const x1=num('x1',72), x2=num('x2',72), y1=num('y1',196), y2=num('y2',348);
+const dddFam='FUnbounded', dwt=900, kd=num('kd',0.977), lsd=num('lsd',-0.05);
+const gapL=num('gapL',0.24*s2), gapR=num('gapR',0.24*s2);
+
+const T1=mk('text',{x:x1,y:y1,style:`font-family:KitLat;font-weight:900;font-size:${s1}px;letter-spacing:${ls1}em`,fill:'#fff'});
+T1.textContent='Foundry Ontology';
+
+const T2=mk('text',{x:x2,y:y2,style:`font-weight:900;font-size:${s2}px`,fill:'#fff'});
+const t_pre=mk('tspan',{style:`font-family:KitLat;font-weight:900;letter-spacing:${ls2}em`},T2);
+t_pre.textContent='Through a';
+const t_d=mk('tspan',{style:`font-family:${dddFam};font-weight:${dwt};letter-spacing:${lsd}em;font-size:${s2*kd}px`,dx:gapL},T2);
+t_d.textContent='DDD';
+const t_r=mk('tspan',{style:`font-family:KitLat;font-weight:900;letter-spacing:${ls2}em`,dx:gapR},T2);
+t_r.textContent='Lens';
+
+// Gradient box behind the DDD glyph run only (same construction as Japanese v=a).
+t_d.setAttribute('fill','#0E1226');
+const ddd0=t_pre.textContent.length; // first char of DDD
+const ddd1=ddd0+2;                   // last char of DDD
+const st=T2.getStartPositionOfChar(ddd0).x, en=T2.getEndPositionOfChar(ddd1).x;
+const px=0.075*s2, cap=0.735*s2, py=0.11*s2;
+const boxr=mk('rect',{x:st-px,y:y2-cap-py,width:(en-st)+2*px,height:cap+2*py,fill:'url(#pvb)'});
+H.insertBefore(boxr,T2);
+
+// Ruby under the box, justified to the box width (same as Japanese "Domain-Driven Design")
+const bx=st-px, bw=(en-st)+2*px, by=y2+py;
+const rs=num('rs',26); const rgap=num('rgap',14);
+const rt=mk('text',{x:bx, y:by+rgap+rs*0.88, class:'ruby',
+  style:`font-family:KitLat;font-weight:700;font-size:${rs}px`, fill:'#E6E7EE'});
+rt.textContent='Domain-Driven Design';
+rt.removeAttribute('textLength'); const nat=rt.getComputedTextLength();
+const k=Math.min(1.2, (bw*0.96)/nat); const rs2=rs*k; rt.style.fontSize=rs2+'px';
+rt.setAttribute('y', by+rgap+rs2*0.88); rt.setAttribute('textLength',bw); rt.setAttribute('lengthAdjust','spacing');
+
+const SHOW=Q.get('show');
+if(SHOW){
+  H.querySelectorAll('.ruby').forEach(e=>e.style.display='none');
+  document.querySelectorAll('#stage > *').forEach(e=>{ if(e!==H) e.style.visibility='hidden'; });
+  document.body.style.background='#000'; document.documentElement.style.background='#000';
+  if(SHOW==='1'){ T2.style.display='none'; H.querySelectorAll('rect').forEach(r=>r.style.display='none'); }
+  else { T1.style.display='none'; }
+  H.querySelectorAll('text,tspan').forEach(e=>{ if(e.getAttribute('fill')!=='#0E1226') e.setAttribute('fill','#fff'); });
+  H.querySelectorAll('rect').forEach(r=>r.setAttribute('fill','#fff'));
+}
+await document.fonts.ready; Z.done();
+})();
+</script></body></html>
