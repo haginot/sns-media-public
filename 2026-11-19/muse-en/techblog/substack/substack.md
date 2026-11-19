@@ -16,7 +16,7 @@ After all that research, though, I wanted to talk about it properly. The more I 
 
 So here we are. Fair warning: this one's long.
 
-![Summary contrasting what was said on the TV show with this article: checking its analogies against primary sources on Secure VM, Poppy, and Sentinel. UCP is extra](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig01.png)
+![Summary contrasting what was said on the TV show with this article: checking its analogies against primary sources on Secure VM, Poppy, and Sentinel. UCP is extra](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig01.png)
 
 On the show I leaned on analogies: "it has its own dedicated cloud PC," "it visits sites carrying a permit," "there's a supervisor watching it." Analogies can mislead, though. So in this post I cover the same ground again using primary sources: Meta's technical blog, its evaluation reports, and the protocol specs.
 
@@ -31,7 +31,7 @@ I cover four topics:
 
 ## 1. Muse at a glance
 
-![Muse overview: client, per-user Secure VM, connectors and browser, limited inference and telemetry](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig02.png)
+![Muse overview: client, per-user Secure VM, connectors and browser, limited inference and telemetry](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig02.png)
 
 Muse is Meta's personal AI agent, [announced on September 8, 2026](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/). According to the US announcement, you can ask it for things straight from the Muse app or WhatsApp, the same way you'd message a person. The [Japanese announcement](https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/) describes messaging it from the Muse app the same way, but doesn't mention WhatsApp.
 
@@ -56,7 +56,7 @@ As for the core model, the evaluation report says it plainly: ["a variant of Mus
 
 ### 2.1 What the disclosed training priorities tell us
 
-![What's public about training: five official sources and the areas they don't cover](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig03.png)
+![What's public about training: five official sources and the areas they don't cover](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig03.png)
 
 This section draws mainly on **five** sources:
 
@@ -81,7 +81,7 @@ The evaluation report also mentions a pipeline with stages for supervised fine-t
 
 ### 2.2 The five-pillar behavior taxonomy and the instruction hierarchy
 
-![The five pillars of the behavior principles and instruction priority (Meta → developer → user → environment)](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig04.png)
+![The five pillars of the behavior principles and instruction priority (Meta → developer → user → environment)](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig04.png)
 
 Meta's reports don't treat alignment as a standalone concept. They [fold it into the broader frame of "model behavior."](https://research.meta.ai/static/muse-spark-1-3-evaluation-report) The yardstick is an "internal behavior specification," with a final version supposedly to be published eventually. As of November 9, 2026, I couldn't find it.
 
@@ -104,7 +104,7 @@ On the product side, external data gets [tagged as "untrusted input"](https://re
 
 ### 2.3 The evaluation setup: "the model alone" vs. "the Muse system"
 
-![Four evaluation configurations (Helpful / Muse Model / Muse / API), with a note on internal-interface evaluations](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig05.png)
+![Four evaluation configurations (Helpful / Muse Model / Muse / API), with a note on internal-interface evaluations](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig05.png)
 
 The Muse Spark 1.3 evaluation report (dated October 23, 2026) [evaluates the same model in four configurations](https://research.meta.ai/static/muse-spark-1-3-evaluation-report):
 
@@ -116,7 +116,7 @@ The thing for engineers to notice: this setup separates "safe because the model 
 
 ### 2.4 Key numbers from the report summary
 
-![Key figures: MASK, Agentic Misalignment 0.0–0.60%, hallucination, principle-violation rates, and SHADE-Arena, with notes](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig06.png)
+![Key figures: MASK, Agentic Misalignment 0.0–0.60%, hallucination, principle-violation rates, and SHADE-Arena, with notes](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig06.png)
 
 Here are the alignment-related numbers from the summary at the top of the report and from its principles evaluation section:
 
@@ -135,7 +135,7 @@ According to the [Muse Wonder model card](https://research.meta.ai/static/muse-w
 
 ### 2.5 Monitoring, and the limits of evaluation
 
-![Monitor scale mapped to the behavior taxonomy, with a note on evaluation limits](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig07.png)
+![Monitor scale mapped to the behavior taxonomy, with a note on evaluation limits](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig07.png)
 
 The report says Meta is building monitors to use across training, evaluation, and deployment. One example checks behavior against the behavior taxonomy. In the reported run, it applied 55 requirements to 1,714 conversations from 62 evaluation sets and [flagged 1,098 findings across 259 conversations and 35 requirements](https://research.meta.ai/static/muse-spark-1-3-evaluation-report).
 
@@ -161,7 +161,7 @@ I checked my on-air explanations against the primary sources. The show descripti
 
 ### 3.1 Secure VM: two isolated security domains on one machine
 
-![Secure VM's two zones: the runtime cell and host-side protection services](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig08.png)
+![Secure VM's two zones: the runtime cell and host-side protection services](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig08.png)
 
 Meta admits that no matter how strong the model is, the agent will make mistakes and can be attacked through the data it reads. So it says it designed Muse to limit the damage, assuming the agent [may be under attack](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). The right mental model, according to Meta, isn't "an LLM agent with root." It's "two isolated security domains on one machine."
 
@@ -184,7 +184,7 @@ The cell talks to each service over Unix domain sockets using `SO_PEERCRED` and 
 
 ### 3.2 Sentinel: Muse proposes, Sentinel authorizes
 
-![Flow where Sentinel judges action requests and outbound traffic and swaps in proxy tokens; tainted context falls back to standard review](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig09.gif)
+![Flow where Sentinel judges action requests and outbound traffic and swaps in proxy tokens; tainted context falls back to standard review](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig09.gif)
 
 Sentinel is an agent separate from Muse that runs on the host. It's the sole authority for approving connector actions and all network egress. Muse can only "propose" actions. [Only Sentinel can authorize them](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse).
 
@@ -232,7 +232,7 @@ The mechanism that keeps approval prompts from getting out of hand is "tainted e
 
 ### 3.3 Human in the loop: an approval is a capability, not a chat message
 
-![Approvals happen in UI outside the chat. Grant scopes: once, session, task, time-limited, permanent; low-risk actions proceed without interruption](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig10.gif)
+![Approvals happen in UI outside the chat. Grant scopes: once, session, task, time-limited, permanent; low-risk actions proceed without interruption](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig10.gif)
 
 When Sentinel decides to ask the user, it creates a pending approval and execution pauses. The request goes straight from Sentinel to the client and shows up as a dialog in the client UI, **not in the conversation with Muse**. The answer goes straight back to Sentinel too ([source](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)). If approvals happened inside the conversation, a prompt injection could slip in text that "counts as" approval. I take the separate, out-of-conversation channel to be the defense against exactly that (my interpretation).
 
@@ -249,7 +249,7 @@ Least privilege shows up in fine-grained ways:
 
 ### 3.4 Prompt injection: defense in depth against the "lethal trifecta"
 
-![Layered defenses against the lethal trifecta, with deterministic boundaries](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig11.png)
+![Layered defenses against the lethal trifecta, with deterministic boundaries](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig11.png)
 
 Meta cites the "[lethal trifecta](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)," a term Simon Willison coined in June 2025: access to personal data, exposure to untrusted content, and the ability to communicate externally. When all three come together, an attacker can trick an agent into stealing personal data. Meta's defenses come in layers:
 
@@ -266,7 +266,7 @@ In its conclusion, Meta flatly calls prompt injection "an unsolved problem acros
 
 ### 3.5 The browser and purchases
 
-![Browser restrictions, approval for every purchase, and single-use cards](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig12.gif)
+![Browser restrictions, approval for every purchase, and single-use cards](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig12.gif)
 
 Muse has an up-to-date Chromium-based browser running behind a virtualization layer. The user can watch what Muse is doing and take over at any time ([source](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)).
 
@@ -281,7 +281,7 @@ Muse has an up-to-date Chromium-based browser running behind a virtualization la
 
 ### 3.6 Data handling, and what hasn't shipped yet
 
-![Data policy: no sharing for ads, training opt-out, Confidential VM planned](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig13.png)
+![Data policy: no sharing for ads, training opt-out, Confidential VM planned](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig13.png)
 
 - Files in the VM and anything Muse creates or uses are stored in the VM. Users can view, edit, and download all of it, including Muse's memory, and it's continuously backed up.
 - Muse [doesn't share conversations or VM data with Meta's ad systems](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse) ([Japanese announcement](https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/)). But to other sites, Muse's browsing looks like the user's own activity, so Meta itself notes it could affect ads indirectly, for example if a visited site uses that activity for advertising.
@@ -294,7 +294,7 @@ Muse has an up-to-date Chromium-based browser running behind a virtualization la
 
 ### 4.1 The problem it's trying to solve
 
-![Spectrum of agent-access options, showing the middle ground Poppy fills](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig14.png)
+![Spectrum of agent-access options, showing the middle ground Poppy fills](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig14.png)
 
 Poppy is short for Personal Agent Protocol. It was announced on October 6, 2026, in a [joint blog post by Sierra's Bret Taylor and Clay Bavor](https://sierra.ai/blog/introducing-personal-agent-protocol). It's an open standard that Meta and Sierra are developing with industry partners including Genesys, Instinct, Rocket, Shopify, Stripe, and Walmart.
 
@@ -316,7 +316,7 @@ The spec notes that this list is "not an order of adoption levels." A key design
 
 ### 4.2 Discovery: poppy.json and two-way domain–issuer checks
 
-![poppy.json discovery and two-way domain/issuer verification](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig15.gif)
+![poppy.json discovery and two-way domain/issuer verification](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig15.gif)
 
 Businesses must publish `https://{domain}/.well-known/poppy.json` over HTTPS. It contains the protocol version, organization info, scope descriptions, a list of APIs (`openapi` / `mcp`), the business agent's conversation endpoint, web browsing settings, and more ([spec](https://personalagentprotocol.org/docs/spec)).
 
@@ -354,7 +354,7 @@ With `web.disabled: true`, a business can signal "please don't browse our websit
 
 ### 4.3 Sign-in: standard OAuth, only stricter
 
-![Poppy sign-in (Direct/Device) and scope hints](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig16.gif)
+![Poppy sign-in (Direct/Device) and scope hints](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig16.gif)
 
 Account access uses standard OAuth, but Poppy makes [stricter choices than ordinary OAuth](https://personalagentprotocol.org/docs/spec):
 
@@ -367,7 +367,7 @@ One passage in the spec's security considerations gets right to the heart of it.
 
 ### 4.4 The session header and delegated keys
 
-![Delegated keys and Poppy-Session JWT. One-identity limit is operational; limits of §10.7 and Web Bot Auth](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig17.gif)
+![Delegated keys and Poppy-Session JWT. One-identity limit is operational; limits of §10.7 and Web Bot Auth](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig17.gif)
 
 The agent attaches a `Poppy-Session` header to every request to the business's APIs and conversation endpoints. It's a JWT [**signed per request**](https://personalagentprotocol.org/docs/spec).
 
@@ -415,7 +415,7 @@ In other words, all a signature tells you is that "whoever holds the URL publish
 
 ### 4.5 Browser join: safely bringing a browser into the session
 
-![Browser participation flow; access tokens never pass through the browser](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig18.gif)
+![Browser participation flow; access tokens never pass through the browser](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig18.gif)
 
 An agent can also browse the business's website within the same session as its API calls and conversations. The mechanism for this is [browser join](https://personalagentprotocol.org/docs/spec).
 
@@ -427,7 +427,7 @@ The reverse risk is covered too: consent phishing, where the agent approves a co
 
 ### 4.6 Conversations, handoff to humans, and declaring what you can't do
 
-![Conversation author.type, handoff to humans, excluded_tasks, and business content treated as data](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig19.gif)
+![Conversation author.type, handoff to humans, excluded_tasks, and business content treated as data](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig19.gif)
 
 - **Human or AI**: Every conversation message must carry `author.type` (`agent` / `human`). `human` is reserved for relaying the user's own words verbatim. Summaries, paraphrases, and translations count as `agent`.
 - **Handoff to humans**: The agent can ask for a human at the business. While one is being found, the status is `pending`. When the business wants to talk to the user directly, it sends a `user_requested` event, and if the user agrees, a "Direct Conversation" begins.
@@ -443,7 +443,7 @@ Access tokens, refresh tokens, session JWTs, private keys, authorization codes, 
 
 ### 5.1 What UCP is
 
-![Overview of UCP consolidating N×N integrations into a common language](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig20.gif)
+![Overview of UCP consolidating N×N integrations into a common language](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig20.gif)
 
 UCP is an open standard for agentic commerce that [Google announced on January 11, 2026, around the National Retail Federation (NRF) annual event](https://blog.google/company-news/inside-google/message-ceo/nrf-2026-remarks/). It was co-developed with Shopify, Etsy, Wayfair, Target, and Walmart, and [more than 20 companies including Adyen, American Express, Mastercard, Stripe, and Visa endorsed it](https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/).
 
@@ -459,7 +459,7 @@ Governance is public in the GitHub MAINTAINERS file. The Shopping Tech Council i
 
 ### 5.2 Profiles and negotiation: only use what both sides support
 
-![UCP profile negotiation: only shared capabilities are used; signatures prove origin only](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig21.gif)
+![UCP profile negotiation: only shared capabilities are used; signatures prove origin only](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig21.gif)
 
 UCP discovery and negotiation [work like this](https://ucp.dev/2026-08-25/specification/overview/):
 
@@ -519,7 +519,7 @@ Platform authentication supports API keys, OAuth 2.0, mTLS, and HTTP Message Sig
 
 ### 5.3 Checkout state transitions
 
-![Checkout state transitions: at ready_for_complete the platform calls Complete Checkout; requires_escalation hands off to the buyer via continue_url](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig22.gif)
+![Checkout state transitions: at ready_for_complete the platform calls Complete Checkout; requires_escalation hands off to the buyer via continue_url](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig22.gif)
 
 In the Checkout capability (`dev.ucp.shopping.checkout`), the business controls the state. While required information is missing, it's `incomplete`. Once everything needed is there, it becomes `ready_for_complete`, and the platform can call Complete Checkout to finalize. Once accepted, it passes through `complete_in_progress` and becomes `completed` when the order is placed.
 
@@ -531,7 +531,7 @@ So `completed` means "the order was placed," not "the user personally called the
 
 ### 5.4 Payments: the platform never touches raw card data
 
-![UCP payment trust triangle: the platform never touches raw card data](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig23.png)
+![UCP payment trust triangle: the platform never touches raw card data](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig23.png)
 
 UCP organizes payments as a ["trust triangle"](https://ucp.dev/2026-08-25/specification/overview/):
 
@@ -547,7 +547,7 @@ Muse's single-use cards (section 3.5) and UCP's tokenization share a philosophy:
 
 ### 5.5 How Muse, UCP, and Poppy relate: what's known vs. what's guessed
 
-![Three layers (Muse internals, Poppy, UCP), distinguished by level of certainty](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig24.png)
+![Three layers (Muse internals, Poppy, UCP), distinguished by level of certainty](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig24.png)
 
 Here's how the three fit together, sorted by how certain each point is.
 
@@ -586,7 +586,7 @@ That said, none of the sources I checked define a formal link between the specs 
 
 ## 6. What this means for businesses with physical stores
 
-![Implications for brick-and-mortar businesses: machine-readable entry points, labeled as analysis](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig25.png)
+![Implications for brick-and-mortar businesses: machine-readable entry points, labeled as analysis](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig25.png)
 
 This chapter is my personal take, not Canly's product plan or official position.
 
@@ -604,7 +604,7 @@ Picture a restaurant whose regular hours are listed correctly, but whose unsched
 
 ## 7. Limits and open questions
 
-![Checklist of limitations and open questions](https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig26.png)
+![Checklist of limitations and open questions](https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig26.png)
 
 - **Prompt injection isn't solved**: Meta itself calls it "unsolved across the industry" and says [Muse can make mistakes](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse). In browser use, some scenarios still show a [gap to the state of the art](https://research.meta.ai/static/muse-spark-1-3-evaluation-report).
 - **The ability to evade oversight is rising**: The covert success rate on the SHADE-Arena capability evaluation went up from the previous generation. (It measures capability, not how often misbehavior happens in production.) It's reassuring that CoT monitoring is still considered effective, but as capability grows, monitoring design has to keep pace.

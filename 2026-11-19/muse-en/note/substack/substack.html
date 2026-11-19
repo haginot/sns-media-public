@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>&quot;Just Because It&#x27;s Meta, I Don&#x27;t Trust It&quot;: Your Muse Questions, Answered From Meta&#x27;s Own Documents</title>
+</head>
+<body>
+<!-- Substack-ready draft. NOT published. Title and subtitle go in Substack's title/subtitle fields, not in the body. -->
+<p><em>This is the English version of my Japanese post on note, published November 13, 2026. You can read the <a href="https://note.com/haginota/n/nba922eb92cd9">Japanese original here</a>.</em></p>
+<blockquote>
+<p><strong>HAGINO (CAIO, Canly, Inc.)</strong></p>
+<p>I started my first company in high school, built on software I'd written myself. While still at university, I was chief engineer at an HR tech company. I joined BizReach in 2014, led the rollout of AI across the business, and filed more patents than anyone else at the company. After working as a technical advisor to many companies, I became CIO of Canly in 2024. I've been in my current role since August 2025.</p>
+</blockquote>
+<p>I was recently on a Japanese business TV show talking about Muse, Meta's personal AI agent. As of 2:00 p.m. JST on November 12, 2026, the episode had 205,746 views on YouTube. In the early hours of November 13, it hit No. 1 in <a href="https://pivotmedia.co.jp/ranking/overall?ranking_type=WEEKLY">the show's official weekly ranking</a>. It also drew 40 comments, and honestly, a lot of them made my day.</p>
+<p>"Muse is so good I'm hooked." "I can't imagine giving it up now." "It handles the really annoying inquiries for me, which is a huge relief." "I synced it with Google Calendar and email, and the household to-do list in my head has shrunk dramatically." (Comments translated from Japanese.)</p>
+<p>People still have real concerns, though, about AI agents and about Meta. The most-liked negative comment was: <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwCAANnXnrJJgeOkkd4AaABAg">"Just the fact that it's Meta makes me not trust it."</a> Others asked who pays when the AI gets something wrong, and about vulnerabilities, Amazon not working, how it stacks up against dots, what it means for small shops, and whether they could use it at work.</p>
+<p>This post covers what I didn't have time to say on the show, organized around your questions. Where I'm restating an analogy from the episode, or correcting what I said about when Muse asks for confirmation, I do it in my answer to the relevant comment. Throughout, I keep what the public documents say separate from my own read.</p>
+<p>A few disclaimers first:</p>
+<ul>
+<li>These are my personal views. They aren't an official position of the show, Meta, or my employer, and this isn't sponsored or a partnership piece.</li>
+<li>I pulled the comments (40 in total) from the episode's YouTube page at 2:00 p.m. JST on November 12, 2026. I've shortened some where that doesn't change the meaning.</li>
+<li>What I said on the show is summarized here. For my exact wording, please watch the episode.</li>
+<li>Facts and numbers come with sources. When something is a guess or an opinion, I flag it with phrases like "I think" or "my read." I checked sources on these dates (all JST): November 9, 2026, for everything except the caching material; November 10 for the caching sources; November 13 for the show's weekly ranking and the sources on dots and Grok Bot; and November 16 for the sources on Poppy v1.0 and Stripe's purchase protection.</li>
+<li>I've written up the technical details separately on the Canly Tech Blog (<a href="https://zenn.dev/canly/articles/d108f4bc26ceb7">more technical details here, in Japanese</a>). This post covers the step before that: what's going on and what to watch out for.</li>
+</ul>
+<p>Here's the episode:</p>
+<p>https://www.youtube.com/watch?v=NvNLJjozcJo</p>
+<hr />
+<h2>1. "Just the fact that it's Meta makes me not trust it"</h2>
+<p>I don't think this reaction should be brushed off. Meta has faced criticism over how it handles data for years, so it's not strange to be wary based on the name alone.</p>
+<p>Here's what I can confirm from what's been made public so far, in this order: ads, training, Meta's own access, and how Meta plans to make money.</p>
+<p><strong>Ads: "none" doesn't mean "unrelated"</strong></p>
+<p>Muse <a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent">currently has no ads</a>. Meta's policy is also <a href="https://muse.ai/privacy">not to share your conversations or the data in your VM (virtual machine) with its ad systems</a>. But that isn't a promise there will never be ads.</p>
+<p>Meta also says <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">your browsing and bookings in Muse may indirectly affect the ads you see elsewhere</a>. <strong>Having no ads isn't the same as having nothing to do with ads.</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig01.png" alt="Diagram contrasting the current absence of ads with guarantees about the future">
+</figure>
+<p><strong>Training</strong></p>
+<p>As I said on the show, training is opt-out. The setting that lets your data be used to improve models is on by default, and you have to turn it off yourself. When data is used, Meta says it <a href="https://muse.ai/privacy">removes some personally identifiable information and disassociates it from your account</a>. That doesn't mean all personal information is gone.</p>
+<p><strong>Meta's access</strong></p>
+<p>In the Canly Tech Blog section "<a href="https://zenn.dev/canly/articles/d108f4bc26ceb7#3.6-%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%89%B1%E3%81%84%E3%81%A8%E3%80%81%E3%81%BE%E3%81%A0%E6%9D%A5%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%82%82%E3%81%AE">3.6 Data handling, and what hasn't arrived yet (in Japanese)</a>," I wrote the following, and it still holds:</p>
+<blockquote>
+<p>The current architecture isolates each user's data from everyone else's, and Meta employee access is restricted by operational policy. However, nothing prevents Meta from accessing data when it needs to for support, protection, or operations. "Muse Confidential VM," which would cryptographically and verifiably guarantee that not even Meta can access the data, was described as "planned for later this year" in the September article. As of November 9, 2026, none of the sources I checked say it has launched.</p>
+</blockquote>
+<p><strong>How Meta plans to make money</strong></p>
+<p>Meta has said it plans to <a href="https://www.medianama.com/wp-content/uploads/2026/10/META-Q3-2026-Earnings-Call-Transcript.pdf">take a fee from businesses on transactions Muse helps complete</a>. Most people will use Muse for free, and there's a personal subscription for anyone who wants more powerful models or more usage. Meta's explanation doesn't include the fee rate or a start date.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig02.png" alt="Diagram sorting out revenue, ads, and training, reading &quot;no ads now&quot; separately from any guarantee about the future">
+</figure>
+<p>Whether to trust it is ultimately your call. What I can do is lay out what can actually be said today, rather than rounding it off to "they supposedly can't see your data."</p>
+<hr />
+<h2>2. Who pays when it gets things wrong? And what about vulnerabilities?</h2>
+<p>One commenter wrote: <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyeQdPdhB2CnaIp-W94AaABAg">"Having the AI keep operating things even after you close the screen sounds convenient, but it's not like Meta or the businesses will cover damages or refunds when it misunderstands. Jumping on full automation without security guarantees is way too risky."</a> Another kept it short: <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgxNJoOZ8ojoBCcIhMl4AaABAg">"muse vulnerability."</a></p>
+<p>Let's start with compensation. <strong>None of the public documents I checked promise that Meta will cover losses caused by the AI misunderstanding something.</strong> Refunds and cancellations with shops and services depend on their own terms, so this isn't a worry you can wave away.</p>
+<p>That said, in the US, eligible purchases made through Link come with <a href="https://link.com/jp/terms/purchase-protections">conditional protection from Stripe</a>: a refund guarantee of up to $1,000 per purchase, up to four times a year, when the original merchant refuses a return within 60 days. It doesn't cover AI mistakes as such, and under the terms it only applies to purchases made in the US by US residents. Purchases from Japan aren't covered.</p>
+<p>That's exactly why, before you hand something off, you need to know where the system will stop and ask you, and where you have to check things yourself. I'll also correct a few things I said on the show.</p>
+<h3>2-1. The show's three analogies, restated more precisely</h3>
+<p>On the show, I compared Muse to "your own cloud PC," "a permit," and "a watchdog." Those analogies explain why it's convenient. They don't guarantee it's safe.</p>
+<ul>
+<li><strong>Your own cloud PC.</strong> Work keeps going without you having to open your own computer. But isolating the workspace is a separate matter from the permissions it holds over the services you connect (<a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">Meta</a>, <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">Meta</a>).</li>
+<li><strong>A permit.</strong> The idea is to delegate only what you've allowed, without handing over your password. Poppy, the protocol that defines how this works, <a href="https://sierra.ai/blog/releasing-poppy">released v1.0 on November 13, and Sierra announced it's now enabled for all Muse users</a> (<a href="https://sierra.ai/blog/introducing-personal-agent-protocol">background</a>). I get into this in "6. Handing over my passwords feels scary."</li>
+<li><strong>A watchdog.</strong> A component called Sentinel sorts operations on connected services, and outbound network traffic, into "allow," "deny," or "ask the user." It's <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">not a system that monitors your conversations</a>.</li>
+</ul>
+<p>I also said that "you'll always get a confirmation before any unintended action." That was too broad. <strong>What's explicitly confirmed every time is purchases. The documents don't support saying you'll be asked every time before a booking is confirmed.</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig03.png" alt="Diagram showing the three analogies (dedicated cloud PC, permit, watchdog) aren't safety guarantees; only purchases are stated to need confirmation every time">
+</figure>
+<h3>2-2. Having your own cloud PC doesn't settle "what you allow"</h3>
+<p>On the show, I said that giving Muse its own VM matters for safety too, but I didn't fully explain why. Let me fill that in.</p>
+<p>According to Meta, Muse <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">runs in a dedicated, isolated VM in the cloud, one per user</a>. It's separate from your own computer, but it still holds permissions over whatever you connect: email, calendar, shopping, and so on. <strong>Isolation and permission management are two different things.</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig04.png" alt="Diagram of isolation vs. permission management: your PC and the dedicated cloud VM are separate, but operating permissions on connected services remain">
+</figure>
+<p>Since the comment raised vulnerabilities, here's how Meta describes the assumptions behind its design. In the Canly Tech Blog section "<a href="https://zenn.dev/canly/articles/d108f4bc26ceb7#3.1-secure-vm%EF%BC%9A1%E5%8F%B0%E3%81%AE%E4%B8%8A%E3%81%AB%E3%80%81%E9%9A%94%E9%9B%A2%E3%81%95%E3%82%8C%E3%81%9F2%E3%81%A4%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3">3.1 Secure VM: two isolated security domains on one machine (in Japanese)</a>," I wrote:</p>
+<blockquote>
+<p>Meta acknowledges that no matter how strong the model is, agents make mistakes and can be attacked through the data they read. So, Meta says, it designed the system to limit the damage, assuming the agent may be under attack. The right mental model, according to Meta, isn't "an LLM agent with root" but "two isolated security domains on one machine."</p>
+</blockquote>
+<p>In other words, the design assumes mistakes and attacks will happen. Users still need to check what they connect and what they allow. OpenClaw <a href="https://docs.openclaw.ai/install">can also run in the cloud</a>, so the difference isn't just where the work happens. It's also who builds and runs the environment.</p>
+<h3>2-3. What the watchdog decides, and when you get asked</h3>
+<p><strong>What the watchdog decides</strong></p>
+<p>Sentinel, the "watchdog" from the show, is the only component that can authorize operations on connected services (connector operations) and outbound traffic. It sorts each one into "allow," "deny," or "ask the user." Connector operations are judged against policies you set.</p>
+<p>Outbound traffic is auto-allowed only when the process hasn't read any user data yet and passes narrowly scoped auto-allow conditions and destination URL checks. Anything that has read user data, or can't be verified, isn't eligible for auto-allow and goes through the normal decision process. <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">That doesn't mean it always ends in a prompt to the user</a>.</p>
+<p>Confirmation requests appear directly in the app's interface, not inside the conversation. Meta also says it designed credentials such as passwords to be <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">managed separately from the AI</a>.</p>
+<p>I go deeper on the watchdog and the approval system in the Canly Tech Blog sections "<a href="https://zenn.dev/canly/articles/d108f4bc26ceb7#3.2-sentinel%EF%BC%9A%E6%8F%90%E6%A1%88%E3%81%99%E3%82%8B%E3%81%AE%E3%81%AFmuse%E3%80%81%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B%E3%81%AE%E3%81%AFsentinel">3.2 Sentinel: Muse proposes, Sentinel permits (in Japanese)</a>" and "<a href="https://zenn.dev/canly/articles/d108f4bc26ceb7#3.3-human-in-the-loop%EF%BC%9A%E6%89%BF%E8%AA%8D%E3%81%AF%E4%BC%9A%E8%A9%B1%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%8C%E6%A8%A9%E9%99%90%E3%80%8D">3.3 Human in the Loop: approval is a 'capability,' not a conversation (in Japanese)</a>."</p>
+<blockquote>
+<p>Muse only "proposes" actions. Only Sentinel can grant permission.</p>
+<p>Approval isn't a "suggestion" made in conversation. It's a strict capability tied to a specific connector or destination and a specific purpose. There are five grant types: one-time, per session, per task, time-limited, and permanent.</p>
+</blockquote>
+<p><strong>Purchases and bookings get different confirmations</strong></p>
+<p>On sites where your payment details are already saved, Muse detects the checkout screen and <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">shows you the details and asks for approval every time</a>. Reading data, on the other hand, and operations you've already allowed may go ahead without asking, and there's no basis for saying a booking will be confirmed with you every time. I suspect that's why some situations look "fully automatic."</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig05.png" alt="Diagram: isolation differs from permission management, Sentinel judges connector actions and outbound traffic, and only purchases are confirmed every time">
+</figure>
+<p><strong>"Instructions" on external pages</strong></p>
+<p>When an AI ends up following "instructions" planted on an external page, that's called prompt injection. Meta says it treats external information as untrusted input and has multiple layers of defense, but <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">the defense isn't airtight</a>. Instructions on a page are not the same as permission from you.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig06.png" alt="Diagram: instructions on external pages are untrusted input handled with layered defenses; page instructions aren't the user's permission; defense isn't complete">
+</figure>
+<p>On the show, I said the odds of it accidentally going all the way through to payment are quite low but not zero. What the documents confirm is that an approval mechanism exists and that the risk isn't zero. How low it is, I can't confirm.</p>
+<h3>2-4. No promise of compensation, so check these yourself</h3>
+<p><strong>Asking the AI to do something isn't the same as it getting done.</strong> If you don't hear back about a booking, is it OK to ask again? If you hand off a purchase, where do you need to step in?</p>
+<p>Here's what I'd check before and after handing something off. Some of these come from Meta's <a href="https://platform.muse.ai/docs">connector development guidelines</a>, but those are requirements for developers. I haven't confirmed that Muse behaves this way on every path.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig07.png" alt="A 10-item checklist for users, based on developer guidelines; Muse may not behave this way in every situation">
+</figure>
+<ol>
+<li>Don't ask again right away if you don't hear back. You could end up with a duplicate request. The guidelines require checking status before retrying.</li>
+<li>Don't confuse sending a request with a confirmed booking. A quote, a pending request, and a confirmation are different things. Pending isn't booked.</li>
+<li>Re-approve if the price changes. The guidelines require showing the total and getting re-approval if the price or other terms change after you've approved.</li>
+<li>Stopping the AI isn't canceling the booking. Halting the work doesn't necessarily cancel a booking or order that's already gone through. Cancellations and refunds depend on the other party's terms.</li>
+<li>For "tomorrow at 9," spell out the date and time zone. This matters most when you're coordinating with people overseas.</li>
+<li>Know when you're taking over. Meta says <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">Muse pauses while you're controlling the browser yourself</a>.</li>
+<li>Separate must-haves from nice-to-haves. If "cheapest" and "changeable booking" can't both be met, tell it to check with you.</li>
+<li>Disconnecting a service isn't deleting your data. The data exchange stops, but <a href="https://muse.ai/privacy">past information may remain in memory or conversation history</a>.</li>
+<li>Know what you can take with you if you switch. You can <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">download the files on your VM, including memory</a>. Whether conversations and in-progress work can move to another AI is a separate question.</li>
+<li>Don't judge reliability from one success. Look at how many cases were tried, under what conditions, and what happens when it fails.</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig08.png" alt="Diagram: sending a request differs from confirming a booking; distinguish quote, pending, and confirmed. A developer requirement, not a guarantee on every path">
+</figure>
+<p>None of this makes things completely safe. My position is that you should weigh the convenience and the checkpoints together. When your family or coworkers start asking AI to make bookings or purchases, I hope this list helps you talk through which parts you'll check yourselves.</p>
+<hr />
+<h2>3. "Amazon doesn't work"</h2>
+<p>One commenter wrote: <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=Ugw2bLxdc2ZbVCJIDjd4AaABAg">"It's inconvenient that Amazon doesn't work…"</a> The episode even had a chapter titled "What about Amazon?", so clearly a lot of people care.</p>
+<p>Amazon blocks access from Muse. The reasons it gave the press were <a href="https://www.geekwire.com/2026/amazon-blocks-metas-muse-ai-assistant-in-new-standoff-over-agentic-shopping/">agent transparency, safety, and businesses' right to decide whether to participate</a>. My read is that it may also want to protect its customer relationships and ad revenue, but that's my analysis. I'm not aware of any public commitment on when the block might be lifted.</p>
+<p>Meanwhile, the maintainer list for UCP (Universal Commerce Protocol), a shared standard for AI-driven purchasing, <a href="https://raw.githubusercontent.com/Universal-Commerce-Protocol/.github/main/MAINTAINERS.md">includes someone from Amazon</a>. Helping build a standard isn't the same as agreeing to accept Muse, and <strong>Meta hasn't said Muse uses UCP, either.</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig09.png" alt="Diagram: single-use card numbers apply to Muse Wallet on first-time sites; why Amazon blocks; UCP listing ≠ Muse acceptance; Meta hasn't said Muse uses UCP">
+</figure>
+<p>The standard has its own rules for finalizing a purchase. Under UCP, unless an extension called AP2 Mandates is supported, <a href="https://ucp.dev/2026-08-25/specification/shopping/checkout/">the user must manually finalize checkout on a trusted screen</a>.</p>
+<p>Read that approval requirement separately from the flow where, once it's satisfied, the platform completes the order via API. I lay out the full flow, conditions included, in the Canly Tech Blog section "<a href="https://zenn.dev/canly/articles/d108f4bc26ceb7#5.3-%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AE%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB">5.3 Checkout state transitions (in Japanese)</a>."</p>
+<p>Services you want to use will keep turning agents away from time to time. Convenience is one question. Whether the other side accepts agents is another.</p>
+<hr />
+<h2>4. "I'd like a comparison with dots and Grok Bot"</h2>
+<p><a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgweVGEmtDTmaB-F_oh4AaABAg">"I'd love to see a comparison with dots"</a> was the most clear-cut question in the comments. I didn't get to put them side by side properly on the show. Some of you may also wonder how Muse differs from Grok Bot, so I'll cover that too.</p>
+<p>ChatGPT's dots and Grok Bot are both agents you can hand tasks to. Their pricing, connected services, confirmation flows, and availability differ from Muse's. But I didn't find an official side-by-side comparison of all three in the public documents I checked. Some comments share hands-on impressions, but I haven't tested them myself under the same conditions, so I won't rank them here.</p>
+<p>I'll stick to what I could confirm from public documents as of November 13, 2026 (JST).</p>
+<p><strong>Where you can talk to them.</strong> Even the official guidance shows differences. Meta says Muse is <a href="https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/">available in Japan on iOS, Android, and on the web at muse.ai</a>.</p>
+<p>dots is an OpenAI product. Its help page says it's <a href="https://help.openai.com/ja-jp/articles/20001530-getting-started-with-your-dot">available in the ChatGPT desktop app, on desktop web, and in the ChatGPT apps for iOS and Android, but not on mobile web</a>. OpenAI also says you can interact with it from Slack and Teams, and talk to it by voice.</p>
+<p>Grok Bot's official documentation says it's <a href="https://docs.x.ai/grok-bot/overview">available as a desktop app on macOS, Windows, and Linux, as an iPhone and Android app, in Slack, and on X, with voice calls and voice memos</a>.</p>
+<p>I can't say for sure whether dots is available on your account right now. OpenAI's help page says it's rolling out gradually to Pro users aged 18 and over, outside the European Economic Area, Switzerland, and the UK.</p>
+<p><strong>Cloud execution.</strong> All three keep working in the cloud without you setting up your own server. OpenAI says <a href="https://openai.com/ja-JP/index/introducing-dots/">dots has its own cloud computer and can keep working while you're not talking to it</a>. Grok Bot uses a cloud computer (browser, files, terminal), and <a href="https://x.ai/bot">it can keep working even after you close your laptop</a>. Meta says Muse also <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">keeps working in the cloud after you close the app</a>. But as I wrote in "2-2. Having your own cloud PC doesn't settle 'what you allow,'" having a dedicated environment is a separate question from where you need to check things yourself.</p>
+<p><strong>How confirmations work.</strong> This is based only on the official wording. The dots help page says you decide how much to delegate, it asks for your decision when one is needed, and you can pause it anytime. As far as I could find, it doesn't specify which operations, such as purchases or bookings, always require confirmation.</p>
+<p>Grok Bot's official documentation says that <a href="https://docs.x.ai/grok-bot/get-started">for operations requiring approval, it shows an approval card and waits</a>. The product page also says sensitive operations can go through Auto Review (an automated review step) before running. Here, too, I didn't find a list of which operations always stop for approval. For Muse's purchases and bookings, see the criteria later in this section and Section 2.</p>
+<p><strong>Pricing.</strong> I'll only note what the official sources say. OpenAI says your first dots is included with a Pro plan or a Business premium seat at no extra charge, with a usage allowance for more advanced work.</p>
+<p>Grok Bot's official documentation says it's <a href="https://docs.x.ai/grok-bot/overview">included in The X Subscription's Premium, Super, and Ultra tiers</a>. SuperGrok and X Premium+ can be linked, and on legacy Cursor plans it's included in paid individual plans and self-serve Cursor Teams.</p>
+<p>Prices and allowances vary by plan, so I won't list them here. I touch on Muse's usage allowance in a later section, and there's more in <a href="https://www.meta.com/help/subscriptions/28153473374286914/">Meta's help page on buying additional tokens</a>.</p>
+<p>Instead of a ranking, here are the criteria I use to compare agents.</p>
+<p><strong>Criterion one: not "what can it do?" but "can I hand it off all the way to the finish?"</strong></p>
+<p>My first impression was that Muse's capabilities are close to existing agents like OpenClaw and Hermes. That isn't based on a feature-by-feature comparison. If there's a difference, I think it lies in something a feature list doesn't capture: whether it actually finishes what you asked.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig10.png" alt="Diagram of overlap between Muse and existing agents, and experience differences that don't show up in feature tables (author's analysis)">
+</figure>
+<p>Getting started is different, too. I think having to set up and maintain your own server has held back adoption. As I mentioned, the official descriptions of dots and Grok Bot say they use cloud computers as well. Meta says Muse works without learning anything special, and that it's <a href="https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/">available in Japan on iOS, Android, and on the web at muse.ai</a>.</p>
+<p>I think working from a phone matters a lot. According to <a href="https://www.soumu.go.jp/johotsusintokei/statistics/data/260529_1.pdf">a survey by Japan's Ministry of Internal Affairs and Communications</a>, household PC ownership fell from 73.0% in 2016 to 64.4% in 2025, though not in a straight line every year. Household smartphone ownership in 2025 was 91.8%.</p>
+<p>According to Meta, Muse <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">keeps working in the cloud after you close the app, and comes back to you when it needs approval for changes, sending email, purchases, and so on</a>. I couldn't confirm from the published documents when the dedicated environment is paused or resumed.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig11.png" alt="Venn diagram of Muse, OpenClaw, and Hermes overlap, with experience absent from feature tables shown below an iceberg's waterline">
+</figure>
+<p><strong>Criterion two: "where do I need to check things myself?"</strong></p>
+<p>For Muse, as I wrote in "2. Who pays when it gets things wrong? And what about vulnerabilities?", purchases are explicitly confirmed every time, and the documents don't support saying bookings are. Whatever the agent, I think it's worth comparing which operations trigger a confirmation and which go through without one.</p>
+<p>Those two things, not the feature count, are what I wanted to talk about on the show. When you compare agents, I'd suggest asking: "Does it finish what I asked?" and "Where do I need to check things myself?"</p>
+<hr />
+<h2>5. Will small shops struggle? And can I use it at work?</h2>
+<p>One commenter wrote: <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgxD6v8-0jBsF0g7ecZ4AaABAg">"As personal agents spread, it looks like small online shops will have a hard time too."</a> It may be convenient for consumers, but this points to the burden on the receiving end. Since I work with brick-and-mortar businesses, I care about this too.</p>
+<p><strong>What information reaches the shop</strong></p>
+<p>Meta says <a href="https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/">Muse can't see your passwords or payment methods</a>. But purchases and bookings require passing your address, name, and similar details to the other party, and <a href="https://muse.ai/privacy">their terms and privacy policies apply too</a>. <strong>Muse not seeing something is different from it not reaching the other party.</strong></p>
+<p>When you use Muse's wallet (Stripe Link at launch) on a site you're buying from for the first time, Meta says <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">a single-use card number is passed to the shop</a>. On sites where your payment details are already saved, it asks for approval every time you buy. Neither means the other party keeps no information.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig12.png" alt="Diagram of how personal information is handed over at the end of a purchase">
+</figure>
+<p>As of November 8, 2026, Japan isn't among the supported regions for <a href="https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens">Stripe's agent payment mechanism, "Shared Payment Tokens"</a>. That's just the scope of that one mechanism. I haven't been able to confirm whether Muse's Link wallet works in Japan.</p>
+<p><strong>How products get found may change</strong></p>
+<p>If AI compares prices and terms across sites, the way products get discovered may change. But it can also be misled by external information, and <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">it makes mistakes</a>. You can't assume that because it has no emotions, it ignores ads and always picks the best option. I haven't seen any mechanism that lets you pay for priority in its searches.</p>
+<p><strong>Whether to accept agents</strong></p>
+<p>You can block them. Some businesses, like Amazon, choose not to accept them. But as AI-driven traffic grows, I think telling humans and AI apart will tend to get harder. And as the user base grows, refusing could mean missing out. It's not that you'll lose the ability to tell them apart tomorrow. My read is that sooner or later, businesses will be pushed to respond.</p>
+<p>As I noted in "1. 'Just the fact that it's Meta makes me not trust it,'" Meta plans to take a fee from businesses on transactions it helps complete, but <a href="https://www.medianama.com/wp-content/uploads/2026/10/META-Q3-2026-Earnings-Call-Transcript.pdf">the rate and start date aren't part of that explanation</a>. That remains an open question when it comes to the burden on small shops. I'll come back to what kind of entry point shops should offer AI in "8-1."</p>
+<p><strong>Can I use it at work?</strong></p>
+<p>Some people also said, "I wish I could use this at work." Meta says <a href="https://www.medianama.com/wp-content/uploads/2026/10/META-Q3-2026-Earnings-Call-Transcript.pdf">a business subscription is planned</a>. That explanation doesn't say when it'll launch or how well it'll meet corporate security requirements. Something convenient for personal use won't necessarily work as-is at the office.</p>
+<hr />
+<h2>6. Handing over my passwords feels scary</h2>
+<p>Some <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwPg-ha8IsXAgbnDzN4AaABAg">comments were wary of putting password management in Muse's hands</a>.</p>
+<p>As I wrote in "5. Will small shops struggle?", Meta says Muse can't see your passwords or payment methods. And as I covered in "2-3," Meta also says credentials are managed separately from the AI. But that's a description of how the system works. Whether to consolidate your passwords with one company is your call, and it's separate from the features. Convenience and the risk of consolidation don't point in the same direction.</p>
+<p>With that in mind, let me explain more precisely the idea I called "a permit" on the show.</p>
+<p><strong>Handing over permission, not your password: v1.0 shipped November 13</strong></p>
+<p>Personal Agent Protocol (Poppy) proposes a way to say "I allow this AI to perform this range of operations" without handing over your password. It's being <a href="https://sierra.ai/blog/introducing-personal-agent-protocol">developed by Meta, Sierra, and others</a>.</p>
+<p>When I first published this post, it was still a draft, but v1.0 was released on November 13. Sierra announced that <a href="https://sierra.ai/blog/releasing-poppy">Poppy is now enabled for all Muse users, that Muse looks for Poppy first on the sites it visits, and that Shopify has enabled Poppy for all its merchants</a>. That doesn't mean every site supports it.</p>
+<p>I first wrote the explanation below from the draft spec. I've since rechecked these points against <a href="https://personalagentprotocol.org/docs/spec">v1.0</a> (November 19, 2026), and they still hold. One caveat: the business sites I checked that day (four US Shopify stores, two Japanese Shopify stores, and Mercury) still publish version 0.4 in their <code>poppy.json</code> files.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig13.png" alt="Sharing passwords vs. Poppy v1.0's scoped permissions. Web Bot Auth only proves the key holder's signature. Poppy is on for all Muse users, but the 7 sites checked on Nov 19 still serve version 0.4">
+</figure>
+<p>The spec gives you a different user ID for each company, so you can't be identified by matching IDs across them. But it doesn't stop matching through information shared by other routes, such as email addresses.</p>
+<p>The signed tokens used for sessions are also bound to the HTTP method and URL (excluding the query and similar parts). So even if one is stolen, it's hard to reuse against a different destination or method. But they don't protect the contents of the query or body (<a href="https://personalagentprotocol.org/docs/spec">Poppy spec v1.0</a>).</p>
+<p>Poppy 1.0 also recommends "Web Bot Auth," which adds signatures to requests. Web Bot Auth is itself a draft <a href="https://datatracker.ietf.org/wg/webbotauth/documents/">under discussion at the IETF</a>.</p>
+<p>A signature only confirms that the holder of the key published at the verified URL signed that message. On its own, it doesn't tell you who the operator is, whether the user gave permission, whether it's malicious, or whether the operation is safe. <strong>Verifying a signature isn't the same as knowing who's behind it or whether it's safe.</strong></p>
+<p>For the details, see the Canly Tech Blog section "<a href="https://zenn.dev/canly/articles/d108f4bc26ceb7#4.-poppy%EF%BC%88personal-agent-protocol%EF%BC%89%E3%82%92%E6%B7%B1%E3%81%8F%E8%AA%AD%E3%82%80">4. A deep read of Poppy (Personal Agent Protocol) (in Japanese)</a>."</p>
+<blockquote>
+<p>This is what I called "a permit" on the show. Instead of handing over a password, you grant scoped permissions on the company's own page.</p>
+</blockquote>
+<hr />
+<h2>7. Comments the documents can't answer yet</h2>
+<p>Some people pointed out that <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyBICDR7UL7pWK0ak54AaABAg">real-time voice conversation isn't available</a>, and one said <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyLQrjpmLKBZLITZsV4AaABAg">they deleted the app right away because iCloud Mail wouldn't connect</a>.</p>
+<p>I don't have documents that let me say definitively where voice or specific email services stand right now, and I haven't reproduced individual setups to test them. Still, I wanted to acknowledge that these "it can't do this" and "it won't connect" experiences are real.</p>
+<hr />
+<h2>8. What I didn't get to say on the show</h2>
+<p>These didn't come up directly in the comments, but here are three things I didn't get to on the show, kept brief.</p>
+<h3>8-1. For AI, the "app" may be a connector, not a screen</h3>
+<p>This may be the point I most wanted to get across on the show.</p>
+<p>Muse can operate a site's screen through a cloud browser. According to Meta, it doesn't read the screen as-is but through a structure called the <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">accessibility tree</a>. Even so, working through the screen depends on button placement and on what happens to be displayed. I think when services offer a connection method built for AI (an API), it's easier to make the steps and the scope of permissions clear.</p>
+<p>Meta also says it integrates APIs with service providers, and that for services with an API or a CLI (a command-line interface you operate with text commands), <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">Muse can build its own connectors</a>. A connector is what links the AI to an outside service.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig14.png" alt="Diagram mapping person → app → service on smartphones to Muse → connector → service for agents (author's analysis)">
+</figure>
+<p>Most smartphone apps took services that already existed on the web and made them easier to view and use. Along the same lines, my read is that <strong>for AI, the "app" may be the connector</strong>. Meta also provides how-to guides, but a how-to guide isn't the same as an app with a screen. This analogy is my own framing.</p>
+<p>For tasks that involve comparing terms, I think data organized field by field is easier for AI to work with. I'm not saying human-facing screens should go away, and I haven't verified that APIs are always faster or safer. My view is that connection methods suited to each task need to mature before agents can really spread.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig15.png" alt="Diagram mapping people, apps, and services to Muse, connectors, and services">
+</figure>
+<h3>8-2. Convenience alone won't drive adoption. You need a reason to use it</h3>
+<p>From here on, this is mostly my own read. People often talk about a "chasm" between enthusiasts and the mainstream when a new technology spreads. I think personal agents need more than convenience to cross it. They need a reason you can't avoid using them.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig16.png" alt="Diagram explaining the chasm and network effects (author's analysis)">
+</figure>
+<p>For smartphones, that reason was connecting with people through social media and the like. Network effects, where each person gets more value as more people join, played a part.</p>
+<p>For personal agents, the trigger might be everyday devices like smart glasses or cars. My guess is that use cases will multiply easily, but that's not the same as saying adoption is guaranteed.</p>
+<p>Most companies building frontier models seem to be leaning toward enterprise, centered on coding, with thin consumer offerings. My analysis is that it makes sense for Meta, which grew on usability and reach, to go after that space. This isn't based on any specific executive statement I've checked.</p>
+<p>I expect the big players to embed AI inside their own ecosystems, too. But as users, we'll want comparisons that include options beyond any single service. In the long run, I think personal agents that sit outside any one ecosystem have the edge.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig17.png" alt="Diagram of the chasm and network effects">
+</figure>
+<h3>8-3. Why doesn't the usage allowance drain faster? My "don't re-read the same context" hypothesis</h3>
+<p>My sense is that Muse's usage allowance drains slowly relative to how much work it does. That's just my impression, not a measured comparison of processing volume. Meta also says <a href="https://www.meta.com/help/subscriptions/28153473374286914/">usage varies with the model, the tools, input and output size, and so on</a>.</p>
+<p>The first thing that comes to my mind is prompt caching, which reuses the computation for the opening part of repeated instructions or conversation history. For its developer Model API, Meta has published details on <a href="https://dev.meta.ai/docs/prompt-caching">automatic caching</a> and <a href="https://dev.meta.ai/docs/pricing-rate-limits">discounted pricing for cached input</a>. Tokens read from cache still count toward input volume, so caching doesn't make the volume disappear. It processes the same input more cheaply and gets responses started faster.</p>
+<p>But <strong>public API pricing isn't the pricing of the consumer Muse app.</strong> What the API pricing page says isn't billed is the instruction tokens Meta adds automatically. It doesn't say instructions the user adds later are free.</p>
+<p>You also can't assume the app's usage allowance works the same way. How the app uses caching, and how that shows up in the allowance, isn't clear from the documents I checked.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig18.png" alt="Diagram: Model API prompt caching makes tokens cheaper and faster without removing them; whether the Muse app caches or counts it toward limits is unconfirmed">
+</figure>
+<p>Agents that reuse the same instructions and history over and over should pair well with caching, as long as the fixed portion and the cache lifetime line up. Simply staying resident doesn't make reuse happen.</p>
+<p>Separately, <a href="https://x.com/cline/status/2085237843379519737">Cline reported</a> that the way instructions were designed changed its processing volume. But that wasn't a test of consumer Muse, nor an experiment isolating caching's contribution.</p>
+<p>Summarizing conversations, or passing along only the key points of tool results, can also cut down how much needs to be read next time. Routing to smaller models is mainly about unit cost and speed, and doesn't necessarily reduce total volume (<a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic</a>, <a href="https://developers.openai.com/api/docs/guides/latency-optimization">OpenAI</a>). My hypothesis is that Muse runs cheaply and quickly by combining these techniques, with caching at the core.</p>
+<p>What determines an agent's economics, I think, isn't just how smart it is. It's a design that doesn't keep paying to re-read the same context over and over.</p>
+<hr />
+<h2>9. The more you hand off, the more "what you allow" matters</h2>
+<p>Reading the enthusiastic comments alongside the worried ones, I felt they lead to the same place. The more you rely on it, to the point where you "can't give it up," the more it matters how much you hand off and where you check things yourself.</p>
+<p>Neither the dedicated workspace nor the watchdog guarantees complete safety, and I couldn't find a promise of compensation in the public documents. Users need to keep an eye on what they connect, what they allow, and what has actually been completed.</p>
+<p>What I find most interesting is the question beyond that: what is an "app" for AI? Just as the ability to build apps became a competitive edge in the smartphone era, offering connection methods that AI can easily use may become the edge now. It's still a hypothesis, but I think the people running shops and services, small shops included, stand to gain the most from thinking about it now.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/note/figures/fig19.png" alt="Diagram: users check what they connect, permit, and what got done; hypothesis that AI-friendly entry points may set services apart (author's analysis)">
+</figure>
+<p>Thank you to everyone who commented. Those who shared worries and those who shared enthusiasm both gave me plenty to think about going forward.</p>
+<p>Here's the episode:</p>
+<p><a href="https://www.youtube.com/watch?v=NvNLJjozcJo">https://www.youtube.com/watch?v=NvNLJjozcJo</a></p>
+<p>And here are the more technical details (in Japanese):</p>
+<p><a href="https://zenn.dev/canly/articles/d108f4bc26ceb7">https://zenn.dev/canly/articles/d108f4bc26ceb7</a></p>
+<hr />
+<h2>Sources</h2>
+<ul>
+<li>"Security and safety for AI agents: our approach with Muse," Meta. <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse</a></li>
+<li>Muse launch announcement for Japan (Japanese), Meta, October 2026. <a href="https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/">https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/</a></li>
+<li>"Introducing Muse," Meta, September 2026. <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/</a></li>
+<li>Muse Privacy Policy, Meta. <a href="https://muse.ai/privacy">https://muse.ai/privacy</a></li>
+<li>Communications Usage Trend Survey 2025 (Japanese), Ministry of Internal Affairs and Communications, Japan. <a href="https://www.soumu.go.jp/johotsusintokei/statistics/data/260529_1.pdf">https://www.soumu.go.jp/johotsusintokei/statistics/data/260529_1.pdf</a></li>
+<li>OpenClaw installation docs, OpenClaw. <a href="https://docs.openclaw.ai/install">https://docs.openclaw.ai/install</a></li>
+<li>Meta debuts Muse personal AI agent, Axios, September 8, 2026. <a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent">https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent</a></li>
+<li>Meta Q3 2026 earnings call transcript, Meta (hosted by MediaNama), October 2026. <a href="https://www.medianama.com/wp-content/uploads/2026/10/META-Q3-2026-Earnings-Call-Transcript.pdf">https://www.medianama.com/wp-content/uploads/2026/10/META-Q3-2026-Earnings-Call-Transcript.pdf</a></li>
+<li>"Amazon blocks Meta's Muse AI assistant in new standoff over agentic shopping," GeekWire, 2026. <a href="https://www.geekwire.com/2026/amazon-blocks-metas-muse-ai-assistant-in-new-standoff-over-agentic-shopping/">https://www.geekwire.com/2026/amazon-blocks-metas-muse-ai-assistant-in-new-standoff-over-agentic-shopping/</a></li>
+<li>MAINTAINERS.md, Universal Commerce Protocol (GitHub). <a href="https://raw.githubusercontent.com/Universal-Commerce-Protocol/.github/main/MAINTAINERS.md">https://raw.githubusercontent.com/Universal-Commerce-Protocol/.github/main/MAINTAINERS.md</a></li>
+<li>"Shared Payment Tokens," Stripe Docs. <a href="https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens">https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens</a></li>
+<li>"Introducing Personal Agent Protocol," Sierra. <a href="https://sierra.ai/blog/introducing-personal-agent-protocol">https://sierra.ai/blog/introducing-personal-agent-protocol</a></li>
+<li>Personal Agent Protocol specification (version 1.0), personalagentprotocol.org. <a href="https://personalagentprotocol.org/docs/spec">https://personalagentprotocol.org/docs/spec</a></li>
+<li>Personal Agent Protocol specification (draft 0.4), personalagentprotocol.org. <a href="https://personalagentprotocol.org/docs/0.4/spec">https://personalagentprotocol.org/docs/0.4/spec</a></li>
+<li>webbotauth WG documents, IETF Datatracker. <a href="https://datatracker.ietf.org/wg/webbotauth/documents/">https://datatracker.ietf.org/wg/webbotauth/documents/</a></li>
+<li>Muse connector development guidelines, Meta. <a href="https://platform.muse.ai/docs">https://platform.muse.ai/docs</a></li>
+<li>UCP Checkout specification (2026-08-25 version), Universal Commerce Protocol. <a href="https://ucp.dev/2026-08-25/specification/shopping/checkout/">https://ucp.dev/2026-08-25/specification/shopping/checkout/</a></li>
+<li>"How to buy additional Muse tokens," Meta Help Center. <a href="https://www.meta.com/help/subscriptions/28153473374286914/">https://www.meta.com/help/subscriptions/28153473374286914/</a></li>
+<li>"Pricing and rate limits" (Model API), Meta. <a href="https://dev.meta.ai/docs/pricing-rate-limits">https://dev.meta.ai/docs/pricing-rate-limits</a></li>
+<li>"Prompt caching and token counting" (Model API), Meta. <a href="https://dev.meta.ai/docs/prompt-caching">https://dev.meta.ai/docs/prompt-caching</a></li>
+<li>Cline experiment report (original post on X), Cline, August 6, 2026, 14:33 JST. <a href="https://x.com/cline/status/2085237843379519737">https://x.com/cline/status/2085237843379519737</a></li>
+<li>"Effective context engineering for AI agents," Anthropic. <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a></li>
+<li>"Latency optimization," OpenAI. <a href="https://developers.openai.com/api/docs/guides/latency-optimization">https://developers.openai.com/api/docs/guides/latency-optimization</a></li>
+<li>Official weekly ranking (Japanese), the show's official page, as of 2:33 a.m. JST, November 13, 2026. Screenshot post: <a href="https://x.com/haginota/status/2120933121067790808">https://x.com/haginota/status/2120933121067790808</a> Ranking page: <a href="https://pivotmedia.co.jp/ranking/overall?ranking_type=WEEKLY">https://pivotmedia.co.jp/ranking/overall?ranking_type=WEEKLY</a></li>
+<li>"Introducing dots" (Japanese), OpenAI, <a href="https://openai.com/ja-JP/index/introducing-dots/">https://openai.com/ja-JP/index/introducing-dots/</a>, and "Getting started with your dot" (Japanese), OpenAI Help Center, <a href="https://help.openai.com/ja-jp/articles/20001530-getting-started-with-your-dot">https://help.openai.com/ja-jp/articles/20001530-getting-started-with-your-dot</a> (checked November 13, 2026, JST)</li>
+<li>"Grok Bot" overview, <a href="https://docs.x.ai/grok-bot/overview">https://docs.x.ai/grok-bot/overview</a>, and "Get started," <a href="https://docs.x.ai/grok-bot/get-started">https://docs.x.ai/grok-bot/get-started</a>, SpaceX Super Intelligence (checked November 13, 2026, JST)</li>
+<li>"Grok Bot" product page, SpaceX Super Intelligence. <a href="https://x.ai/bot">https://x.ai/bot</a> (checked November 13, 2026, JST)</li>
+<li>"Releasing Personal Agent Protocol 1.0," Sierra. <a href="https://sierra.ai/blog/releasing-poppy">https://sierra.ai/blog/releasing-poppy</a> (checked November 16, 2026, JST)</li>
+<li>Purchase Protection Terms (Japanese), Link, <a href="https://link.com/jp/terms/purchase-protections">https://link.com/jp/terms/purchase-protections</a>, and benefits guide, Stripe, <a href="https://assets.ctfassets.net/fzn2n1nzq965/4c0mOlE04Swx6rU2UWXjKV/907f2eca5b2412e6dddd0f18f53c54ee/Stripe_Satisfaction_Guarantee.pdf">https://assets.ctfassets.net/fzn2n1nzq965/4c0mOlE04Swx6rU2UWXjKV/907f2eca5b2412e6dddd0f18f53c54ee/Stripe_Satisfaction_Guarantee.pdf</a> (checked November 16, 2026, JST)</li>
+</ul>
+<p><strong>Quoted comments</strong> (from the episode on YouTube, retrieved 2:00 p.m. JST, November 12, 2026; all in Japanese)</p>
+<ul>
+<li>"I'm hooked" <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=Ugz0uOj1FQ8YCApl7Ax4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=Ugz0uOj1FQ8YCApl7Ax4AaABAg</a></li>
+<li>"Can't give it up" <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=Ugwm-AYlJX7GICvRINd4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=Ugwm-AYlJX7GICvRINd4AaABAg</a></li>
+<li>"Inquiries are easy now" <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwyPSCbgBlIWRYNg8t4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwyPSCbgBlIWRYNg8t4AaABAg</a></li>
+<li>"The household to-do list in my head has shrunk dramatically" <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgylD3afH6ZOTrG5-eB4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgylD3afH6ZOTrG5-eB4AaABAg</a></li>
+<li>"Just the fact that it's Meta makes me not trust it" <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwCAANnXnrJJgeOkkd4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwCAANnXnrJJgeOkkd4AaABAg</a></li>
+<li>Concerns about compensation and full automation <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyeQdPdhB2CnaIp-W94AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyeQdPdhB2CnaIp-W94AaABAg</a></li>
+<li>"muse vulnerability." <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgxNJoOZ8ojoBCcIhMl4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgxNJoOZ8ojoBCcIhMl4AaABAg</a></li>
+<li>"Amazon doesn't work" <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=Ugw2bLxdc2ZbVCJIDjd4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=Ugw2bLxdc2ZbVCJIDjd4AaABAg</a></li>
+<li>"Comparison with dots" <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgweVGEmtDTmaB-F_oh4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgweVGEmtDTmaB-F_oh4AaABAg</a></li>
+<li>Impact on small shops <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgxD6v8-0jBsF0g7ecZ4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgxD6v8-0jBsF0g7ecZ4AaABAg</a></li>
+<li>Real-time voice <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyBICDR7UL7pWK0ak54AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyBICDR7UL7pWK0ak54AaABAg</a></li>
+<li>iCloud Mail <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyLQrjpmLKBZLITZsV4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgyLQrjpmLKBZLITZsV4AaABAg</a></li>
+<li>Concerns about consolidating passwords <a href="https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwPg-ha8IsXAgbnDzN4AaABAg">https://www.youtube.com/watch?v=NvNLJjozcJo&amp;lc=UgwPg-ha8IsXAgbnDzN4AaABAg</a></li>
+</ul>
+</body>
+</html>

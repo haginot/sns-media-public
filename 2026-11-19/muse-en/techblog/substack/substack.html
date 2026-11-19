@@ -16,7 +16,7 @@
 <p>After all that research, though, I wanted to talk about it properly. The more I read, the more I appreciated how carefully Muse is designed, and I wanted to share that with someone.</p>
 <p>So here we are. Fair warning: this one's long.</p>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig01.png" alt="Summary contrasting what was said on the TV show with this article: checking its analogies against primary sources on Secure VM, Poppy, and Sentinel. UCP is extra">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig01.png" alt="Summary contrasting what was said on the TV show with this article: checking its analogies against primary sources on Secure VM, Poppy, and Sentinel. UCP is extra">
 </figure>
 <p>On the show I leaned on analogies: "it has its own dedicated cloud PC," "it visits sites carrying a permit," "there's a supervisor watching it." Analogies can mislead, though. So in this post I cover the same ground again using primary sources: Meta's technical blog, its evaluation reports, and the protocol specs.</p>
 <p>I cover four topics:</p>
@@ -29,7 +29,7 @@
 <hr />
 <h2>1. Muse at a glance</h2>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig02.png" alt="Muse overview: client, per-user Secure VM, connectors and browser, limited inference and telemetry">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig02.png" alt="Muse overview: client, per-user Secure VM, connectors and browser, limited inference and telemetry">
 </figure>
 <p>Muse is Meta's personal AI agent, <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">announced on September 8, 2026</a>. According to the US announcement, you can ask it for things straight from the Muse app or WhatsApp, the same way you'd message a person. The <a href="https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/">Japanese announcement</a> describes messaging it from the Muse app the same way, but doesn't mention WhatsApp.</p>
 <p>The core model is Muse Spark, and it runs in the "Muse Secure VM," a dedicated virtual machine for each user. Long-running tasks keep going after you close the app. When a step needs approval, like sending an email or making a purchase, it <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">asks the user to confirm</a>.</p>
@@ -47,7 +47,7 @@
 <h2>2. Alignment: what it's built to align with, and how Meta measures it</h2>
 <h3>2.1 What the disclosed training priorities tell us</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig03.png" alt="What's public about training: five official sources and the areas they don't cover">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig03.png" alt="What's public about training: five official sources and the areas they don't cover">
 </figure>
 <p>This section draws mainly on <strong>five</strong> sources:</p>
 <ol>
@@ -69,7 +69,7 @@
 <p><strong>How the risk findings are worded</strong>: The 1.3 report and the Wonder model card use identical phrasing. Before mitigations, they <strong>do not rule out</strong> the model reaching the "high risk" threshold in the chemical and biological domains. (That's not the same as saying it <em>is</em> high risk.) After mitigations, they rate residual risk as "<strong>moderate or lower</strong>" (<a href="https://research.meta.ai/static/muse-spark-1-3-evaluation-report">1.3 report</a>, <a href="https://research.meta.ai/static/muse-wonder-model-card">Wonder model card</a>). For cybersecurity, even the unmitigated model comes in at "moderate or lower." No source flatly says "high risk before mitigations," and none says "medium after mitigations," so I'm sticking to the original wording.</p>
 <h3>2.2 The five-pillar behavior taxonomy and the instruction hierarchy</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig04.png" alt="The five pillars of the behavior principles and instruction priority (Meta → developer → user → environment)">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig04.png" alt="The five pillars of the behavior principles and instruction priority (Meta → developer → user → environment)">
 </figure>
 <p>Meta's reports don't treat alignment as a standalone concept. They <a href="https://research.meta.ai/static/muse-spark-1-3-evaluation-report">fold it into the broader frame of "model behavior."</a> The yardstick is an "internal behavior specification," with a final version supposedly to be published eventually. As of November 9, 2026, I couldn't find it.</p>
 <p>The 1.3 report argues that checking bad behaviors one at a time isn't enough, and lays out <a href="https://research.meta.ai/static/muse-spark-1-3-evaluation-report">five pillars</a>:</p>
@@ -90,7 +90,7 @@
 <p>On the product side, external data gets <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">tagged as "untrusted input"</a> as it enters the model's context. But Meta doesn't claim victory. It calls prompt injection <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">"an unsolved problem across the industry."</a></p>
 <h3>2.3 The evaluation setup: "the model alone" vs. "the Muse system"</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig05.png" alt="Four evaluation configurations (Helpful / Muse Model / Muse / API), with a note on internal-interface evaluations">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig05.png" alt="Four evaluation configurations (Helpful / Muse Model / Muse / API), with a note on internal-interface evaluations">
 </figure>
 <p>The Muse Spark 1.3 evaluation report (dated October 23, 2026) <a href="https://research.meta.ai/static/muse-spark-1-3-evaluation-report">evaluates the same model in four configurations</a>:</p>
 <figure>
@@ -100,7 +100,7 @@
 <p>The thing for engineers to notice: this setup separates "safe because the model is smart" from "safe because the system contains it." The report does note one wrinkle. The Muse configuration was evaluated through an internal interface that bypasses the client and onboarding, with state reset for each rollout, so conditions <a href="https://research.meta.ai/static/muse-spark-1-3-evaluation-report">aren't identical to the mobile or web product</a>.</p>
 <h3>2.4 Key numbers from the report summary</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig06.png" alt="Key figures: MASK, Agentic Misalignment 0.0–0.60%, hallucination, principle-violation rates, and SHADE-Arena, with notes">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig06.png" alt="Key figures: MASK, Agentic Misalignment 0.0–0.60%, hallucination, principle-violation rates, and SHADE-Arena, with notes">
 </figure>
 <p>Here are the alignment-related numbers from the summary at the top of the report and from its principles evaluation section:</p>
 <ul>
@@ -117,7 +117,7 @@
 <p>According to the <a href="https://research.meta.ai/static/muse-wonder-model-card">Muse Wonder model card</a>, its most capable configuration posted a 0% harmful action rate on Agentic Misalignment and 87.3% on MASK. Keep in mind these are Meta's own evaluations, and the full report with additional safety evaluations is still <a href="https://research.meta.ai/blog/muse-wonder">"coming soon."</a></p>
 <h3>2.5 Monitoring, and the limits of evaluation</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig07.png" alt="Monitor scale mapped to the behavior taxonomy, with a note on evaluation limits">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig07.png" alt="Monitor scale mapped to the behavior taxonomy, with a note on evaluation limits">
 </figure>
 <p>The report says Meta is building monitors to use across training, evaluation, and deployment. One example checks behavior against the behavior taxonomy. In the reported run, it applied 55 requirements to 1,714 conversations from 62 evaluation sets and <a href="https://research.meta.ai/static/muse-spark-1-3-evaluation-report">flagged 1,098 findings across 259 conversations and 35 requirements</a>.</p>
 <p>Meta is also upfront about where its evaluations fall short:</p>
@@ -137,7 +137,7 @@
 <h2>3. Security architecture: assume the agent can be attacked</h2>
 <h3>3.1 Secure VM: two isolated security domains on one machine</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig08.png" alt="Secure VM's two zones: the runtime cell and host-side protection services">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig08.png" alt="Secure VM's two zones: the runtime cell and host-side protection services">
 </figure>
 <p>Meta admits that no matter how strong the model is, the agent will make mistakes and can be attacked through the data it reads. So it says it designed Muse to limit the damage, assuming the agent <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">may be under attack</a>. The right mental model, according to Meta, isn't "an LLM agent with root." It's "two isolated security domains on one machine."</p>
 <p><strong>The runtime cell (where untrusted things get handled)</strong></p>
@@ -158,7 +158,7 @@
 <p>The cell talks to each service over Unix domain sockets using <code>SO_PEERCRED</code> and peer ACLs. Meta describes this as kernel-authenticated, least-privilege IPC with <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">no secrets to steal</a>. Each side verifies the other using the caller credentials the kernel provides (<code>SO_PEERCRED</code>) plus ACLs, so no shared secret (password or key) for authenticating connections ever has to sit inside the cell.</p>
 <h3>3.2 Sentinel: Muse proposes, Sentinel authorizes</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig09.gif" alt="Flow where Sentinel judges action requests and outbound traffic and swaps in proxy tokens; tainted context falls back to standard review">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig09.gif" alt="Flow where Sentinel judges action requests and outbound traffic and swaps in proxy tokens; tainted context falls back to standard review">
 </figure>
 <p>Sentinel is an agent separate from Muse that runs on the host. It's the sole authority for approving connector actions and all network egress. Muse can only "propose" actions. <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">Only Sentinel can authorize them</a>.</p>
 <p>Three things stand out:</p>
@@ -195,7 +195,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>The mechanism that keeps approval prompts from getting out of hand is "tainted egress." Every tool process starts clean and becomes "tainted" once it reads user data. A request from a clean process that matches a narrow auto-allow policy and passes the other URL checks goes through without bothering the user. Taint also feeds into how much approval to require: tainted or unverifiable processes lose the narrow auto-allow and go through the normal decision (allow, deny, or ask). Being tainted doesn't automatically mean the user gets asked. It's implemented with eBPF <code>cgroup</code> programs and eBPF programs attached to Linux Security Module hooks that Meta added.</p>
 <h3>3.3 Human in the loop: an approval is a capability, not a chat message</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig10.gif" alt="Approvals happen in UI outside the chat. Grant scopes: once, session, task, time-limited, permanent; low-risk actions proceed without interruption">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig10.gif" alt="Approvals happen in UI outside the chat. Grant scopes: once, session, task, time-limited, permanent; low-risk actions proceed without interruption">
 </figure>
 <p>When Sentinel decides to ask the user, it creates a pending approval and execution pauses. The request goes straight from Sentinel to the client and shows up as a dialog in the client UI, <strong>not in the conversation with Muse</strong>. The answer goes straight back to Sentinel too (<a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">source</a>). If approvals happened inside the conversation, a prompt injection could slip in text that "counts as" approval. I take the separate, out-of-conversation channel to be the defense against exactly that (my interpretation).</p>
 <p>An approval isn't a "suggestion" in the chat. It's a strict capability tied to a specific connector or destination and purpose. There are five grant types: one-time, per-session, per-task, time-limited, and permanent. Sentinel decides which to offer and checks that later calls exactly match the granted scope.</p>
@@ -209,7 +209,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 </ul>
 <h3>3.4 Prompt injection: defense in depth against the "lethal trifecta"</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig11.png" alt="Layered defenses against the lethal trifecta, with deterministic boundaries">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig11.png" alt="Layered defenses against the lethal trifecta, with deterministic boundaries">
 </figure>
 <p>Meta cites the "<a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">lethal trifecta</a>," a term Simon Willison coined in June 2025: access to personal data, exposure to untrusted content, and the ability to communicate externally. When all three come together, an attacker can trick an agent into stealing personal data. Meta's defenses come in layers:</p>
 <ol>
@@ -223,7 +223,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>In its conclusion, Meta flatly calls prompt injection "an unsolved problem across the industry." Its bug bounty is open to anyone and pays up to $300,000 for valid reports, and <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">up to $130,000 for a successful prompt injection affecting a single user</a>.</p>
 <h3>3.5 The browser and purchases</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig12.gif" alt="Browser restrictions, approval for every purchase, and single-use cards">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig12.gif" alt="Browser restrictions, approval for every purchase, and single-use cards">
 </figure>
 <p>Muse has an up-to-date Chromium-based browser running behind a virtualization layer. The user can watch what Muse is doing and take over at any time (<a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">source</a>).</p>
 <ul>
@@ -238,7 +238,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 </ul>
 <h3>3.6 Data handling, and what hasn't shipped yet</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig13.png" alt="Data policy: no sharing for ads, training opt-out, Confidential VM planned">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig13.png" alt="Data policy: no sharing for ads, training opt-out, Confidential VM planned">
 </figure>
 <ul>
 <li>Files in the VM and anything Muse creates or uses are stored in the VM. Users can view, edit, and download all of it, including Muse's memory, and it's continuously backed up.</li>
@@ -250,7 +250,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <h2>4. Deep dive: Poppy (Personal Agent Protocol)</h2>
 <h3>4.1 The problem it's trying to solve</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig14.png" alt="Spectrum of agent-access options, showing the middle ground Poppy fills">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig14.png" alt="Spectrum of agent-access options, showing the middle ground Poppy fills">
 </figure>
 <p>Poppy is short for Personal Agent Protocol. It was announced on October 6, 2026, in a <a href="https://sierra.ai/blog/introducing-personal-agent-protocol">joint blog post by Sierra's Bret Taylor and Clay Bavor</a>. It's an open standard that Meta and Sierra are developing with industry partners including Genesys, Instinct, Rocket, Shopify, Stripe, and Walmart.</p>
 <p>The <a href="https://personalagentprotocol.org/">official site</a> frames the problem clearly. Today the choice is binary: either "businesses block agents," or "agents sign in as the user and do anything the user can." Businesses try to detect agents, and agents try to dodge detection. Poppy's pitch is a middle path.</p>
@@ -267,7 +267,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>The spec notes that this list is "not an order of adoption levels." A key design choice is that sessions and account access are <strong>independent</strong>. The session represents "whose activity this is," while OAuth represents <a href="https://personalagentprotocol.org/docs/spec">"what may be done to which account."</a></p>
 <h3>4.2 Discovery: poppy.json and two-way domain–issuer checks</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig15.gif" alt="poppy.json discovery and two-way domain/issuer verification">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig15.gif" alt="poppy.json discovery and two-way domain/issuer verification">
 </figure>
 <p>Businesses must publish <code>https://{domain}/.well-known/poppy.json</code> over HTTPS. It contains the protocol version, organization info, scope descriptions, a list of APIs (<code>openapi</code> / <code>mcp</code>), the business agent's conversation endpoint, web browsing settings, and more (<a href="https://personalagentprotocol.org/docs/spec">spec</a>).</p>
 <p>Here's an example discovery document (an excerpt of the spec's example with parts omitted, <a href="https://personalagentprotocol.org/docs/0.3/spec">from the 0.3 spec</a>):</p>
@@ -297,7 +297,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>With <code>web.disabled: true</code>, a business can signal "please don't browse our website; use the APIs and business agent instead." But since an agent's browser can't always be told apart from a human's, the spec calls this a "statement of preference" the protocol can't enforce.</p>
 <h3>4.3 Sign-in: standard OAuth, only stricter</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig16.gif" alt="Poppy sign-in (Direct/Device) and scope hints">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig16.gif" alt="Poppy sign-in (Direct/Device) and scope hints">
 </figure>
 <p>Account access uses standard OAuth, but Poppy makes <a href="https://personalagentprotocol.org/docs/spec">stricter choices than ordinary OAuth</a>:</p>
 <ul>
@@ -309,7 +309,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>One passage in the spec's security considerations gets right to the heart of it. If an agent signs in to a business's site with the user's credentials outside the protocol, it looks exactly like the user. The business can't limit what it does; its only option is to block it outright (<a href="https://personalagentprotocol.org/docs/spec">spec</a>). That's what I meant on the show by a "permit": instead of handing over your password, you grant scoped permissions on the business's own page.</p>
 <h3>4.4 The session header and delegated keys</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig17.gif" alt="Delegated keys and Poppy-Session JWT. One-identity limit is operational; limits of §10.7 and Web Bot Auth">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig17.gif" alt="Delegated keys and Poppy-Session JWT. One-identity limit is operational; limits of §10.7 and Web Bot Auth">
 </figure>
 <p>The agent attaches a <code>Poppy-Session</code> header to every request to the business's APIs and conversation endpoints. It's a JWT <a href="https://personalagentprotocol.org/docs/spec"><strong>signed per request</strong></a>.</p>
 <ul>
@@ -351,7 +351,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>In other words, all a signature tells you is that "whoever holds the URL publishing that key signed this." It doesn't tell you <strong>who the operator is</strong>, whether it's safe, or whether the user authorized it. On the show I said something to the effect of "you can tell it's not a malicious bot," and I want to set the record straight on that here. Also note that this draft is still an Internet-Draft under discussion at the IETF, not a finalized RFC.</p>
 <h3>4.5 Browser join: safely bringing a browser into the session</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig18.gif" alt="Browser participation flow; access tokens never pass through the browser">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig18.gif" alt="Browser participation flow; access tokens never pass through the browser">
 </figure>
 <p>An agent can also browse the business's website within the same session as its API calls and conversations. The mechanism for this is <a href="https://personalagentprotocol.org/docs/spec">browser join</a>.</p>
 <p>Browser join's three steps are designed to prevent a variant of CSRF against OAuth clients (RFC 9700 §4.7). In that attack, the attacker joins the victim's browser to a session signed in to the attacker's account, so the victim unknowingly saves things like payment details to the attacker's account. The code can only be obtained from the business's page, and it only works together with the cookie set in step 1.</p>
@@ -359,7 +359,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p><code>poppy:browser-sign-in</code> is the scope for using the website while signed in. If the website can't distinguish between scopes, this scope effectively means full account access. In that case, the business must set <code>web.unscoped: true</code>, explain this to the user, and <a href="https://personalagentprotocol.org/docs/spec">get their approval</a>.</p>
 <h3>4.6 Conversations, handoff to humans, and declaring what you can't do</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig19.gif" alt="Conversation author.type, handoff to humans, excluded_tasks, and business content treated as data">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig19.gif" alt="Conversation author.type, handoff to humans, excluded_tasks, and business content treated as data">
 </figure>
 <ul>
 <li><strong>Human or AI</strong>: Every conversation message must carry <code>author.type</code> (<code>agent</code> / <code>human</code>). <code>human</code> is reserved for relaying the user's own words verbatim. Summaries, paraphrases, and translations count as <code>agent</code>.</li>
@@ -372,7 +372,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <h2>5. Deep dive: UCP (Universal Commerce Protocol)</h2>
 <h3>5.1 What UCP is</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig20.gif" alt="Overview of UCP consolidating N×N integrations into a common language">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig20.gif" alt="Overview of UCP consolidating N×N integrations into a common language">
 </figure>
 <p>UCP is an open standard for agentic commerce that <a href="https://blog.google/company-news/inside-google/message-ceo/nrf-2026-remarks/">Google announced on January 11, 2026, around the National Retail Federation (NRF) annual event</a>. It was co-developed with Shopify, Etsy, Wayfair, Target, and Walmart, and <a href="https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/">more than 20 companies including Adyen, American Express, Mastercard, Stripe, and Visa endorsed it</a>.</p>
 <p>It's designed to work alongside existing protocols like A2A, AP2 (Agent Payments Protocol), and MCP. The goal is to collapse the "N×N" mess of building a separate connection for every agent into <a href="https://developers.googleblog.com/en/under-the-hood-universal-commerce-protocol-ucp/">a single integration point</a>.</p>
@@ -384,7 +384,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>Governance is public in the GitHub MAINTAINERS file. The Shopping Tech Council includes Google, Shopify, Etsy, Target, Microsoft, Stripe, Salesforce, and Wayfair, plus <a href="https://raw.githubusercontent.com/Universal-Commerce-Protocol/.github/main/MAINTAINERS.md"><strong>people from Meta and Amazon</strong></a>. That's the "council" I mentioned on the show. Amazon's participation, though, doesn't mean Amazon is fine with Muse accessing Amazon.</p>
 <h3>5.2 Profiles and negotiation: only use what both sides support</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig21.gif" alt="UCP profile negotiation: only shared capabilities are used; signatures prove origin only">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig21.gif" alt="UCP profile negotiation: only shared capabilities are used; signatures prove origin only">
 </figure>
 <p>UCP discovery and negotiation <a href="https://ucp.dev/2026-08-25/specification/overview/">work like this</a>:</p>
 <ol>
@@ -440,7 +440,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>Platform authentication supports API keys, OAuth 2.0, mTLS, and HTTP Message Signatures (RFC 9421). With HTTP Message Signatures, anyone can verify the signature with a public key, which enables "permissionless onboarding" with no prior registration. UCP also interoperates with Web Bot Auth, but the spec says a key resolved via <code>Signature-Agent</code> only proves control over that key's origin. It does <a href="https://ucp.dev/2026-08-25/specification/overview/">not prove control over the <code>UCP-Agent</code> profile</a>. Same story as section 4.4: the signature doesn't tell you <a href="https://www.ietf.org/archive/id/draft-ietf-webbotauth-httpsig-protocol-01.txt"><strong>who the operator is</strong></a>.</p>
 <h3>5.3 Checkout state transitions</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig22.gif" alt="Checkout state transitions: at ready_for_complete the platform calls Complete Checkout; requires_escalation hands off to the buyer via continue_url">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig22.gif" alt="Checkout state transitions: at ready_for_complete the platform calls Complete Checkout; requires_escalation hands off to the buyer via continue_url">
 </figure>
 <p>In the Checkout capability (<code>dev.ucp.shopping.checkout</code>), the business controls the state. While required information is missing, it's <code>incomplete</code>. Once everything needed is there, it becomes <code>ready_for_complete</code>, and the platform can call Complete Checkout to finalize. Once accepted, it passes through <code>complete_in_progress</code> and becomes <code>completed</code> when the order is placed.</p>
 <p>If the business needs information the API can't collect (<code>requires_buyer_input</code>), or the buyer has to review or approve before ordering for policy or other reasons (<code>requires_buyer_review</code>), the state becomes <code>requires_escalation</code> and hands off to the buyer via <code>continue_url</code> (<a href="https://ucp.dev/2026-08-25/specification/shopping/checkout/">Checkout spec</a>). <code>canceled</code> means the checkout session has been invalidated or has expired, and it can happen from any state. It's not the same as canceling or returning a placed order.</p>
@@ -448,7 +448,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>So <code>completed</code> means "the order was placed," not "the user personally called the final API." A platform finalizing via the API after the approval requirements are met is not the same as buying without the user's permission. And the business remains the seller (Merchant of Record). The principle that agents can't just go buy things on their own is baked into the protocol too.</p>
 <h3>5.4 Payments: the platform never touches raw card data</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig23.png" alt="UCP payment trust triangle: the platform never touches raw card data">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig23.png" alt="UCP payment trust triangle: the platform never touches raw card data">
 </figure>
 <p>UCP organizes payments as a <a href="https://ucp.dev/2026-08-25/specification/overview/">"trust triangle"</a>:</p>
 <ol>
@@ -461,7 +461,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <p>Muse's single-use cards (section 3.5) and UCP's tokenization share a philosophy: "don't leave payment data worth stealing in the agent's hands." But the former is how Muse's internal wallet is implemented, while the latter is a protocol between platforms and businesses. In my view, they're separate things that happen to point the same way.</p>
 <h3>5.5 How Muse, UCP, and Poppy relate: what's known vs. what's guessed</h3>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig24.png" alt="Three layers (Muse internals, Poppy, UCP), distinguished by level of certainty">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig24.png" alt="Three layers (Muse internals, Poppy, UCP), distinguished by level of certainty">
 </figure>
 <p>Here's how the three fit together, sorted by how certain each point is.</p>
 <p>Sierra describes UCP and Poppy as complementary: UCP specializes in shopping, while Poppy covers <a href="https://sierra.ai/blog/poppy">"how an agent identifies itself, gets the user's permission, and interacts with businesses on any kind of task."</a> Comparing the roles of all three:</p>
@@ -495,7 +495,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <hr />
 <h2>6. What this means for businesses with physical stores</h2>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig25.png" alt="Implications for brick-and-mortar businesses: machine-readable entry points, labeled as analysis">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig25.png" alt="Implications for brick-and-mortar businesses: machine-readable entry points, labeled as analysis">
 </figure>
 <p>This chapter is my personal take, not Canly's product plan or official position.</p>
 <p>At Canly, we offer a service for managing and analyzing store information and reviews in one place across platforms like Google Business Profile (GBP) and Yahoo! Place (Yahoo! Japan's local listings). In Japan this space is usually called MEO (map engine optimization, roughly local SEO).</p>
@@ -510,7 +510,7 @@ async function egress(req: OutboundRequest, ctx: TaskContext) {
 <hr />
 <h2>7. Limits and open questions</h2>
 <figure>
-<img src="https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig26.png" alt="Checklist of limitations and open questions">
+<img src="https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig26.png" alt="Checklist of limitations and open questions">
 </figure>
 <ul>
 <li><strong>Prompt injection isn't solved</strong>: Meta itself calls it "unsolved across the industry" and says <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse">Muse can make mistakes</a>. In browser use, some scenarios still show a <a href="https://research.meta.ai/static/muse-spark-1-3-evaluation-report">gap to the state of the art</a>.</li>
