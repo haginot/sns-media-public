@@ -4,7 +4,20 @@
 - Original (Japanese, note, published 2026-11-13 09:39 JST): https://note.com/haginota/n/nba922eb92cd9
   - Original title: 「YouTube20万回再生、PIVOT週間1位。嬉しい声と、まだ残る不安。PIVOTのコメントに答えます」
 - Policy applied (HAGINO, 2026-11-19): no "PIVOT" anywhere (called "a Japanese business TV show" on first mention, team wording / "the show"); native fluency first, facts/numbers/URLs unchanged.
+- Company name (HAGINO 2026-11-19 13:26 JST): "Canly, Inc." on the formal first mention (byline/author intro); "Canly" alone afterwards; blog = "Canly Tech Blog".
 - The ranking link still points to pivotmedia.co.jp (URL only, not named).
+
+## Title candidates (2026-11-19, requested by HAGINO 13:26 JST; NOT applied yet)
+Current title: 200,000 Views and a No. 1 Week: Your Questions About Meta's Muse, Answered
+
+1. Title: After 200,000 Views: The Questions Viewers Still Have About Meta's Muse
+   Subtitle: My Muse episode on a Japanese TV show topped its weekly ranking and drew 40 comments. Here are straight answers on trust, ads, Amazon, and passwords.
+2. Title: "Just Because It's Meta, I Don't Trust It": Your Muse Questions, Answered From Meta's Own Documents
+   Subtitle: What 40 comments on my No. 1 TV episode asked about Muse, and what Meta's public documents actually say.
+3. Title: Can You Trust Meta's Muse? Answering 40 Viewer Comments, Point by Point
+   Subtitle: My Japanese TV episode on Muse passed 200,000 YouTube views. These are the worries it raised, checked against primary sources.
+
+Facts the candidates use (all from the article): 205,746 YouTube views as of 2026-11-12 14:00 JST; No. 1 in the show's official weekly ranking early on 11/13; 40 comments; sections on trust in Meta (1), mistakes/vulnerabilities (2), Amazon (3), passwords (6).
 
 ## Title (proposed)
 200,000 Views and a No. 1 Week: Your Questions About Meta's Muse, Answered
@@ -40,7 +53,7 @@ Base: https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7
 | fig10 | `note/figures/fig10.png` | Diagram of overlap between Muse and existing agents, and experience differences that don't show up in feature tables (author's analysis) |
 | fig11 | `note/figures/fig11.png` | Venn diagram of Muse, OpenClaw, and Hermes overlap, with experience absent from feature tables shown below an iceberg's waterline |
 | fig12 | `note/figures/fig12.png` | Diagram of how personal information is handed over at the end of a purchase |
-| fig13 | `note/figures/fig13.png` | Sharing passwords vs. Poppy's proposed scoped permissions. Web Bot Auth only proves the key holder's signature. A proposed spec, not evidence Muse adopts it |
+| fig13 | `note/figures/fig13.png` | Sharing passwords vs. Poppy v1.0's scoped permissions. Web Bot Auth only proves the key holder's signature. Poppy is on for all Muse users, but the 7 sites checked on Nov 19 still serve version 0.4 |
 | fig14 | `note/figures/fig14.png` | Diagram mapping person → app → service on smartphones to Muse → connector → service for agents (author's analysis) |
 | fig15 | `note/figures/fig15.png` | Diagram mapping people, apps, and services to Muse, connectors, and services |
 | fig16 | `note/figures/fig16.png` | Diagram explaining the chasm and network effects (author's analysis) |

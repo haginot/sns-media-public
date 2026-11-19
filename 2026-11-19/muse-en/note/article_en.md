@@ -1,6 +1,6 @@
 *This is the English version of my Japanese post on note, published November 13, 2026. You can read the [Japanese original here](https://note.com/haginota/n/nba922eb92cd9).*
 
-> **HAGINO (CAIO, Canly)**
+> **HAGINO (CAIO, Canly, Inc.)**
 >
 > I started my first company in high school, built on software I'd written myself. While still at university, I was chief engineer at an HR tech company. I joined BizReach in 2014, led the rollout of AI across the business, and filed more patents than anyone else at the company. After working as a technical advisor to many companies, I became CIO of Canly in 2024. I've been in my current role since August 2025.
 
@@ -265,15 +265,15 @@ Personal Agent Protocol (Poppy) proposes a way to say "I allow this AI to perfor
 
 When I first published this post, it was still a draft, but v1.0 was released on November 13. Sierra announced that [Poppy is now enabled for all Muse users, that Muse looks for Poppy first on the sites it visits, and that Shopify has enabled Poppy for all its merchants](https://sierra.ai/blog/releasing-poppy). That doesn't mean every site supports it.
 
-The explanation and figure below are based on the spec as I read it at the draft stage. I haven't checked here whether anything changed in v1.0.
+I first wrote the explanation below from the draft spec. I've since rechecked these points against [v1.0](https://personalagentprotocol.org/docs/spec) (November 19, 2026), and they still hold. One caveat: the business sites I checked that day (four US Shopify stores, two Japanese Shopify stores, and Mercury) still publish version 0.4 in their `poppy.json` files.
 
-![Sharing passwords vs. Poppy's proposed scoped permissions. Web Bot Auth only proves the key holder's signature. A proposed spec, not evidence Muse adopts it](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig13.png)
+![Sharing passwords vs. Poppy v1.0's scoped permissions. Web Bot Auth only proves the key holder's signature. Poppy is on for all Muse users, but the 7 sites checked on Nov 19 still serve version 0.4](https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig13.png)
 
-The draft gives you a different user ID for each company, so you can't be identified by matching IDs across them. But it doesn't stop matching through information shared by other routes, such as email addresses.
+The spec gives you a different user ID for each company, so you can't be identified by matching IDs across them. But it doesn't stop matching through information shared by other routes, such as email addresses.
 
-The signed tokens used for sessions are also bound to the HTTP method and URL (excluding the query and similar parts). So even if one is stolen, it's hard to reuse against a different destination or method. But they don't protect the contents of the query or body ([Poppy spec draft](https://personalagentprotocol.org/docs/spec)).
+The signed tokens used for sessions are also bound to the HTTP method and URL (excluding the query and similar parts). So even if one is stolen, it's hard to reuse against a different destination or method. But they don't protect the contents of the query or body ([Poppy spec v1.0](https://personalagentprotocol.org/docs/spec)).
 
-The Poppy draft also recommends "Web Bot Auth," which adds signatures to requests. Web Bot Auth is itself a draft [under discussion at the IETF](https://datatracker.ietf.org/wg/webbotauth/documents/).
+Poppy 1.0 also recommends "Web Bot Auth," which adds signatures to requests. Web Bot Auth is itself a draft [under discussion at the IETF](https://datatracker.ietf.org/wg/webbotauth/documents/).
 
 A signature only confirms that the holder of the key published at the verified URL signed that message. On its own, it doesn't tell you who the operator is, whether the user gave permission, whether it's malicious, or whether the operation is safe. **Verifying a signature isn't the same as knowing who's behind it or whether it's safe.**
 
@@ -385,7 +385,8 @@ And here are the more technical details (in Japanese):
 - MAINTAINERS.md, Universal Commerce Protocol (GitHub). <https://raw.githubusercontent.com/Universal-Commerce-Protocol/.github/main/MAINTAINERS.md>
 - "Shared Payment Tokens," Stripe Docs. <https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens>
 - "Introducing Personal Agent Protocol," Sierra. <https://sierra.ai/blog/introducing-personal-agent-protocol>
-- Personal Agent Protocol specification (draft), personalagentprotocol.org. <https://personalagentprotocol.org/docs/spec>
+- Personal Agent Protocol specification (version 1.0), personalagentprotocol.org. <https://personalagentprotocol.org/docs/spec>
+- Personal Agent Protocol specification (draft 0.4), personalagentprotocol.org. <https://personalagentprotocol.org/docs/0.4/spec>
 - webbotauth WG documents, IETF Datatracker. <https://datatracker.ietf.org/wg/webbotauth/documents/>
 - Muse connector development guidelines, Meta. <https://platform.muse.ai/docs>
 - UCP Checkout specification (2026-08-25 version), Universal Commerce Protocol. <https://ucp.dev/2026-08-25/specification/shopping/checkout/>

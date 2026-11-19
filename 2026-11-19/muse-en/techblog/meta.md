@@ -4,6 +4,19 @@
 - Original (Japanese, Canly Tech Blog / カンリー Techブログ, published 2026-11-09 21:24 JST, body updated 22:39 JST): https://zenn.dev/canly/articles/d108f4bc26ceb7
   - Original title: 「【PIVOTでMuseを解説しました】番組では話しきれない、Museの本当はすごい技術解剖」
 - Policy applied: no "PIVOT" (=> "a Japanese business TV show" on first mention, team wording), never "Zenn" alone (=> "Canly Tech Blog"), native fluency first.
+- Company name (HAGINO 2026-11-19 13:26 JST): "Canly, Inc." on the formal first mention (byline/author intro); "Canly" alone afterwards; blog = "Canly Tech Blog".
+
+## Title candidates (2026-11-19, requested by HAGINO 13:26 JST; NOT applied yet)
+Current title: What I Couldn't Say on TV: A Technical Teardown of Meta's Muse
+
+1. Title: Beyond the TV Analogies: How Meta's Muse Actually Works
+   Subtitle: On TV I called it a private cloud PC with a permit and a watchdog. Here's the real design behind each, from Meta's and the specs' primary sources.
+2. Title: Secure VM, Sentinel, Poppy, UCP: Inside the Machinery of Meta's Muse
+   Subtitle: An engineer's walk through Muse's alignment evals, sandboxing, approval gates, and the open protocols built for agents and businesses.
+3. Title: The Engineering Behind Meta's Muse That a TV Segment Couldn't Cover
+   Subtitle: What Meta's safety blog, evaluation reports, and the Poppy and UCP specs say, and what they still leave open.
+
+Facts the candidates use (all from the article): the three TV analogies (cloud PC, permit, watchdog) and the four topics (alignment, Secure VM/Sentinel, Poppy, UCP); sources = Meta technical blog, evaluation reports, protocol specs. Candidate 2 avoids saying Muse uses UCP: Meta hasn't confirmed that.
 
 ## Title (proposed)
 What I Couldn't Say on TV: A Technical Teardown of Meta's Muse

@@ -1,6 +1,6 @@
 *This is the English version of a post I originally wrote in Japanese for the Canly Tech Blog (カンリー Techブログ), published November 9, 2026: [Japanese original](https://zenn.dev/canly/articles/d108f4bc26ceb7).*
 
-I'm [HAGINO, CAIO at Canly](https://x.com/haginota). On Saturday, November 7, a new episode of a Japanese business TV show I appeared on went live. The show is hugely popular with working professionals in Japan.
+I'm [HAGINO, CAIO at Canly, Inc.](https://x.com/haginota). On Saturday, November 7, a new episode of a Japanese business TV show I appeared on went live. The show is hugely popular with working professionals in Japan.
 
 When I was on the show in May 2026, I [talked about AI agents and automation, using OpenClaw as the example](https://youtu.be/PeZHAztFgqc?si=hmygu1B6omAXENft). **This time the topic is Muse, Meta's personal AI agent.**
 
@@ -311,6 +311,8 @@ The [spec](https://personalagentprotocol.org/docs/spec) opens by defining Poppy 
 
 The current working draft is **0.4**, and the spec warns that any part may change in backward-incompatible ways before a stable release. Meanwhile, **0.3 was [frozen on November 4, 2026](https://personalagentprotocol.org/docs/0.3/spec)**. The security requirements (§10) and the session JWT examples below are based on the frozen 0.3.
 
+> **Update (November 19, 2026):** Poppy [v1.0 was released on November 13](https://sierra.ai/blog/releasing-poppy), and the [spec page](https://personalagentprotocol.org/docs/spec) now serves it. The spec describes v1.0 as "0.4 with the fixes implementers needed." This section still describes [0.4](https://personalagentprotocol.org/docs/0.4/spec) and the frozen 0.3. On November 19, the business sites I checked (four US Shopify stores, two Japanese Shopify stores, and Mercury) still published version 0.4 in their `poppy.json` files.
+
 The spec's building blocks:
 
 | Building block | Role |
@@ -577,6 +579,8 @@ This table compares roles. It does not show that Muse's production systems actua
 
 The only primary source showing Muse and Poppy working together is a demo at a Sierra event, and none of the sources I checked say it's available to the general public ([Sierra](https://sierra.ai/blog/poppy)). None of them describe a production example that actually combines Poppy and UCP, either.
 
+> **Update (November 19, 2026):** This has changed since I published. With the [v1.0 release on November 13](https://sierra.ai/blog/releasing-poppy), Sierra says Poppy "is now on for everyone who uses Muse," and that Muse "automatically looks for Poppy first on every site it visits." Every Shopify store now publishes a Poppy file automatically. A commerce extension co-authored by Shopify "links the two protocols" (Poppy and UCP). I still haven't found Meta itself saying that Muse checks out through UCP.
+
 **Confirmed facts**
 
 - Meta is a [co-developer of Poppy](https://sierra.ai/blog/introducing-personal-agent-protocol). People from Meta and Amazon are also [maintainers on UCP's Shopping Tech Council](https://raw.githubusercontent.com/Universal-Commerce-Protocol/.github/main/MAINTAINERS.md).
@@ -624,13 +628,13 @@ Picture a restaurant whose regular hours are listed correctly, but whose unsched
 - **The ability to evade oversight is rising**: The covert success rate on the SHADE-Arena capability evaluation went up from the previous generation. (It measures capability, not how often misbehavior happens in production.) It's reassuring that CoT monitoring is still considered effective, but as capability grows, monitoring design has to keep pace.
 - **Evaluation awareness**: The report itself says the model noticing it's being evaluated is linked to differences in behavior. Evaluation numbers aren't a guarantee of production behavior.
 - **Access by Meta**: The current architecture doesn't prevent Meta from accessing data when needed. Confidential VM was still [only planned as of September](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse).
-- **Protocol maturity**: Poppy is at [draft 0.4](https://personalagentprotocol.org/docs/spec). Web Bot Auth is an Internet-Draft, and a signature only shows that the key holder signed. It doesn't show who the operator is, whether it's benign, or [whether it's authorized](https://www.ietf.org/archive/id/draft-ietf-webbotauth-httpsig-protocol-01.txt). UCP keeps shipping [date-versioned updates](https://ucp.dev/2026-08-25/specification/overview/).
+- **Protocol maturity**: Poppy's spec reached [v1.0 on November 13](https://sierra.ai/blog/releasing-poppy), but the business sites I checked on November 19 still published [version 0.4](https://personalagentprotocol.org/docs/0.4/spec) in their `poppy.json` files. Web Bot Auth is an Internet-Draft, and a signature only shows that the key holder signed. It doesn't show who the operator is, whether it's benign, or [whether it's authorized](https://www.ietf.org/archive/id/draft-ietf-webbotauth-httpsig-protocol-01.txt). UCP keeps shipping [date-versioned updates](https://ucp.dev/2026-08-25/specification/overview/).
 - **What's missing from the sources**: None of the sources I checked describe the specific training procedure, the internals of VM startup and suspension, or the contents of Sentinel's policies and classifier details.
 - **How the three relate**: None of the sources I checked describe the path Muse's Shopify checkout takes, or any formal link between Poppy and UCP.
 
 Partly because of time constraints, the show leaned on analogies. I hope this post helps you separate fact from speculation. And please watch the full episode on [YouTube](https://www.youtube.com/watch?v=NvNLJjozcJo).
 
-> Key facts and figures link to their sources in the text. Where the sources don't describe an internal detail, I say "not described in any source I checked" rather than filling the gap with guesses. My own inferences are flagged as my interpretation. Sources were checked as of November 9, 2026 (JST). Poppy is a draft and UCP is a date-versioned spec, so both may change.
+> Key facts and figures link to their sources in the text. Where the sources don't describe an internal detail, I say "not described in any source I checked" rather than filling the gap with guesses. My own inferences are flagged as my interpretation. Sources were checked as of November 9, 2026 (JST). Poppy reached v1.0 on November 13 (Poppy points updated November 19), and UCP is a date-versioned spec, so both may change.
 
 ---
 
@@ -644,7 +648,9 @@ Partly because of time constraints, the show leaned on analogies. I hope this po
 - "Meta Superintelligence Scaling Framework" v2.1, Meta, October 2026. https://research.meta.ai/static/meta-superintelligence-scaling-framework
 - "Muse Wonder Model Card," Meta, October 12, 2026. https://research.meta.ai/static/muse-wonder-model-card
 - "Muse Wonder," Meta AI Research, October 12, 2026. https://research.meta.ai/blog/muse-wonder
-- "Personal Agent Protocol specification (draft 0.4)," Personal Agent Protocol. https://personalagentprotocol.org/docs/spec
+- "Personal Agent Protocol specification (draft 0.4)," Personal Agent Protocol. https://personalagentprotocol.org/docs/0.4/spec
+- "Personal Agent Protocol specification (version 1.0)," Personal Agent Protocol. https://personalagentprotocol.org/docs/spec
+- "Releasing Personal Agent Protocol 1.0," Bret Taylor and Clay Bavor, Sierra, November 13, 2026. https://sierra.ai/blog/releasing-poppy
 - "Introducing Personal Agent Protocol," Bret Taylor and Clay Bavor (Sierra), October 6, 2026. https://sierra.ai/blog/introducing-personal-agent-protocol
 - Personal Agent Protocol official website. https://personalagentprotocol.org/
 - "Personal Agent Protocol specification 0.3" (frozen November 4, 2026), Personal Agent Protocol. https://personalagentprotocol.org/docs/0.3/spec
