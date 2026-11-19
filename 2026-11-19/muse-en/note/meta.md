@@ -18,13 +18,13 @@ The praise, the worries that remain, and what Meta's public documents actually s
 
 ## Cover image (Substack social preview)
 The Japanese note eyecatch has Japanese text and a show thumbnail, so it is NOT reused. Suggested cover: fig01
-https://raw.githubusercontent.com/haginot/sns-media-public/fca3d9cbdb1c8eec54deb0ea83144b5ed8bd17df/2026-11-19/muse-en/note/figures/fig01.png
+https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/note/figures/fig01.png
 
 ## Video
 The article embeds the episode on YouTube: https://www.youtube.com/watch?v=NvNLJjozcJo (paste the bare URL on its own line in Substack to embed).
 
-## Figures and alt text (images are public, pinned to sns-media-public commit fca3d9cbdb1c8eec54deb0ea83144b5ed8bd17df)
-Base: https://raw.githubusercontent.com/haginot/sns-media-public/fca3d9cbdb1c8eec54deb0ea83144b5ed8bd17df/2026-11-19/muse-en/
+## Figures and alt text (images are public, pinned to sns-media-public commit 29962d4526c7af7eac0be3fb5494a6e67d77ae8f)
+Base: https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/
 
 | # | file | alt text |
 |---|---|---|

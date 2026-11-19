@@ -16,7 +16,7 @@ Alternatives:
 Alignment evals, the Secure VM and Sentinel, the Poppy agent protocol, and UCP, read straight from Meta's and the specs' primary sources.
 
 ## Cover image
-Suggested: fig01 (summary) https://raw.githubusercontent.com/haginot/sns-media-public/fca3d9cbdb1c8eec54deb0ea83144b5ed8bd17df/2026-11-19/muse-en/techblog/figures/fig01.png
+Suggested: fig01 (summary) https://raw.githubusercontent.com/haginot/sns-media-public/29962d4526c7af7eac0be3fb5494a6e67d77ae8f/2026-11-19/muse-en/techblog/figures/fig01.png
 
 ## Figures and alt text
 11 figures are animated GIFs (fig09, 10, 12, 15-22; 1200x675). Each also has a static final-frame PNG with the same name (.png) if Substack's GIF handling is a problem.
