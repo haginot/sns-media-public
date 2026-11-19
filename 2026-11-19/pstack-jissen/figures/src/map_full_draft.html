@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>pstack 全項目（下書き）</title>
+<style>
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP"), local("Noto Sans CJK JP Regular"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc") format("truetype");
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP Bold"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc") format("truetype");
+    font-weight: 700; font-style: normal;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F3EDE0; }
+  #stage {
+    position: relative; width: 1920px; height: 1080px;
+    background-color: #F3EDE0;
+    background-image:
+      repeating-linear-gradient(to right, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 24px),
+      repeating-linear-gradient(to bottom, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 24px);
+    font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+    color: #1A2E3B;
+  }
+  .margin-line { position: absolute; left: 48px; top: 0; bottom: 0; width: 3px; background: #C9897A; }
+  .draft-stamp {
+    position: absolute; left: 68px; top: 12px;
+    border: 3px solid #C45C26; color: #C45C26;
+    font-weight: 700; font-size: 18px; line-height: 1.2;
+    padding: 4px 10px 3px; letter-spacing: 0.12em;
+  }
+  .fig-no { position: absolute; left: 164px; top: 16px; font-size: 18px; font-weight: 700; color: #5C564E; line-height: 1.2; }
+  h1 {
+    position: absolute; left: 68px; top: 42px;
+    font-size: 46px; font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.03em; font-feature-settings: "palt";
+  }
+  h1 .acc { color: #C45C26; }
+  .sub {
+    position: absolute; left: 72px; top: 96px; width: 1400px;
+    font-size: 18px; color: #3D4A52; line-height: 1.3;
+  }
+  .hero-nums { position: absolute; right: 48px; top: 14px; display: flex; gap: 22px; align-items: flex-end; }
+  .hero-num { text-align: right; }
+  .hero-num .n { font-size: 52px; font-weight: 700; line-height: 1.05; letter-spacing: -0.04em; color: #215A7A; }
+  .hero-num.pb .n { color: #C45C26; }
+  .hero-num .l { font-size: 16px; font-weight: 700; color: #5C564E; margin-top: 2px; line-height: 1.2; }
+
+  .work {
+    position: absolute; left: 68px; top: 124px; width: 1804px; height: 300px;
+    display: grid; grid-template-columns: 0.95fr 0.85fr 0.9fr 1.45fr 1.1fr; gap: 8px;
+  }
+  .col {
+    background: #FFF8EC; border: 2px solid #1A2E3B;
+    padding: 8px 10px 8px; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .col .hd {
+    display: flex; align-items: baseline; gap: 6px;
+    margin-bottom: 6px; border-bottom: 2px solid #1A2E3B; padding-bottom: 5px;
+  }
+  .col .sec { font-size: 20px; font-weight: 700; color: #C45C26; flex: none; line-height: 1.2; }
+  .col .gname { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; font-feature-settings: "palt"; line-height: 1.2; }
+  .col .cnt { margin-left: auto; font-size: 20px; font-weight: 700; color: #215A7A; flex: none; line-height: 1.2; }
+  .item {
+    display: grid; grid-template-columns: 38px 1fr;
+    column-gap: 4px; align-items: start;
+    padding: 3px 0; line-height: 1.35;
+  }
+  .item .id { font-weight: 700; color: #C45C26; font-size: 14px; line-height: 1.35; padding-top: 1px; }
+  .item .nm { font-weight: 700; color: #215A7A; font-size: 16px; line-height: 1.35; overflow-wrap: anywhere; }
+  .hd.subhd { margin-top: 14px; }
+
+  .think {
+    position: absolute; left: 68px; top: 432px; width: 1804px; height: 320px;
+    background: #FFF8EC; border: 2px solid #1A2E3B; padding: 8px 14px 8px;
+  }
+  .phd {
+    display: flex; align-items: baseline; gap: 8px;
+    margin-bottom: 6px; border-bottom: 2px solid #1A2E3B; padding-bottom: 4px;
+  }
+  .phd .sec { font-size: 20px; font-weight: 700; color: #C45C26; line-height: 1.2; }
+  .phd .gname { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; font-feature-settings: "palt"; line-height: 1.2; }
+  .phd .cnt { margin-left: auto; font-size: 20px; font-weight: 700; line-height: 1.2; }
+  .think .cnt { color: #6B4A2E; }
+  .tg { display: grid; grid-template-columns: 1.15fr 1.55fr 1.35fr 1.15fr 0.9fr; gap: 12px; }
+  .sg .sh { font-size: 15px; font-weight: 700; color: #6B4A2E; margin: 2px 0 4px; line-height: 1.25; }
+  .item.pr { padding: 1px 0; grid-template-columns: 40px 1fr; }
+  .item.pr .nm { color: #6B4A2E; font-size: 15px; }
+  .item.pr .id { font-size: 13px; }
+
+  .plays {
+    position: absolute; left: 68px; top: 760px; width: 1512px; height: 230px;
+    background: #FFF8EC; border: 2px solid #1A2E3B; padding: 8px 14px 8px;
+  }
+  .plays .cnt { color: #C45C26; }
+  .pg { display: grid; grid-template-columns: 0.95fr 0.85fr 1.2fr 1.25fr 1.1fr; gap: 10px; }
+  .sgp .sh { font-size: 15px; font-weight: 700; color: #8A3F16; margin: 0 0 3px; line-height: 1.25; }
+  .item.pb { grid-template-columns: 32px 1fr; padding: 1px 0; }
+  .item.pb .nm { color: #8A3F16; font-size: 15px; overflow-wrap: anywhere; }
+  .item.pb .id { font-size: 13px; }
+
+  .legend {
+    position: absolute; left: 1592px; top: 760px; width: 280px; height: 230px;
+    background: #FFF8EC; border: 2px solid #1A2E3B; padding: 8px 10px;
+    display: flex; flex-direction: column;
+  }
+  .legend .gname { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; font-feature-settings: "palt"; line-height: 1.2; margin-bottom: 6px; }
+  .stamp-slot {
+    flex: 1; border: 3px dashed #B33A2B; color: #B33A2B;
+    text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 6px;
+  }
+  .stamp-slot .st { font-size: 20px; font-weight: 700; letter-spacing: 0.08em; line-height: 1.25; }
+  .stamp-slot .st2 { font-size: 14px; font-weight: 400; color: #5C564E; letter-spacing: 0; line-height: 1.3; }
+
+  .footer {
+    position: absolute; left: 68px; right: 48px; top: 1002px; height: 66px;
+    border-top: 2px solid #1A2E3B; padding-top: 8px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;
+  }
+  .footer p { font-size: 15px; line-height: 1.4; color: #3D4A52; }
+  .footer .src { font-weight: 700; color: #1A2E3B; white-space: nowrap; text-align: right; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="margin-line"></div>
+  <div class="draft-stamp">下書き</div>
+  <div class="fig-no">図2　全項目の一覧</div>
+  <h1>pstack 全項目　<span class="acc">スキル58＋プレイブック22</span></h1>
+  <div class="sub">名前は公式の表記のまま。①〜⑥は「いつ呼ぶか」で並べた作業スキル34、⑦は公式の原則グループ、⑧のP番号は公式の1〜22。数え漏れはない。</div>
+  <div class="hero-nums">
+    <div class="hero-num"><div class="n">58</div><div class="l">スキル</div></div>
+    <div class="hero-num pb"><div class="n">22</div><div class="l">プレイブック</div></div>
+  </div>
+
+  <div class="work">
+    <div class="col">
+      <div class="hd"><span class="sec">①</span><span class="gname">入り口にする</span><span class="cnt">3</span></div>
+      <div class="item"><span class="id">1-1</span><span class="nm">/poteto-mode</span></div>
+      <div class="item"><span class="id">1-2</span><span class="nm">/poteto-help</span></div>
+      <div class="item"><span class="id">1-3</span><span class="nm">/setup-pstack</span></div>
+      <div class="hd subhd"><span class="sec">②</span><span class="gname">頼む前に使う</span><span class="cnt">2</span></div>
+      <div class="item"><span class="id">2-1</span><span class="nm">/in-your-own-words</span></div>
+      <div class="item"><span class="id">2-2</span><span class="nm">/sharpen</span></div>
+    </div>
+    <div class="col">
+      <div class="hd"><span class="sec">③</span><span class="gname">知る・追い直す</span><span class="cnt">7</span></div>
+      <div class="item"><span class="id">3-1</span><span class="nm">/how</span></div>
+      <div class="item"><span class="id">3-2</span><span class="nm">/why</span></div>
+      <div class="item"><span class="id">3-3</span><span class="nm">/teach</span></div>
+      <div class="item"><span class="id">3-4</span><span class="nm">/blast-radius</span></div>
+      <div class="item"><span class="id">3-5</span><span class="nm">/recall</span></div>
+      <div class="item"><span class="id">3-6</span><span class="nm">/ketchup</span></div>
+      <div class="item"><span class="id">3-7</span><span class="nm">/ketchup-video</span></div>
+    </div>
+    <div class="col">
+      <div class="hd"><span class="sec">④</span><span class="gname">作る・分ける</span><span class="cnt">6</span></div>
+      <div class="item"><span class="id">4-1</span><span class="nm">/architect</span></div>
+      <div class="item"><span class="id">4-2</span><span class="nm">/arena</span></div>
+      <div class="item"><span class="id">4-3</span><span class="nm">/swarm</span></div>
+      <div class="item"><span class="id">4-4</span><span class="nm">/tdd</span></div>
+      <div class="item"><span class="id">4-5</span><span class="nm">/figure-it-out</span></div>
+      <div class="item"><span class="id">4-6</span><span class="nm">/make-bot-ui</span></div>
+    </div>
+    <div class="col">
+      <div class="hd"><span class="sec">⑤</span><span class="gname">確かめる</span><span class="cnt">8</span></div>
+      <div class="item"><span class="id">5-1</span><span class="nm">/interrogate</span></div>
+      <div class="item"><span class="id">5-2</span><span class="nm">/benchmark-checklist</span></div>
+      <div class="item"><span class="id">5-3</span><span class="nm">/create-verification-skill</span></div>
+      <div class="item"><span class="id">5-4</span><span class="nm">/maintain-verification-skill</span></div>
+      <div class="item"><span class="id">5-5</span><span class="nm">/create-formal-verification-skill</span></div>
+      <div class="item"><span class="id">5-6</span><span class="nm">/maintain-formal-verification-skill</span></div>
+      <div class="item"><span class="id">5-7</span><span class="nm">/statechart</span></div>
+      <div class="item"><span class="id">5-8</span><span class="nm">/show-me-your-work</span></div>
+    </div>
+    <div class="col">
+      <div class="hd"><span class="sec">⑥</span><span class="gname">整える・残す</span><span class="cnt">8</span></div>
+      <div class="item"><span class="id">6-1</span><span class="nm">/no-comments</span></div>
+      <div class="item"><span class="id">6-2</span><span class="nm">/unslop</span></div>
+      <div class="item"><span class="id">6-3</span><span class="nm">/bro</span></div>
+      <div class="item"><span class="id">6-4</span><span class="nm">/technical-writing</span></div>
+      <div class="item"><span class="id">6-5</span><span class="nm">/typescript-best-practices</span></div>
+      <div class="item"><span class="id">6-6</span><span class="nm">/reflect</span></div>
+      <div class="item"><span class="id">6-7</span><span class="nm">/correct</span></div>
+      <div class="item"><span class="id">6-8</span><span class="nm">/automate-me</span></div>
+    </div>
+  </div>
+
+  <div class="think">
+    <div class="phd"><span class="sec">⑦</span><span class="gname">考え方（原則スキル）</span><span class="cnt">24　グループ名は公式</span></div>
+    <div class="tg">
+      <div class="sg">
+        <div class="sh">⑦-1　core　10</div>
+        <div class="item pr"><span class="id">7-1</span><span class="nm">laziness-protocol</span></div>
+        <div class="item pr"><span class="id">7-2</span><span class="nm">foundational-thinking</span></div>
+        <div class="item pr"><span class="id">7-3</span><span class="nm">redesign-from-first-principles</span></div>
+        <div class="item pr"><span class="id">7-4</span><span class="nm">attack-the-premise</span></div>
+        <div class="item pr"><span class="id">7-5</span><span class="nm">subtract-before-you-add</span></div>
+        <div class="item pr"><span class="id">7-6</span><span class="nm">minimize-reader-load</span></div>
+        <div class="item pr"><span class="id">7-7</span><span class="nm">outcome-oriented-execution</span></div>
+        <div class="item pr"><span class="id">7-8</span><span class="nm">experience-first</span></div>
+        <div class="item pr"><span class="id">7-9</span><span class="nm">exhaust-the-design-space</span></div>
+        <div class="item pr"><span class="id">7-10</span><span class="nm">build-the-lever</span></div>
+      </div>
+      <div class="sg">
+        <div class="sh">⑦-2　architecture　6</div>
+        <div class="item pr"><span class="id">7-11</span><span class="nm">model-the-domain</span></div>
+        <div class="item pr"><span class="id">7-12</span><span class="nm">boundary-discipline</span></div>
+        <div class="item pr"><span class="id">7-13</span><span class="nm">type-system-discipline</span></div>
+        <div class="item pr"><span class="id">7-14</span><span class="nm">make-operations-idempotent</span></div>
+        <div class="item pr"><span class="id">7-15</span><span class="nm">migrate-callers-then-delete-legacy-apis</span></div>
+        <div class="item pr"><span class="id">7-16</span><span class="nm">separate-before-serializing-shared-state</span></div>
+      </div>
+      <div class="sg">
+        <div class="sh">⑦-3　verification　5</div>
+        <div class="item pr"><span class="id">7-17</span><span class="nm">prove-it-works</span></div>
+        <div class="item pr"><span class="id">7-18</span><span class="nm">fix-root-causes</span></div>
+        <div class="item pr"><span class="id">7-19</span><span class="nm">sequence-verifiable-units</span></div>
+        <div class="item pr"><span class="id">7-20</span><span class="nm">test-behavior-not-implementation</span></div>
+        <div class="item pr"><span class="id">7-21</span><span class="nm">explain-the-number</span></div>
+      </div>
+      <div class="sg">
+        <div class="sh">⑦-4　delegation　2</div>
+        <div class="item pr"><span class="id">7-22</span><span class="nm">guard-the-context-window</span></div>
+        <div class="item pr"><span class="id">7-23</span><span class="nm">never-block-on-the-human</span></div>
+      </div>
+      <div class="sg">
+        <div class="sh">⑦-5　meta　1</div>
+        <div class="item pr"><span class="id">7-24</span><span class="nm">encode-lessons-in-structure</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plays">
+    <div class="phd"><span class="sec">⑧</span><span class="gname">プレイブック</span><span class="cnt">22　P番号は公式　／　手順書（コマンドではない）</span></div>
+    <div class="pg">
+      <div class="sgp">
+        <div class="sh">調べる　3</div>
+        <div class="item pb"><span class="id">P1</span><span class="nm">investigation</span></div>
+        <div class="item pb"><span class="id">P5</span><span class="nm">runtime forensics</span></div>
+        <div class="item pb"><span class="id">P6</span><span class="nm">trace forensics</span></div>
+      </div>
+      <div class="sgp">
+        <div class="sh">直す・速くする　3</div>
+        <div class="item pb"><span class="id">P2</span><span class="nm">bug fix</span></div>
+        <div class="item pb"><span class="id">P3</span><span class="nm">perf</span></div>
+        <div class="item pb"><span class="id">P4</span><span class="nm">hillclimb</span></div>
+      </div>
+      <div class="sgp">
+        <div class="sh">作る・試す　6</div>
+        <div class="item pb"><span class="id">P7</span><span class="nm">feature</span></div>
+        <div class="item pb"><span class="id">P8</span><span class="nm">refactoring</span></div>
+        <div class="item pb"><span class="id">P9</span><span class="nm">prototype</span></div>
+        <div class="item pb"><span class="id">P10</span><span class="nm">visual parity</span></div>
+        <div class="item pb"><span class="id">P11</span><span class="nm">authoring a skill</span></div>
+        <div class="item pb"><span class="id">P12</span><span class="nm">eval</span></div>
+      </div>
+      <div class="sgp">
+        <div class="sh">出す・任せる　6</div>
+        <div class="item pb"><span class="id">P22</span><span class="nm">opening a pr</span></div>
+        <div class="item pb"><span class="id">P13</span><span class="nm">babysit</span></div>
+        <div class="item pb"><span class="id">P14</span><span class="nm">shipping</span></div>
+        <div class="item pb"><span class="id">P15</span><span class="nm">autonomous run</span></div>
+        <div class="item pb"><span class="id">P16</span><span class="nm">autopilot-full</span></div>
+        <div class="item pb"><span class="id">P17</span><span class="nm">autopilot-stack</span></div>
+      </div>
+      <div class="sgp">
+        <div class="sh">続ける・片付ける　4</div>
+        <div class="item pb"><span class="id">P18</span><span class="nm">session pickup</span></div>
+        <div class="item pb"><span class="id">P19</span><span class="nm">pause safely</span></div>
+        <div class="item pb"><span class="id">P20</span><span class="nm">multi-phase plan</span></div>
+        <div class="item pb"><span class="id">P21</span><span class="nm">worktree cleanup</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="gname">印の見方</div>
+    <div class="stamp-slot">
+      <div class="st">実際に動かした</div>
+      <div class="st2">枠だけ。時刻の印は<br>実行ログが来てから押す</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>図1と同じ番号。①〜⑥の分け方は公式の用途を「いつ呼ぶか」で並べたもの（公式の分類ではない）。⑦のグループ名は公式。opening a pr は他のすべてのプレイブックの末尾で呼ばれる。合わない大きい仕事は /figure-it-out へ。計画だけのスキルは公式には置かれていない。/loop は Cursor 側の機能なので入れていない。作業34＋考え方24＝58。プレイブック22はスキルではない。</p>
+    <p class="src">pstack v0.15.43（2026年11月19日時点）<br>github.com/cursor/plugins（pstack, MIT）</p>
+  </div>
+</div>
+</body>
+</html>
