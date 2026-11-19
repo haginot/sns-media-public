@@ -2,7 +2,7 @@
   "status": "DRAFT — NOT PUBLISHED. No Substack sign-in or publish was performed.",
   "prepared": "2026-11-19 13:50 JST",
   "source_article": "2026-11-19/muse-en/techblog/article_en.md",
-  "source_commit": "615ff91e4ab32d10803a8983175b8bde4e2e113f",
+  "source_commit": "1d72580f31233f285766e35131eaa1804919e283",
   "title_commit": "702a962",
   "english_figures_commit": "0d474fdee7352ffd570651a8100bdcb0c016eabb",
   "image_commit": "f330f6572f06111436a3a7803537cbcd22a4eca4",
@@ -503,7 +503,7 @@
   },
   "notes": [
     "Title and subtitle go in Substack's title and subtitle fields. They are not in the body.",
-    "Built from article_en.md at 615ff91 (image URLs pinned to 0d474fd, which also updates fig24 and section 7). Titles from meta.md at 702a962.",
+    "Built from article_en.md at 1d72580 (5.5 closing sentence aligned with section 7 and fig24: formal Poppy-UCP link via the v1.0 ucp extension; Muse use unconfirmed). Image URLs remain pinned to 0d474fd. Titles from meta.md at 702a962.",
     "All 26 figure/GIF URLs (15 PNG, 11 GIF) are pinned to 0d474fd. Each URL returned HTTP 200 and the bytes matched the local files. GIFs are kept as images; Substack supports GIF.",
     "fig24 was opened and checked against the previous 60005e3 version: the footer now says a formal link exists since v1.0 via Poppy's ucp extension, and that Meta has not said Muse checks out via UCP. Badge is “Canly Tech Blog | Muse Deep Dive”; no Kanrii, no PIVOT, no xAI.",
     "Five markdown tables were rendered to 1600px-wide PNGs in images/, with raw.githubusercontent.com URLs pinned to the commit that added them (f330f65).",

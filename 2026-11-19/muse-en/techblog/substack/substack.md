@@ -580,7 +580,7 @@ The only primary source showing Muse and Poppy working together is a demo at a S
 - Poppy: agree with the business on whose agent this is and what it's allowed to do.
 - UCP: exchange cart, payment, and order information as structured data.
 
-That said, none of the sources I checked define a formal link between the specs (for example, calling UCP checkout within a Poppy session).
+Since v1.0, the formal link between the specs exists: Poppy's [`ucp` extension](https://personalagentprotocol.org/docs/1.0/extensions/ucp) defines how UCP requests, checkout included, run inside a Poppy session. What I still can't confirm is whether Muse uses that path in production. Meta hasn't said that Muse checks out through UCP. (Updated November 19, 2026.)
 
 ---
 

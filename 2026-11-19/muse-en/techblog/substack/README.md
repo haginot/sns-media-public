@@ -2,7 +2,7 @@
 
 **Status: DRAFT — NOT PUBLISHED.** Nothing has been posted to Substack or X. This folder is a paste-ready package for Substack's editor, which does not render Markdown tables.
 
-Built from `../article_en.md` at commit `615ff91` (image URLs already pinned to `0d474fd`). The English title and subtitle were chosen by HAGINO at `702a962` (2026-11-19 13:37 JST, candidate 2). All 26 English figures (15 PNG and 11 GIF) are pinned to `0d474fd`, which redraws fig24 and updates section 7 for the Poppy 1.0 ucp extension (formal Poppy-UCP link; Muse use unconfirmed; rechecked 11/19 13:43 JST). Rendered table PNGs are in `images/`, with `raw.githubusercontent.com` URLs pinned to the commit that added those PNGs (`f330f65`; see `manifest.json`). GIFs are kept as images; Substack supports GIF.
+Built from `../article_en.md` at commit `1d72580` (5.5 closing sentence aligned with section 7 and fig24; image URLs already pinned to `0d474fd`). The English title and subtitle were chosen by HAGINO at `702a962` (2026-11-19 13:37 JST, candidate 2). All 26 English figures (15 PNG and 11 GIF) are pinned to `0d474fd`, which redraws fig24 and updates section 7 for the Poppy 1.0 ucp extension (formal Poppy-UCP link; Muse use unconfirmed; rechecked 11/19 13:43 JST). Rendered table PNGs are in `images/`, with `raw.githubusercontent.com` URLs pinned to the commit that added those PNGs (`f330f65`; see `manifest.json`). GIFs are kept as images; Substack supports GIF.
 
 ## Title and subtitle (Substack fields only — not in the body)
 
