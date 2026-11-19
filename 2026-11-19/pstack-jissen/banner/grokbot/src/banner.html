@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><title>pstack banner (Grok Bot tone)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #F4F5F7; overflow: hidden; }
+  #stage { position: relative; overflow: hidden; background: #F4F5F7; color: #111111;
+    font-family: "Inter", "Noto Sans CJK JP", sans-serif; font-feature-settings: "palt"; }
+  /* --- 16:9 master (1600x900; 1200x675 is the same layout at 0.75) --- */
+  .tech #stage { width: 1600px; height: 900px; }
+  .note #stage { width: 1280px; height: 670px; }
+  h1 { position: absolute; font-weight: 700; line-height: 1.16; letter-spacing: -0.035em; }
+  h1 .l { display: block; white-space: nowrap; }
+  h1 .acc { color: #1386FF; }
+  .tech h1 { left: 80px; top: 64px; font-size: 108px; }
+  .note h1 { left: 56px; top: 44px; font-size: 80px; }
+  .subrow { position: absolute; display: flex; align-items: center; gap: 16px; white-space: nowrap; }
+  .tech .subrow { left: 82px; top: 340px; font-size: 36px; }
+  .note .subrow { left: 58px; top: 244px; font-size: 28px; gap: 12px; }
+  .pill { background: #111111; color: #FFFFFF; border-radius: 999px; font-weight: 600; font-family: "Inter", sans-serif; letter-spacing: -0.01em; }
+  .tech .subrow .pill { padding: 6px 22px 8px; font-size: 32px; }
+  .note .subrow .pill { padding: 4px 16px 6px; font-size: 24px; }
+  .subrow .t { font-weight: 400; color: #111111; }
+
+  .hero { position: absolute; }
+  .tech .hero { left: 64px; bottom: 110px; width: 270px; }
+  .note .hero { left: 52px; bottom: 80px; width: 190px; }
+  .hero svg { width: 100% !important; height: auto !important; }
+  .wrench { position: absolute; }
+  .tech .wrench { left: 282px; bottom: 150px; width: 118px; }
+  .note .wrench { left: 208px; bottom: 100px; width: 90px; }
+
+  .card { position: absolute; background: #FFFFFF; border: 1.5px solid #E1E3E8; box-shadow: 0 3px 0 #E3E5EA; }
+  .tech .card { left: 420px; top: 446px; width: 1100px; height: 344px; border-radius: 34px; padding: 30px 40px; }
+  .note .card { left: 320px; top: 318px; width: 904px; height: 276px; border-radius: 28px; padding: 22px 30px; }
+  .card .bar { display: flex; align-items: center; gap: 12px; }
+  .dot { border-radius: 50%; background: #E1E3E8; }
+  .tech .dot { width: 16px; height: 16px; } .note .dot { width: 13px; height: 13px; }
+  .card .name { font-weight: 700; margin-left: 12px; }
+  .tech .card .name { font-size: 34px; } .note .card .name { font-size: 27px; }
+  .card .time { margin-left: auto; }
+  .tech .card .time { font-size: 26px; padding: 5px 18px 7px; } .note .card .time { font-size: 21px; padding: 4px 14px 5px; }
+  .rows { display: flex; flex-direction: column; }
+  .tech .rows { margin-top: 22px; gap: 14px; } .note .rows { margin-top: 16px; gap: 10px; }
+  .row { display: flex; align-items: center; background: #F4F5F7; border-radius: 999px; }
+  .tech .row { height: 64px; padding: 0 26px 0 14px; font-size: 32px; gap: 18px; }
+  .note .row { height: 50px; padding: 0 20px 0 10px; font-size: 25px; gap: 14px; }
+  .ok { border-radius: 50%; background: #1386FF; display: flex; align-items: center; justify-content: center; flex: none; }
+  .tech .ok { width: 46px; height: 46px; } .note .ok { width: 36px; height: 36px; }
+  .ok svg { width: 58%; height: 58%; }
+  .row .v { margin-left: auto; font-weight: 700; color: #1386FF; }
+  .peek { position: absolute; }
+  .peek svg { width: 100% !important; height: auto !important; }
+  .peek { bottom: auto; }
+  .tech .peek.p1 { left: 1432px; top: 330px; width: 74px; }
+  .tech .peek.p2 { left: 1352px; top: 360px; width: 50px; }
+  .tech .peek.p3 { left: 1278px; top: 344px; width: 62px; }
+  .tech .peek.p4 { left: 1214px; top: 370px; width: 44px; }
+  .note .peek.p1 { left: 1146px; top: 230px; width: 58px; }
+  .note .peek.p2 { left: 1084px; top: 254px; width: 40px; }
+  .note .peek.p3 { left: 1026px; top: 240px; width: 48px; }
+  .note .peek.p4 { left: 976px; top: 260px; width: 36px; }
+  .foot { position: absolute; font-size: 24px; white-space: nowrap; }
+  .tech .foot.brand { right: 80px; bottom: 58px; font-weight: 700; }
+  .tech .foot.credit { left: 422px; bottom: 58px; color: #5F6368; font-size: 22px; }
+  .note .foot.credit { right: 56px; bottom: 42px; color: #5F6368; font-size: 18px; }
+  .note .foot.brand { display: none; }
+</style></head>
+<body class="tech">
+<div id="stage">
+  <h1 id="title"></h1>
+  <div class="subrow"><span class="pill">pstack</span><span class="t" id="subtitle"></span></div>
+  <div class="hero" id="hero"></div>
+  <svg class="wrench" viewBox="0 0 120 120" aria-hidden="true"><g transform="rotate(-38 60 60)"><rect x="50" y="34" width="20" height="80" rx="10" fill="#1386FF"/><path d="M60 4 a30 30 0 1 1 -0.01 0 Z M48 6 L48 30 L72 30 L72 6 Z" fill="#1386FF" fill-rule="evenodd"/></g></svg>
+  <div class="card">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="name" id="cardName"></span><span class="pill time" id="cardPill"></span></div>
+    <div class="rows" id="rows"></div>
+  </div>
+  <div class="peek p1" id="p1"></div><div class="peek p2" id="p2"></div><div class="peek p3" id="p3"></div><div class="peek p4" id="p4"></div>
+  <div class="foot credit">作図：萩野貴拓</div>
+  <div class="foot brand" id="brand"></div>
+</div>
+<script src="chars.js"></script>
+<script>
+  const CHECK = '<svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  window.applyCopy = function ({ title, subtitle, brand, rows, accents, cardName, cardPill }) {
+    const parts = title.replace(/\\n/g, '\n').split('\n');
+    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const hl = (s) => { let o = esc(s); (accents || []).forEach((a) => { o = o.split(esc(a)).join(`<span class="acc">${esc(a)}</span>`); }); return o; };
+    document.getElementById('title').innerHTML = parts.map((p) => `<span class="l">${hl(p)}</span>`).join('');
+    document.getElementById('subtitle').textContent = subtitle;
+    document.getElementById('brand').textContent = brand || '';
+    document.getElementById('cardName').textContent = cardName;
+    document.getElementById('cardPill').textContent = cardPill;
+    document.getElementById('rows').innerHTML = rows.map(([k, v]) => `<div class="row"><span class="ok">${CHECK}</span><span>${esc(k)}</span>${v ? `<span class="v">${esc(v)}</span>` : ''}</div>`).join('');
+    // hero = Claude Code's black mochi (same character as the figures); small crew perched on the card
+    document.getElementById('hero').innerHTML = bot({ kind: 'mochi', color: '#000000', size: 270, look: [0.85, 0.15] });
+    document.getElementById('p1').innerHTML = bot({ kind: 'round', color: '#FF309C', size: 74, look: [-0.7, 0.6] });
+    document.getElementById('p2').innerHTML = bot({ kind: 'box', color: '#9259FE', size: 50, look: [0.6, 0.7] });
+    document.getElementById('p3').innerHTML = bot({ kind: 'round', color: '#1386FF', size: 62, look: [-0.6, 0.7] });
+    document.getElementById('p4').innerHTML = bot({ kind: 'box', color: '#FF6801', size: 44, look: [-0.7, 0.5] });
+    // seat every perched bot on the card's top edge
+    const cardTop = document.querySelector('.card').offsetTop;
+    document.querySelectorAll('.peek').forEach((p) => { p.style.top = (cardTop - p.offsetHeight + 2) + 'px'; });
+  };</script>
+</body></html>

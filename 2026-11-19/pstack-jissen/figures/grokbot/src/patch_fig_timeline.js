@@ -1,13 +1,16 @@
 // Timeline cards: the rail keeps only its meaning (cloud: the person who stepped in; night: the moon).
-// Each run gets its own original character in the card's open space.
+// Each run gets its own original character at the card's bottom right, beside (never over) the facts.
 (function () {
   const css = `
   .gbt { position: absolute; left: 50%; transform: translateX(-50%); top: 40px; }
   body.s1280 .gbt { top: 22px; }
   .gbt .hum { width: 40px; height: 72px; display:block } body.s1280 .gbt .hum { width: 24px; height: 43px; }
   .gbt .mn { width: 56px; height: 56px; display:block; margin-top: 8px } body.s1280 .gbt .mn { width: 32px; height: 32px; margin-top: 6px }
-  .gbig { flex: 1; display: flex; align-items: center; justify-content: center; gap: 18px; min-height: 0; }
-  .gbig .bb { width: 150px; } body.s1280 .gbig .bb { width: 82px; }
+  .run { position: relative; }
+  .gbig { position: absolute; right: 30px; bottom: 18px; }
+  body.s1280 .gbig { right: 14px; bottom: 8px; }
+  .facts { margin-right: 200px; } body.s1280 .facts { margin-right: 110px; }
+  .gbig .bb { width: 130px; } body.s1280 .gbig .bb { width: 76px; }
   .gbig .bb svg { width: 100% !important; height: auto !important; }`;
   document.head.insertAdjacentHTML('beforeend', `<style>${css}</style>`);
   const human = `<svg class="hum" viewBox="0 0 40 72"><circle cx="20" cy="11" r="10" fill="#111111"/><rect x="5" y="25" width="30" height="47" rx="12" fill="#FF6801"/></svg>`;
