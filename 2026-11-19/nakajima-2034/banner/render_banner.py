@@ -56,7 +56,7 @@ def save_png(path, im):
     return im
 
 def main():
-    variants = sys.argv[1:] or ["a", "b"]
+    variants = sys.argv[1:] or ["a", "b", "c"]
     report = {}
     with sync_playwright() as p:
         browser = p.chromium.launch(
