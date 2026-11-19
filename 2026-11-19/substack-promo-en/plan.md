@@ -1,9 +1,9 @@
 # English X promo drafts for two Substack ontology posts
 
-Status: **2 scheduled, 17 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). At 13:38 JST the live @haginota queue was 8/10, so only T0 and T1 were scheduled. The remaining 17 stay drafts until a slot opens. Nothing was published immediately.
+Status: **T0 sent, T1 and T2 scheduled, 16 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). T0 and T1 were scheduled at 13:38 JST. T0 went out at 16:30 JST. At 2026-11-19 18:04 JST the live @haginota queue was 9/10, so T2 was scheduled at its planned 11/21 16:00. The remaining 16 stay drafts until a slot opens.
 
 Channel: @haginota (`6aeb2f32e29c69a1715cb51a`), organization “My organization” (`6ae309778cac57bdae1e3a7d`).  
-Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. Re-fetched with `get_post`: T0 and T1 are `status: scheduled` with the planned `dueAt`; text, image URL, and alt are unchanged. The other 17 remain `status: draft`, `dueAt: null`, `sentAt: null`.
+Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. T2 scheduled: 2026-11-19 18:04 JST. Re-fetched with `get_post`: T0 is `status: sent` (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST); T1 and T2 are `status: scheduled` with the planned `dueAt`; text, image URL, and alt are unchanged. The other 16 remain `status: draft`, `dueAt: null`, `sentAt: null`.
 
 ## Articles
 
@@ -26,20 +26,21 @@ Last relevant sent posts today on @haginota:
 |---|---|
 | 2026-11-19 12:03 | Scrunch (Japanese), already sent |
 | 2026-11-19 12:23 | Scrunch (English), already sent |
+| 2026-11-19 16:30 | T0 English Substack promo (banner), already sent |
 
 The brief asked to start no earlier than 3 hours after AIO総合研究所's Scrunch posts this afternoon. Those posts had already gone out at 12:03 and 12:23 JST, so the earliest start is **15:23 JST today**.
 
-Live @haginota scheduled queue as of 2026-11-19 13:38 JST (free plan: **10 of 10 slots used**):
+Live @haginota scheduled queue as of 2026-11-19 18:04 JST (free plan: **10 of 10 slots used**):
 
 | Time (JST) | Topic |
 |---|---|
-| 2026-11-19 16:30 | T0 English Substack promo (banner) — scheduled this turn |
 | 2026-11-19 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-19 23:15 | Meta encoder English video |
 | 2026-11-20 12:00 | Japanese note ontology promo |
-| 2026-11-20 16:00 | T1 English Substack promo (fig1) — scheduled this turn |
+| 2026-11-20 16:00 | T1 English Substack promo (fig1) |
 | 2026-11-20 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-21 12:00 | Japanese note ontology promo |
+| 2026-11-21 16:00 | T2 English Substack promo (fig2) — scheduled this turn |
 | 2026-11-21 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-22 12:00 | Japanese note ontology promo |
 | 2026-11-22 20:00 | Japanese Canly Tech Blog ontology promo |
@@ -48,13 +49,13 @@ Live @haginota scheduled queue as of 2026-11-19 13:38 JST (free plan: **10 of 10
 
 ## Schedule and status
 
-All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 13:38 JST.
+All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 2026-11-19 18:04 JST.
 
 | # | ID | Planned time (JST) | Image | Weighted chars | Buffer id | Status |
 |---|---|---|---|---|---|---|
-| 1 | T0 | 2026-11-19 16:30 | banner_en_1600x900.png | 263 | `6afe7838f6b6aa0cd49eb074` | scheduled (`dueAt` 2026-11-19T07:30:00.000Z = 16:30 JST) |
+| 1 | T0 | 2026-11-19 16:30 | banner_en_1600x900.png | 263 | `6afe7838f6b6aa0cd49eb074` | sent (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST) |
 | 2 | T1 | 2026-11-20 16:00 | fig1.png | 272 | `6afe783a3802f5b9fc681246` | scheduled (`dueAt` 2026-11-20T07:00:00.000Z = 16:00 JST) |
-| 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` | draft |
+| 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` | scheduled (`dueAt` 2026-11-21T07:00:00.000Z = 16:00 JST) |
 | 4 | T3 | 2026-11-22 16:00 | fig3.png | 278 | `6afe783e3802f5b9fc68133f` | draft |
 | 5 | T4 | 2026-11-23 09:00 | fig4.png | 269 | `6afe784959eff0b616dcc8e6` | draft |
 | 6 | T5 | 2026-11-23 12:15 | fig5.png | 267 | `6afe784b749099bdc70ca7c7` | draft |
@@ -74,7 +75,7 @@ All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_po
 
 From 11/23 the cadence is 09:00, 12:15, 15:30, 18:45 (3 hours 15 minutes apart), during reasonable hours.
 
-**Scheduling constraint:** the free plan allows 10 scheduled posts. After T0 and T1 were added, the queue is **10/10**. T2 onward must wait until a slot frees (the next opening is after T0 goes out at 16:30 JST today, at which point T2's planned 11/21 16:00 can be reserved). Do not exceed 10.
+**Scheduling constraint:** the free plan allows 10 scheduled posts. After T2 was added, the queue is **10/10**. T3 onward must wait until a slot frees (the next opening is after today's 20:00 JST post goes out, at which point T3's planned 11/22 16:00 can be reserved, still 4 hours from the 12:00 and 20:00 posts that day). Do not exceed 10.
 
 ## Post copy
 
@@ -88,7 +89,7 @@ I just published an English version of my Canly Tech Blog article: Foundry Ontol
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/37d08785d94df3a4dde10111a9e9af9a483c9194/2026-11-16/zenn-ontology/en/banner/banner_en_1600x900.png (1600×900 PNG, HTTP 200, SHA match)
 - Alt: Foundry Ontology Through a DDD Lens — Canly Tech Blog cover
-- Buffer: `6afe7838f6b6aa0cd49eb074` — scheduled, `dueAt` 2026-11-19T07:30:00.000Z (16:30 JST). Re-fetched: status scheduled; text, image, and alt unchanged.
+- Buffer: `6afe7838f6b6aa0cd49eb074` — sent, `dueAt` 2026-11-19T07:30:00.000Z, `sentAt` 2026-11-19T07:30:10.199Z (16:30 JST). Re-fetched: status sent; text, image, and alt unchanged.
 
 #### T1 — fig1
 
@@ -104,7 +105,7 @@ Inference and validation do different jobs. OWL doesn't treat a fact that isn't 
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig2.png (2000×1125 PNG, HTTP 200, SHA match)
 - Alt: Inference and validation do different jobs. A small graph of ep001 and ep002 (episodes) and guest001, with `features rdfs:range Person` and `sh:class Person / sh:minCount 1`. Left panel, without inference: guest001 is not stated as a Person and fails the class check; ep002 has zero guests and fails minCount. Right panel, with RDFS inference: guest001 is inferred as a Person from range, so that violation goes away; the minCount failure remains. Footer: OWL doesn't treat unstated facts as false (open-world assumption); write required checks in SHACL. Illustrative example, run with pySHACL 0.40.2.
-- Buffer: `6afe783c46636f319e880980` — draft, no dueAt
+- Buffer: `6afe783c46636f319e880980` — scheduled, `dueAt` 2026-11-21T07:00:00.000Z (16:00 JST). Re-fetched: status scheduled; text, image, and alt unchanged.
 
 #### T3 — fig3
 
