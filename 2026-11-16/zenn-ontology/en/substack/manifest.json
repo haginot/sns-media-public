@@ -1,0 +1,342 @@
+{
+  "status": "DRAFT — NOT PUBLISHED. No Substack sign-in or publish was performed.",
+  "prepared": "2026-11-19 12:09 JST",
+  "source_article": "2026-11-16/zenn-ontology/en/article_en.md",
+  "source_commit_of_english_draft": "fe103db",
+  "english_figures_commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+  "image_commit": "485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce",
+  "title": "[I explained ontology on PIVOT] Why Palantir's Foundry Ontology can be read as DDD domain modeling",
+  "title_status": "TBD — awaiting HAGINO confirmation; the draft title was not changed.",
+  "placeholders": [
+    {
+      "marker": "[[COVER BANNER EN - pending]]",
+      "position": "top of substack.md / substack.html, before the H1",
+      "reason": "The English cover banner is being made separately and was not ready."
+    }
+  ],
+  "counts": {
+    "mermaid_blocks_converted": 1,
+    "markdown_tables_converted": 6,
+    "code_blocks_left_as_code": 30,
+    "english_figures_embedded": 7,
+    "placeholders_left": 1
+  },
+  "replacements": [
+    {
+      "type": "mermaid",
+      "source": "article_en.md fenced ```mermaid sequenceDiagram (execution order of the local demo)",
+      "source_lines": "672-696",
+      "replacement": {
+        "file": "images/mermaid_sequence.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce/2026-11-16/zenn-ontology/en/substack/images/mermaid_sequence.png",
+        "sha256": "4b412dc7372b1f558e2d5cc4b0dfdf7b0ca64c2b253519487574f8561092d6a0",
+        "width": 1600,
+        "height": 1456,
+        "bytes": 211942,
+        "note": "Rendered as a clean sequence diagram (SVG → PNG) with the exact English labels from the mermaid block. Line breaks were added only for layout; wording, order, and participants are unchanged. mermaid-cli was tried first but clipped long message labels, so the final PNG was drawn from the same text."
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Standard', 'Role'])",
+      "source_lines": "51-56",
+      "header": [
+        "Standard",
+        "Role"
+      ],
+      "n_data_rows": 4,
+      "links_in_source": [
+        {
+          "text": "RDF",
+          "url": "https://www.w3.org/TR/rdf11-concepts/"
+        },
+        {
+          "text": "OWL 2",
+          "url": "https://www.w3.org/TR/owl2-overview/"
+        },
+        {
+          "text": "Can also be written as an RDF graph",
+          "url": "https://www.w3.org/TR/owl2-mapping-to-rdf/"
+        },
+        {
+          "text": "SHACL",
+          "url": "https://www.w3.org/TR/shacl/"
+        },
+        {
+          "text": "SPARQL 1.1 Update",
+          "url": "https://www.w3.org/TR/sparql11-update/"
+        }
+      ],
+      "note": "Visible cell text is unchanged. Markdown links are shown as the link text (underlined) in the PNG; the URLs themselves are listed here and also appear in the article's References section.",
+      "replacement": {
+        "file": "images/table_01_standards.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce/2026-11-16/zenn-ontology/en/substack/images/table_01_standards.png",
+        "sha256": "2f899ba737316b04ce7bedc9bc3ac27ae4bac35822aedbc15adc69b4661229f7",
+        "width": 1600,
+        "height": 352,
+        "bytes": 109049
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Element', \"Palantir's definition (summarized)\"])",
+      "source_lines": "155-163",
+      "header": [
+        "Element",
+        "Palantir's definition (summarized)"
+      ],
+      "n_data_rows": 7,
+      "links_in_source": [
+        {
+          "text": "Core concepts",
+          "url": "https://www.palantir.com/docs/foundry/ontology/core-concepts"
+        },
+        {
+          "text": "Link types are bidirectional",
+          "url": "https://www.palantir.com/docs/foundry/object-link-types/link-types-overview"
+        },
+        {
+          "text": "Action types",
+          "url": "https://www.palantir.com/docs/foundry/action-types/overview"
+        },
+        {
+          "text": "TypeScript and Python",
+          "url": "https://www.palantir.com/docs/foundry/functions/overview"
+        },
+        {
+          "text": "Core concepts",
+          "url": "https://www.palantir.com/docs/foundry/ontology/core-concepts"
+        }
+      ],
+      "note": "Visible cell text is unchanged. Markdown links are shown as the link text (underlined) in the PNG; the URLs themselves are listed here and also appear in the article's References section.",
+      "replacement": {
+        "file": "images/table_02_foundry_elements.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce/2026-11-16/zenn-ontology/en/substack/images/table_02_foundry_elements.png",
+        "sha256": "2de38577beb5f78eba61b7c8b181b1299122b3d1522e3bd9fb35d7271d7eed0a",
+        "width": 1600,
+        "height": 549,
+        "bytes": 187584
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Item', 'Ontology in general (W3C standards)', 'Foundry Ontology'])",
+      "source_lines": "169-177",
+      "header": [
+        "Item",
+        "Ontology in general (W3C standards)",
+        "Foundry Ontology"
+      ],
+      "n_data_rows": 7,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Markdown links are shown as the link text (underlined) in the PNG; the URLs themselves are listed here and also appear in the article's References section.",
+      "replacement": {
+        "file": "images/table_03_side_by_side.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce/2026-11-16/zenn-ontology/en/substack/images/table_03_side_by_side.png",
+        "sha256": "9fb3dd11ea4143177dca2d0c566aee9bbd7e5e1c30da4aa32e4eff05077c1659",
+        "width": 1600,
+        "height": 578,
+        "bytes": 217243
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Ontology component', 'DDD term', 'Counterpart in the research repository'])",
+      "source_lines": "240-249",
+      "header": [
+        "Ontology component",
+        "DDD term",
+        "Counterpart in the research repository"
+      ],
+      "n_data_rows": 8,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Markdown links are shown as the link text (underlined) in the PNG; the URLs themselves are listed here and also appear in the article's References section.",
+      "replacement": {
+        "file": "images/table_04_ddd_mapping.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce/2026-11-16/zenn-ontology/en/substack/images/table_04_ddd_mapping.png",
+        "sha256": "c7e59393a21c3dd7a2d9d3838b3a7a0a02e95fd91ac734e6cf92ca761a239358",
+        "width": 1600,
+        "height": 808,
+        "bytes": 404615
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table ([\"What's tested\", 'What is actually checked'])",
+      "source_lines": "748-758",
+      "header": [
+        "What's tested",
+        "What is actually checked"
+      ],
+      "n_data_rows": 9,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Markdown links are shown as the link text (underlined) in the PNG; the URLs themselves are listed here and also appear in the article's References section.",
+      "replacement": {
+        "file": "images/table_05_tests.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce/2026-11-16/zenn-ontology/en/substack/images/table_05_tests.png",
+        "sha256": "e65da3da1fbc81b95f3b044c2071b7fca691c5678520b280fc84cd71fb6d3a39",
+        "width": 1600,
+        "height": 690,
+        "bytes": 263573
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Role', 'Typical implementation options', 'Responsibility of whoever assembles it'])",
+      "source_lines": "838-845",
+      "header": [
+        "Role",
+        "Typical implementation options",
+        "Responsibility of whoever assembles it"
+      ],
+      "n_data_rows": 6,
+      "links_in_source": [
+        {
+          "text": "JSON Schema",
+          "url": "https://json-schema.org/understanding-json-schema/reference/object"
+        },
+        {
+          "text": "OPA",
+          "url": "https://www.openpolicyagent.org/docs/policy-language"
+        },
+        {
+          "text": "Cedar",
+          "url": "https://docs.cedarpolicy.com/"
+        },
+        {
+          "text": "PostgreSQL transactions",
+          "url": "https://www.postgresql.org/docs/current/tutorial-transactions.html"
+        }
+      ],
+      "note": "Visible cell text is unchanged. Markdown links are shown as the link text (underlined) in the PNG; the URLs themselves are listed here and also appear in the article's References section.",
+      "replacement": {
+        "file": "images/table_06_oss_roles.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/485e2cdc0689db9c7cbdcb6a00e2e2964298b3ce/2026-11-16/zenn-ontology/en/substack/images/table_06_oss_roles.png",
+        "sha256": "c7f7d06a3b4f50fe69ba2ad98c4640e0c7e22b0b3ca12745c54e1fc9a8da6d3d",
+        "width": 1600,
+        "height": 638,
+        "bytes": 254035
+      }
+    }
+  ],
+  "figures": [
+    {
+      "id": "fig1",
+      "file": "../figures/fig1.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/c1065d5f498690b07033bf66e8c2c815a7afc5d1/2026-11-16/zenn-ontology/en/figures/fig1.png",
+      "commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+      "sha256": "f63f141a1e5fde8864fe69431dc9cfc9f8d9bd2533a94593cc1a753f589cf9ce",
+      "width": 2000,
+      "height": 1125,
+      "bytes": 373756,
+      "caption": "Figure 1: The difference in scope between what general ontology and Foundry Ontology call \"ontology\"",
+      "alt": "Side-by-side comparison of what counts as “ontology.” Left: ontology in general (W3C standards), with a type layer (classes, properties, constraints; RDF, OWL, SHACL, SPARQL) and optional actual data (knowledge graph). Permissions and writes to business systems are outside the standards' scope. Right: Foundry Ontology (Palantir), where types, contents (objects and links), and components that make things happen (actions, functions, permissions) are all inside what Foundry calls “ontology.” A dotted line marks the two type layers as the same layer. Footer: not better or worse, a difference in how much gets called by the same name.",
+      "placeholder": false
+    },
+    {
+      "id": "fig2",
+      "file": "../figures/fig2.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/c1065d5f498690b07033bf66e8c2c815a7afc5d1/2026-11-16/zenn-ontology/en/figures/fig2.png",
+      "commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+      "sha256": "9ca5b26e2cc0ce9b406f5604f9dd1c916ba60b3053ba8be3953b296692eb1b2d",
+      "width": 2000,
+      "height": 1125,
+      "bytes": 452880,
+      "caption": "Figure 2: The same range declaration works as inference in OWL / RDFS and as validation in SHACL",
+      "alt": "Inference and validation do different jobs. A small graph of ep001 and ep002 (episodes) and guest001, with `features rdfs:range Person` and `sh:class Person / sh:minCount 1`. Left panel, without inference: guest001 is not stated as a Person and fails the class check; ep002 has zero guests and fails minCount. Right panel, with RDFS inference: guest001 is inferred as a Person from range, so that violation goes away; the minCount failure remains. Footer: OWL doesn't treat unstated facts as false (open-world assumption); write required checks in SHACL. Illustrative example, run with pySHACL 0.40.2.",
+      "placeholder": false
+    },
+    {
+      "id": "fig3",
+      "file": "../figures/fig3.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/c1065d5f498690b07033bf66e8c2c815a7afc5d1/2026-11-16/zenn-ontology/en/figures/fig3.png",
+      "commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+      "sha256": "6203219724993fe9c62d91f44fb23770837c1a5927649ec04c66c462299e33d1",
+      "width": 2000,
+      "height": 1125,
+      "bytes": 655370,
+      "caption": "Figure 3: Object types, link types, and properties (the type layer), and objects and links (the instance layer)",
+      "alt": "Types and instances are different layers. The upper plate is the type layer (object types, link types, properties): Theme, Episode, and Person, linked by ABOUT / covers and FEATURES / features, with properties publishedAt (publish date) and durationSeconds (length). This is close to “classes and properties” in ontology in general. The lower plate is the instance layer (objects and links): Theme: AI, Episode A, Episode B, Person X, Person Y. What is called a knowledge graph or object graph is mainly this layer. Episodes and people are fictional data.",
+      "placeholder": false
+    },
+    {
+      "id": "fig4",
+      "file": "../figures/fig4.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/c1065d5f498690b07033bf66e8c2c815a7afc5d1/2026-11-16/zenn-ontology/en/figures/fig4.png",
+      "commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+      "sha256": "10d378a3b926306b4b33d7e4cc1bddb0f0e4abd5f6cacb7dbbd0733132cfef85",
+      "width": 2000,
+      "height": 1125,
+      "bytes": 541342,
+      "caption": "Figure 4: The flow of an action: parameters → submission criteria → rules → writeback and side effects → action log",
+      "alt": "An action defines how things get changed. Six steps: ① Parameters (input types); ② Submission criteria (who, and in what state; can be submitted only when all are met); ③ Rules (create, modify, delete objects and links / function rules); ④ Applied in a single transaction; ⑤ Writeback and side effects (writeback dataset, business systems / notifications, webhooks); ⑥ Action log (records successful submissions only). A rejection branch from step ②: not met → cannot submit (failures are tracked in action metrics). A permissions rail: roles / object and property policies (cell-level). The author’s view: this whole set of constraints is a “harness” (not a Palantir term). Example: change a flight's aircraft — only if the user is in the flight controllers group and the aircraft is in service.",
+      "placeholder": false
+    },
+    {
+      "id": "fig5",
+      "file": "../figures/fig5.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/c1065d5f498690b07033bf66e8c2c815a7afc5d1/2026-11-16/zenn-ontology/en/figures/fig5.png",
+      "commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+      "sha256": "e9af41f78c0a090682af065d3b88034bb77ab0171c1d20730a35dd6fba50ae16",
+      "width": 2000,
+      "height": 1125,
+      "bytes": 644337,
+      "caption": "Figure 5: Structure of the research repository: collecting public data → schema → graph and aggregation → demos (fictional data) → verification",
+      "alt": "Inside the research repository pivot-ontology. Top row, public data: ① Collect (public data from PIVOT's official YouTube channel); ② Normalize (Episode / MetricsSnapshot); ③ Extract (rules / LLM); ④ Schema (schema.yaml, with provenance: public, owner, derived, computed, external); ⑤ Graph and aggregates (the 212 episodes that are “fully collected AND public for 30+ days”). Below, a simulation on fictional data: Demo 1 operational-ontology-demo (operations spanning four business systems; cancel and return as separate actions); Demo 2 pivot-live-studio (a real Codex agent + human approval); Demo 3 pivot-team-agent-demo (the demo used on the show; runs to a script). At right, pivot-ontology-basis for verification (A plain text / B glossary / C ontology / Z no knowledge; unpublished, not peer-reviewed). Legend: public data, synthetic data, evaluation data.",
+      "placeholder": false
+    },
+    {
+      "id": "fig6",
+      "file": "../figures/fig6.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/c1065d5f498690b07033bf66e8c2c815a7afc5d1/2026-11-16/zenn-ontology/en/figures/fig6.png",
+      "commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+      "sha256": "039033954718663139bf847217ba42d9e13b96c14847a5fe9b555fd5cf057546",
+      "width": 2000,
+      "height": 1125,
+      "bytes": 564798,
+      "caption": "Figure 6: Where the LLM agent sits: it reads the ontology, proposes changes, and nothing is finalized until those changes pass human approval and the submission criteria",
+      "alt": "AI proposes, humans approve. An LLM agent (Codex) sits on an ontology plate (definitions of types, relationships, actions) and uses ontology_schema, search_objects, traverse_graph, and get_object. The flow, left as drawn: change plan (proposal) — propose_rebooking; human approval — approve_plan (production lead only; not among the agent's tools); pre-execution check — check_plan (have the premises (versions) changed since approval?); commit — commit_rebooking (applied in one transaction); audit record (keeps both successes and refusals). A dotted loop: premises changed → can't commit → redo the plan. Footer: conditions for execution and who approves are bound by server-side definitions, not by the prompt. Fictional data; no Palantir products are used.",
+      "placeholder": false
+    },
+    {
+      "id": "fig7",
+      "file": "../figures/fig7.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/c1065d5f498690b07033bf66e8c2c815a7afc5d1/2026-11-16/zenn-ontology/en/figures/fig7.png",
+      "commit": "c1065d5f498690b07033bf66e8c2c815a7afc5d1",
+      "sha256": "9884f742f29aacf24a687ec5cd1c006de595b0482808edb3fcc17714e77a5f46",
+      "width": 2000,
+      "height": 1125,
+      "bytes": 263194,
+      "caption": "Figure 7: The difference in size between the effect of providing knowledge and the effect of writing that knowledge in ontology form",
+      "alt": "What helps first is providing knowledge. Four bars, as points of difference vs. no knowledge or vs. plain text: whether knowledge is provided, +25.7 to +49.3; same knowledge in ontology form (high difficulty, main analysis), +2.3 (significant); same (conservative re-analysis), ≈ +2.0 (not significant after correction); procedural work (Experiment II), −0.5 (no significant difference). Footer: unpublished, not peer-reviewed; results from a single fictional business; analysis covers 2,117 runs.",
+      "placeholder": false
+    }
+  ],
+  "known_figure_article_mismatches_pending_hagino": [
+    {
+      "figure": "fig4",
+      "issue": "The figure has six steps, including “④ Applied in a single transaction,” but the article caption lists five (no transaction step).",
+      "action": "Left as drawn in the English figure. Not fixed. Awaiting HAGINO's decision."
+    },
+    {
+      "figure": "fig6",
+      "issue": "The figure draws check_plan after human approval. In the article, the AI calls check_plan before approval, and the re-check happens inside commit_rebooking.",
+      "action": "Left as drawn in the English figure. Not fixed. Awaiting HAGINO's decision."
+    },
+    {
+      "figure": "fig7",
+      "issue": "The figure shows −0.5 for Experiment II. That number does not appear in the article text, which only says the form made no difference.",
+      "action": "Left as drawn in the English figure. Not fixed. Awaiting HAGINO's decision."
+    }
+  ],
+  "constraints_observed": [
+    "Article wording, numbers, caveats, and code were not altered.",
+    "Code blocks remain code blocks.",
+    "English title left unchanged pending confirmation.",
+    "No Palantir logo or typeface used in rendered images (Inter / DejaVu Sans Mono).",
+    "No xAI company name.",
+    "Did not edit, link, or quote b4c5dd12f7d038.",
+    "Did not publish or sign in to Substack.",
+    "Only files under 2026-11-16/zenn-ontology/en/substack/ were added."
+  ]
+}
