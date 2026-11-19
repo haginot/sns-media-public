@@ -1,6 +1,6 @@
-*This is the English version of a post I originally wrote in Japanese for the Kanrii Tech Blog (カンリー Techブログ), published November 9, 2026: [Japanese original](https://zenn.dev/canly/articles/d108f4bc26ceb7).*
+*This is the English version of a post I originally wrote in Japanese for the Canly Tech Blog (カンリー Techブログ), published November 9, 2026: [Japanese original](https://zenn.dev/canly/articles/d108f4bc26ceb7).*
 
-I'm [HAGINO, CAIO at Kanrii](https://x.com/haginota). On Saturday, November 7, a new episode of a Japanese business TV show I appeared on went live. The show is hugely popular with working professionals in Japan.
+I'm [HAGINO, CAIO at Canly](https://x.com/haginota). On Saturday, November 7, a new episode of a Japanese business TV show I appeared on went live. The show is hugely popular with working professionals in Japan.
 
 When I was on the show in May 2026, I [talked about AI agents and automation, using OpenClaw as the example](https://youtu.be/PeZHAztFgqc?si=hmygu1B6omAXENft). **This time the topic is Muse, Meta's personal AI agent.**
 
@@ -602,9 +602,9 @@ That said, none of the sources I checked define a formal link between the specs 
 
 ![Implications for brick-and-mortar businesses: machine-readable entry points, labeled as analysis](https://raw.githubusercontent.com/haginot/sns-media-public/fca3d9cbdb1c8eec54deb0ea83144b5ed8bd17df/2026-11-19/muse-en/techblog/figures/fig25.png)
 
-This chapter is my personal take, not Kanrii's product plan or official position.
+This chapter is my personal take, not Canly's product plan or official position.
 
-At Kanrii, we offer a service for managing and analyzing store information and reviews in one place across platforms like Google Business Profile (GBP) and Yahoo! Place (Yahoo! Japan's local listings). In Japan this space is usually called MEO (map engine optimization, roughly local SEO).
+At Canly, we offer a service for managing and analyzing store information and reviews in one place across platforms like Google Business Profile (GBP) and Yahoo! Place (Yahoo! Japan's local listings). In Japan this space is usually called MEO (map engine optimization, roughly local SEO).
 
 1. **Store information becomes "input to agents"**: Agents look things up in a browser, query APIs, and ask business agents questions. If business hours, inventory, or booking availability are out of date, that translates directly into wrong actions. In the Muse Spark 1.3 evaluation, one of the most common failures was [stating incorrect facts](https://research.meta.ai/static/muse-spark-1-3-evaluation-report). I expect the value of keeping accurate first-party information in machine-readable form to go up.
 2. **More "machine-readable front doors"**: In Poppy, `poppy.json` declares what you can do (APIs, scopes), what you can't (`excluded_tasks`), and how to do it (`skill_index`) ([spec](https://personalagentprotocol.org/docs/spec)). In UCP, `/.well-known/ucp` declares supported capabilities, endpoints, payment handlers, and so on ([spec](https://ucp.dev/2026-08-25/specification/overview/)). I see managing these declarations as a natural extension of centrally managing store information.

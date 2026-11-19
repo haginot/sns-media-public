@@ -1,9 +1,9 @@
 # meta: muse-techblog (English)
 
 - Status: DRAFT, not published anywhere. Publishing on Substack needs HAGINO's OK and his Substack sign-in.
-- Original (Japanese, Kanrii Tech Blog / カンリー Techブログ, published 2026-11-09 21:24 JST, body updated 22:39 JST): https://zenn.dev/canly/articles/d108f4bc26ceb7
+- Original (Japanese, Canly Tech Blog / カンリー Techブログ, published 2026-11-09 21:24 JST, body updated 22:39 JST): https://zenn.dev/canly/articles/d108f4bc26ceb7
   - Original title: 「【PIVOTでMuseを解説しました】番組では話しきれない、Museの本当はすごい技術解剖」
-- Policy applied: no "PIVOT" (=> "a Japanese business TV show" on first mention, team wording), never "Zenn" alone (=> "Kanrii Tech Blog"), native fluency first.
+- Policy applied: no "PIVOT" (=> "a Japanese business TV show" on first mention, team wording), never "Zenn" alone (=> "Canly Tech Blog"), native fluency first.
 
 ## Title (proposed)
 What I Couldn't Say on TV: A Technical Teardown of Meta's Muse

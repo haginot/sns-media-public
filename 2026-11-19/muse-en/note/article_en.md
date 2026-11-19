@@ -1,8 +1,8 @@
 *This is the English version of my Japanese post on note, published November 13, 2026. You can read the [Japanese original here](https://note.com/haginota/n/nba922eb92cd9).*
 
-> **HAGINO (CAIO, Kanrii)**
+> **HAGINO (CAIO, Canly)**
 >
-> I started my first company in high school, built on software I'd written myself. While still at university, I was chief engineer at an HR tech company. I joined BizReach in 2014, led the rollout of AI across the business, and filed more patents than anyone else at the company. After working as a technical advisor to many companies, I became CIO of Kanrii in 2024. I've been in my current role since August 2025.
+> I started my first company in high school, built on software I'd written myself. While still at university, I was chief engineer at an HR tech company. I joined BizReach in 2014, led the rollout of AI across the business, and filed more patents than anyone else at the company. After working as a technical advisor to many companies, I became CIO of Canly in 2024. I've been in my current role since August 2025.
 
 I was recently on a Japanese business TV show talking about Muse, Meta's personal AI agent. As of 2:00 p.m. JST on November 12, 2026, the episode had 205,746 views on YouTube. In the early hours of November 13, it hit No. 1 in [the show's official weekly ranking](https://pivotmedia.co.jp/ranking/overall?ranking_type=WEEKLY). It also drew 40 comments, and honestly, a lot of them made my day.
 
@@ -18,7 +18,7 @@ A few disclaimers first:
 - I pulled the comments (40 in total) from the episode's YouTube page at 2:00 p.m. JST on November 12, 2026. I've shortened some where that doesn't change the meaning.
 - What I said on the show is summarized here. For my exact wording, please watch the episode.
 - Facts and numbers come with sources. When something is a guess or an opinion, I flag it with phrases like "I think" or "my read." I checked sources on these dates (all JST): November 9, 2026, for everything except the caching material; November 10 for the caching sources; November 13 for the show's weekly ranking and the sources on dots and Grok Bot; and November 16 for the sources on Poppy v1.0 and Stripe's purchase protection.
-- I've written up the technical details separately on the Kanrii Tech Blog ([more technical details here, in Japanese](https://zenn.dev/canly/articles/d108f4bc26ceb7)). This post covers the step before that: what's going on and what to watch out for.
+- I've written up the technical details separately on the Canly Tech Blog ([more technical details here, in Japanese](https://zenn.dev/canly/articles/d108f4bc26ceb7)). This post covers the step before that: what's going on and what to watch out for.
 
 Here's the episode:
 
@@ -46,7 +46,7 @@ As I said on the show, training is opt-out. The setting that lets your data be u
 
 **Meta's access**
 
-In the Kanrii Tech Blog section "[3.6 Data handling, and what hasn't arrived yet (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.6-%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%89%B1%E3%81%84%E3%81%A8%E3%80%81%E3%81%BE%E3%81%A0%E6%9D%A5%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%82%82%E3%81%AE)," I wrote the following, and it still holds:
+In the Canly Tech Blog section "[3.6 Data handling, and what hasn't arrived yet (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.6-%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%89%B1%E3%81%84%E3%81%A8%E3%80%81%E3%81%BE%E3%81%A0%E6%9D%A5%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%82%82%E3%81%AE)," I wrote the following, and it still holds:
 
 > The current architecture isolates each user's data from everyone else's, and Meta employee access is restricted by operational policy. However, nothing prevents Meta from accessing data when it needs to for support, protection, or operations. "Muse Confidential VM," which would cryptographically and verifiably guarantee that not even Meta can access the data, was described as "planned for later this year" in the September article. As of November 9, 2026, none of the sources I checked say it has launched.
 
@@ -90,7 +90,7 @@ According to Meta, Muse [runs in a dedicated, isolated VM in the cloud, one per 
 
 ![Diagram of isolation vs. permission management: your PC and the dedicated cloud VM are separate, but operating permissions on connected services remain](https://raw.githubusercontent.com/haginot/sns-media-public/fca3d9cbdb1c8eec54deb0ea83144b5ed8bd17df/2026-11-19/muse-en/note/figures/fig04.png)
 
-Since the comment raised vulnerabilities, here's how Meta describes the assumptions behind its design. In the Kanrii Tech Blog section "[3.1 Secure VM: two isolated security domains on one machine (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.1-secure-vm%EF%BC%9A1%E5%8F%B0%E3%81%AE%E4%B8%8A%E3%81%AB%E3%80%81%E9%9A%94%E9%9B%A2%E3%81%95%E3%82%8C%E3%81%9F2%E3%81%A4%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3)," I wrote:
+Since the comment raised vulnerabilities, here's how Meta describes the assumptions behind its design. In the Canly Tech Blog section "[3.1 Secure VM: two isolated security domains on one machine (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.1-secure-vm%EF%BC%9A1%E5%8F%B0%E3%81%AE%E4%B8%8A%E3%81%AB%E3%80%81%E9%9A%94%E9%9B%A2%E3%81%95%E3%82%8C%E3%81%9F2%E3%81%A4%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3)," I wrote:
 
 > Meta acknowledges that no matter how strong the model is, agents make mistakes and can be attacked through the data they read. So, Meta says, it designed the system to limit the damage, assuming the agent may be under attack. The right mental model, according to Meta, isn't "an LLM agent with root" but "two isolated security domains on one machine."
 
@@ -106,7 +106,7 @@ Outbound traffic is auto-allowed only when the process hasn't read any user data
 
 Confirmation requests appear directly in the app's interface, not inside the conversation. Meta also says it designed credentials such as passwords to be [managed separately from the AI](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse).
 
-I go deeper on the watchdog and the approval system in the Kanrii Tech Blog sections "[3.2 Sentinel: Muse proposes, Sentinel permits (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.2-sentinel%EF%BC%9A%E6%8F%90%E6%A1%88%E3%81%99%E3%82%8B%E3%81%AE%E3%81%AFmuse%E3%80%81%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B%E3%81%AE%E3%81%AFsentinel)" and "[3.3 Human in the Loop: approval is a 'capability,' not a conversation (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.3-human-in-the-loop%EF%BC%9A%E6%89%BF%E8%AA%8D%E3%81%AF%E4%BC%9A%E8%A9%B1%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%8C%E6%A8%A9%E9%99%90%E3%80%8D)."
+I go deeper on the watchdog and the approval system in the Canly Tech Blog sections "[3.2 Sentinel: Muse proposes, Sentinel permits (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.2-sentinel%EF%BC%9A%E6%8F%90%E6%A1%88%E3%81%99%E3%82%8B%E3%81%AE%E3%81%AFmuse%E3%80%81%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B%E3%81%AE%E3%81%AFsentinel)" and "[3.3 Human in the Loop: approval is a 'capability,' not a conversation (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#3.3-human-in-the-loop%EF%BC%9A%E6%89%BF%E8%AA%8D%E3%81%AF%E4%BC%9A%E8%A9%B1%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%8C%E6%A8%A9%E9%99%90%E3%80%8D)."
 
 > Muse only "proposes" actions. Only Sentinel can grant permission.
 
@@ -163,7 +163,7 @@ Meanwhile, the maintainer list for UCP (Universal Commerce Protocol), a shared s
 
 The standard has its own rules for finalizing a purchase. Under UCP, unless an extension called AP2 Mandates is supported, [the user must manually finalize checkout on a trusted screen](https://ucp.dev/2026-08-25/specification/shopping/checkout/).
 
-Read that approval requirement separately from the flow where, once it's satisfied, the platform completes the order via API. I lay out the full flow, conditions included, in the Kanrii Tech Blog section "[5.3 Checkout state transitions (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#5.3-%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AE%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB)."
+Read that approval requirement separately from the flow where, once it's satisfied, the platform completes the order via API. I lay out the full flow, conditions included, in the Canly Tech Blog section "[5.3 Checkout state transitions (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#5.3-%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AE%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB)."
 
 Services you want to use will keep turning agents away from time to time. Convenience is one question. Whether the other side accepts agents is another.
 
@@ -277,7 +277,7 @@ The Poppy draft also recommends "Web Bot Auth," which adds signatures to request
 
 A signature only confirms that the holder of the key published at the verified URL signed that message. On its own, it doesn't tell you who the operator is, whether the user gave permission, whether it's malicious, or whether the operation is safe. **Verifying a signature isn't the same as knowing who's behind it or whether it's safe.**
 
-For the details, see the Kanrii Tech Blog section "[4. A deep read of Poppy (Personal Agent Protocol) (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#4.-poppy%EF%BC%88personal-agent-protocol%EF%BC%89%E3%82%92%E6%B7%B1%E3%81%8F%E8%AA%AD%E3%82%80)."
+For the details, see the Canly Tech Blog section "[4. A deep read of Poppy (Personal Agent Protocol) (in Japanese)](https://zenn.dev/canly/articles/d108f4bc26ceb7#4.-poppy%EF%BC%88personal-agent-protocol%EF%BC%89%E3%82%92%E6%B7%B1%E3%81%8F%E8%AA%AD%E3%82%80)."
 
 > This is what I called "a permit" on the show. Instead of handing over a password, you grant scoped permissions on the company's own page.
 

@@ -1,4 +1,4 @@
-# Fact-check: muse-techblog English version (Kanrii Tech Blog)
+# Fact-check: muse-techblog English version (Canly Tech Blog)
 
 - Rechecked: 2026-11-19 (JST). Original sources checked by the article: 2026-11-09 (JST).
 - Rule: the English article keeps facts **as of 2026-11-09**. Nothing silently updated. Decide per item below.
@@ -33,8 +33,8 @@
 
 ## E. Editorial choices to confirm
 
-- No "PIVOT"; "Zenn" never used alone (publication = "Kanrii Tech Blog").
-- Byline "HAGINO, CAIO at Kanrii" (fig03 byline pill likewise). Company English name possibly "Canly, Inc." — confirm.
+- No "PIVOT"; "Zenn" never used alone (publication = "Canly Tech Blog").
+- Byline "HAGINO, CAIO at Canly" (fig03 byline pill: "Canly Tech Blog | HAGINO (CAIO, Canly)"). English company name confirmed as "Canly" and the blog as "Canly Tech Blog" by HAGINO (2026-11-19 12:44 JST); consistent with the official site biz.can-ly.com and zenn.dev/canly.
 - "(lol)" in the original intro dropped for English tone.
 
 ## Addendum (2026-11-19 12:25 JST, from AIO総合研究所)

@@ -29,7 +29,7 @@
 ## D. Translation/editorial choices to confirm
 
 - "PIVOT" removed everywhere per HAGINO's policy. The ranking source link still points to pivotmedia.co.jp (URL only). The comment links still go to the YouTube episode.
-- Author shown as "HAGINO (CAIO, Kanrii)". No first-name romanization was used (I didn't confirm the official spelling). Company is written "Kanrii"; its English legal name appears to be Canly, Inc. (zenn.dev/canly). Confirm the preferred English company name.
+- Author shown as "HAGINO (CAIO, Canly)". No first-name romanization was used (I didn't confirm the official spelling). English company name confirmed as "Canly" and the blog as "Canly Tech Blog" by HAGINO (2026-11-19 12:44 JST); consistent with the official site biz.can-ly.com and zenn.dev/canly.
 - Japanese-only services are glossed briefly (e.g. "note (a Japanese blogging platform)").
 
 ## Addendum (2026-11-19 12:25 JST, from AIO総合研究所)
