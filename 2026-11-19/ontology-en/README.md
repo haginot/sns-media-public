@@ -77,3 +77,5 @@ F6 does not appear in the note (and has no English file). Alt text is taken from
 - HAGINO picks the title and decides on the F3 figure fix.
 - Turn the two tables into images (or lay them out manually) in Substack.
 - Publish only when separately authorized.
+
+**Final title (HAGINO, 2026-11-19):** Ontology on Japanese TV: The Parts I Didn't Get To

@@ -1,4 +1,4 @@
-# What I Said About Ontology on Japanese TV, and What I Didn't Get To
+# Ontology on Japanese TV: The Parts I Didn't Get To
 
 > *This is an English version of my original Japanese post on note, [「PIVOTで話した「オントロジー」と、話しきれなかったこと」](https://note.com/haginota/n/nbf04863132cf) (Japanese), published on November 16, 2026 (JST). The figures have been redrawn with English labels. Links marked "(Japanese)" go to Japanese-language sources. For the engineering details, see my companion technical article on the Canly Tech Blog.*
 

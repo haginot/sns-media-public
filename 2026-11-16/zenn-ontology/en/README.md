@@ -82,3 +82,5 @@ English figure artwork now exists in `figures/` and the Substack build in `subst
 - Regenerate `substack/` from this revision of `article_en.md`.
 - Paste/import into Substack and check code fences, tables, inline citations, and the Mermaid block. Some Markdown elements may need manual layout adjustment in Substack's editor.
 - Publish only when separately authorized in the actual Substack workflow. No publish action was requested of this executor task.
+
+**Final title (HAGINO, 2026-11-19):** Foundry Ontology Through a DDD Lens

@@ -1,4 +1,4 @@
-# Reading Palantir's Foundry Ontology as DDD Domain Modeling
+# Foundry Ontology Through a DDD Lens
 
 > *This is an English version of my original Japanese article on the Canly Tech Blog, published on November 17, 2026 (JST): [「【PIVOTでオントロジーを解説しました】PalantirのFoundry OntologyはDDDのドメインモデリングとして読めるという話」](https://zenn.dev/canly/articles/121db874319244) (Japanese). Code excerpts are quoted verbatim from my research repository. I've translated the code comments, but UI labels and error messages in the code are still in Japanese, as in the original. Links marked "(Japanese)" go to Japanese-language sources.*
 
