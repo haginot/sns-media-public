@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="zkit.css"></head>
+<body><div id="stage"><svg id="fig" width="1600" height="900" viewBox="0 0 1600 900"></svg></div>
+<script src="iso.js"></script><script src="zlib.js"></script><script>
+// 図6 提案はAI、承認は人 — labels verbatim from figure_brief.md (pivot-live-studio: ontology.json / agent.mjs / engine.mjs)
+Z.setup({ unit: 100, origin: [0, 0] });
+const { P, box, line, el, text, plate } = Iso;
+Z.title('AI proposes, <span class="g">humans approve</span>');
+// ---- flow column (right) ----
+const FU = 100, FT = 0.9, FTH = 0.16, FP = 1.35, FX = 880, FY = 205;
+{ const [cx, cy] = P(0, 0, FTH); Iso.shift(FX - cx, FY - cy); }
+const FLOW = [
+  ['Change plan (proposal)', 'propose_rebooking', ''],
+  ['Pre-approval check', 'check_plan', 'Conditions and freshness. Then waits for approval'],
+  ['Human approval', 'approve_plan', 'Production lead only. Not among the agent\'s tools'],
+  ['Commit', 'commit_rebooking', 'Re-checks approval and premises,<br>then applies in one transaction'],
+  ['Audit record', '', 'Keeps both successes and refusals'],
+];
+for (let k = 0; k < 4; k++) line([[k * FP + FT / 2, k * FP, FTH / 2], [(k + 1) * FP, k * FP, FTH / 2], [(k + 1) * FP, (k + 1) * FP - FT / 2 - 0.05, FTH / 2]], { stroke: 'var(--link)', sw: 2.5, arrow: true });
+const F = FLOW.map(([name, code, desc], k) => {
+  const x = k * FP, y = k * FP, h = FT / 2;
+  box(x - h, y - h, FT, FT, FTH, 0);
+  const c = P(x, y, FTH), lv = P(x - h, y + h, FTH), rv = P(x + h, y - h, FTH);
+  Z.at('', `<div style="font-weight:700;font-size:26px;color:var(--ink);line-height:1.3">${name}${code ? ` <span style="color:var(--sub);font-weight:500">—</span> <span class="mono" style="font-size:21px;color:var(--ink)">${code}</span>` : ''}</div>` +
+    (desc ? `<div style="font-weight:500;font-size:21px;color:var(--body);line-height:1.4">${desc}</div>` : ''), rv[0] + 28, c[1], { w: 600 });
+  return { c, lv, rv };
+});
+// human icon on the approval tile
+{ const [hx, hy] = F[2].c; el('circle', { cx: hx, cy: hy - 14, r: 9, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 2.5 });
+  el('path', { d: `M${hx - 17},${hy + 14} Q${hx - 17},${hy - 2} ${hx},${hy - 2} Q${hx + 17},${hy - 2} ${hx + 17},${hy + 14}`, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 2.5 }); }
+// rework loop: 実行前の検査 → back to 変更案 (dotted)
+{ const [x3, y3] = F[3].lv, [x1, y1] = F[0].lv, vx = x1 - 60;
+  el('polyline', { points: `${x3 - 8},${y3} ${vx},${y3 - (x3 - 8 - vx) * 0.577} ${vx},${y1 + (x1 - 8 - vx) * 0.577} ${x1 - 8},${y1}`, fill: 'none', stroke: 'var(--sub)', 'stroke-width': 2, 'stroke-dasharray': '4 6', 'marker-end': 'url(#ah)' });
+  Z.at('sub', 'Premises changed →<br>can\'t commit →<br>redo the plan', vx - 16, (y1 + y3) / 2 + 60, { w: 230, a: 'r', style: { color: 'var(--sub)' } });
+}
+// ---- agent + ontology plate (left) ----
+Iso.init({ theme: Z.theme, unit: 72, origin: [0, 0] });
+const ZA = 2.7, AT = 2.2;
+const tv = F[0].lv, ax = 440, ay = tv[1] + (tv[0] - ax) * 0.577;   // agent right vertex on the 30° line to 変更案
+{ const [rx, ry] = P(0.6 + AT, 0.6, ZA + 0.3); Iso.shift(ax - rx, ay - ry); }
+plate(0, 0, 3.4, 3.4, 0);
+const RD = [[0.75, 2.65, 'ontology_schema'], [1.4, 2.0, 'search_objects'], [2.0, 1.4, 'traverse_graph'], [2.65, 0.75, 'get_object']];
+for (const [x, y, nm] of RD) {
+  line([[x, y, 0], [x, y, ZA]], { stroke: 'var(--link)', sw: 1.5, arrow: true });
+  const [lx, ly] = P(x, y, ZA * 0.27);
+  const t = el('text', { x: lx - 8, y: ly, transform: `rotate(-90 ${lx - 8} ${ly})`, class: 't-mono', 'font-size': 16, 'text-anchor': 'middle' }); t.textContent = nm;
+}
+box(0.6, 0.6, AT, AT, 0.3, ZA, { topStroke: 'url(#pv)', topSw: 3.5, stroke: 'var(--edge)' });
+text('LLM agent', [1.7, 1.7, ZA + 0.3], { cls: 't-jpb', size: 27, dy: -13 });
+text('(Codex)', [1.7, 1.7, ZA + 0.3], { cls: 't-sub', size: 20, dy: 17 });
+Z.sline(ax + 6, ay - 3.5, tv[0] - 10, tv[1] + 5.8, { stroke: 'var(--link)', sw: 2.5, arrow: true });
+{ const [px, py] = P(0, 3.4, 0); Z.at('lab', 'Ontology<br><span class="subc">(definitions of types, relationships, actions)</span>', 64, py + 96, { w: 560 }); }
+Z.at('sub', 'Conditions for execution and who approves are bound by server-side definitions, not by the prompt', 64, 846, { w: 1200, style: { color: 'var(--ink)', fontWeight: 700, fontSize: '20px' } });
+Z.fict('Fictional data. No Palantir products are used');
+Z.done();
+</script></body></html>

@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="zkit.css"></head>
+<body><div id="stage"><svg id="fig" width="1600" height="900" viewBox="0 0 1600 900"></svg></div>
+<script src="iso.js"></script><script src="zlib.js"></script><script>
+// 図4 アクションは「動かし方」の定義 — labels verbatim from figure_brief.md (Foundry action-types docs)
+const U = 128, ZT = 0.55, T = 0.78, TH = 0.16, STEP = 1.5, Y0 = 7.5;
+Z.setup({ unit: U, origin: [0, 0] });
+const { P, box, line, el, text, faceText } = Iso;
+{ const [cx, cy] = P(0, Y0, ZT + TH); Iso.shift(560 - cx, 660 - cy); }
+Z.title('An action defines <span class="g">how things get changed</span>');
+// outer frame (author's view) — the only gradient line besides the title
+Z.rect(40, 120, 1520, 656, { dash: '6 7', sw: 2, rx: 10 });
+Z.at('nt', '<span class="g" style="font-weight:700;font-size:19px;line-height:1.45">The author\'s view: I call this whole set of constraints a “harness”<br>(not a Palantir term)</span>', 64, 138, { w: 720, v: 't' });
+// permission rail under the staircase
+const RY0 = Y0 - 4 * STEP - 0.75, RY1 = Y0 + 0.55;
+box(-0.62, RY0, 1.24, RY1 - RY0, 0.22, 0, { top: 'var(--panel)' });
+faceText('Permissions: roles / object and property policies (cell-level)', [0.62, (RY0 + RY1) / 2 - 1.6, 0.11], 'R', { cls: 't-jp', size: 16 });
+// support posts (tile → rail), thin
+const STEPS = [
+  ['① Parameters', 'Input types'],
+  ['② Submission criteria', 'Who, and in what state.<br>Can be submitted only when all are met'],
+  ['③ Rules', 'Create, modify, delete objects and links / function rules<br>Applied in a single transaction'],
+  ['④ Writeback and side effects', 'Writeback dataset, business systems / notifications, webhooks'],
+  ['⑤ Action log', 'Records successful submissions only'],
+];
+const ys = STEPS.map((_, k) => Y0 - k * STEP);
+for (let k = 0; k < 4; k++) line([[0, ys[k] - T / 2 - 0.02, ZT + TH / 2], [0, ys[k + 1] + T / 2 + 0.06, ZT + TH / 2]], { stroke: 'var(--link)', sw: 2.5, arrow: true });
+// rejection branch from ②
+const ry = ys[1];
+line([[T / 2 + 0.02, ry, ZT + TH / 2], [2.1, ry, ZT + TH / 2]], { stroke: 'var(--deny)', sw: 2.5, dash: '5 6', arrow: true });
+STEPS.forEach(([name, desc], k) => {
+  const y = ys[k];
+  box(-T / 2, y - T / 2, T, T, TH, ZT);
+  text(String.fromCharCode(0x2460 + k), [0, y, ZT + TH], { cls: 't-jpb', size: 34, dy: 1 });
+  const [lx, ly] = P(-T / 2, y + T / 2, ZT + TH);  // left vertex of tile top
+  Z.at('', `<div style="font-weight:700;font-size:25px;color:var(--ink);line-height:1.3">${name}</div>` + (desc ? `<div style="font-weight:500;font-size:21px;color:var(--body);line-height:1.4">${desc}</div>` : ''),
+    lx - 20, ly, { w: Math.min(640, lx - 84), a: 'r' });
+});
+{ const [ex, ey] = P(2.1, ry, ZT + TH / 2); Z.cross(ex + 18, ey + 10, 10);
+  Z.at('', '<div style="font-weight:700;font-size:22px;color:var(--ink)">Not met → cannot submit</div><div style="font-weight:500;font-size:19px;color:var(--sub)">(failures are tracked in action metrics)</div>', ex + 44, ey + 10, { w: 500 }); }
+// bottom example band
+Z.rect(40, 796, 1520, 64, { fill: 'var(--panel)', stroke: 'var(--line)', sw: 1, rx: 6 });
+Z.at('sub', '<b style="color:var(--ink)">Example: change a flight\'s aircraft</b> — only if the user is in the flight controllers group and the aircraft is in service', 64, 828, { w: 1460, style: { fontSize: '21px' } });
+Z.done();
+</script></body></html>
