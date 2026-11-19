@@ -1,9 +1,9 @@
 # English X promo drafts for two Substack ontology posts
 
-Status: **T0 sent, T1 and T2 scheduled, 16 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). T0 and T1 were scheduled at 13:38 JST. T0 went out at 16:30 JST. At 2026-11-19 18:04 JST the live @haginota queue was 9/10, so T2 was scheduled at its planned 11/21 16:00. The remaining 16 stay drafts until a slot opens.
+Status: **T0 sent, T1–T3 scheduled, 15 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). T0 and T1 were scheduled at 13:38 JST. T0 went out at 16:30 JST. T2 was scheduled at 18:04 JST at its planned 11/21 16:00. At 2026-11-19 20:56 JST the live @haginota queue was 9/10 (today's 20:00 Japanese Canly Tech Blog promo had already gone out), so T3 was scheduled at its planned 11/22 16:00. The remaining 15 stay drafts until a slot opens.
 
 Channel: @haginota (`6aeb2f32e29c69a1715cb51a`), organization “My organization” (`6ae309778cac57bdae1e3a7d`).  
-Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. T2 scheduled: 2026-11-19 18:04 JST. Re-fetched with `get_post`: T0 is `status: sent` (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST); T1 and T2 are `status: scheduled` with the planned `dueAt`; text, image URL, and alt are unchanged. The other 16 remain `status: draft`, `dueAt: null`, `sentAt: null`.
+Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. T2 scheduled: 2026-11-19 18:04 JST. T3 scheduled: 2026-11-19 20:56 JST. Re-fetched with `get_post`: T0 is `status: sent` (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST); T1, T2, and T3 are `status: scheduled` with the planned `dueAt`; text, image URL, and alt are unchanged. The other 15 remain `status: draft`, `dueAt: null`, `sentAt: null`.
 
 ## Articles
 
@@ -27,36 +27,37 @@ Last relevant sent posts today on @haginota:
 | 2026-11-19 12:03 | Scrunch (Japanese), already sent |
 | 2026-11-19 12:23 | Scrunch (English), already sent |
 | 2026-11-19 16:30 | T0 English Substack promo (banner), already sent |
+| 2026-11-19 20:00 | Japanese Canly Tech Blog ontology promo, already sent |
 
 The brief asked to start no earlier than 3 hours after AIO総合研究所's Scrunch posts this afternoon. Those posts had already gone out at 12:03 and 12:23 JST, so the earliest start is **15:23 JST today**.
 
-Live @haginota scheduled queue as of 2026-11-19 18:04 JST (free plan: **10 of 10 slots used**):
+Live @haginota scheduled queue as of 2026-11-19 20:56 JST (free plan: **10 of 10 slots used**):
 
 | Time (JST) | Topic |
 |---|---|
-| 2026-11-19 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-19 23:15 | Meta encoder English video |
 | 2026-11-20 12:00 | Japanese note ontology promo |
 | 2026-11-20 16:00 | T1 English Substack promo (fig1) |
 | 2026-11-20 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-21 12:00 | Japanese note ontology promo |
-| 2026-11-21 16:00 | T2 English Substack promo (fig2) — scheduled this turn |
+| 2026-11-21 16:00 | T2 English Substack promo (fig2) |
 | 2026-11-21 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-22 12:00 | Japanese note ontology promo |
+| 2026-11-22 16:00 | T3 English Substack promo (fig3) — scheduled this turn |
 | 2026-11-22 20:00 | Japanese Canly Tech Blog ontology promo |
 
-@haginota posts must stay at least 3 hours apart. There is no legal slot between 20:00 and 23:15 today (the gap is only 3 hours 15 minutes). Afternoon windows on 11/20–11/22 (15:00–17:00) each fit one post.
+@haginota posts must stay at least 3 hours apart. Today's 20:00 post has already gone out. T3 at 11/22 16:00 is 4 hours from the 12:00 and 20:00 posts that day.
 
 ## Schedule and status
 
-All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 2026-11-19 18:04 JST.
+All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 2026-11-19 20:56 JST.
 
 | # | ID | Planned time (JST) | Image | Weighted chars | Buffer id | Status |
 |---|---|---|---|---|---|---|
 | 1 | T0 | 2026-11-19 16:30 | banner_en_1600x900.png | 263 | `6afe7838f6b6aa0cd49eb074` | sent (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST) |
 | 2 | T1 | 2026-11-20 16:00 | fig1.png | 272 | `6afe783a3802f5b9fc681246` | scheduled (`dueAt` 2026-11-20T07:00:00.000Z = 16:00 JST) |
 | 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` | scheduled (`dueAt` 2026-11-21T07:00:00.000Z = 16:00 JST) |
-| 4 | T3 | 2026-11-22 16:00 | fig3.png | 278 | `6afe783e3802f5b9fc68133f` | draft |
+| 4 | T3 | 2026-11-22 16:00 | fig3.png | 278 | `6afe783e3802f5b9fc68133f` | scheduled (`dueAt` 2026-11-22T07:00:00.000Z = 16:00 JST) |
 | 5 | T4 | 2026-11-23 09:00 | fig4.png | 269 | `6afe784959eff0b616dcc8e6` | draft |
 | 6 | T5 | 2026-11-23 12:15 | fig5.png | 267 | `6afe784b749099bdc70ca7c7` | draft |
 | 7 | T6 | 2026-11-23 15:30 | fig6.png | 265 | `6afe784d59eff0b616dcc9a2` | draft |
@@ -75,7 +76,7 @@ All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_po
 
 From 11/23 the cadence is 09:00, 12:15, 15:30, 18:45 (3 hours 15 minutes apart), during reasonable hours.
 
-**Scheduling constraint:** the free plan allows 10 scheduled posts. After T2 was added, the queue is **10/10**. T3 onward must wait until a slot frees (the next opening is after today's 20:00 JST post goes out, at which point T3's planned 11/22 16:00 can be reserved, still 4 hours from the 12:00 and 20:00 posts that day). Do not exceed 10.
+**Scheduling constraint:** the free plan allows 10 scheduled posts. After T3 was added, the queue is **10/10**. T4 onward must wait until a slot frees (the next opening is after today's 23:15 JST post goes out, at which point T4's planned 11/23 09:00 can be reserved). Do not exceed 10.
 
 ## Post copy
 
@@ -113,7 +114,7 @@ Types and instances are different layers. The type layer — object types, link 
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig3.png (2000×1125 PNG, HTTP 200, SHA match)
 - Alt: Types and instances are different layers. The upper plate is the type layer (object types, link types, properties): Theme, Episode, and Person, linked by ABOUT / covers and FEATURES / features, with properties publishedAt (publish date) and durationSeconds (length). This is close to “classes and properties” in ontology in general. The lower plate is the instance layer (objects and links): Theme: AI, Episode A, Episode B, Person X, Person Y. What is called a knowledge graph or object graph is mainly this layer. Episodes and people are fictional data.
-- Buffer: `6afe783e3802f5b9fc68133f` — draft, no dueAt
+- Buffer: `6afe783e3802f5b9fc68133f` — scheduled, `dueAt` 2026-11-22T07:00:00.000Z (16:00 JST). Re-fetched: status scheduled; text, image, and alt unchanged.
 
 #### T4 — fig4
 
