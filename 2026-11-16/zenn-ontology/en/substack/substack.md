@@ -1,4 +1,4 @@
-[[COVER BANNER EN - pending]]
+![Foundry Ontology Through a DDD Lens — Canly Tech Blog cover](https://raw.githubusercontent.com/haginot/sns-media-public/37d08785d94df3a4dde10111a9e9af9a483c9194/2026-11-16/zenn-ontology/en/banner/banner_en_1600x900.png)
 
 # Foundry Ontology Through a DDD Lens
 
@@ -318,7 +318,7 @@ The same goes for AI agents. AI won't automatically unify the meaning of scatter
 
 ## 4. Breaking down action types
 
-![Figure 4: The flow of an action: parameters → submission criteria → rules → writeback and side effects → action log](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig4.png)
+![An action defines how things get changed. Five steps: ① Parameters (input types); ② Submission criteria (who, and in what state; can be submitted only when all are met); ③ Rules (create, modify, delete objects and links / function rules; applied in a single transaction); ④ Writeback and side effects (writeback dataset, business systems / notifications, webhooks); ⑤ Action log (records successful submissions only). A rejection branch from step ②: not met → cannot submit (failures are tracked in action metrics). A permissions rail: roles / object and property policies (cell-level). The author’s view: this whole set of constraints is a “harness” (not a Palantir term). Example: change a flight's aircraft — only if the user is in the flight controllers group and the aircraft is in service.](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig4.png)
 
 *Figure 4: The flow of an action: parameters → submission criteria → rules → writeback and side effects → action log*
 
@@ -568,7 +568,7 @@ The log is append-only only on the normal execution path. `reset()` can erase th
 
 ### 5.5 Connecting an LLM agent: AI proposes, humans approve
 
-![Figure 6: Where the LLM agent sits: it reads the ontology, proposes changes, and nothing is finalized until those changes pass human approval and the submission criteria](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig6.png)
+![AI proposes, humans approve. An LLM agent (Codex) sits on an ontology plate (definitions of types, relationships, actions) and uses ontology_schema, search_objects, traverse_graph, and get_object. The flow: change plan (proposal) — propose_rebooking; pre-approval check — check_plan (conditions and freshness, then waits for approval); human approval — approve_plan (production lead only; not among the agent's tools); commit — commit_rebooking (re-checks approval and premises, then applies in one transaction); audit record (keeps both successes and refusals). A dotted loop: premises changed → can't commit → redo the plan. Footer: conditions for execution and who approves are bound by server-side definitions, not by the prompt. Fictional data; no Palantir products are used.](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig6.png)
 
 *Figure 6: Where the LLM agent sits: it reads the ontology, proposes changes, and nothing is finalized until those changes pass human approval and the submission criteria*
 
@@ -805,7 +805,7 @@ I don't see an ontology as "installing a graph DB." What each piece of data mean
 
 ## 7. Where formalization helps: my own experiments (unpublished and not peer-reviewed)
 
-![Figure 7: The difference in size between the effect of providing knowledge and the effect of writing that knowledge in ontology form](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig7.png)
+![What helps first is providing knowledge. Bars, as points of difference vs. no knowledge or vs. plain text: whether knowledge is provided, +25.7 to +49.3; same knowledge in ontology form (high difficulty, main analysis), +2.3 (significant); same (conservative re-analysis), ≈ +2.0 (not significant after correction); procedural work (Experiment II), no bar: the form made no difference. Footer: unpublished, not peer-reviewed; results from a single fictional business; analysis covers 2,117 runs.](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig7.png)
 
 *Figure 7: The difference in size between the effect of providing knowledge and the effect of writing that knowledge in ontology form*
 

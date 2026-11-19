@@ -1,25 +1,19 @@
 {
   "status": "DRAFT — NOT PUBLISHED. No Substack sign-in or publish was performed.",
-  "prepared": "2026-11-19 12:26 JST",
+  "prepared": "2026-11-19 12:32 JST",
   "source_article": "2026-11-16/zenn-ontology/en/article_en.md",
   "source_commit": "ef9e68a",
   "english_figures_commit": "e7f16a0b2ff868a414da49afda9e83ba8e87db1c",
   "image_commit": "f5d2e84cd4969d628ad3f81965073cd651ceec52",
   "title": "Foundry Ontology Through a DDD Lens",
   "title_status": "Confirmed by HAGINO (commit 236eb31).",
-  "placeholders": [
-    {
-      "marker": "[[COVER BANNER EN - pending]]",
-      "position": "top of substack.md / substack.html, before the H1",
-      "reason": "The English cover banner is being made separately and was not ready."
-    }
-  ],
+  "placeholders": [],
   "counts": {
     "mermaid_blocks_converted": 1,
     "markdown_tables_converted": 6,
     "code_blocks_left_as_code": 30,
     "english_figures_embedded": 7,
-    "placeholders_left": 1
+    "placeholders_left": 0
   },
   "replacements": [
     {
@@ -268,7 +262,7 @@
       "height": 1125,
       "bytes": 901021,
       "caption": "Figure 4: The flow of an action: parameters → submission criteria → rules → writeback and side effects → action log",
-      "alt": "Figure 4: The flow of an action: parameters → submission criteria → rules → writeback and side effects → action log",
+      "alt": "An action defines how things get changed. Five steps: ① Parameters (input types); ② Submission criteria (who, and in what state; can be submitted only when all are met); ③ Rules (create, modify, delete objects and links / function rules; applied in a single transaction); ④ Writeback and side effects (writeback dataset, business systems / notifications, webhooks); ⑤ Action log (records successful submissions only). A rejection branch from step ②: not met → cannot submit (failures are tracked in action metrics). A permissions rail: roles / object and property policies (cell-level). The author’s view: this whole set of constraints is a “harness” (not a Palantir term). Example: change a flight's aircraft — only if the user is in the flight controllers group and the aircraft is in service.",
       "id": "fig4",
       "placeholder": false
     },
@@ -294,7 +288,7 @@
       "height": 1125,
       "bytes": 994238,
       "caption": "Figure 6: Where the LLM agent sits: it reads the ontology, proposes changes, and nothing is finalized until those changes pass human approval and the submission criteria",
-      "alt": "Figure 6: Where the LLM agent sits: it reads the ontology, proposes changes, and nothing is finalized until those changes pass human approval and the submission criteria",
+      "alt": "AI proposes, humans approve. An LLM agent (Codex) sits on an ontology plate (definitions of types, relationships, actions) and uses ontology_schema, search_objects, traverse_graph, and get_object. The flow: change plan (proposal) — propose_rebooking; pre-approval check — check_plan (conditions and freshness, then waits for approval); human approval — approve_plan (production lead only; not among the agent's tools); commit — commit_rebooking (re-checks approval and premises, then applies in one transaction); audit record (keeps both successes and refusals). A dotted loop: premises changed → can't commit → redo the plan. Footer: conditions for execution and who approves are bound by server-side definitions, not by the prompt. Fictional data; no Palantir products are used.",
       "id": "fig6",
       "placeholder": false
     },
@@ -307,7 +301,7 @@
       "height": 1125,
       "bytes": 476589,
       "caption": "Figure 7: The difference in size between the effect of providing knowledge and the effect of writing that knowledge in ontology form",
-      "alt": "Figure 7: The difference in size between the effect of providing knowledge and the effect of writing that knowledge in ontology form",
+      "alt": "What helps first is providing knowledge. Bars, as points of difference vs. no knowledge or vs. plain text: whether knowledge is provided, +25.7 to +49.3; same knowledge in ontology form (high difficulty, main analysis), +2.3 (significant); same (conservative re-analysis), ≈ +2.0 (not significant after correction); procedural work (Experiment II), no bar: the form made no difference. Footer: unpublished, not peer-reviewed; results from a single fictional business; analysis covers 2,117 runs.",
       "id": "fig7",
       "placeholder": false
     }
@@ -315,6 +309,19 @@
   "notes": [
     "Built from article_en.md at ef9e68a, which already points fig1–fig7 at the English figures in e7f16a0.",
     "All seven Substack figure URLs are pinned to e7f16a0. fig5 matches 4a47e52 (show's official YouTube channel). fig4/fig6/fig7 were opened and checked: five steps; check_plan before approval; Experiment II is 'The form made no difference' with no −0.5.",
-    "If figures/index.md still describes the old fig5 wording or the old fig4/6/7 mismatches, the Substack alt for fig5 follows the figure (the show's official YouTube channel). figures/src/ was not used."
-  ]
+    "figures/index.md was updated in d5b3ef2. fig5 alt already matched. fig4/fig6/fig7 alts were the short article captions (because the previous index alts were stale) and have been replaced with the official long alts from d5b3ef2. figures/src/ was not used.",
+    "Cover banner is the 1600×900 English banner at 37d0878, used as the Substack cover / social image. The 1200×675 variant is not used in this package."
+  ],
+  "cover_banner": {
+    "file": "2026-11-16/zenn-ontology/en/banner/banner_en_1600x900.png",
+    "url": "https://raw.githubusercontent.com/haginot/sns-media-public/37d08785d94df3a4dde10111a9e9af9a483c9194/2026-11-16/zenn-ontology/en/banner/banner_en_1600x900.png",
+    "commit": "37d08785d94df3a4dde10111a9e9af9a483c9194",
+    "sha256": "0985347e3b3332f79d63cdde24ce6d5a1ea838db81fee97e6e181d9e41d04dac",
+    "width": 1600,
+    "height": 900,
+    "bytes": 415509,
+    "alt": "Foundry Ontology Through a DDD Lens — Canly Tech Blog cover",
+    "role": "Substack cover / social image (1600×900). A 1200×675 variant exists in the same folder but is not used here.",
+    "placeholder": false
+  }
 }
