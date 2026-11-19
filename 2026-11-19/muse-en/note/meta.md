@@ -7,27 +7,26 @@
 - Company name (HAGINO 2026-11-19 13:26 JST): "Canly, Inc." on the formal first mention (byline/author intro); "Canly" alone afterwards; blog = "Canly Tech Blog".
 - The ranking link still points to pivotmedia.co.jp (URL only, not named).
 
-## Title candidates (2026-11-19, requested by HAGINO 13:26 JST; NOT applied yet)
-Current title: 200,000 Views and a No. 1 Week: Your Questions About Meta's Muse, Answered
+## Title candidates (2026-11-19, requested by HAGINO 13:26 JST; candidate 2 chosen by HAGINO 13:37 JST; kept as a record)
+Previous title: 200,000 Views and a No. 1 Week: Your Questions About Meta's Muse, Answered
 
 1. Title: After 200,000 Views: The Questions Viewers Still Have About Meta's Muse
    Subtitle: My Muse episode on a Japanese TV show topped its weekly ranking and drew 40 comments. Here are straight answers on trust, ads, Amazon, and passwords.
-2. Title: "Just Because It's Meta, I Don't Trust It": Your Muse Questions, Answered From Meta's Own Documents
+2. [CHOSEN by HAGINO, 2026-11-19 13:37 JST] Title: "Just Because It's Meta, I Don't Trust It": Your Muse Questions, Answered From Meta's Own Documents
    Subtitle: What 40 comments on my No. 1 TV episode asked about Muse, and what Meta's public documents actually say.
 3. Title: Can You Trust Meta's Muse? Answering 40 Viewer Comments, Point by Point
    Subtitle: My Japanese TV episode on Muse passed 200,000 YouTube views. These are the worries it raised, checked against primary sources.
 
 Facts the candidates use (all from the article): 205,746 YouTube views as of 2026-11-12 14:00 JST; No. 1 in the show's official weekly ranking early on 11/13; 40 comments; sections on trust in Meta (1), mistakes/vulnerabilities (2), Amazon (3), passwords (6).
 
-## Title (proposed)
-200,000 Views and a No. 1 Week: Your Questions About Meta's Muse, Answered
+## Title (chosen by HAGINO, 2026-11-19 13:37 JST)
+"Just Because It's Meta, I Don't Trust It": Your Muse Questions, Answered From Meta's Own Documents
 
-Alternatives:
-- What You Asked Me About Meta's Muse After My TV Appearance
-- "Just Because It's Meta, I Don't Trust It": Answering 40 Comments About Muse
+Previous proposal (not used): see "Previous title" above. Earlier alternatives (not used): "What You Asked Me About Meta's Muse After My TV Appearance"; ""Just Because It's Meta, I Don't Trust It": Answering 40 Comments About Muse".
+Previous subtitle (not used): The praise, the worries that remain, and what Meta's public documents actually say about Muse's ads, data, security, and shopping.
 
-## Subtitle (proposed)
-The praise, the worries that remain, and what Meta's public documents actually say about Muse's ads, data, security, and shopping.
+## Subtitle (chosen by HAGINO, 2026-11-19 13:37 JST)
+What 40 comments on my No. 1 TV episode asked about Muse, and what Meta's public documents actually say.
 
 ## Cover image (Substack social preview)
 The Japanese note eyecatch has Japanese text and a show thumbnail, so it is NOT reused. Suggested cover: fig01
