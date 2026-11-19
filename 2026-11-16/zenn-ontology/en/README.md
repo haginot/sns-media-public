@@ -29,7 +29,7 @@ Author: **Takahiro Hagino (萩野貴拓), CAIO / Chief AI Officer at Canly (カ�
 - Review: Grok Bot (コーディングの使い手) compared all 12 translated chunks against the canonical Japanese, paragraph by paragraph / line by line, then corrected terminology, a few over-specific phrasings, and formatting.
 - Mechanical checks: all **31 code blocks** present. Executable code and Japanese string literals inside them are unchanged; only Japanese comments and Mermaid diagram labels were translated. All original URLs are present. All seven figure image URLs match the Japanese source. Source copy verified by SHA-256.
 - Figure review: all seven published PNGs were downloaded and opened. Visible text was read directly, then cross-checked with the working figure HTML. The PNGs are byte-identical to the local image copies.
-- Word count: **12,418 whitespace-delimited words/tokens** for all of `article_en.md` (includes code and references); **11,338** excluding fenced code blocks; **10,880** for body prose before References, excluding code and URL targets. The count is approximate for English prose because code, identifiers, and Japanese string literals are present.
+- Word count: **12,418 whitespace-delimited words/tokens** for all of `article_en.md` (includes code and references); **11,297** excluding fenced code blocks; **10,880** for body prose before References, excluding code and URL targets. The count is approximate for English prose because code, identifiers, and Japanese string literals are present.
 
 ## Translation judgment calls / things for final editorial review
 
