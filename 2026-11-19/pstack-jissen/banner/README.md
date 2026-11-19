@@ -15,7 +15,7 @@ python3 src/render_banner.py
 ```bash
 python3 src/render_banner.py \
   --title '人の手なしで、古いリンク27件→0件' \
-  --subtitle 'pstack 実践ガイド／10分でわかる入門'
+  --subtitle 'pstack 10分で読める入門'
 ```
 
 `、` か改行で見出しを2行に分けます。2行目に `27件→0件` のような数字があると、27件はオレンジ、0件はティールになります。数字が無いタイトルは、そのまま紺で描きます。

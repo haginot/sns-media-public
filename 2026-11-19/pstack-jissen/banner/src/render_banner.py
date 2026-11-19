@@ -11,7 +11,7 @@ Title swap (the article title is not final yet):
 
        python3 src/render_banner.py \\
          --title '人の手なしで、古いリンク27件→0件' \\
-         --subtitle 'pstack 実践ガイド／10分でわかる入門'
+         --subtitle 'pstack 10分で読める入門'
 
 A、or a newline splits the title into two lines. A pattern like 27件→0件
 on the second line is colored (27件 orange, 0件 teal). If the new title
@@ -44,7 +44,7 @@ HTML = SRC / "banner.html"
 
 # --- swap the headline here ----------------------------------------------
 TITLE = "人の手なしで、古いリンク27件→0件"
-SUBTITLE = "pstack 実践ガイド／10分でわかる入門"
+SUBTITLE = "pstack 10分で読める入門"
 FOOTER_TECH = "カンリー Techブログ"
 # -------------------------------------------------------------------------
 
