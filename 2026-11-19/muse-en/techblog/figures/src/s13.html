@@ -1,0 +1,65 @@
+<section class="slide pv rl s13">
+<div class="pill">Kanrii Tech Blog | Muse Deep Dive</div>
+<p class="msg">Data handling, and <em>what hasn't shipped yet</em></p>
+<div class="stage">
+<div id="vm" class="bx c fc" style="grid-row:1;grid-column:1"><span class="ic lg cc">folder_shared</span><div class="t cc">Inside the VM</div><div class="d ck">Files, memory, credentials</div><div class="s ">(viewable, editable, downloadable)</div></div><div style="grid-row:1;grid-column:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><span class="ic xl cm">block</span><div class="d cm fr" style="font-weight:900;text-align:center">Chats and VM data<br>are not shared</div></div><div id="ad" class="bx m fm" style="grid-row:1;grid-column:3"><span class="ic lg cm">campaign</span><div class="t cm">Meta's ad systems</div></div><div style="grid-row:2;grid-column:1/4"></div><div class="bx v fv row" style="grid-row:3;grid-column:1/3;padding:14px 24px"><span class="ic cv">school</span><div class="d cv" style="font-weight:900">Trajectories with key PII removed → training</div></div><div class="bx c row" style="grid-row:3;grid-column:3;padding:10px 24px"><span class="ic lg cc">toggle_off</span><div class="t sm cc">Opt out</div></div><div class="bx k fk dash row" style="grid-row:4;grid-column:1/4;padding:16px 24px"><span class="ic sm ck3">encrypted</span><div class="d ck">Muse Confidential VM (planned): aims to cryptographically guarantee that even Meta can't access it</div></div>
+</div>
+<div class="arwdefs" hidden><i class="arw" data-f="vm:b" data-t="ad:b" data-c="k" data-dash="1" data-r="vhv" data-m="600" data-lp="b" data-ld="10"><span class="lb">Muse's browsing appears as the user's activity → may indirectly affect ads</span></i></div>
+<p class="src">Source: [sec] Coming Soon: Confidential VM and Our Policy Around Data sections / [ja] Japan announcement</p>
+<script>(function(){
+const sec=document.currentScript.closest('section');
+const COL={c:'#0E9BC0',v:'#6A4FE0',m:'#C21FA6',w:'#C77A00',k:'#5F6683',g:'#9AA1BD'};
+function R(el,base,k){const r=el.getBoundingClientRect();return {x:(r.left-base.left)/k,y:(r.top-base.top)/k,w:r.width/k,h:r.height/k};}
+function anchor(spec,base,k){const [id,side='c',f0]=spec.split(':');const el=sec.querySelector('#'+id);if(!el)throw new Error('no '+id);const r=R(el,base,k);const f=f0===undefined?0.5:parseFloat(f0);
+  const p={l:[r.x,r.y+r.h*f],r:[r.x+r.w,r.y+r.h*f],t:[r.x+r.w*f,r.y],b:[r.x+r.w*f,r.y+r.h],c:[r.x+r.w/2,r.y+r.h/2]}[side];return {x:p[0],y:p[1],side,r,el};}
+function draw(){
+  const base=sec.getBoundingClientRect();const k=base.width/1920;
+  let svg=sec.querySelector('svg.arws');if(svg)svg.remove();sec.querySelectorAll('.lbl.auto').forEach(e=>e.remove());
+  svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','arws');svg.setAttribute('viewBox','0 0 1920 1080');svg.setAttribute('width','1920');svg.setAttribute('height','1080');
+  let defs='';Object.entries(COL).forEach(([n,c])=>{defs+=`<marker id="rh${n}" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="18" markerHeight="18" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L12 6L0 12z" fill="${c}"/></marker>`;});
+  svg.innerHTML='<defs>'+defs+'</defs>';sec.appendChild(svg);
+  sec.querySelectorAll('.arw').forEach(a=>{
+    const A=anchor(a.dataset.f,base,k),B=anchor(a.dataset.t,base,k);const col=a.dataset.c||'v';const route=a.dataset.r||'s';
+    const g0=parseFloat(a.dataset.g0||'6'),g1=parseFloat(a.dataset.g1||'8');
+    let pts;
+    if(route==='s'){let ax=A.x,ay=A.y,bx=B.x,by=B.y;
+      if(A.side==='c'||B.side==='c'){const dx=bx-ax,dy=by-ay,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L;
+        if(A.side==='c'){const ra=A.r.w/2;ax+=ux*(ra+g0);ay+=uy*(ra+g0);} if(B.side==='c'){const rb=B.r.w/2;bx-=ux*(rb+g1);by-=uy*(rb+g1);} pts=[[ax,ay],[bx,by]];}
+      else pts=[[ax,ay],[bx,by]];
+      if(a.dataset.align==='h'){pts[1][1]=pts[0][1];} if(a.dataset.align==='v'){pts[1][0]=pts[0][0];}
+    } else if(route==='hv') pts=[[A.x,A.y],[B.x,A.y],[B.x,B.y]];
+    else if(route==='vh') pts=[[A.x,A.y],[A.x,B.y],[B.x,B.y]];
+    else if(route==='hvh'){const m=a.dataset.m?parseFloat(a.dataset.m):(A.x+B.x)/2;pts=[[A.x,A.y],[m,A.y],[m,B.y],[B.x,B.y]];}
+    else if(route==='vhv'){const m=a.dataset.m?parseFloat(a.dataset.m):(A.y+B.y)/2;pts=[[A.x,A.y],[A.x,m],[B.x,m],[B.x,B.y]];}
+    // apply gaps for edge anchors
+    const sh=(p,q,d)=>{const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.hypot(dx,dy)||1;return [p[0]+dx/L*d,p[1]+dy/L*d];};
+    if(A.side!=='c')pts[0]=sh(pts[0],pts[1],g0); if(B.side!=='c'){const n=pts.length;pts[n-1]=sh(pts[n-1],pts[n-2],g1);}
+    let d='M'+pts.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L');
+    if(a.dataset.curve){const [p,q]=[pts[0],pts[pts.length-1]];const cy=parseFloat(a.dataset.curve);d=`M${p[0]} ${p[1]} C${p[0]} ${p[1]+cy} ${q[0]} ${q[1]+cy} ${q[0]} ${q[1]}`;}
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);path.setAttribute('fill','none');path.setAttribute('stroke',COL[col]);
+    path.setAttribute('stroke-width',a.dataset.sw||'6');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');
+    if(a.dataset.dash)path.setAttribute('stroke-dasharray','14 10');
+    if(a.dataset.head!=='0')path.setAttribute('marker-end',`url(#rh${col})`); if(a.dataset.both)path.setAttribute('marker-start',`url(#rh${col})`);
+    path.setAttribute('class',(a.className.replace('arw','').trim()+' rlarrow').trim());svg.appendChild(path);
+    // label
+    const lb=a.querySelector('.lb');
+    if(lb){const el=lb.cloneNode(true);el.classList.remove('lb');el.classList.add('lbl','auto');a.className.split(' ').filter(c=>/^st\d*$/.test(c)).forEach(c=>el.classList.add(c));sec.appendChild(el);
+      // longest segment
+      let best=0,bi=0;for(let i=0;i<pts.length-1;i++){const L=Math.hypot(pts[i+1][0]-pts[i][0],pts[i+1][1]-pts[i][1]);if(L>best){best=L;bi=i;}}
+      const p=pts[bi],q=pts[bi+1];const t=parseFloat(a.dataset.lt||'0.5');const mx=p[0]+(q[0]-p[0])*t,my=p[1]+(q[1]-p[1])*t;
+      const w=el.offsetWidth,h=el.offsetHeight;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.hypot(dx,dy)||1;let nx=-dy/L,ny=dx/L;
+      const lp=a.dataset.lp||'t';const gap=parseFloat(a.dataset.ld||'12');let cx=mx,cy=my;
+      if(lp==='on'){cx=mx;cy=my;} else { // pick normal direction
+        let s=1; if(lp==='t'){s=(ny<0)?1:-1;} else if(lp==='b'){s=(ny>0)?1:-1;} else if(lp==='l'){s=(nx<0)?1:-1;} else if(lp==='r'){s=(nx>0)?1:-1;}
+        if(Math.abs(nx)<1e-6&&Math.abs(ny)<1e-6){nx=0;ny=-1;}
+        const ext=Math.abs(nx)*w/2+Math.abs(ny)*h/2;cx=mx+nx*s*(ext+gap);cy=my+ny*s*(ext+gap);}
+      el.style.left=(cx-w/2)+'px';el.style.top=(cy-h/2)+'px';}
+  });
+  sec.dataset.drawn='1';
+}
+window.__rlDraw=window.__rlDraw||[];window.__rlDraw.push(draw);
+const go=()=>document.fonts.ready.then(()=>{requestAnimationFrame(draw);});
+if(document.readyState==='complete')go();else addEventListener('load',go);
+})();
+</script>
+</section>
