@@ -27,6 +27,8 @@ html, body { margin: 0; padding: 0; background: #111; }
   --head-bottom: 246px;
   --head-left: 48px;
   --head-max: 620px;
+  --h1-size: 52px;
+  --h2-size: 26px;
   --bg-top: 0px;
   --bg-w: 1280px;
   --bg-h: 670px;
@@ -79,7 +81,7 @@ html, body { margin: 0; padding: 0; background: #111; }
 }
 
 .h1 {
-  font-size: calc(52px * var(--sf));
+  font-size: var(--h1-size);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -90,7 +92,7 @@ html, body { margin: 0; padding: 0; background: #111; }
 .h1 .em { color: var(--clay); }
 .h1 .gap { display: inline-block; width: 0.08em; }
 .h2 {
-  font-size: calc(26px * var(--sf));
+  font-size: var(--h2-size);
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -233,8 +235,8 @@ const CHAPTERS = {
     h1: 'スマホの次は、<span class="em">知能</span>',
     h2: '記憶と決済を、どこに預ける？',
     bg: {
-      1280: '../../bg/series/ch2_a_1280x670.png',
-      1920: '../../bg/series/ch2_a_1920x1080.png'
+      1280: '../../bg/series/v2/ch2_s3_1280x670.png',
+      1920: '../../bg/series/v2/ch2_s3_1920x1080.png'
     },
     layout: {
       1280: { yearTop: 126, yearSize: 84, yearLeft: '1080px', yearColor: '#1B2638', headBottom: 422, headLeft: 48, bgTop: 0, biblio: 168, band: 122 },
@@ -244,15 +246,16 @@ const CHAPTERS = {
   ch3: {
     series: '全7回の解説・第3回',
     // line 2 rewritten to drop the repeated「誰のため」; h1 wraps so the box ends left of the robot's head
-    h1: '無料のロボットは、<br><span class="em">誰のため</span>',
-    h2: '便利さの代わりに、何を渡す？',
+    // 3-line h1 so the box stays in the left sky and clears dad, mum, the girl and the robot
+    h1: '無料の<br>ロボットは、<br><span class="em">誰のため</span>',
+    h2: '便利さの代わりに、<br>何を渡す？',
     bg: {
-      1280: '../../bg/series/v2/ch3_s1_1280x670.png',
-      1920: '../../bg/series/v2/ch3_s1_1920x1080.png'
+      1280: '../../bg/series/v2/ch3_t4_1280x670.png',
+      1920: '../../bg/series/v2/ch3_t4_1920x1080.png'
     },
     layout: {
-      1280: { yearTop: 128, yearSize: 80, yearLeft: '1120px', yearColor: '#1B2638', headBottom: 364, headLeft: 48, headMax: 470, bgTop: 0, biblio: 168, band: 122 },
-      1920: { yearTop: 210, yearSize: 120, yearLeft: '1680px', yearColor: '#1B2638', headBottom: 606, headLeft: 72, headMax: 705, bgTop: 0, biblio: 270, band: 200 }
+      1280: { yearTop: 128, yearSize: 80, yearLeft: '1120px', yearColor: '#1B2638', headBottom: 272, headLeft: 48, headMax: 300, bgTop: 0, biblio: 168, band: 122 },
+      1920: { yearTop: 210, yearSize: 120, yearLeft: '1680px', yearColor: '#1B2638', headBottom: 468, headLeft: 72, headMax: 450, bgTop: 0, biblio: 270, band: 200 }
     }
   },
   ch4: {
@@ -270,28 +273,29 @@ const CHAPTERS = {
   },
   ch5: {
     series: '全7回の解説・第5回',
-    h1: '先に来るのは、<span class="em">AI前提の会社</span>',
+    h1: '先に来るのは、<br><span class="em">AI前提の会社</span>',
     h2: '仕事の形は、いまから変わる',
     bg: {
-      1280: '../../bg/series/ch5_b_1280x670.png',
-      1920: '../../bg/series/ch5_b_1920x1080.png'
+      1280: '../../bg/series/v2/ch5_s3_1280x670.png',
+      1920: '../../bg/series/v2/ch5_s3_1920x1080.png'
     },
     layout: {
-      1280: { yearTop: 128, yearSize: 84, yearLeft: '1140px', yearColor: '#1B2638', headBottom: 422, headLeft: 48, bgTop: 0, biblio: 168, band: 122 },
-      1920: { yearTop: 210, yearSize: 126, yearLeft: '1710px', yearColor: '#1B2638', headBottom: 680, headLeft: 72, bgTop: 0, biblio: 270, band: 200 }
+      1280: { yearTop: 128, yearSize: 84, yearLeft: '1140px', yearColor: '#1B2638', headBottom: 364, headLeft: 48, headMax: 370, bgTop: 0, biblio: 168, band: 122 },
+      1920: { yearTop: 210, yearSize: 126, yearLeft: '1710px', yearColor: '#1B2638', headBottom: 593, headLeft: 72, headMax: 555, bgTop: 0, biblio: 270, band: 200 }
     }
   },
   ch6: {
     series: '全7回の解説・まとめ',
-    h1: '任せる範囲を、<span class="em">どう設計する</span>',
-    h2: '2034年の問いを、いま引き取る',
+    // 3-line wrap + slightly smaller h1 so the box stays left of the people; 2034 sits in the right sky, clear of Fuji and the pagoda
+    h1: '任せる<br>範囲を、<br><span class="em">どう設計する</span>',
+    h2: '2034年の問いを、<br>いま引き取る',
     bg: {
-      1280: '../../bg/series/ch6_b_1280x670.png',
-      1920: '../../bg/series/ch6_b_1920x1080.png'
+      1280: '../../bg/series/v2/ch6_s3_1280x670.png',
+      1920: '../../bg/series/v2/ch6_s3_1920x1080.png'
     },
     layout: {
-      1280: { yearTop: 128, yearSize: 80, yearLeft: '810px', yearColor: '#1B2638', headBottom: 422, headLeft: 48, bgTop: 0, biblio: 168, band: 122 },
-      1920: { yearTop: 210, yearSize: 120, yearLeft: '1215px', yearColor: '#1B2638', headBottom: 680, headLeft: 72, bgTop: 0, biblio: 270, band: 200 }
+      1280: { yearTop: 128, yearSize: 80, yearLeft: '1140px', yearColor: '#1B2638', headBottom: 305, headLeft: 48, headMax: 260, h1Size: 42, bgTop: 0, biblio: 168, band: 122 },
+      1920: { yearTop: 210, yearSize: 120, yearLeft: '1710px', yearColor: '#1B2638', headBottom: 505, headLeft: 72, headMax: 390, h1Size: 42, bgTop: 0, biblio: 270, band: 200 }
     }
   }
 };
@@ -319,11 +323,13 @@ stage.style.setProperty('--year-color', L.yearColor);
 stage.style.setProperty('--head-bottom', L.headBottom + 'px');
 stage.style.setProperty('--head-left', L.headLeft + 'px');
 stage.style.setProperty('--head-max', (L.headMax != null ? L.headMax : 620 * (size1920 ? 1.5 : 1)) + 'px');
+stage.style.setProperty('--h1-size', ((L.h1Size != null ? L.h1Size : 52) * (size1920 ? 1.5 : 1)) + 'px');
+stage.style.setProperty('--h2-size', ((L.h2Size != null ? L.h2Size : 26) * (size1920 ? 1.5 : 1)) + 'px');
 stage.style.setProperty('--bg-top', L.bgTop + 'px');
 
 document.getElementById('series').textContent = pack.series;
 document.getElementById('h1').innerHTML = pack.h1;
-document.getElementById('h2').textContent = pack.h2;
+document.getElementById('h2').innerHTML = pack.h2;
 const bg = document.getElementById('bg');
 bg.src = new URL(pack.bg[size], location.href).href;
 bg.addEventListener('error', () => { window.FIG_READY = true; console.error('bg missing'); });
