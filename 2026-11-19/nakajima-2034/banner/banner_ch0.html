@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>全7回の解説・序章 バナー下書き</title>
+<style>
+@font-face {
+  font-family: "Noto Serif Display";
+  src: url("file:///usr/share/fonts/truetype/sand-box/google/Noto%20Serif%20Display/NotoSerifDisplay-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+html, body { margin: 0; padding: 0; background: #111; }
+#stage {
+  --ink: #1B2638;
+  --ink-2: #24344A;
+  --paper: #F3E8D2;
+  --cream: #FFF6E6;
+  --clay: #C45C2A;
+  --sky: #D2DEDC;
+  --sf: 1;
+  --band: 124px;
+  --biblio: 180px;
+  position: relative;
+  width: 1280px;
+  height: 670px;
+  overflow: hidden;
+  background: var(--sky);
+  color: var(--ink);
+  font-family: "Noto Sans CJK JP", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#stage.s1920 {
+  width: 1920px;
+  height: 1080px;
+  --sf: 1.5;
+  --band: 218px;
+  --biblio: 313px;
+}
+svg.scene {
+  position: absolute;
+  left: 0; right: 0;
+  top: var(--band);
+  height: calc(100% - var(--band) - var(--biblio));
+  width: 100%;
+  display: block;
+  z-index: 1;
+}
+#front { z-index: 3; pointer-events: none; }
+
+.year {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--band) + 6px * var(--sf));
+  transform: translate(-50%, 0);
+  z-index: 2;
+  font-family: "Noto Serif Display", "Noto Serif CJK JP", serif;
+  font-weight: 650;
+  font-style: normal;
+  font-size: calc(200px * var(--sf));
+  font-variation-settings: "wght" 650, "wdth" 92;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: var(--ink);
+  pointer-events: none;
+  font-feature-settings: "tnum" 1;
+}
+
+.headline {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--biblio) + 16px * var(--sf));
+  transform: translateX(-50%);
+  z-index: 4;
+  text-align: center;
+  background: var(--cream);
+  padding: calc(8px * var(--sf)) calc(28px * var(--sf)) calc(10px * var(--sf));
+  box-sizing: border-box;
+}
+.h1 {
+  font-size: calc(60px * var(--sf));
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-feature-settings: "palt" 1;
+  margin: 0;
+}
+.h1 .em { color: var(--clay); }
+.h1 .gap { display: inline-block; width: 0.08em; }
+.h2 {
+  font-size: calc(30px * var(--sf));
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-feature-settings: "palt" 1;
+  margin: calc(4px * var(--sf)) 0 0;
+  color: var(--ink);
+}
+
+.band {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: var(--band);
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 calc(48px * var(--sf));
+  box-sizing: border-box;
+}
+.band .left { display: flex; align-items: center; }
+.band .mark {
+  width: calc(10px * var(--sf));
+  height: calc(10px * var(--sf));
+  background: var(--clay);
+  margin-right: calc(14px * var(--sf));
+  flex: none;
+}
+.band .series {
+  font-size: calc(44px * var(--sf));
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-feature-settings: "palt" 1;
+  line-height: 1;
+  white-space: nowrap;
+}
+.band .pivot {
+  font-size: calc(32px * var(--sf));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-feature-settings: "palt" 1;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--paper);
+}
+
+.biblio {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: var(--biblio);
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(42px * var(--sf)) calc(48px * var(--sf));
+  box-sizing: border-box;
+  text-align: center;
+}
+.biblio .title {
+  font-size: calc(50px * var(--sf));
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-feature-settings: "palt" 1;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+.biblio .credit {
+  font-size: calc(36px * var(--sf));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-feature-settings: "palt" 1;
+  line-height: 1;
+  margin: calc(10px * var(--sf)) 0 0;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<div id="stage">
+  <svg class="scene" id="back" viewBox="0 0 1280 366" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <rect width="1280" height="366" fill="#D2DEDC"/>
+    <rect width="1280" height="160" fill="#C9D8D7"/>
+    <rect y="148" width="1280" height="60" fill="#C0D0CE"/>
+    <circle cx="1108" cy="58" r="36" fill="#E3B15A"/>
+
+    <!-- distant city, kept to the far sides so 2034 stays clear -->
+    <g fill="#4E6B70">
+      <rect x="40" y="150" width="62" height="100"/>
+      <rect x="108" y="128" width="50" height="122"/>
+      <rect x="164" y="144" width="72" height="106"/>
+      <rect x="1048" y="132" width="58" height="118"/>
+      <rect x="1112" y="118" width="70" height="132"/>
+      <rect x="1188" y="146" width="48" height="104"/>
+    </g>
+    <g fill="#E8C37A">
+      <rect x="52" y="164" width="7" height="9"/><rect x="64" y="164" width="7" height="9"/><rect x="76" y="164" width="7" height="9"/>
+      <rect x="52" y="180" width="7" height="9"/><rect x="76" y="196" width="7" height="9"/>
+      <rect x="120" y="144" width="7" height="9"/><rect x="132" y="144" width="7" height="9"/>
+      <rect x="120" y="160" width="7" height="9"/><rect x="132" y="176" width="7" height="9"/>
+      <rect x="176" y="158" width="8" height="10"/><rect x="190" y="158" width="8" height="10"/><rect x="204" y="158" width="8" height="10"/>
+      <rect x="176" y="176" width="8" height="10"/><rect x="204" y="194" width="8" height="10"/>
+      <rect x="1060" y="148" width="7" height="9"/><rect x="1072" y="148" width="7" height="9"/>
+      <rect x="1060" y="164" width="7" height="9"/><rect x="1084" y="180" width="7" height="9"/>
+      <rect x="1126" y="134" width="8" height="10"/><rect x="1140" y="134" width="8" height="10"/><rect x="1154" y="134" width="8" height="10"/>
+      <rect x="1126" y="152" width="8" height="10"/><rect x="1154" y="170" width="8" height="10"/>
+      <rect x="1200" y="160" width="7" height="9"/><rect x="1212" y="176" width="7" height="9"/>
+    </g>
+
+    <!-- open book: blank pages, generic boards, no cover art -->
+    <g id="book">
+      <polygon points="70,210 640,180 640,366 20,366" fill="#5A6A72"/>
+      <polygon points="640,180 1210,210 1260,366 640,366" fill="#4E5D64"/>
+      <polygon points="130,198 640,166 640,352 92,358" fill="#FFF8EB"/>
+      <polygon points="640,166 1150,198 1188,358 640,352" fill="#F4E9D2"/>
+      <polygon points="92,358 640,352 640,366 84,366" fill="#E4D4B4"/>
+      <polygon points="640,352 1188,358 1196,366 640,366" fill="#D8C6A4"/>
+      <path d="M640 166 L640 352" stroke="#C4B28E" stroke-width="5"/>
+      <path d="M640 166 L640 352" stroke="#EFE3C8" stroke-width="1.5"/>
+    </g>
+
+    <!-- mid buildings on the outer pages, beside the year -->
+    <g id="mid-city">
+      <rect x="96" y="128" width="78" height="118" fill="#6A3E38"/>
+      <rect x="182" y="108" width="56" height="138" fill="#2F5D68"/>
+      <rect x="1044" y="112" width="64" height="132" fill="#2F5D68"/>
+      <rect x="1114" y="134" width="86" height="110" fill="#8A5240"/>
+      <g fill="#E8C37A">
+        <rect x="108" y="144" width="8" height="10"/><rect x="122" y="144" width="8" height="10"/><rect x="136" y="144" width="8" height="10"/>
+        <rect x="108" y="162" width="8" height="10"/><rect x="136" y="162" width="8" height="10"/>
+        <rect x="122" y="180" width="8" height="10"/><rect x="108" y="198" width="8" height="10"/>
+        <rect x="194" y="124" width="8" height="10"/><rect x="208" y="124" width="8" height="10"/>
+        <rect x="194" y="142" width="8" height="10"/><rect x="216" y="160" width="8" height="10"/>
+        <rect x="1056" y="128" width="8" height="10"/><rect x="1070" y="128" width="8" height="10"/>
+        <rect x="1056" y="146" width="8" height="10"/><rect x="1084" y="164" width="8" height="10"/>
+        <rect x="1128" y="150" width="9" height="11"/><rect x="1144" y="150" width="9" height="11"/><rect x="1160" y="150" width="9" height="11"/>
+        <rect x="1128" y="170" width="9" height="11"/><rect x="1160" y="190" width="9" height="11"/>
+      </g>
+    </g>
+  </svg>
+
+  <div class="year" id="year">2034</div>
+
+  <svg class="scene" id="front" viewBox="0 0 1280 366" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <!-- left terrace, clear of the centered headline -->
+    <polygon points="140,200 390,186 382,236 128,248" fill="#D9C4A0"/>
+    <polygon points="128,248 382,236 382,246 126,258" fill="#C4AD86"/>
+    <g stroke="#5C4A3A" stroke-width="4" fill="none">
+      <path d="M150 200 L150 176 L370 164 L370 190"/>
+      <path d="M150 176 L370 164"/>
+      <path d="M195 174 L195 196"/>
+      <path d="M240 171 L240 193"/>
+      <path d="M290 168 L290 190"/>
+      <path d="M335 166 L335 188"/>
+    </g>
+
+    <!-- table -->
+    <g transform="rotate(-5 270 214)">
+      <rect x="214" y="214" width="112" height="9" rx="1" fill="#6A4E34"/>
+      <rect x="224" y="223" width="9" height="24" fill="#5A402C"/>
+      <rect x="306" y="223" width="9" height="24" fill="#5A402C"/>
+      <rect x="236" y="204" width="16" height="11" rx="1" fill="#F3E8D2"/>
+      <rect x="235" y="202" width="18" height="4" rx="1" fill="#E8D9C0"/>
+      <rect x="288" y="204" width="16" height="11" rx="1" fill="#D5E3E4"/>
+      <rect x="287" y="202" width="18" height="4" rx="1" fill="#C5D4D5"/>
+    </g>
+
+    <!-- person, seated left -->
+    <g id="person">
+      <circle cx="200" cy="188" r="18" fill="#E2B392"/>
+      <path d="M186 180 Q200 169 216 182 Q212 192 200 194 Q188 192 186 180 Z" fill="#2A241E"/>
+      <rect x="182" y="206" width="42" height="46" rx="11" fill="#6B3E32"/>
+      <path d="M200 206 L200 196" stroke="#E2B392" stroke-width="6" stroke-linecap="round"/>
+      <path d="M218 222 Q236 226 248 216" stroke="#E2B392" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <rect x="178" y="246" width="20" height="14" rx="4" fill="#2F3A48"/>
+      <rect x="206" y="244" width="20" height="14" rx="4" fill="#2F3A48"/>
+    </g>
+
+    <!-- companion, seated right of the table -->
+    <g id="companion">
+      <rect x="318" y="174" width="30" height="30" rx="11" fill="#D5E3E4"/>
+      <rect x="325" y="183" width="7" height="7" rx="1" fill="#1B2638"/>
+      <rect x="335" y="183" width="7" height="7" rx="1" fill="#1B2638"/>
+      <rect x="312" y="206" width="44" height="48" rx="9" fill="#2F5D68"/>
+      <rect x="326" y="220" width="14" height="7" rx="2" fill="#D5E3E4"/>
+      <path d="M333 206 L333 196" stroke="#D5E3E4" stroke-width="5" stroke-linecap="round"/>
+      <path d="M316 222 Q298 224 290 214" stroke="#3A6F78" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <rect x="312" y="248" width="20" height="14" rx="4" fill="#24344A"/>
+      <rect x="338" y="246" width="20" height="14" rx="4" fill="#24344A"/>
+    </g>
+
+    <!-- plant -->
+    <rect x="152" y="228" width="18" height="14" rx="2" fill="#8A5240"/>
+    <path d="M161 228 L161 198" stroke="#3F5E49" stroke-width="3"/>
+    <ellipse cx="154" cy="204" rx="8" ry="13" fill="#3F5E49"/>
+    <ellipse cx="168" cy="200" rx="9" ry="14" fill="#4A6B52"/>
+    <ellipse cx="161" cy="190" rx="7" ry="11" fill="#3F5E49"/>
+
+    <!-- right-page path and streetcar -->
+    <polygon points="900,214 1160,198 1174,220 910,238" fill="#C4BCAA"/>
+    <g id="tram" transform="translate(980,192) rotate(-7)">
+      <rect x="0" y="0" width="80" height="26" rx="6" fill="#C45C2A"/>
+      <rect x="8" y="5" width="15" height="11" rx="1" fill="#FFF6E6"/>
+      <rect x="28" y="5" width="15" height="11" rx="1" fill="#FFF6E6"/>
+      <rect x="48" y="5" width="15" height="11" rx="1" fill="#FFF6E6"/>
+      <circle cx="16" cy="28" r="5" fill="#1B2638"/>
+      <circle cx="62" cy="28" r="5" fill="#1B2638"/>
+    </g>
+    <rect x="910" y="188" width="9" height="36" fill="#5C4A3A"/>
+    <circle cx="915" cy="176" r="18" fill="#3F5E49"/>
+    <circle cx="902" cy="186" r="12" fill="#4A6B52"/>
+    <circle cx="928" cy="184" r="13" fill="#3F5E49"/>
+
+  </svg>
+
+  <div class="headline" id="headline">
+    <p class="h1" id="h1"></p>
+    <p class="h2" id="h2"></p>
+  </div>
+
+  <header class="band" id="band">
+    <div class="left">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="series" id="series">全7回の解説・序章</span>
+    </div>
+    <div class="pivot" id="pivot">中島聡さんがPIVOTで語った世界を読む</div>
+  </header>
+
+  <footer class="biblio" id="biblio">
+    <p class="title" id="booktitle">『２０３４ 未来予測――AI（きみ）のいる明日』</p>
+    <p class="credit" id="credit">中島聡 著／徳間書店</p>
+  </footer>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const VARIANTS = {
+  a: {
+    h1: 'AIが隣にいる<span class="gap"></span><span class="em">8年後</span>',
+    h2: '仕事と暮らしはどう変わる？'
+  },
+  b: {
+    h1: '来る未来で、何を<span class="gap"></span><span class="em">選ぶ</span>',
+    h2: '2034年の暮らしを、いま読む'
+  }
+};
+const v = (Q.get('v') || 'a').toLowerCase();
+const pack = VARIANTS[v] || VARIANTS.a;
+document.getElementById('h1').innerHTML = pack.h1;
+document.getElementById('h2').textContent = pack.h2;
+if (Q.get('size') === '1920') document.getElementById('stage').classList.add('s1920');
+document.fonts.ready.then(() => {
+  requestAnimationFrame(() => { window.FIG_READY = true; });
+});
+setTimeout(() => { window.FIG_READY = true; }, 2500);
+</script>
+</body>
+</html>
