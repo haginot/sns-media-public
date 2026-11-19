@@ -1,9 +1,9 @@
 # English X promo drafts for two Substack ontology posts
 
-Status: **Buffer drafts only**. Not scheduled, not published. Do not add to the queue until HAGINO approves, and only when a free scheduled slot is available.
+Status: **2 scheduled, 17 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). At 13:38 JST the live @haginota queue was 8/10, so only T0 and T1 were scheduled. The remaining 17 stay drafts until a slot opens. Nothing was published immediately.
 
 Channel: @haginota (`6aeb2f32e29c69a1715cb51a`), organization “My organization” (`6ae309778cac57bdae1e3a7d`).  
-Saved: 2026-11-19 13:16–13:18 JST. Re-fetched with `get_post`: all 19 are `status: draft`, `dueAt: null`, `sentAt: null`. Text, image URL, and alt match what was saved.
+Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. Re-fetched with `get_post`: T0 and T1 are `status: scheduled` with the planned `dueAt`; text, image URL, and alt are unchanged. The other 17 remain `status: draft`, `dueAt: null`, `sentAt: null`.
 
 ## Articles
 
@@ -29,13 +29,15 @@ Last relevant sent posts today on @haginota:
 
 The brief asked to start no earlier than 3 hours after AIO総合研究所's Scrunch posts this afternoon. Those posts had already gone out at 12:03 and 12:23 JST, so the earliest start is **15:23 JST today**.
 
-Already scheduled on the same channel (free plan: 8 of 10 scheduled slots used; drafts do not use those slots):
+Live @haginota scheduled queue as of 2026-11-19 13:38 JST (free plan: **10 of 10 slots used**):
 
 | Time (JST) | Topic |
 |---|---|
+| 2026-11-19 16:30 | T0 English Substack promo (banner) — scheduled this turn |
 | 2026-11-19 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-19 23:15 | Meta encoder English video |
 | 2026-11-20 12:00 | Japanese note ontology promo |
+| 2026-11-20 16:00 | T1 English Substack promo (fig1) — scheduled this turn |
 | 2026-11-20 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-21 12:00 | Japanese note ontology promo |
 | 2026-11-21 20:00 | Japanese Canly Tech Blog ontology promo |
@@ -44,35 +46,35 @@ Already scheduled on the same channel (free plan: 8 of 10 scheduled slots used; 
 
 @haginota posts must stay at least 3 hours apart. There is no legal slot between 20:00 and 23:15 today (the gap is only 3 hours 15 minutes). Afternoon windows on 11/20–11/22 (15:00–17:00) each fit one post.
 
-## Proposed schedule (not applied)
+## Schedule and status
 
-All times are Asia/Tokyo (JST). These times are a proposal only; the Buffer drafts have no `dueAt`.
+All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 13:38 JST.
 
-| # | ID | Proposed time (JST) | Image | Weighted chars | Buffer draft id |
-|---|---|---|---|---|---|
-| 1 | T0 | 2026-11-19 16:30 | banner_en_1600x900.png | 263 | `6afe7838f6b6aa0cd49eb074` |
-| 2 | T1 | 2026-11-20 16:00 | fig1.png | 272 | `6afe783a3802f5b9fc681246` |
-| 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` |
-| 4 | T3 | 2026-11-22 16:00 | fig3.png | 278 | `6afe783e3802f5b9fc68133f` |
-| 5 | T4 | 2026-11-23 09:00 | fig4.png | 269 | `6afe784959eff0b616dcc8e6` |
-| 6 | T5 | 2026-11-23 12:15 | fig5.png | 267 | `6afe784b749099bdc70ca7c7` |
-| 7 | T6 | 2026-11-23 15:30 | fig6.png | 265 | `6afe784d59eff0b616dcc9a2` |
-| 8 | T7 | 2026-11-23 18:45 | fig7.png | 276 | `6afe7850f6b6aa0cd49eb982` |
-| 9 | N0 | 2026-11-24 09:00 | F1.jpg (launch) | 268 | `6afe785bb16549e9b822ec31` |
-| 10 | N2 | 2026-11-24 12:15 | F2.jpg | 231 | `6afe785df6b6aa0cd49ebd5d` |
-| 11 | N3 | 2026-11-24 15:30 | F3.jpg | 272 | `6afe785ef6b6aa0cd49ebdc6` |
-| 12 | N7 | 2026-11-24 18:45 | F7.jpg | 251 | `6afe7861749099bdc70cad6a` |
-| 13 | N8 | 2026-11-25 09:00 | F8.jpg | 233 | `6afe7867f6b6aa0cd49ec32c` |
-| 14 | N9 | 2026-11-25 12:15 | F9.jpg | 266 | `6afe78693802f5b9fc68289c` |
-| 15 | N10 | 2026-11-25 15:30 | F10.jpg | 267 | `6afe786af6b6aa0cd49ec4a9` |
-| 16 | N11 | 2026-11-25 18:45 | F11.jpg | 275 | `6afe786db16549e9b822efaa` |
-| 17 | N12 | 2026-11-26 09:00 | F12.jpg | 274 | `6afe787346636f319e881bfa` |
-| 18 | N4 | 2026-11-26 12:15 | F4.jpg | 235 | `6afe7875b16549e9b822f1ca` |
-| 19 | N5 | 2026-11-26 15:30 | F5.jpg | 277 | `6afe7877f6b6aa0cd49ec7a1` |
+| # | ID | Planned time (JST) | Image | Weighted chars | Buffer id | Status |
+|---|---|---|---|---|---|---|
+| 1 | T0 | 2026-11-19 16:30 | banner_en_1600x900.png | 263 | `6afe7838f6b6aa0cd49eb074` | scheduled (`dueAt` 2026-11-19T07:30:00.000Z = 16:30 JST) |
+| 2 | T1 | 2026-11-20 16:00 | fig1.png | 272 | `6afe783a3802f5b9fc681246` | scheduled (`dueAt` 2026-11-20T07:00:00.000Z = 16:00 JST) |
+| 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` | draft |
+| 4 | T3 | 2026-11-22 16:00 | fig3.png | 278 | `6afe783e3802f5b9fc68133f` | draft |
+| 5 | T4 | 2026-11-23 09:00 | fig4.png | 269 | `6afe784959eff0b616dcc8e6` | draft |
+| 6 | T5 | 2026-11-23 12:15 | fig5.png | 267 | `6afe784b749099bdc70ca7c7` | draft |
+| 7 | T6 | 2026-11-23 15:30 | fig6.png | 265 | `6afe784d59eff0b616dcc9a2` | draft |
+| 8 | T7 | 2026-11-23 18:45 | fig7.png | 276 | `6afe7850f6b6aa0cd49eb982` | draft |
+| 9 | N0 | 2026-11-24 09:00 | F1.jpg (launch) | 268 | `6afe785bb16549e9b822ec31` | draft |
+| 10 | N2 | 2026-11-24 12:15 | F2.jpg | 231 | `6afe785df6b6aa0cd49ebd5d` | draft |
+| 11 | N3 | 2026-11-24 15:30 | F3.jpg | 272 | `6afe785ef6b6aa0cd49ebdc6` | draft |
+| 12 | N7 | 2026-11-24 18:45 | F7.jpg | 251 | `6afe7861749099bdc70cad6a` | draft |
+| 13 | N8 | 2026-11-25 09:00 | F8.jpg | 233 | `6afe7867f6b6aa0cd49ec32c` | draft |
+| 14 | N9 | 2026-11-25 12:15 | F9.jpg | 266 | `6afe78693802f5b9fc68289c` | draft |
+| 15 | N10 | 2026-11-25 15:30 | F10.jpg | 267 | `6afe786af6b6aa0cd49ec4a9` | draft |
+| 16 | N11 | 2026-11-25 18:45 | F11.jpg | 275 | `6afe786db16549e9b822efaa` | draft |
+| 17 | N12 | 2026-11-26 09:00 | F12.jpg | 274 | `6afe787346636f319e881bfa` | draft |
+| 18 | N4 | 2026-11-26 12:15 | F4.jpg | 235 | `6afe7875b16549e9b822f1ca` | draft |
+| 19 | N5 | 2026-11-26 15:30 | F5.jpg | 277 | `6afe7877f6b6aa0cd49ec7a1` | draft |
 
 From 11/23 the cadence is 09:00, 12:15, 15:30, 18:45 (3 hours 15 minutes apart), during reasonable hours.
 
-**Scheduling constraint:** the free plan allows 10 scheduled posts, and 8 are already taken through 11/22 20:00. Even after approval, these 19 cannot be queued all at once. They would have to be scheduled as slots free (or after a plan upgrade).
+**Scheduling constraint:** the free plan allows 10 scheduled posts. After T0 and T1 were added, the queue is **10/10**. T2 onward must wait until a slot frees (the next opening is after T0 goes out at 16:30 JST today, at which point T2's planned 11/21 16:00 can be reserved). Do not exceed 10.
 
 ## Post copy
 
@@ -86,7 +88,7 @@ I just published an English version of my Canly Tech Blog article: Foundry Ontol
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/37d08785d94df3a4dde10111a9e9af9a483c9194/2026-11-16/zenn-ontology/en/banner/banner_en_1600x900.png (1600×900 PNG, HTTP 200, SHA match)
 - Alt: Foundry Ontology Through a DDD Lens — Canly Tech Blog cover
-- Buffer: `6afe7838f6b6aa0cd49eb074` — draft, no dueAt
+- Buffer: `6afe7838f6b6aa0cd49eb074` — scheduled, `dueAt` 2026-11-19T07:30:00.000Z (16:30 JST). Re-fetched: status scheduled; text, image, and alt unchanged.
 
 #### T1 — fig1
 
@@ -94,7 +96,7 @@ On the show I used one word, "ontology," for two things. In the general (W3C) se
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig1.png (2000×1125 PNG, HTTP 200, SHA match)
 - Alt: Side-by-side comparison of what counts as “ontology.” Left: ontology in general (W3C standards), with a type layer (classes, properties, constraints; RDF, OWL, SHACL, SPARQL) and optional actual data (knowledge graph). Permissions and writes to business systems are outside the standards' scope. Right: Foundry Ontology (Palantir), where types, contents (objects and links), and components that make things happen (actions, functions, permissions) are all inside what Foundry calls “ontology.” A dotted line marks the two type layers as the same layer. Footer: not better or worse, a difference in how much gets called by the same name.
-- Buffer: `6afe783a3802f5b9fc681246` — draft, no dueAt
+- Buffer: `6afe783a3802f5b9fc681246` — scheduled, `dueAt` 2026-11-20T07:00:00.000Z (16:00 JST). Re-fetched: status scheduled; text, image, and alt unchanged.
 
 #### T2 — fig2
 
