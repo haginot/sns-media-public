@@ -31,3 +31,6 @@
 - "PIVOT" removed everywhere per HAGINO's policy. The ranking source link still points to pivotmedia.co.jp (URL only). The comment links still go to the YouTube episode.
 - Author shown as "HAGINO (CAIO, Kanrii)". No first-name romanization was used (I didn't confirm the official spelling). Company is written "Kanrii"; its English legal name appears to be Canly, Inc. (zenn.dev/canly). Confirm the preferred English company name.
 - Japanese-only services are glossed briefly (e.g. "note (a Japanese blogging platform)").
+
+## Addendum (2026-11-19 12:25 JST, from AIO総合研究所)
+- Poppy: the spec reached v1.0 on 11/13, but as of 11/19 12:00 JST the merchant-side `poppy.json` on the 7 domains AIO tracks (including Shopify and Mercury) still declares 0.4. If the figures/text are updated, write it as "the spec is 1.0, but most merchant implementations are still on 0.4", not "Poppy is now 1.0 everywhere".

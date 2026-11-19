@@ -36,3 +36,6 @@
 - No "PIVOT"; "Zenn" never used alone (publication = "Kanrii Tech Blog").
 - Byline "HAGINO, CAIO at Kanrii" (fig03 byline pill likewise). Company English name possibly "Canly, Inc." — confirm.
 - "(lol)" in the original intro dropped for English tone.
+
+## Addendum (2026-11-19 12:25 JST, from AIO総合研究所)
+- Poppy: the spec reached v1.0 on 11/13, but as of 11/19 12:00 JST the merchant-side `poppy.json` on the 7 domains AIO tracks (including Shopify and Mercury) still declares 0.4. If the figures/text are updated, write it as "the spec is 1.0, but most merchant implementations are still on 0.4", not "Poppy is now 1.0 everywhere".
