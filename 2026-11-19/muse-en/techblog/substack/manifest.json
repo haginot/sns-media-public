@@ -1,0 +1,516 @@
+{
+  "status": "HOLD: fig24/5.5 pending — DRAFT, NOT PUBLISHED. No Substack sign-in or publish was performed. Do not publish until fig24 and section 5.5 are confirmed.",
+  "prepared": "2026-11-19 13:47 JST",
+  "source_article": "2026-11-19/muse-en/techblog/article_en.md",
+  "source_commit": "5cc4ee243a739c46a015e9696f740c1ef33092a5",
+  "title_commit": "702a962",
+  "english_figures_commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+  "image_commit": "f330f6572f06111436a3a7803537cbcd22a4eca4",
+  "title": "Secure VM, Sentinel, Poppy, UCP: Inside the Machinery of Meta's Muse",
+  "subtitle": "An engineer's walk through Muse's alignment evals, sandboxing, approval gates, and the open protocols built for agents and businesses.",
+  "title_status": "Confirmed by HAGINO (commit 702a962, 2026-11-19 13:37 JST, candidate 2).",
+  "placeholders": [],
+  "counts": {
+    "mermaid_blocks_converted": 0,
+    "markdown_tables_converted": 5,
+    "code_blocks_left_as_code": 4,
+    "english_figures_embedded": 26,
+    "gifs_kept_as_images": 11,
+    "placeholders_left": 0
+  },
+  "replacements": [
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Configuration', 'What it is'])",
+      "source_lines": "111-116",
+      "header": [
+        "Configuration",
+        "What it is"
+      ],
+      "n_data_rows": 4,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Link text is underlined in the PNG; URLs are listed here and in Sources.",
+      "replacement": {
+        "file": "table_01_configurations.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/f330f6572f06111436a3a7803537cbcd22a4eca4/2026-11-19/muse-en/techblog/substack/images/table_01_configurations.png",
+        "sha256": "4cb290aa5494408c142ad1b8ecca54483650337a61700f46790c4312a1ecb765",
+        "width": 1600,
+        "height": 323,
+        "bytes": 102615,
+        "commit": "f330f6572f06111436a3a7803537cbcd22a4eca4"
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['What I said on the show (timestamp)', 'Primary source', 'Verdict'])",
+      "source_lines": "157-163",
+      "header": [
+        "What I said on the show (timestamp)",
+        "Primary source",
+        "Verdict"
+      ],
+      "n_data_rows": 5,
+      "links_in_source": [
+        {
+          "text": "38:20",
+          "url": "https://youtu.be/NvNLJjozcJo?t=2300"
+        },
+        {
+          "text": "source",
+          "url": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+        },
+        {
+          "text": "38:05",
+          "url": "https://youtu.be/NvNLJjozcJo?t=2285"
+        },
+        {
+          "text": "14:33",
+          "url": "https://youtu.be/NvNLJjozcJo?t=873"
+        },
+        {
+          "text": "48:13",
+          "url": "https://youtu.be/NvNLJjozcJo?t=2893"
+        },
+        {
+          "text": "source",
+          "url": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+        },
+        {
+          "text": "27:26",
+          "url": "https://youtu.be/NvNLJjozcJo?t=1646"
+        }
+      ],
+      "note": "Visible cell text is unchanged. Link text is underlined in the PNG; URLs are listed here and in Sources.",
+      "replacement": {
+        "file": "table_02_show_factcheck.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/f330f6572f06111436a3a7803537cbcd22a4eca4/2026-11-19/muse-en/techblog/substack/images/table_02_show_factcheck.png",
+        "sha256": "18debc35bbddbe0a3b1544d5cf77ab0f45debe2e648fdf3105d9d0156a870b7e",
+        "width": 1600,
+        "height": 596,
+        "bytes": 332243,
+        "commit": "f330f6572f06111436a3a7803537cbcd22a4eca4"
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Building block', 'Role'])",
+      "source_lines": "318-325",
+      "header": [
+        "Building block",
+        "Role"
+      ],
+      "n_data_rows": 6,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Link text is underlined in the PNG; URLs are listed here and in Sources.",
+      "replacement": {
+        "file": "table_03_poppy_blocks.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/f330f6572f06111436a3a7803537cbcd22a4eca4/2026-11-19/muse-en/techblog/substack/images/table_03_poppy_blocks.png",
+        "sha256": "8c8cdae6384a0a05a1355239f8624231807d8e1a585aa6769d4250269eaede18",
+        "width": 1600,
+        "height": 435,
+        "bytes": 160212,
+        "commit": "f330f6572f06111436a3a7803537cbcd22a4eca4"
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Capability', 'Summary'])",
+      "source_lines": "466-472",
+      "header": [
+        "Capability",
+        "Summary"
+      ],
+      "n_data_rows": 5,
+      "links_in_source": [],
+      "note": "Visible cell text is unchanged. Link text is underlined in the PNG; URLs are listed here and in Sources.",
+      "replacement": {
+        "file": "table_04_ucp_capabilities.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/f330f6572f06111436a3a7803537cbcd22a4eca4/2026-11-19/muse-en/techblog/substack/images/table_04_ucp_capabilities.png",
+        "sha256": "270d5fbce78aa19abe585e0d6b359836d2e826368b7ca4b1da693bfcc7d78657",
+        "width": 1600,
+        "height": 379,
+        "bytes": 108284,
+        "commit": "f330f6572f06111436a3a7803537cbcd22a4eca4"
+      }
+    },
+    {
+      "type": "markdown_table",
+      "source": "article_en.md table (['Mechanism', 'Main focus', 'Position in this article'])",
+      "source_lines": "572-576",
+      "header": [
+        "Mechanism",
+        "Main focus",
+        "Position in this article"
+      ],
+      "n_data_rows": 3,
+      "links_in_source": [
+        {
+          "text": "Meta",
+          "url": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+        },
+        {
+          "text": "spec",
+          "url": "https://personalagentprotocol.org/docs/spec"
+        },
+        {
+          "text": "spec",
+          "url": "https://ucp.dev/2026-08-25/specification/overview/"
+        }
+      ],
+      "note": "Visible cell text is unchanged. Link text is underlined in the PNG; URLs are listed here and in Sources.",
+      "replacement": {
+        "file": "table_05_three_layers.png",
+        "url": "https://raw.githubusercontent.com/haginot/sns-media-public/f330f6572f06111436a3a7803537cbcd22a4eca4/2026-11-19/muse-en/techblog/substack/images/table_05_three_layers.png",
+        "sha256": "73d0caba909cd5f8e629c55eeabf427880d0478dad5eaf6025c8facfda67e3e6",
+        "width": 1600,
+        "height": 383,
+        "bytes": 134150,
+        "commit": "f330f6572f06111436a3a7803537cbcd22a4eca4"
+      }
+    }
+  ],
+  "figures": [
+    {
+      "file": "fig01.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig01.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "1f26c2a73a3eb9553ea35bd74b6811322062fe83933a78481e5b401a17ba04db",
+      "width": 1200,
+      "height": 675,
+      "bytes": 546747,
+      "alt": "Summary contrasting what was said on the TV show with this article: checking its analogies against primary sources on Secure VM, Poppy, and Sentinel. UCP is extra",
+      "id": "fig01",
+      "placeholder": false
+    },
+    {
+      "file": "fig02.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig02.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "b5e64bef15e0861256e25d80b9b5ae3049678023198d7a5ccf00c3a48a25ef10",
+      "width": 1200,
+      "height": 675,
+      "bytes": 621455,
+      "alt": "Muse overview: client, per-user Secure VM, connectors and browser, limited inference and telemetry",
+      "id": "fig02",
+      "placeholder": false
+    },
+    {
+      "file": "fig03.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig03.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "db1089fe11b6361f6db4a3e2232f1ca37428b99391bedfa656e48d2625e1c685",
+      "width": 1200,
+      "height": 675,
+      "bytes": 551432,
+      "alt": "What's public about training: five official sources and the areas they don't cover",
+      "id": "fig03",
+      "placeholder": false
+    },
+    {
+      "file": "fig04.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig04.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "d1b57563a7d2041abfb586cacb11df92fbe7257c3c5efa40fe759163dca12153",
+      "width": 1200,
+      "height": 675,
+      "bytes": 564370,
+      "alt": "The five pillars of the behavior principles and instruction priority (Meta → developer → user → environment)",
+      "id": "fig04",
+      "placeholder": false
+    },
+    {
+      "file": "fig05.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig05.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "b7aaa33e8d4829d8d58e0b2269b8595d7dad5b15740f1587abdf5cf0b69b8499",
+      "width": 1200,
+      "height": 675,
+      "bytes": 467612,
+      "alt": "Four evaluation configurations (Helpful / Muse Model / Muse / API), with a note on internal-interface evaluations",
+      "id": "fig05",
+      "placeholder": false
+    },
+    {
+      "file": "fig06.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig06.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "896ac001988b676446c73520dfb4ec80a80b954a5280e83dd52ca6690f710149",
+      "width": 1200,
+      "height": 675,
+      "bytes": 507845,
+      "alt": "Key figures: MASK, Agentic Misalignment 0.0–0.60%, hallucination, principle-violation rates, and SHADE-Arena, with notes",
+      "id": "fig06",
+      "placeholder": false
+    },
+    {
+      "file": "fig07.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig07.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "63dcebee1af36b9d8f85f7895902cfb8a0a3d3a8ad09bf8779e1ddae8ee20bea",
+      "width": 1200,
+      "height": 675,
+      "bytes": 610551,
+      "alt": "Monitor scale mapped to the behavior taxonomy, with a note on evaluation limits",
+      "id": "fig07",
+      "placeholder": false
+    },
+    {
+      "file": "fig08.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig08.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "a22e4a23120b0d2e8b2f2570becb91fd158ba508b82e4510f5345de45f4070aa",
+      "width": 1200,
+      "height": 675,
+      "bytes": 426780,
+      "alt": "Secure VM's two zones: the runtime cell and host-side protection services",
+      "id": "fig08",
+      "placeholder": false
+    },
+    {
+      "file": "fig09.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig09.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "45257efa062e156c4a7d6a8372aab1f8448ed6409a782017fe73f1d2e245e5ee",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1572627,
+      "alt": "Flow where Sentinel judges action requests and outbound traffic and swaps in proxy tokens; tainted context falls back to standard review",
+      "id": "fig09",
+      "placeholder": false
+    },
+    {
+      "file": "fig10.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig10.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "eb4e1c7492c37a8e7e2ae6e642e0c7b6c13a97f93598be56d79786fedd4ca56f",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1325910,
+      "alt": "Approvals happen in UI outside the chat. Grant scopes: once, session, task, time-limited, permanent; low-risk actions proceed without interruption",
+      "id": "fig10",
+      "placeholder": false
+    },
+    {
+      "file": "fig11.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig11.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "902a9c6be6acf3f420e3e09ef7f68f103755b5d34c4d64693bf4d20b4133613d",
+      "width": 1200,
+      "height": 675,
+      "bytes": 603368,
+      "alt": "Layered defenses against the lethal trifecta, with deterministic boundaries",
+      "id": "fig11",
+      "placeholder": false
+    },
+    {
+      "file": "fig12.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig12.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "f46fd5219651770ec7c6b36859971fd44c1bda155f80e42c62741439d003ceb6",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1398764,
+      "alt": "Browser restrictions, approval for every purchase, and single-use cards",
+      "id": "fig12",
+      "placeholder": false
+    },
+    {
+      "file": "fig13.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig13.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "aaa3affed74f0692875689771cee9abdc26b5048ca1f285af3d9d9f75e03e867",
+      "width": 1200,
+      "height": 675,
+      "bytes": 599902,
+      "alt": "Data policy: no sharing for ads, training opt-out, Confidential VM planned",
+      "id": "fig13",
+      "placeholder": false
+    },
+    {
+      "file": "fig14.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig14.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "bbab1df58d2414ec506d21b755823d458c4fe46773cb4ef04619ca5211894874",
+      "width": 1200,
+      "height": 675,
+      "bytes": 666819,
+      "alt": "Spectrum of agent-access options, showing the middle ground Poppy fills",
+      "id": "fig14",
+      "placeholder": false
+    },
+    {
+      "file": "fig15.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig15.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "b637c7ba5ea6ee55e2b9eb281c00687baa33f75dcd27f0171a25e03631d232b1",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1238948,
+      "alt": "poppy.json discovery and two-way domain/issuer verification",
+      "id": "fig15",
+      "placeholder": false
+    },
+    {
+      "file": "fig16.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig16.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "157716f6f3c1cfedd721735c8b9c08f6f365b3f89e34a9e786e0103fefe440c4",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1218489,
+      "alt": "Poppy sign-in (Direct/Device) and scope hints",
+      "id": "fig16",
+      "placeholder": false
+    },
+    {
+      "file": "fig17.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig17.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "88b868ad8381d8d80ec5e0a8b122c76279043115029f49c1f6110365d20c8fb2",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1725001,
+      "alt": "Delegated keys and Poppy-Session JWT. One-identity limit is operational; limits of §10.7 and Web Bot Auth",
+      "id": "fig17",
+      "placeholder": false
+    },
+    {
+      "file": "fig18.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig18.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "504e1542eb2bb7a6d65d37bae35fc57a4785cb7e20279d874aeb71543c4b9ffb",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1126349,
+      "alt": "Browser participation flow; access tokens never pass through the browser",
+      "id": "fig18",
+      "placeholder": false
+    },
+    {
+      "file": "fig19.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig19.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "849c2d1a983ef2c44212c160111db25bc5f8ef2d7212f09502ec7db6aaff6081",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1234489,
+      "alt": "Conversation author.type, handoff to humans, excluded_tasks, and business content treated as data",
+      "id": "fig19",
+      "placeholder": false
+    },
+    {
+      "file": "fig20.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig20.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "65dcc1d9ec255ffda8593283652940356ce01044f8bb5784a974bb16148daf1b",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1077491,
+      "alt": "Overview of UCP consolidating N×N integrations into a common language",
+      "id": "fig20",
+      "placeholder": false
+    },
+    {
+      "file": "fig21.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig21.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "2b9423af533b1123f116077911238b446bf7c372fdefb9b5b740242a4e2c8d4d",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1221966,
+      "alt": "UCP profile negotiation: only shared capabilities are used; signatures prove origin only",
+      "id": "fig21",
+      "placeholder": false
+    },
+    {
+      "file": "fig22.gif",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig22.gif",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "65bfa284f0238cc5c7bcda5545f22b75cc72a1341fc359d9f44cea27af4f4055",
+      "width": 1200,
+      "height": 675,
+      "bytes": 1444709,
+      "alt": "Checkout state transitions: at ready_for_complete the platform calls Complete Checkout; requires_escalation hands off to the buyer via continue_url",
+      "id": "fig22",
+      "placeholder": false
+    },
+    {
+      "file": "fig23.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig23.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "6abb033e7b4d6be9d3207d10dd27292e71bb3f6f525ab606c517db0cafdca881",
+      "width": 1200,
+      "height": 675,
+      "bytes": 697422,
+      "alt": "UCP payment trust triangle: the platform never touches raw card data",
+      "id": "fig23",
+      "placeholder": false
+    },
+    {
+      "file": "fig24.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig24.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "b5d713fb342bb2643976ca208cada333a6dcf158035147662a0b2142dfe41e0e",
+      "width": 1200,
+      "height": 675,
+      "bytes": 665707,
+      "alt": "Three layers (Muse internals, Poppy, UCP), distinguished by level of certainty",
+      "id": "fig24",
+      "placeholder": false,
+      "hold": "HOLD: fig24 and section 5.5 may change pending HAGINO. Swap this URL if the figure is redrawn."
+    },
+    {
+      "file": "fig25.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig25.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "5b0289cd8a38b5e52729b1d174a7f477371c581e95835a08c33706bdceb3c962",
+      "width": 1200,
+      "height": 675,
+      "bytes": 580055,
+      "alt": "Implications for brick-and-mortar businesses: machine-readable entry points, labeled as analysis",
+      "id": "fig25",
+      "placeholder": false
+    },
+    {
+      "file": "fig26.png",
+      "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig26.png",
+      "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+      "sha256": "10e2400afba2562eacd9bc52dac46d2681ffb094bac1485dbd20278175db1f39",
+      "width": 1200,
+      "height": 675,
+      "bytes": 456044,
+      "alt": "Checklist of limitations and open questions",
+      "id": "fig26",
+      "placeholder": false
+    }
+  ],
+  "cover_image": {
+    "file": "2026-11-19/muse-en/techblog/figures/fig01.png",
+    "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig01.png",
+    "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+    "sha256": "1f26c2a73a3eb9553ea35bd74b6811322062fe83933a78481e5b401a17ba04db",
+    "width": 1200,
+    "height": 675,
+    "bytes": 546747,
+    "alt": "Summary contrasting what was said on the TV show with this article: checking its analogies against primary sources on Secure VM, Poppy, and Sentinel. UCP is extra",
+    "role": "Suggested Substack cover / social image (meta.md). Not duplicated at the top of the body; fig01 already appears in the article.",
+    "placeholder": false
+  },
+  "fig24": {
+    "hold": true,
+    "reason": "Section 5.5 and fig24 may change pending HAGINO. Package is built so the URL can be swapped later.",
+    "url": "https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig24.png",
+    "commit": "60005e310347c83fd43fd0cc7bf0fa05aa9bb99d",
+    "file": "2026-11-19/muse-en/techblog/figures/fig24.png"
+  },
+  "notes": [
+    "HOLD: fig24 and section 5.5 may change pending HAGINO. Do not publish this package until that is confirmed. Current fig24 URL is pinned to 60005e3.",
+    "Title and subtitle go in Substack's title and subtitle fields. They are not in the body.",
+    "Built from article_en.md at 5cc4ee2 (image URLs already pinned to 60005e3). Titles from meta.md at 702a962.",
+    "All 26 figure/GIF URLs (15 PNG, 11 GIF) are pinned to 60005e3. Each URL returned HTTP 200 and the bytes matched the local files. GIFs are kept as images; Substack supports GIF.",
+    "Five markdown tables were rendered to 1600px-wide PNGs in images/, with raw.githubusercontent.com URLs pinned to the commit that added them.",
+    "Four code blocks were left as code. Article wording, numbers, and caveats were not changed except for replacing tables with images.",
+    "Opened and checked samples: techblog fig01, fig03, fig14, fig24, fig26, and fig09.gif. Badges say “Canly Tech Blog | Muse Deep Dive”; fig01 says “a Japanese business TV show”; no Kanrii, no PIVOT, no xAI. fig14 shows v1.0 (Nov 13) and most sites still on 0.4.",
+    "Company name in the body is “Canly, Inc.” on the formal first mention and “Canly” / “Canly Tech Blog” afterwards."
+  ]
+}

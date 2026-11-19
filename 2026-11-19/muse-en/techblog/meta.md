@@ -28,7 +28,7 @@ Previous subtitle (not used): Alignment evals, the Secure VM and Sentinel, the P
 An engineer's walk through Muse's alignment evals, sandboxing, approval gates, and the open protocols built for agents and businesses.
 
 ## Cover image
-Suggested: fig01 (summary) https://raw.githubusercontent.com/haginot/sns-media-public/60005e310347c83fd43fd0cc7bf0fa05aa9bb99d/2026-11-19/muse-en/techblog/figures/fig01.png
+Suggested: fig01 (summary) https://raw.githubusercontent.com/haginot/sns-media-public/0d474fdee7352ffd570651a8100bdcb0c016eabb/2026-11-19/muse-en/techblog/figures/fig01.png
 
 ## Figures and alt text
 11 figures are animated GIFs (fig09, 10, 12, 15-22; 1200x675). Each also has a static final-frame PNG with the same name (.png) if Substack's GIF handling is a problem.
