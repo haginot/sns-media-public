@@ -1,0 +1,4 @@
+.pv .pill{position:absolute;left:72px;top:40px;height:auto;padding:8px 22px;border:0;border-radius:40px;background:var(--grad);color:#fff;font:700 24px/1.2 "Noto Sans JP"}
+.pv .msg{position:absolute;left:72px;right:72px;top:100px;font:900 42px/1.15 "Noto Sans JP"}
+.pv svg.dg{position:absolute;left:0;top:0;width:1920px;height:1080px;font-family:"Noto Sans JP",sans-serif}
+.pv .src,.slide .src{position:absolute!important;left:72px!important;right:72px!important;top:1035px!important;bottom:auto!important;font:400 16px/1.35 "Noto Sans JP"!important;color:#4A5578!important;z-index:20!important;max-width:1780px}
