@@ -34,7 +34,7 @@ A few disclaimers first:
 - Facts are linked to their sources. My own opinions are marked with phrases like "I think" and "in my view." I checked the sources on November 16, 2026 (JST).
 - Every demo in the research repository is a simulation that runs on fictional data. None of them represent the organization, policies, systems, or business results of the show's production company.
 
-![Figure 1: The difference in scope between what general ontology and Foundry Ontology call "ontology"](https://raw.githubusercontent.com/haginot/sns-media-public/4d36a02ce4b2679f8f54415b8f9b4e7468e68f2c/2026-11-16/zenn-ontology/v1/fig1.png)
+![Figure 1: The difference in scope between what general ontology and Foundry Ontology call "ontology"](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig1.png)
 
 ## 1. First, agree on what "ontology" covers
 
@@ -130,7 +130,7 @@ If you write rules as inference, data that breaks a rule can produce a new deriv
 
 So in my view, business invariants and preconditions are easier to manage when written as validation rather than inference. By validation I mean SHACL, or the submission criteria on actions that we'll look at in Section 4. Inference suits cases where filling in facts is acceptable, such as classification or mapping between vocabularies.
 
-![Figure 2: The same range declaration works as inference in OWL / RDFS and as validation in SHACL](https://raw.githubusercontent.com/haginot/sns-media-public/4d36a02ce4b2679f8f54415b8f9b4e7468e68f2c/2026-11-16/zenn-ontology/v1/fig2.png)
+![Figure 2: The same range declaration works as inference in OWL / RDFS and as validation in SHACL](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig2.png)
 
 You can write graph updates in SPARQL 1.1 Update.
 
@@ -182,7 +182,7 @@ That doesn't make the broader scope the better one; that's a separate question. 
 
 ## 2. Types and instances: "knowledge graph" vs. "object graph"
 
-![Figure 3: Object types, link types, and properties (the type layer), and objects and links (the instance layer)](https://raw.githubusercontent.com/haginot/sns-media-public/4d36a02ce4b2679f8f54415b8f9b4e7468e68f2c/2026-11-16/zenn-ontology/v1/fig3.png)
+![Figure 3: Object types, link types, and properties (the type layer), and objects and links (the instance layer)](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig3.png)
 
 On the show, I said that "an ontology itself is not a graph" (around 15:02). I'll say it more precisely here. [An OWL ontology can also be written as an RDF graph](https://www.w3.org/TR/owl2-mapping-to-rdf/), so flatly saying "it is not a graph" went too far. What I meant was that **the type definitions and the graph of actual data you build from them sit in different layers**.
 
@@ -332,7 +332,7 @@ The same goes for AI agents. AI won't automatically unify the meaning of scatter
 
 ## 4. Breaking down action types
 
-![Figure 4: The flow of an action: parameters → submission criteria → rules → writeback and side effects → action log](https://raw.githubusercontent.com/haginot/sns-media-public/4d36a02ce4b2679f8f54415b8f9b4e7468e68f2c/2026-11-16/zenn-ontology/v1/fig4.png)
+![Figure 4: The flow of an action: parameters → submission criteria → rules → writeback and side effects → action log](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig4.png)
 
 In Foundry Ontology, actions are at the center of the "components that make things happen." The [Action types](https://www.palantir.com/docs/foundry/action-types/overview) documentation describes an action as "a single transaction that changes the properties of one or more objects, based on user-defined logic." The official example is "Assign Employee," which changes an employee's role. The user enters the new role in a form. The action creates a link to the new manager and notifies both the old and new managers. It also validates that only authorized employees, such as HR staff, can run it.
 
@@ -379,7 +379,7 @@ In environments like national defense, where a wrong operation isn't acceptable,
 
 ## 5. How I built it in the research repository
 
-![Figure 5: Structure of the research repository: collecting public data → schema → graph and aggregation → demos (fictional data) → verification](https://raw.githubusercontent.com/haginot/sns-media-public/013e400fbce7fc68d54ea361eccbdefd3549db4d/2026-11-16/zenn-ontology/figures_fix/fig5.png)
+![Figure 5: Structure of the research repository: collecting public data → schema → graph and aggregation → demos (fictional data) → verification](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig5.png)
 
 To prepare for the show, I set up a research repository (pivot-ontology, private for now). It holds two things. One is an attempt to map the relationships between episodes, people, and themes using public data from the show's official YouTube channel. The other is a set of demos of the side of an ontology that makes things "move."
 
@@ -578,7 +578,7 @@ The log is append-only only on the normal execution path. `reset()` can erase th
 
 ### 5.5 Connecting an LLM agent: AI proposes, humans approve
 
-![Figure 6: Where the LLM agent sits: it reads the ontology, proposes changes, and nothing is finalized until those changes pass human approval and the submission criteria](https://raw.githubusercontent.com/haginot/sns-media-public/56a3a54f85dd5340aa193851a480407be4f75a8b/2026-11-16/zenn-ontology/figures_fix/fig6.png)
+![Figure 6: Where the LLM agent sits: it reads the ontology, proposes changes, and nothing is finalized until those changes pass human approval and the submission criteria](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig6.png)
 
 `demos/pivot-live-studio` is a local app. A real LLM agent (a logged-in Codex CLI) explores a knowledge graph of fictional people and shows, drafts a proposal to change the cast, and updates the business state once a human approves. All the people, companies, shows, and business conditions are fictional. As the README also says, this isn't built on Palantir's products.
 
@@ -848,7 +848,7 @@ I don't see an ontology as "installing a graph DB." What each piece of data mean
 
 ## 7. Where formalization helps: my own experiments (unpublished and not peer-reviewed)
 
-![Figure 7: The difference in size between the effect of providing knowledge and the effect of writing that knowledge in ontology form](https://raw.githubusercontent.com/haginot/sns-media-public/a1e890a7fc7c08c3cea31dba184b4f173a2d1bf2/2026-11-16/zenn-ontology/figures_fix/fig7.png)
+![Figure 7: The difference in size between the effect of providing knowledge and the effect of writing that knowledge in ontology form](https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig7.png)
 
 People often ask me whether turning things into an ontology makes AI agents perform better. I ran a small test of that question in a separate verification repository (pivot-ontology-basis, private for now). **The results are unpublished and have not been peer-reviewed.** The test is built around a fictional business, and I used AI agents to put it together.
 
