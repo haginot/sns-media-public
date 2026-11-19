@@ -630,7 +630,7 @@ Picture a restaurant whose regular hours are listed correctly, but whose unsched
 - **Access by Meta**: The current architecture doesn't prevent Meta from accessing data when needed. Confidential VM was still [only planned as of September](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse).
 - **Protocol maturity**: Poppy's spec reached [v1.0 on November 13](https://sierra.ai/blog/releasing-poppy), but the business sites I checked on November 19 still published [version 0.4](https://personalagentprotocol.org/docs/0.4/spec) in their `poppy.json` files. Web Bot Auth is an Internet-Draft, and a signature only shows that the key holder signed. It doesn't show who the operator is, whether it's benign, or [whether it's authorized](https://www.ietf.org/archive/id/draft-ietf-webbotauth-httpsig-protocol-01.txt). UCP keeps shipping [date-versioned updates](https://ucp.dev/2026-08-25/specification/overview/).
 - **What's missing from the sources**: None of the sources I checked describe the specific training procedure, the internals of VM startup and suspension, or the contents of Sentinel's policies and classifier details.
-- **How the three relate**: None of the sources I checked describe the path Muse's Shopify checkout takes, or any formal link between Poppy and UCP.
+- **How the three relate**: None of the sources I checked describe the path Muse's Shopify checkout takes. Since v1.0, Poppy's [`ucp` extension](https://personalagentprotocol.org/docs/1.0/extensions/ucp) formally links Poppy and UCP, but whether Muse uses it is unconfirmed.
 
 Partly because of time constraints, the show leaned on analogies. I hope this post helps you separate fact from speculation. And please watch the full episode on [YouTube](https://www.youtube.com/watch?v=NvNLJjozcJo).
 
@@ -651,6 +651,7 @@ Partly because of time constraints, the show leaned on analogies. I hope this po
 - "Personal Agent Protocol specification (draft 0.4)," Personal Agent Protocol. https://personalagentprotocol.org/docs/0.4/spec
 - "Personal Agent Protocol specification (version 1.0)," Personal Agent Protocol. https://personalagentprotocol.org/docs/spec
 - "Releasing Personal Agent Protocol 1.0," Bret Taylor and Clay Bavor, Sierra, November 13, 2026. https://sierra.ai/blog/releasing-poppy
+- "UCP" extension (version 1), Personal Agent Protocol 1.0. https://personalagentprotocol.org/docs/1.0/extensions/ucp
 - "Introducing Personal Agent Protocol," Bret Taylor and Clay Bavor (Sierra), October 6, 2026. https://sierra.ai/blog/introducing-personal-agent-protocol
 - Personal Agent Protocol official website. https://personalagentprotocol.org/
 - "Personal Agent Protocol specification 0.3" (frozen November 4, 2026), Personal Agent Protocol. https://personalagentprotocol.org/docs/0.3/spec
