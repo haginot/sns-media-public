@@ -1,0 +1,1 @@
+Vendored from https://github.com/cursor/plugins/tree/2f87c854fe3e2fcda44ca86b46ede35aad3c46b7/pstack (pstack v0.15.43, MIT, Lauren Tan / poteto). Unmodified copy for the pstack hands-on guide; see PSTACK_LICENSE.
