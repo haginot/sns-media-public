@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>全7回の解説・序章 バナー v2</title>
+<style>
+@font-face {
+  font-family: "Noto Serif Display";
+  src: url("file:///usr/share/fonts/truetype/sand-box/google/Noto%20Serif%20Display/NotoSerifDisplay-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+html, body { margin: 0; padding: 0; background: #111; }
+#stage {
+  --ink: #1B2638;
+  --paper: #F3E8D2;
+  --cream: #FFF6E6;
+  --clay: #C45C2A;
+  --sf: 1;
+  --band: 124px;
+  --biblio: 180px;
+  --year-size: 176px;
+  --year-top: 132px;
+  position: relative;
+  width: 1280px;
+  height: 670px;
+  overflow: hidden;
+  background: #d7c4a8;
+  color: var(--ink);
+  font-family: "Noto Sans CJK JP", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#stage.s1920 {
+  width: 1920px;
+  height: 1080px;
+  --sf: 1.5;
+  --band: 218px;
+  --biblio: 313px;
+  --year-size: 250px;
+  --year-top: 230px;
+}
+.bg {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: 1280px;
+  height: 670px;
+  left: 0;
+  top: 16px;
+  object-fit: fill;
+}
+#stage.s1920 .bg {
+  /* 1920 painting already has more sky; light zoom, almost flush */
+  width: 1920px;
+  height: 1080px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.year {
+  position: absolute;
+  left: 50%;
+  top: var(--year-top);
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: "Noto Serif Display", "Noto Serif CJK JP", serif;
+  font-weight: 650;
+  font-size: var(--year-size);
+  font-variation-settings: "wght" 650, "wdth" 92;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: var(--ink);
+  pointer-events: none;
+  font-feature-settings: "tnum" 1;
+}
+
+.headline {
+  position: absolute;
+  left: calc(48px * var(--sf));
+  bottom: calc(var(--biblio) + 6px * var(--sf));
+  z-index: 4;
+  text-align: left;
+  background: var(--cream);
+  padding: calc(10px * var(--sf)) calc(22px * var(--sf)) calc(12px * var(--sf));
+  box-sizing: border-box;
+  max-width: calc(620px * var(--sf));
+}
+.h1 {
+  font-size: calc(52px * var(--sf));
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-feature-settings: "palt" 1;
+  margin: 0;
+  white-space: nowrap;
+}
+.h1 .em { color: var(--clay); }
+.h1 .gap { display: inline-block; width: 0.08em; }
+.h2 {
+  font-size: calc(26px * var(--sf));
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-feature-settings: "palt" 1;
+  margin: calc(4px * var(--sf)) 0 0;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.band {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: var(--band);
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 calc(48px * var(--sf));
+  box-sizing: border-box;
+}
+.band .left { display: flex; align-items: center; }
+.band .mark {
+  width: calc(10px * var(--sf));
+  height: calc(10px * var(--sf));
+  background: var(--clay);
+  margin-right: calc(14px * var(--sf));
+  flex: none;
+}
+.band .series {
+  font-size: calc(44px * var(--sf));
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-feature-settings: "palt" 1;
+  line-height: 1;
+  white-space: nowrap;
+}
+.band .pivot {
+  font-size: calc(32px * var(--sf));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-feature-settings: "palt" 1;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--paper);
+}
+
+.biblio {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: var(--biblio);
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(42px * var(--sf)) calc(48px * var(--sf));
+  box-sizing: border-box;
+  text-align: center;
+}
+.biblio .title {
+  font-size: calc(50px * var(--sf));
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-feature-settings: "palt" 1;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+.biblio .credit {
+  font-size: calc(36px * var(--sf));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-feature-settings: "palt" 1;
+  line-height: 1;
+  margin: calc(10px * var(--sf)) 0 0;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<div id="stage">
+  <img class="bg" id="bg" alt="">
+  <div class="year" id="year">2034</div>
+  <div class="headline" id="headline">
+    <p class="h1" id="h1"></p>
+    <p class="h2" id="h2"></p>
+  </div>
+  <header class="band" id="band">
+    <div class="left">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="series" id="series">全7回の解説・序章</span>
+    </div>
+    <div class="pivot" id="pivot">本とPIVOTでの対談から読む</div>
+  </header>
+  <footer class="biblio" id="biblio">
+    <p class="title" id="booktitle">『２０３４ 未来予測――AI（きみ）のいる明日』</p>
+    <p class="credit" id="credit">中島聡 著／徳間書店</p>
+  </footer>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const VARIANTS = {
+  a: {
+    h1: 'AIが隣にいる<span class="gap"></span><span class="em">8年後</span>',
+    h2: '仕事と暮らしはどう変わる？'
+  },
+  b: {
+    h1: '来る未来で、何を<span class="gap"></span><span class="em">選ぶ</span>',
+    h2: '2034年の暮らしを、いま読む'
+  },
+  c: {
+    h1: 'AIの進化は、まだ<span class="gap"></span><span class="em">2合目</span>',
+    h2: 'AIがAIを改良する時代の入り口'
+  }
+};
+const v = (Q.get('v') || 'a').toLowerCase();
+const pack = VARIANTS[v] || VARIANTS.a;
+document.getElementById('h1').innerHTML = pack.h1;
+document.getElementById('h2').textContent = pack.h2;
+const size1920 = Q.get('size') === '1920';
+if (size1920) document.getElementById('stage').classList.add('s1920');
+const bgName = size1920 ? 'bg_morning_tower_1920x1080.png' : 'bg_morning_tower_1280x670.png';
+document.getElementById('bg').src = new URL('../../bg/ch0/v2/' + bgName, location.href).href;
+const st = document.getElementById('stage').style;
+if (Q.has('bgY')) document.querySelector('.bg').style.top = Q.get('bgY') + 'px';
+if (Q.has('yearTop')) st.setProperty('--year-top', Q.get('yearTop') + 'px');
+if (Q.has('yearSize')) st.setProperty('--year-size', Q.get('yearSize') + 'px');
+document.getElementById('bg').addEventListener('error', () => { window.FIG_READY = true; console.error('bg missing'); });
+Promise.all([
+  document.fonts.ready,
+  new Promise((res) => {
+    const img = document.getElementById('bg');
+    if (img.complete && img.naturalWidth) res();
+    else { img.addEventListener('load', res); img.addEventListener('error', res); }
+  })
+]).then(() => { requestAnimationFrame(() => { window.FIG_READY = true; }); });
+setTimeout(() => { window.FIG_READY = true; }, 3000);
+</script>
+</body>
+</html>
