@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>pstack banner</title>
+<style>
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP"), local("Noto Sans CJK JP Regular"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc") format("truetype");
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: "Noto Sans CJK JP";
+    src: local("Noto Sans CJK JP Bold"),
+         url("file:///usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc") format("truetype");
+    font-weight: 700; font-style: normal;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: var(--w); height: var(--h);
+    overflow: hidden;
+    background: #F3EDE0;
+  }
+  body {
+    --w: 1600px; --h: 900px;
+    --pad-x: 56px; --pad-y: 60px;
+    --title: 100px;
+    --sub: 30px;
+    --footer: 24px;
+    --grid: 24px;
+    --scene-h: 460px;
+    --board-num: 56px;
+    --badge: 24px;
+    --label: 20px;
+  }
+  body.tech-1200 {
+    --w: 1200px; --h: 675px;
+    --pad-x: 52px; --pad-y: 56px;
+    --title: 74px;
+    --sub: 24px;
+    --footer: 22px;
+    --grid: 18px;
+    --scene-h: 300px;
+    --board-num: 42px;
+    --badge: 20px;
+    --label: 16px;
+  }
+  body.note-1280 {
+    --w: 1280px; --h: 670px;
+    --pad-x: 52px; --pad-y: 54px;
+    --title: 74px;
+    --sub: 24px;
+    --footer: 0px;
+    --grid: 20px;
+    --scene-h: 328px;
+    --board-num: 44px;
+    --badge: 20px;
+    --label: 16px;
+  }
+
+  #stage {
+    position: relative;
+    width: var(--w); height: var(--h);
+    background-color: #F3EDE0;
+    background-image:
+      repeating-linear-gradient(to right, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 var(--grid)),
+      repeating-linear-gradient(to bottom, #D4CBB8 0, #D4CBB8 1px, #F3EDE0 1px, #F3EDE0 var(--grid));
+    font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+    color: #1A2E3B;
+  }
+  .margin-line {
+    position: absolute; left: 36px; top: 0; bottom: 0;
+    width: 3px; background: #C9897A;
+  }
+  body.tech-1200 .margin-line { left: 28px; }
+  body.note-1280 .margin-line { left: 28px; }
+
+  header {
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    top: var(--pad-y);
+  }
+  h1 {
+    font-size: var(--title);
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: -0.03em;
+    font-feature-settings: "palt";
+    color: #1A2E3B;
+  }
+  h1 .line1, h1 .line2 { display: block; }
+  h1 .line2 .pre { color: #1A2E3B; }
+  h1 .gap {
+    display: inline-block;
+    width: 0.08em;
+  }
+  h1 .n-before { color: #C45C26; }
+  h1 .n-after { color: #215A7A; }
+  h1 .arrow {
+    display: inline-block;
+    color: #1A2E3B;
+    margin: 0 0.10em 0 0.08em;
+    letter-spacing: 0;
+  }
+  h1.plain .line2 { color: #1A2E3B; }
+  .sub {
+    margin-top: 12px;
+    font-size: var(--sub);
+    font-weight: 400;
+    color: #2A3840;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+  body.tech-1200 .sub { margin-top: 8px; }
+  body.note-1280 .sub { margin-top: 8px; }
+
+  .scene {
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    bottom: 90px;
+    height: var(--scene-h);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 18px;
+  }
+  body.tech-1200 .scene { bottom: 86px; gap: 12px; }
+  body.note-1280 .scene { bottom: 48px; gap: 12px; }
+
+  .agent-col {
+    flex: 0 0 26%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+  .agent {
+    width: auto;
+    height: calc(var(--scene-h) - 58px);
+    max-width: 100%;
+    display: block;
+  }
+  body.tech-1200 .agent { height: calc(var(--scene-h) - 48px); }
+  body.note-1280 .agent { height: calc(var(--scene-h) - 48px); }
+  .badge {
+    margin-top: 10px;
+    background: #C45C26;
+    color: #FFF8EC;
+    font-size: var(--badge);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-feature-settings: "palt";
+    line-height: 1;
+    padding: 10px 14px 8px;
+    border: 3px solid #1A2E3B;
+    white-space: nowrap;
+  }
+  body.tech-1200 .badge { margin-top: 8px; padding: 8px 12px 6px; border-width: 2px; }
+  body.note-1280 .badge { margin-top: 8px; padding: 8px 12px 6px; border-width: 2px; }
+
+  .board {
+    flex: 1;
+    background: #FFF8EC;
+    border: 3px solid #1A2E3B;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px 14px;
+    min-width: 0;
+  }
+  body.tech-1200 .board,
+  body.note-1280 .board { padding: 10px 12px 8px; border-width: 3px; }
+  .board .hd {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .board .num {
+    font-size: var(--board-num);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-feature-settings: "palt";
+  }
+  .board.before .num { color: #C45C26; }
+  .board.after .num { color: #215A7A; }
+  .board .lbl {
+    font-size: var(--label);
+    font-weight: 700;
+    color: #5C564E;
+    letter-spacing: 0.02em;
+  }
+  .pin-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+    min-height: 0;
+  }
+  .pin { width: 70%; height: 86%; display: block; }
+
+  .scene-arr {
+    width: 48px;
+    flex: none;
+    background: #1A2E3B;
+    clip-path: polygon(0 38%, 52% 38%, 52% 16%, 100% 50%, 52% 84%, 52% 62%, 0 62%);
+    align-self: center;
+    height: 80px;
+  }
+  body.tech-1200 .scene-arr { width: 36px; height: 58px; }
+  body.note-1280 .scene-arr { width: 36px; height: 58px; }
+
+  .footer-tech {
+    position: absolute;
+    right: var(--pad-x);
+    bottom: 52px;
+    font-size: var(--footer);
+    font-weight: 700;
+    color: #1A2E3B;
+    letter-spacing: 0.06em;
+    font-feature-settings: "palt";
+    line-height: 1;
+  }
+  body.note-1280 .footer-tech { display: none; }
+  body.tech-1200 .footer-tech { bottom: 48px; }
+</style>
+</head>
+<body class="tech-1600">
+<div id="stage">
+  <div class="margin-line"></div>
+  <header>
+    <h1 id="title">
+      <span class="line1" id="line1">人の手なしで、</span>
+      <span class="line2" id="line2">
+        <span class="pre" id="line2pre">古いリンク</span><span class="gap"></span><span class="n-before" id="nBefore">27件</span><span class="arrow" id="arrow">→</span><span class="n-after" id="nAfter">0件</span>
+      </span>
+    </h1>
+    <p class="sub" id="subtitle">pstack 実践ガイド／10分でわかる入門</p>
+  </header>
+
+  <div class="scene">
+    <div class="agent-col">
+      <svg class="agent" viewBox="0 0 220 320" aria-hidden="true">
+        <!-- antenna -->
+        <rect x="98" y="8" width="12" height="28" fill="#1A2E3B"/>
+        <rect x="90" y="2" width="28" height="16" fill="#C45C26" stroke="#1A2E3B" stroke-width="3"/>
+        <!-- head -->
+        <rect x="44" y="36" width="120" height="100" fill="#FFF8EC" stroke="#1A2E3B" stroke-width="4"/>
+        <!-- visor -->
+        <rect x="60" y="62" width="88" height="32" fill="#1A2E3B"/>
+        <rect x="72" y="70" width="18" height="16" fill="#F3EDE0"/>
+        <rect x="118" y="70" width="18" height="16" fill="#F3EDE0"/>
+        <!-- mouth slot -->
+        <rect x="84" y="110" width="40" height="6" fill="#1A2E3B"/>
+        <!-- neck -->
+        <rect x="92" y="136" width="24" height="14" fill="#1A2E3B"/>
+        <!-- body -->
+        <rect x="50" y="148" width="108" height="96" fill="#215A7A" stroke="#1A2E3B" stroke-width="4"/>
+        <!-- chest mark -->
+        <rect x="90" y="178" width="28" height="28" fill="#C45C26" stroke="#1A2E3B" stroke-width="3"/>
+        <!-- left arm down -->
+        <rect x="20" y="158" width="30" height="16" fill="#1A2E3B"/>
+        <rect x="20" y="174" width="16" height="54" fill="#1A2E3B"/>
+        <!-- right arm out, holding a finished check -->
+        <rect x="158" y="158" width="42" height="16" fill="#1A2E3B"/>
+        <rect x="184" y="158" width="16" height="36" fill="#1A2E3B"/>
+        <rect x="172" y="190" width="40" height="40" fill="#FFF8EC" stroke="#1A2E3B" stroke-width="3"/>
+        <path d="M182 210l8 8 16-16" fill="none" stroke="#215A7A" stroke-width="5" stroke-linejoin="miter"/>
+        <!-- legs -->
+        <rect x="62" y="244" width="28" height="70" fill="#1A2E3B"/>
+        <rect x="118" y="244" width="28" height="70" fill="#1A2E3B"/>
+      </svg>
+      <div class="badge">人の手なし</div>
+    </div>
+
+    <div class="board before">
+      <div class="hd">
+        <div class="num">27件</div>
+        <div class="lbl">直す前</div>
+      </div>
+      <div class="pin-grid" id="pins"></div>
+    </div>
+    <div class="scene-arr" aria-hidden="true"></div>
+    <div class="board after">
+      <div class="hd">
+        <div class="num">0件</div>
+        <div class="lbl">直したあと</div>
+      </div>
+      <div class="pin-grid" id="empty-pins"></div>
+    </div>
+  </div>
+
+  <div class="footer-tech" id="footerTech">カンリー Techブログ</div>
+</div>
+<script>
+  const pin = `<svg class="pin" viewBox="0 0 60 84" aria-hidden="true">
+    <path fill="#C45C26" d="M30 2c13.3 0 24 10.7 24 24 0 8.5-4.5 16-11.3 20.3L30 82 17.3 46.3C10.5 42 6 34.5 6 26 6 12.7 16.7 2 30 2z"/>
+    <circle cx="30" cy="26" r="9" fill="#FFF8EC"/>
+    <circle cx="30" cy="26" r="4.5" fill="#1A2E3B"/>
+  </svg>`;
+  const empty = `<svg class="pin" viewBox="0 0 60 84" aria-hidden="true">
+    <path fill="#EFE8D6" stroke="#8A8476" stroke-width="3"
+      d="M30 3.5c12.4 0 22.5 10.1 22.5 22.5 0 7.8-4.1 14.8-10.5 18.8L30 79 17.9 44.8C11.6 40.8 7.5 33.8 7.5 26 7.5 13.6 17.6 3.5 30 3.5z"/>
+  </svg>`;
+  document.getElementById('pins').innerHTML = Array.from({length: 27}, () => pin).join('');
+  document.getElementById('empty-pins').innerHTML = Array.from({length: 27}, () => empty).join('');
+</script>
+</body>
+</html>
