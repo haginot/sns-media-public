@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: var(--w); height: var(--h); overflow: hidden;
+    background: #0B1020;
+    font-family: "Inter Tight", "Inter", "Noto Sans CJK JP", "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage { position: relative; width: var(--w); height: var(--h); background: #0B1020; overflow: hidden; }
+  .art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+
+  .content {
+    position: relative; z-index: 10; width: 100%; height: 100%;
+    padding: 0 calc(var(--s) * 76px) calc(var(--s) * 64px) calc(var(--s) * 76px);
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  }
+
+  .top-row {
+    display: flex; align-items: center; gap: calc(var(--s) * 12px);
+    margin-bottom: calc(var(--s) * 20px);
+  }
+  .pill-white {
+    background: #FFFFFF; color: #0B1020; font-family: "Inter", sans-serif;
+    font-weight: 900; font-size: calc(var(--s) * 24px); letter-spacing: -0.02em;
+    padding: calc(var(--s) * 7px) calc(var(--s) * 22px); border-radius: 999px; line-height: 1.1;
+  }
+  .pill-orange {
+    background: #FF6200; color: #FFFFFF; font-weight: 900; font-size: calc(var(--s) * 21px);
+    padding: calc(var(--s) * 8px) calc(var(--s) * 18px); border-radius: 999px; line-height: 1.1;
+    transform: rotate(-1.5deg);
+    box-shadow: calc(var(--s) * 3px) calc(var(--s) * 3px) 0 #FFD13B;
+  }
+  .dev-tag {
+    color: #C7D4EC; font-weight: 800; font-size: calc(var(--s) * 20px);
+    background: #17213B; border: calc(var(--s) * 2px) solid #2C3C63;
+    padding: calc(var(--s) * 7px) calc(var(--s) * 18px); border-radius: 999px;
+  }
+
+  .hero {
+    line-height: 1.12; letter-spacing: -0.035em;
+    margin-bottom: calc(var(--s) * 26px);
+  }
+  .hero .l1 {
+    display: block; font-size: calc(var(--s) * 82px); font-weight: 900; color: #38BDF8;
+  }
+  .hero .l2 {
+    display: block; font-size: calc(var(--s) * 70px); font-weight: 900; color: #FFFFFF;
+    margin-top: calc(var(--s) * 6px);
+  }
+
+  .quote-sticker {
+    position: relative;
+    background: #FFFFFF;
+    border: calc(var(--s) * 3px) solid #FFD13B;
+    border-radius: calc(var(--s) * 24px);
+    padding: calc(var(--s) * 18px) calc(var(--s) * 32px) calc(var(--s) * 18px) calc(var(--s) * 38px);
+    box-shadow: calc(var(--s) * 7px) calc(var(--s) * 7px) 0 #FF6200;
+    transform: rotate(-1.1deg);
+    max-width: calc(var(--s) * 760px);
+    margin-bottom: calc(var(--s) * 28px);
+  }
+  .quote-bar {
+    position: absolute; left: calc(var(--s) * 12px); top: calc(var(--s) * 14px); bottom: calc(var(--s) * 14px);
+    width: calc(var(--s) * 8px); border-radius: 999px; background: #FF6200;
+  }
+  .q-en {
+    font-family: "Inter", sans-serif; font-size: calc(var(--s) * 34px); font-weight: 900;
+    color: #0B1020; letter-spacing: -0.03em; line-height: 1.15;
+  }
+  .q-en span { color: #FF6200; }
+  .q-jp {
+    margin-top: calc(var(--s) * 6px); font-size: calc(var(--s) * 25px); font-weight: 900;
+    color: #1A2236; line-height: 1.2;
+  }
+  .q-jp .o { color: #FF6200; }
+  .q-jp .b { color: #0E86FF; }
+  .q-jp .by { font-size: calc(var(--s) * 17px); font-weight: 700; color: #5C6880; margin-left: calc(var(--s) * 10px); }
+
+  .steps {
+    display: flex; align-items: center; gap: calc(var(--s) * 10px);
+  }
+  .step-pill {
+    font-size: calc(var(--s) * 19px); font-weight: 900;
+    padding: calc(var(--s) * 8px) calc(var(--s) * 18px); border-radius: 999px; white-space: nowrap;
+  }
+  .sp-moon { background: #FFD13B; color: #0B1020; transform: rotate(-1.5deg); }
+  .sp-mid { background: #182342; color: #E8F0FF; border: calc(var(--s) * 2px) solid #3B5288; }
+  .sp-done { background: #00D2B2; color: #06211C; transform: rotate(1.5deg); }
+  .arr { color: #5872A8; font-weight: 900; font-size: calc(var(--s) * 20px); }
+
+  .footer {
+    position: absolute; bottom: 44px; left: calc(var(--s) * 76px); z-index: 20;
+    display: flex; align-items: center; gap: calc(var(--s) * 14px); white-space: nowrap;
+  }
+  .credit { font-size: calc(var(--s) * 18px); font-weight: 700; color: #8FA3C8; }
+  .sep { color: #3A4B73; font-weight: 700; font-size: calc(var(--s) * 18px); }
+  .brand { font-size: calc(var(--s) * 20px); font-weight: 900; color: #FFFFFF; }
+
+  body.mode-note .content { padding: 0 60px 56px 60px; }
+  body.mode-note .top-row { margin-bottom: 14px; }
+  body.mode-note .hero { margin-bottom: 18px; }
+  body.mode-note .hero .l1 { font-size: calc(var(--s) * 74px); }
+  body.mode-note .hero .l2 { font-size: calc(var(--s) * 62px); }
+  body.mode-note .quote-sticker { padding: 13px 26px 13px 30px; margin-bottom: 18px; }
+  body.mode-note .q-en { font-size: calc(var(--s) * 30px); }
+  body.mode-note .q-jp { font-size: calc(var(--s) * 22px); }
+  body.mode-note .footer { bottom: 42px; left: 60px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <svg class="art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Deep night geometric background bands (pure flat layers, zero blur) -->
+    <circle cx="1320" cy="240" r="340" fill="#121B36"/>
+    <circle cx="1320" cy="240" r="245" fill="#172447"/>
+    <circle cx="1320" cy="240" r="165" fill="#1E305C"/>
+
+    <!-- Giant crisp flat Golden Crescent Moon top-right -->
+    <g transform="translate(1325, 220) rotate(-18)">
+      <path d="M 46 -110 A 118 118 0 1 0 46 110 A 86 86 0 1 1 46 -110 Z" fill="#FFD13B"/>
+    </g>
+
+    <!-- Dynamic sweeping midnight orbit tracks -->
+    <path d="M 780 940 C 870 670, 1080 460, 1650 315" fill="none" stroke="#2D457C" stroke-width="6" stroke-dasharray="14 14" stroke-linecap="round"/>
+    <path d="M 880 950 C 990 730, 1210 560, 1660 460" fill="none" stroke="#FF6200" stroke-width="5" stroke-dasharray="10 14" stroke-linecap="round" opacity="0.65"/>
+    <path d="M 650 930 C 780 620, 1050 320, 1640 160" fill="none" stroke="#38BDF8" stroke-width="4" stroke-dasharray="8 16" stroke-linecap="round" opacity="0.45"/>
+
+    <!-- Crisp geometric night stars -->
+    <path d="M 1030 92 Q 1030 112 1050 112 Q 1030 112 1030 132 Q 1030 112 1010 112 Q 1030 112 1030 92 Z" fill="#FFD13B"/>
+    <path d="M 1498 92 Q 1498 108 1514 108 Q 1498 108 1498 124 Q 1498 108 1482 108 Q 1498 108 1498 92 Z" fill="#38BDF8"/>
+    <path d="M 960 440 Q 960 456 976 456 Q 960 456 960 472 Q 960 456 944 456 Q 960 456 960 440 Z" fill="#00D2B2"/>
+    <path d="M 1515 415 Q 1515 433 1533 433 Q 1515 433 1515 451 Q 1515 433 1497 433 Q 1515 433 1515 415 Z" fill="#FF6200"/>
+    <circle cx="1150" cy="140" r="6" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="1378" cy="362" r="7" fill="#FF3B6B"/>
+    <circle cx="885" cy="610" r="6" fill="#FFD13B"/>
+    <circle cx="1090" cy="325" r="5" fill="#FFFFFF" opacity="0.7"/>
+
+    <!-- Zzz floating near moon -->
+    <g font-family="Inter, sans-serif" font-weight="900" fill="#FFD13B">
+      <text x="1118" y="255" font-size="28" transform="rotate(-12 1118 255)">Z</text>
+      <text x="1150" y="226" font-size="36" transform="rotate(-8 1150 226)">z</text>
+      <text x="1186" y="196" font-size="44" transform="rotate(-4 1186 196)">z</text>
+    </g>
+
+    <!-- Flying Electric Blue Rocket-Cloud Agent zooming across night sky -->
+    <g transform="translate(1165, 515) rotate(-14)">
+      <!-- speed trail lines -->
+      <line x1="-175" y1="35" x2="-115" y2="25" stroke="#38BDF8" stroke-width="9" stroke-linecap="round"/>
+      <line x1="-195" y1="70" x2="-125" y2="58" stroke="#0E86FF" stroke-width="7" stroke-linecap="round"/>
+      <line x1="-155" y1="-5" x2="-110" y2="-12" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+      <!-- puffy blue agent -->
+      <path d="M -108 -10 C -122 -64, -76 -112, -16 -104 C 24 -138, 96 -124, 114 -68 C 154 -48, 152 28, 108 62 C 110 112, 46 142, -6 118 C -56 136, -118 106, -116 54 C -144 32, -138 -2, -108 -10 Z" fill="#0E86FF"/>
+      <g transform="translate(22, 4) rotate(8)">
+        <rect x="-32" y="-32" width="22" height="60" rx="11" fill="#FFFFFF"/>
+        <rect x="8" y="-34" width="22" height="60" rx="11" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- Floating Code Window Card carried by Blue Agent -->
+    <g transform="translate(1365, 488) rotate(8)">
+      <rect x="-74" y="-36" width="152" height="76" rx="18" fill="#060913"/>
+      <rect x="-78" y="-40" width="152" height="76" rx="18" fill="#172342" stroke="#38BDF8" stroke-width="3.5"/>
+      <circle cx="-54" cy="-22" r="5" fill="#FF3B6B"/>
+      <circle cx="-38" cy="-22" r="5" fill="#FFD13B"/>
+      <circle cx="-22" cy="-22" r="5" fill="#00D2B2"/>
+      <text x="0" y="16" text-anchor="middle" font-family="M PLUS 1 Code, monospace" font-weight="900" font-size="24" fill="#38BDF8">&lt;/&gt; AUTO</text>
+    </g>
+
+    <!-- Giant Vivid Orange Agent leaping from bottom-right -->
+    <g transform="translate(1455, 785) rotate(-16)">
+      <path d="M -185 110 C -220 35, -165 -100, -65 -175 C 8 -230, 105 -210, 160 -110 C 215 -10, 230 98, 168 172 C 105 245, -150 185, -185 110 Z" fill="#FF6200"/>
+      <g transform="translate(-52, -32) rotate(6)">
+        <rect x="-46" y="-36" width="28" height="74" rx="14" fill="#FFFFFF"/>
+        <rect x="8" y="-40" width="28" height="74" rx="14" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- Happy Teal Cloud Agent popping up bottom-center-right with PASS badge -->
+    <g transform="translate(1070, 775) rotate(11)">
+      <path d="M -98 -12 C -108 -56, -70 -94, -24 -86 C -4 -116, 56 -112, 74 -78 C 114 -74, 130 -30, 106 8 C 122 48, 92 92, 50 86 C 24 112, -30 108, -52 78 C -94 82, -120 40, -98 -12 Z" fill="#00D2B2"/>
+      <g transform="translate(14, 6) rotate(-6)">
+        <path d="M -38 8 C -33 -14, -9 -14, -4 8" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+        <path d="M 10 8 C 15 -14, 39 -14, 44 8" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Floating Purple Antenna Buddy orbiting upper-right -->
+    <g transform="translate(1495, 290) rotate(-20)">
+      <line x1="0" y1="-48" x2="0" y2="-66" stroke="#9B6BFF" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="0" cy="-71" r="9" fill="#9B6BFF"/>
+      <circle cx="0" cy="0" r="48" fill="#9B6BFF"/>
+      <rect x="-18" y="-12" width="13" height="30" rx="6.5" fill="#FFFFFF"/>
+      <rect x="5" y="-12" width="13" height="30" rx="6.5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Floating PASS ✓ badge popping off Teal Agent -->
+    <g transform="translate(1228, 692) rotate(-8)">
+      <rect x="-64" y="-22" width="132" height="48" rx="24" fill="#060913"/>
+      <rect x="-68" y="-26" width="132" height="48" rx="24" fill="#00D2B2" stroke="#FFFFFF" stroke-width="3"/>
+      <text x="-2" y="7" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="22" fill="#06211C">TEST ✓</text>
+    </g>
+  </svg>
+
+  <div class="content">
+    <div class="top-row">
+      <span class="pill-white">pstack</span>
+      <span class="pill-orange">10分で一撃理解</span>
+      <span class="dev-tag">poteto（ローレン・タン）開発</span>
+    </div>
+
+    <h1 class="hero">
+      <span class="l1">寝てる間に自動で動く</span>
+      <span class="l2">AIエージェントを誰でも作れる。</span>
+    </h1>
+
+    <div class="quote-sticker">
+      <div class="quote-bar"></div>
+      <div class="q-en">“All Code Is <span>Slop</span> (Except Mine).”</div>
+      <div class="q-jp">
+        全てのコードは<span class="o">ゴミ</span><span class="b">（私以外はな）</span>
+        <span class="by">— poteto</span>
+      </div>
+    </div>
+
+    <div class="steps">
+      <span class="step-pill sp-moon">☾ 夜間自律</span>
+      <span class="arr">→</span>
+      <span class="step-pill sp-mid">設計・実装</span>
+      <span class="arr">→</span>
+      <span class="step-pill sp-mid">自動テスト</span>
+      <span class="arr">→</span>
+      <span class="step-pill sp-done">朝には完了 ✓</span>
+    </div>
+  </div>
+
+  <div class="footer" id="footer"></div>
+</div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const w = parseInt(p.get('w') || '1600', 10);
+  const h = parseInt(p.get('h') || '900', 10);
+  const mode = p.get('mode') || 'techblog';
+  document.documentElement.style.setProperty('--w', w + 'px');
+  document.documentElement.style.setProperty('--h', h + 'px');
+  document.documentElement.style.setProperty('--s', w / 1600);
+  if (mode === 'note') document.body.classList.add('mode-note');
+  const f = document.getElementById('footer');
+  f.innerHTML = mode === 'techblog'
+    ? '<span class="credit">作図：萩野貴拓</span><span class="sep">|</span><span class="brand">カンリー Techブログ</span>'
+    : '<span class="credit">作図：萩野貴拓</span>';
+</script>
+</body>
+</html>

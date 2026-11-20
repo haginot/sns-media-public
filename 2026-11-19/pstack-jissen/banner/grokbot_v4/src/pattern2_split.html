@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: var(--w); height: var(--h); overflow: hidden;
+    background: #FFFDF7;
+    font-family: "Inter Tight", "Inter", "Noto Sans CJK JP", "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage { position: relative; width: var(--w); height: var(--h); background: #FFFDF7; overflow: hidden; }
+  .art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+
+  .content {
+    position: relative; z-index: 10; width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding-bottom: calc(var(--s) * 44px);
+  }
+
+  .top-row {
+    display: flex; align-items: center; gap: calc(var(--s) * 12px);
+    margin-bottom: calc(var(--s) * 18px);
+  }
+  .pill-black {
+    background: #0D0E12; color: #FFFFFF; font-family: "Inter", sans-serif;
+    font-weight: 900; font-size: calc(var(--s) * 24px);
+    padding: calc(var(--s) * 7px) calc(var(--s) * 20px); border-radius: 999px; line-height: 1.1;
+    border: calc(var(--s) * 2.5px) solid #FFFFFF;
+  }
+  .pill-orange {
+    background: #FF5E00; color: #FFFFFF; font-weight: 900; font-size: calc(var(--s) * 21px);
+    padding: calc(var(--s) * 8px) calc(var(--s) * 18px); border-radius: 999px; line-height: 1.1;
+    transform: rotate(-1.5deg);
+    box-shadow: calc(var(--s) * 3px) calc(var(--s) * 3px) 0 #0D0E12;
+  }
+  .dev-pill {
+    background: #FFFFFF; color: #161B26; font-weight: 800; font-size: calc(var(--s) * 20px);
+    padding: calc(var(--s) * 7px) calc(var(--s) * 18px); border-radius: 999px;
+    border: calc(var(--s) * 2.5px) solid #0D0E12;
+  }
+
+  /* Bold floating kinetic title slab spanning night & morning */
+  .title-slab {
+    background: #FFFFFF;
+    border: calc(var(--s) * 4px) solid #0D0E12;
+    border-radius: calc(var(--s) * 30px);
+    padding: calc(var(--s) * 22px) calc(var(--s) * 44px);
+    box-shadow: calc(var(--s) * 9px) calc(var(--s) * 9px) 0 #0D0E12;
+    text-align: center;
+    margin-bottom: calc(var(--s) * 24px);
+  }
+  .title-slab .l1 {
+    display: block; font-size: calc(var(--s) * 74px); font-weight: 900;
+    color: #0E86FF; letter-spacing: -0.035em; line-height: 1.12;
+  }
+  .title-slab .l2 {
+    display: block; font-size: calc(var(--s) * 62px); font-weight: 900;
+    color: #0D0E12; letter-spacing: -0.035em; line-height: 1.15; margin-top: calc(var(--s) * 4px);
+  }
+
+  /* Quote sticker tilted boldly below */
+  .quote-pill {
+    position: relative;
+    background: #111626;
+    color: #FFFFFF;
+    border: calc(var(--s) * 3px) solid #FFD13B;
+    border-radius: calc(var(--s) * 22px);
+    padding: calc(var(--s) * 16px) calc(var(--s) * 34px);
+    box-shadow: calc(var(--s) * 6px) calc(var(--s) * 6px) 0 #FF5E00;
+    transform: rotate(-1deg);
+    text-align: center;
+  }
+  .q-en {
+    font-family: "Inter", sans-serif; font-size: calc(var(--s) * 32px); font-weight: 900;
+    letter-spacing: -0.025em; line-height: 1.15;
+  }
+  .q-en span { color: #FF7A24; }
+  .q-jp {
+    margin-top: calc(var(--s) * 5px); font-size: calc(var(--s) * 23px); font-weight: 900; color: #F1F5FF;
+  }
+  .q-jp .o { color: #FFD13B; }
+  .q-jp .b { color: #38BDF8; }
+  .q-jp .by { font-size: calc(var(--s) * 16px); font-weight: 700; color: #9BB0D4; margin-left: calc(var(--s) * 8px); }
+
+  /* Corner time badges inside safe zone */
+  .time-night {
+    position: absolute; top: 54px; left: 54px; z-index: 15;
+    background: #1A2545; color: #FFD13B; border: calc(var(--s) * 2.5px) solid #3B5288;
+    font-weight: 900; font-size: calc(var(--s) * 20px);
+    padding: calc(var(--s) * 8px) calc(var(--s) * 18px); border-radius: 999px;
+    transform: rotate(-2deg);
+  }
+  .time-morning {
+    position: absolute; top: 54px; right: 54px; z-index: 15;
+    background: #00B89C; color: #FFFFFF; border: calc(var(--s) * 2.5px) solid #0D0E12;
+    box-shadow: calc(var(--s) * 3px) calc(var(--s) * 3px) 0 #0D0E12;
+    font-weight: 900; font-size: calc(var(--s) * 20px);
+    padding: calc(var(--s) * 8px) calc(var(--s) * 18px); border-radius: 999px;
+    transform: rotate(2deg);
+  }
+
+  .footer {
+    position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 20;
+    background: #FFFFFF; border: calc(var(--s) * 2px) solid #0D0E12;
+    padding: calc(var(--s) * 6px) calc(var(--s) * 20px); border-radius: 999px;
+    display: flex; align-items: center; gap: calc(var(--s) * 12px); white-space: nowrap;
+  }
+  .credit { font-size: calc(var(--s) * 17px); font-weight: 800; color: #4B5563; }
+  .sep { color: #CBD5E1; font-weight: 700; }
+  .brand { font-size: calc(var(--s) * 18px); font-weight: 900; color: #0D0E12; }
+
+  body.mode-note .title-slab { padding: 16px 34px; margin-bottom: 16px; }
+  body.mode-note .title-slab .l1 { font-size: calc(var(--s) * 66px); }
+  body.mode-note .title-slab .l2 { font-size: calc(var(--s) * 55px); }
+  body.mode-note .quote-pill { padding: 12px 26px; }
+  body.mode-note .q-en { font-size: calc(var(--s) * 28px); }
+  body.mode-note .q-jp { font-size: calc(var(--s) * 20px); }
+  body.mode-note .content { padding-bottom: 48px; }
+  body.mode-note .footer { bottom: 42px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <svg class="art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- LEFT HALF: Deep Midnight Sky -->
+    <polygon points="0,0 870,0 710,900 0,900" fill="#0E1528"/>
+    <!-- RIGHT HALF: Bright Morning Sunlight -->
+    <polygon points="870,0 1600,0 1600,900 710,900" fill="#FFFDF5"/>
+    <!-- Crisp diagonal sunrise rays on right side (flat yellow wedges) -->
+    <polygon points="1540,90 1200,0 1370,0" fill="#FFF2B2"/>
+    <polygon points="1540,90 1000,320 1120,460" fill="#FFF2B2"/>
+    <polygon points="1540,90 1320,760 1490,820" fill="#FFF2B2"/>
+    <!-- Bold razor-sharp electric diagonal divider -->
+    <line x1="870" y1="0" x2="710" y2="900" stroke="#FFD13B" stroke-width="10"/>
+
+    <!-- Night side crescent moon & stars -->
+    <g transform="translate(150, 225) rotate(-14)">
+      <path d="M 28 -58 A 62 62 0 1 0 28 58 A 46 46 0 1 1 28 -58 Z" fill="#FFD13B"/>
+    </g>
+    <g font-family="Inter, sans-serif" font-weight="900" fill="#38BDF8">
+      <text x="235" y="258" font-size="28" transform="rotate(-12 235 258)">Z</text>
+      <text x="266" y="232" font-size="34" transform="rotate(-8 266 232)">z</text>
+      <text x="300" y="204" font-size="42" transform="rotate(-4 300 204)">z</text>
+    </g>
+    <path d="M 415 110 Q 415 128 433 128 Q 415 128 415 146 Q 415 128 397 128 Q 415 128 415 110 Z" fill="#FFD13B"/>
+    <circle cx="95" cy="390" r="7" fill="#38BDF8"/>
+    <circle cx="290" cy="110" r="6" fill="#FFFFFF" opacity="0.7"/>
+
+    <!-- Morning side crisp sun circle peeking top-right -->
+    <circle cx="1530" cy="145" r="110" fill="#FFD13B"/>
+
+    <!-- LEFT BOTTOM: Giant Electric Blue & Purple Night Agents working hard -->
+    <g transform="translate(135, 795) rotate(18)">
+      <path d="M -180 -10 C -205 -86, -142 -165, -52 -156 C 8 -208, 122 -196, 160 -122 C 222 -98, 232 14, 175 82 C 194 158, 110 220, 30 192 C -38 224, -142 190, -162 114 C -218 86, -218 18, -180 -10 Z" fill="#0E86FF"/>
+      <g transform="translate(55, -35) rotate(10)">
+        <rect x="-46" y="-38" width="30" height="78" rx="15" fill="#FFFFFF"/>
+        <rect x="8" y="-42" width="30" height="78" rx="15" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- Purple Buddy launching code across the night->morning border! -->
+    <g transform="translate(442, 752) rotate(-12)">
+      <line x1="0" y1="-56" x2="0" y2="-76" stroke="#9B6BFF" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="0" cy="-82" r="10" fill="#9B6BFF"/>
+      <circle cx="0" cy="0" r="56" fill="#9B6BFF"/>
+      <rect x="-18" y="-16" width="15" height="34" rx="7.5" fill="#FFFFFF"/>
+      <rect x="7" y="-16" width="15" height="34" rx="7.5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Kinetic flying motion arc across the diagonal split -->
+    <path d="M 500 735 C 660 660, 880 650, 1140 725" fill="none" stroke="#FF5E00" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/>
+
+    <!-- RIGHT BOTTOM: Giant Vivid Orange & Laughing Teal Agents celebrating Morning Complete! -->
+    <g transform="translate(1465, 790) rotate(-18)">
+      <path d="M -215 130 C -255 40, -195 -118, -78 -206 C 6 -272, 118 -248, 184 -130 C 250 -12, 272 112, 198 202 C 122 292, -172 220, -215 130 Z" fill="#FF5E00"/>
+      <g transform="translate(-68, -42) rotate(6)">
+        <rect x="-54" y="-42" width="32" height="84" rx="16" fill="#FFFFFF"/>
+        <rect x="8" y="-48" width="32" height="84" rx="16" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- Laughing Teal Cloud celebrating morning completion bottom-right-mid -->
+    <g transform="translate(1195, 755) rotate(-10)">
+      <path d="M -86 -10 C -95 -48, -62 -82, -20 -75 C -2 -102, 48 -98, 64 -68 C 98 -64, 114 -26, 92 8 C 106 42, 80 80, 44 76 C 20 98, -26 94, -46 68 C -82 72, -104 34, -86 -10 Z" fill="#00B89C"/>
+      <g transform="translate(4, 4) rotate(6)">
+        <path d="M -34 6 C -29 -13, -7 -13, -3 6" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/>
+        <path d="M 9 6 C 14 -13, 36 -13, 40 6" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Crisp morning confetti & sparkles on right -->
+    <path d="M 1365 360 Q 1365 380 1385 380 Q 1365 380 1365 400 Q 1365 380 1345 380 Q 1365 380 1365 360 Z" fill="#FF5E00"/>
+    <path d="M 1495 455 Q 1495 471 1511 471 Q 1495 471 1495 487 Q 1495 471 1479 471 Q 1495 471 1495 455 Z" fill="#0E86FF"/>
+    <circle cx="1305" cy="545" r="9" fill="#FF2B4A"/>
+    <circle cx="1445" cy="285" r="8" fill="#00B89C"/>
+  </svg>
+
+  <div class="time-night">☾ 02:00 あなたは睡眠中</div>
+  <div class="time-morning">☀ 07:00 設計・実装・テスト完了 ✓</div>
+
+  <div class="content">
+    <div class="top-row">
+      <span class="pill-black">pstack</span>
+      <span class="pill-orange">10分で一撃理解</span>
+      <span class="dev-pill">poteto（ローレン・タン）開発</span>
+    </div>
+
+    <div class="title-slab">
+      <span class="l1">寝てる間に自動で動く</span>
+      <span class="l2">AIエージェントを誰でも作れる。</span>
+    </div>
+
+    <div class="quote-pill">
+      <div class="q-en">“All Code Is <span>Slop</span> (Except Mine).”</div>
+      <div class="q-jp">
+        全てのコードは<span class="o">ゴミ</span><span class="b">（私以外はな）</span>
+        <span class="by">— poteto</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" id="footer"></div>
+</div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const w = parseInt(p.get('w') || '1600', 10);
+  const h = parseInt(p.get('h') || '900', 10);
+  const mode = p.get('mode') || 'techblog';
+  document.documentElement.style.setProperty('--w', w + 'px');
+  document.documentElement.style.setProperty('--h', h + 'px');
+  document.documentElement.style.setProperty('--s', w / 1600);
+  if (mode === 'note') document.body.classList.add('mode-note');
+  const f = document.getElementById('footer');
+  f.innerHTML = mode === 'techblog'
+    ? '<span class="credit">作図：萩野貴拓</span><span class="sep">|</span><span class="brand">カンリー Techブログ</span>'
+    : '<span class="credit">作図：萩野貴拓</span>';
+</script>
+</body>
+</html>

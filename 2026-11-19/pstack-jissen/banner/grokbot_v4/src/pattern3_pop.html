@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: var(--w); height: var(--h); overflow: hidden;
+    background: #FFF9EB;
+    font-family: "Inter Tight", "Inter", "Noto Sans CJK JP", "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage { position: relative; width: var(--w); height: var(--h); background: #FFF9EB; overflow: hidden; }
+  .art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+
+  .content {
+    position: relative; z-index: 10; width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding-bottom: calc(var(--s) * 44px);
+  }
+
+  .top-badges {
+    display: flex; align-items: center; gap: calc(var(--s) * 14px);
+    margin-bottom: calc(var(--s) * 16px);
+  }
+  .b-pstack {
+    background: #0D0E12; color: #FFD13B; font-family: "Inter", sans-serif;
+    font-weight: 900; font-size: calc(var(--s) * 26px); letter-spacing: -0.02em;
+    padding: calc(var(--s) * 8px) calc(var(--s) * 24px); border-radius: 999px; line-height: 1.1;
+    transform: rotate(-2.2deg);
+    box-shadow: calc(var(--s) * 4px) calc(var(--s) * 4px) 0 #0E86FF;
+  }
+  .b-dev {
+    background: #FFFFFF; color: #0D0E12; font-weight: 900; font-size: calc(var(--s) * 21px);
+    padding: calc(var(--s) * 8px) calc(var(--s) * 20px); border-radius: 999px;
+    border: calc(var(--s) * 3px) solid #0D0E12;
+    transform: rotate(1.2deg);
+    box-shadow: calc(var(--s) * 4px) calc(var(--s) * 4px) 0 #0D0E12;
+  }
+
+  /* Huge kinetic stacked pop-poster typography with crisp outline-shadow punch */
+  .pop-title {
+    text-align: center;
+    transform: rotate(-1.2deg);
+    margin-bottom: calc(var(--s) * 22px);
+  }
+  .pop-l1 {
+    display: inline-block;
+    background: #0E86FF; color: #FFFFFF;
+    font-size: calc(var(--s) * 76px); font-weight: 900;
+    letter-spacing: -0.03em; line-height: 1.1;
+    padding: calc(var(--s) * 10px) calc(var(--s) * 32px);
+    border-radius: calc(var(--s) * 22px);
+    border: calc(var(--s) * 4px) solid #0D0E12;
+    box-shadow: calc(var(--s) * 8px) calc(var(--s) * 8px) 0 #0D0E12;
+  }
+  .pop-l2 {
+    display: block;
+    margin-top: calc(var(--s) * 12px);
+    font-size: calc(var(--s) * 68px); font-weight: 900;
+    color: #0D0E12; letter-spacing: -0.035em; line-height: 1.12;
+    text-shadow: calc(var(--s) * 4px) calc(var(--s) * 4px) 0 #FFD13B;
+  }
+
+  /* Comic Speech Bubble for poteto's iconic quote */
+  .speech-wrap {
+    position: relative;
+    background: #FFFFFF;
+    border: calc(var(--s) * 4px) solid #0D0E12;
+    border-radius: calc(var(--s) * 28px);
+    padding: calc(var(--s) * 18px) calc(var(--s) * 38px);
+    box-shadow: calc(var(--s) * 7px) calc(var(--s) * 7px) 0 #FF5E00;
+    transform: rotate(0.8deg);
+    text-align: center;
+  }
+  .q-en {
+    font-family: "Inter", sans-serif; font-size: calc(var(--s) * 35px); font-weight: 900;
+    color: #0D0E12; letter-spacing: -0.03em; line-height: 1.15;
+  }
+  .q-en span { color: #FF5E00; }
+  .q-jp {
+    margin-top: calc(var(--s) * 6px); font-size: calc(var(--s) * 25px); font-weight: 900;
+    color: #111827; line-height: 1.2;
+  }
+  .q-jp .o { color: #FF5E00; }
+  .q-jp .b { color: #0E86FF; }
+  .q-jp .by { font-size: calc(var(--s) * 17px); font-weight: 800; color: #525B6B; margin-left: calc(var(--s) * 8px); }
+
+  /* Starburst 10分でわかる sticker floating top-right inside safe area */
+  .burst-tag {
+    position: absolute; top: 56px; right: 78px; z-index: 15;
+    width: calc(var(--s) * 196px); height: calc(var(--s) * 196px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transform: rotate(10deg);
+    text-align: center;
+  }
+  .burst-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .burst-txt { position: relative; z-index: 2; color: #0D0E12; font-weight: 900; line-height: 1.05; }
+  .burst-big { font-size: calc(var(--s) * 42px); display: block; color: #FF5E00; }
+  .burst-sm { font-size: calc(var(--s) * 20px); display: block; color: #0D0E12; margin-top: 2px; }
+
+  .footer {
+    position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 20;
+    display: flex; align-items: center; gap: calc(var(--s) * 14px); white-space: nowrap;
+    background: #FFF9EB; padding: calc(var(--s) * 4px) calc(var(--s) * 16px); border-radius: 999px;
+  }
+  .credit { font-size: calc(var(--s) * 18px); font-weight: 800; color: #525B6B; }
+  .sep { color: #C4CBD6; font-weight: 800; }
+  .brand { font-size: calc(var(--s) * 20px); font-weight: 900; color: #0D0E12; }
+
+  body.mode-note .pop-l1 { font-size: calc(var(--s) * 68px); padding: 8px 26px; }
+  body.mode-note .pop-l2 { font-size: calc(var(--s) * 60px); margin-top: 10px; }
+  body.mode-note .pop-title { margin-bottom: 16px; }
+  body.mode-note .speech-wrap { padding: 14px 30px; }
+  body.mode-note .q-en { font-size: calc(var(--s) * 30px); }
+  body.mode-note .q-jp { font-size: calc(var(--s) * 22px); }
+  body.mode-note .burst-tag { top: 44px; right: 54px; width: 146px; height: 146px; }
+  body.mode-note .burst-big { font-size: 32px; }
+  body.mode-note .burst-sm { font-size: 16px; }
+  body.mode-note .content { padding-bottom: 46px; }
+  body.mode-note .footer { bottom: 42px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <svg class="art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Crisp flat risograph dot pattern -->
+      <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+        <circle cx="13" cy="13" r="2.6" fill="#E9DFC5"/>
+      </pattern>
+    </defs>
+    <rect width="1600" height="900" fill="url(#dots)"/>
+
+    <!-- Energetic comic action wedges radiating from center (flat warm pale yellow) -->
+    <g fill="#FFF0C2">
+      <polygon points="800,450 220,0 440,0"/>
+      <polygon points="800,450 1050,0 1290,0"/>
+      <polygon points="800,450 1600,190 1600,380"/>
+      <polygon points="800,450 1600,610 1600,820"/>
+      <polygon points="800,450 1120,900 880,900"/>
+      <polygon points="800,450 480,900 220,900"/>
+      <polygon points="800,450 0,680 0,480"/>
+      <polygon points="800,450 0,250 0,70"/>
+    </g>
+
+    <!-- 1. TOP-LEFT: Giant Teal Cloud leaping in with bold comic black outline! -->
+    <g transform="translate(135, 118) rotate(14)">
+      <path d="M -140 -18 C -154 -82, -100 -134, -38 -124 C -8 -168, 76 -164, 104 -116 C 162 -112, 188 -48, 154 4 C 180 60, 140 124, 78 118 C 44 156, -36 152, -70 110 C -130 116, -172 56, -140 -18 Z"
+            fill="#00B89C" stroke="#0D0E12" stroke-width="7"/>
+      <g transform="translate(32, 22) rotate(10)">
+        <path d="M -48 10 C -42 -16, -12 -16, -6 10" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round"/>
+        <path d="M 14 10 C 20 -16, 50 -16, 56 10" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 2. BOTTOM-LEFT: Giant Black Night-Runner launching upward with moon & Zzz -->
+    <g transform="translate(120, 815) rotate(20)">
+      <ellipse cx="0" cy="0" rx="260" ry="228" fill="#0D0E12"/>
+      <g transform="translate(60, -64) rotate(12)">
+        <rect x="-58" y="-48" width="34" height="92" rx="17" fill="#FFFFFF"/>
+        <rect x="12" y="-54" width="34" height="92" rx="17" fill="#FFFFFF"/>
+      </g>
+    </g>
+    <g transform="translate(95, 500) rotate(-14)">
+      <path d="M 20 -30 A 32 32 0 1 0 20 30 A 24 24 0 1 1 20 -30 Z" fill="#FFB800" stroke="#0D0E12" stroke-width="4"/>
+    </g>
+    <g font-family="Inter, sans-serif" font-weight="900" fill="#0E86FF" stroke="#0D0E12" stroke-width="1.5">
+      <text x="150" y="530" font-size="28" transform="rotate(-12 150 530)">Z</text>
+      <text x="182" y="502" font-size="35" transform="rotate(-8 182 502)">z</text>
+      <text x="216" y="472" font-size="42" transform="rotate(-4 216 472)">z</text>
+    </g>
+
+    <!-- 3. BOTTOM-RIGHT: Giant Vivid Orange Rounded-Triangle with bold black ink outline -->
+    <g transform="translate(1485, 800) rotate(-18)">
+      <path d="M -215 130 C -258 40, -195 -118, -78 -206 C 6 -272, 118 -248, 184 -130 C 250 -12, 272 112, 198 202 C 122 292, -172 220, -215 130 Z"
+            fill="#FF5E00" stroke="#0D0E12" stroke-width="7"/>
+      <g transform="translate(-72, -40) rotate(6)">
+        <rect x="-52" y="-40" width="32" height="84" rx="16" fill="#FFFFFF"/>
+        <rect x="8" y="-46" width="32" height="84" rx="16" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- 4. FLOATING PURPLE & CORAL BUDDIES with comic ink outline -->
+    <g transform="translate(388, 178) rotate(-16)">
+      <line x1="0" y1="-52" x2="0" y2="-70" stroke="#0D0E12" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="0" cy="-75" r="10" fill="#8A54FF" stroke="#0D0E12" stroke-width="5"/>
+      <circle cx="0" cy="0" r="52" fill="#8A54FF" stroke="#0D0E12" stroke-width="6"/>
+      <g transform="translate(8, 10) rotate(22)">
+        <rect x="-20" y="-14" width="14" height="32" rx="7" fill="#FFFFFF"/>
+        <rect x="4" y="-14" width="14" height="32" rx="7" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <g transform="translate(1435, 420) rotate(12)">
+      <path d="M 0 58 C -42 34, -68 2, -56 -32 C -48 -60, -14 -62, 0 -38 C 14 -62, 48 -60, 56 -32 C 68 2, 42 34, 0 58 Z"
+            fill="#FF2B4A" stroke="#0D0E12" stroke-width="6"/>
+      <g transform="translate(-10, -6) rotate(-8)">
+        <rect x="-16" y="-18" width="13" height="32" rx="6.5" fill="#FFFFFF"/>
+        <rect x="5" y="-18" width="13" height="32" rx="6.5" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- Floating comic stickers: </> & AUTO ✓ -->
+    <g transform="translate(175, 365) rotate(-12)">
+      <rect x="-54" y="-22" width="114" height="48" rx="14" fill="#0D0E12"/>
+      <rect x="-58" y="-26" width="114" height="48" rx="14" fill="#FFFFFF" stroke="#0D0E12" stroke-width="4"/>
+      <text x="-1" y="7" text-anchor="middle" font-family="M PLUS 1 Code, monospace" font-weight="900" font-size="22" fill="#0E86FF">&lt;/&gt; PR</text>
+    </g>
+    <g transform="translate(1205, 738) rotate(-8)">
+      <rect x="-74" y="-22" width="154" height="48" rx="24" fill="#0D0E12"/>
+      <rect x="-78" y="-26" width="154" height="48" rx="24" fill="#00B89C" stroke="#0D0E12" stroke-width="4"/>
+      <text x="-1" y="6" text-anchor="middle" font-family="Inter, Noto Sans CJK JP, sans-serif" font-weight="900" font-size="21" fill="#FFFFFF">自動検証 ✓</text>
+    </g>
+
+    <!-- Bold geometric stars -->
+    <path d="M 1190 120 Q 1190 140 1210 140 Q 1190 140 1190 160 Q 1190 140 1170 140 Q 1190 140 1190 120 Z" fill="#0E86FF" stroke="#0D0E12" stroke-width="3"/>
+    <path d="M 425 745 Q 425 765 445 765 Q 425 765 425 785 Q 425 765 405 765 Q 425 765 425 745 Z" fill="#FF5E00" stroke="#0D0E12" stroke-width="3"/>
+  </svg>
+
+  <!-- Floating Starburst Badge top-right -->
+  <div class="burst-tag">
+    <svg class="burst-svg" viewBox="0 0 200 200">
+      <polygon points="100,6 119,36 154,22 153,58 189,65 169,96 194,123 161,138 167,174 131,168 118,196 92,174 62,192 58,156 22,154 38,121 10,96 42,78 32,42 68,46 82,12"
+               fill="#FFD13B" stroke="#0D0E12" stroke-width="6" stroke-linejoin="round"/>
+    </svg>
+    <div class="burst-txt">
+      <span class="burst-big">10分</span>
+      <span class="burst-sm">で一撃理解!</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="top-badges">
+      <span class="b-pstack">pstack 実践ガイド</span>
+      <span class="b-dev">poteto（ローレン・タン）開発</span>
+    </div>
+
+    <div class="pop-title">
+      <span class="pop-l1">寝てる間に自動で動く</span>
+      <span class="pop-l2">AIエージェントを誰でも作れる。</span>
+    </div>
+
+    <div class="speech-wrap">
+      <div class="q-en">“All Code Is <span>Slop</span> (Except Mine).”</div>
+      <div class="q-jp">
+        全てのコードは<span class="o">ゴミ</span><span class="b">（私以外はな）</span>
+        <span class="by">— poteto</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" id="footer"></div>
+</div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const w = parseInt(p.get('w') || '1600', 10);
+  const h = parseInt(p.get('h') || '900', 10);
+  const mode = p.get('mode') || 'techblog';
+  document.documentElement.style.setProperty('--w', w + 'px');
+  document.documentElement.style.setProperty('--h', h + 'px');
+  document.documentElement.style.setProperty('--s', w / 1600);
+  if (mode === 'note') document.body.classList.add('mode-note');
+  const f = document.getElementById('footer');
+  f.innerHTML = mode === 'techblog'
+    ? '<span class="credit">作図：萩野貴拓</span><span class="sep">|</span><span class="brand">カンリー Techブログ</span>'
+    : '<span class="credit">作図：萩野貴拓</span>';
+</script>
+</body>
+</html>
