@@ -1,9 +1,9 @@
 # English X promo drafts for two Substack ontology posts
 
-Status: **T0 sent, T1–T5 scheduled, 13 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). T0 and T1 were scheduled at 13:38 JST. T0 went out at 16:30 JST. T2 was scheduled at 18:04 JST at its planned 11/21 16:00. T3 was scheduled at 20:56 JST at its planned 11/22 16:00. At 2026-11-20 09:05 JST the live @haginota queue was 9/10 (the 11/19 23:15 Meta encoder post had already gone out), so T4 was scheduled. Its planned 11/23 09:00 would have been only 1 hour after the 中島聡『2034 未来予測』まとめ X promo (Buffer draft to be published with shareNow at 11/23 08:00), so T4 was placed in the next plan-pattern slot: 11/23 12:15. At 2026-11-20 14:55 JST the 11/20 12:00 Japanese note promo had already gone out (sentAt 12:01 JST), leaving 9/10, so T5 was scheduled. T5's planned 11/23 12:15 coincided with T4, so T5 was placed in the next plan-pattern slot: 11/23 15:30 (3 hours 15 minutes after T4; 7 hours 30 minutes after the 11/23 08:00 中島まとめ promo). The remaining 13 stay drafts until a slot opens.
+Status: **T0–T1 sent, T2–T6 scheduled, 12 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). T0 and T1 were scheduled at 13:38 JST. T0 went out at 16:30 JST. T2 was scheduled at 18:04 JST at its planned 11/21 16:00. T3 was scheduled at 20:56 JST at its planned 11/22 16:00. At 2026-11-20 09:05 JST the live @haginota queue was 9/10 (the 11/19 23:15 Meta encoder post had already gone out), so T4 was scheduled. Its planned 11/23 09:00 would have been only 1 hour after the 中島聡『2034 未来予測』まとめ X promo (Buffer draft to be published with shareNow at 11/23 08:00), so T4 was placed in the next plan-pattern slot: 11/23 12:15. At 2026-11-20 14:55 JST the 11/20 12:00 Japanese note promo had already gone out (sentAt 12:01 JST), leaving 9/10, so T5 was scheduled. T5's planned 11/23 12:15 coincided with T4, so T5 was placed in the next plan-pattern slot: 11/23 15:30 (3 hours 15 minutes after T4; 7 hours 30 minutes after the 11/23 08:00 中島まとめ promo). At 2026-11-20 18:03 JST the 11/20 16:00 T1 promo had already gone out (sentAt 16:01 JST), leaving 9/10, so T6 was scheduled. T6's planned 11/23 15:30 coincided with T5, so T6 was placed in the next plan-pattern slot: 11/23 18:45 (3 hours 15 minutes after T5; 10 hours 45 minutes after the 11/23 08:00 中島まとめ promo). The remaining 12 stay drafts until a slot opens.
 
 Channel: @haginota (`6aeb2f32e29c69a1715cb51a`), organization “My organization” (`6ae309778cac57bdae1e3a7d`).  
-Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. T2 scheduled: 2026-11-19 18:04 JST. T3 scheduled: 2026-11-19 20:56 JST. T4 scheduled: 2026-11-20 09:05 JST. T5 scheduled: 2026-11-20 14:55 JST. Re-fetched with `get_post`: T0 is `status: sent` (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST); T1, T2, T3, T4, and T5 are `status: scheduled` with the recorded `dueAt` (T4 at 11/23 12:15, not the original 09:00; T5 at 11/23 15:30, not the original 12:15); text, image URL, and alt are unchanged. The other 13 remain `status: draft`, `dueAt: null`, `sentAt: null`.
+Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. T2 scheduled: 2026-11-19 18:04 JST. T3 scheduled: 2026-11-19 20:56 JST. T4 scheduled: 2026-11-20 09:05 JST. T5 scheduled: 2026-11-20 14:55 JST. T6 scheduled: 2026-11-20 18:03 JST. Re-fetched with `get_post`: T0 is `status: sent` (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST); T1 is `status: sent` (`sentAt` 2026-11-20T07:01:03.377Z = 16:01 JST); T2, T3, T4, T5, and T6 are `status: scheduled` with the recorded `dueAt` (T4 at 11/23 12:15, not the original 09:00; T5 at 11/23 15:30, not the original 12:15; T6 at 11/23 18:45, not the original 15:30); text, image URL, and alt are unchanged. The other 12 remain `status: draft`, `dueAt: null`, `sentAt: null`.
 
 ## Articles
 
@@ -20,7 +20,7 @@ Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:3
 
 ## Buffer context used for spacing (JST)
 
-Last relevant sent posts as of 2026-11-20 14:55 JST on @haginota:
+Last relevant sent posts as of 2026-11-20 18:03 JST on @haginota:
 
 | Time (JST) | What |
 |---|---|
@@ -31,14 +31,14 @@ Last relevant sent posts as of 2026-11-20 14:55 JST on @haginota:
 | 2026-11-20 12:01 | Japanese note ontology promo, already sent (planned 12:00; freed the slot used for T5) |
 | 2026-11-20 14:17 | pstack explainer (sent immediately, not from the scheduled queue) |
 | 2026-11-20 14:20 | Gemini 4 Neon (sent immediately, not from the scheduled queue) |
+| 2026-11-20 16:01 | T1 English Substack promo (fig1), already sent (planned 16:00; freed the slot used for T6) |
 
 The brief asked to start no earlier than 3 hours after AIO総合研究所's Scrunch posts this afternoon. Those posts had already gone out at 12:03 and 12:23 JST, so the earliest start is **15:23 JST today**.
 
-Live @haginota scheduled queue as of 2026-11-20 14:55 JST (free plan: **10 of 10 slots used**):
+Live @haginota scheduled queue as of 2026-11-20 18:03 JST (free plan: **10 of 10 slots used**):
 
 | Time (JST) | Topic |
 |---|---|
-| 2026-11-20 16:00 | T1 English Substack promo (fig1) |
 | 2026-11-20 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-21 12:00 | Japanese note ontology promo |
 | 2026-11-21 16:00 | T2 English Substack promo (fig2) |
@@ -47,23 +47,24 @@ Live @haginota scheduled queue as of 2026-11-20 14:55 JST (free plan: **10 of 10
 | 2026-11-22 16:00 | T3 English Substack promo (fig3) |
 | 2026-11-22 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-23 12:15 | T4 English Substack promo (fig4) |
-| 2026-11-23 15:30 | T5 English Substack promo (fig5) — scheduled this turn |
+| 2026-11-23 15:30 | T5 English Substack promo (fig5) |
+| 2026-11-23 18:45 | T6 English Substack promo (fig6) — scheduled this turn |
 
 @haginota posts must stay at least 3 hours apart. The 中島聡 X promos are still Buffer drafts and are published with shareNow at 23:00 / 08:00 (next: 11/20 23:00; last: 11/23 08:00 まとめ). They do not occupy scheduled slots, but they still count for spacing. T4's planned 11/23 09:00 would have been 1 hour after that 08:00 post, so T4 is at 11/23 12:15 (4 hours 15 minutes later). T4 is 16 hours 15 minutes after the 11/22 20:00 post.
 
 ## Schedule and status
 
-All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 2026-11-20 14:55 JST.
+All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 2026-11-20 18:03 JST.
 
 | # | ID | Planned time (JST) | Image | Weighted chars | Buffer id | Status |
 |---|---|---|---|---|---|---|
 | 1 | T0 | 2026-11-19 16:30 | banner_en_1600x900.png | 263 | `6afe7838f6b6aa0cd49eb074` | sent (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST) |
-| 2 | T1 | 2026-11-20 16:00 | fig1.png | 272 | `6afe783a3802f5b9fc681246` | scheduled (`dueAt` 2026-11-20T07:00:00.000Z = 16:00 JST) |
+| 2 | T1 | 2026-11-20 16:00 | fig1.png | 272 | `6afe783a3802f5b9fc681246` | sent (`sentAt` 2026-11-20T07:01:03.377Z = 16:01 JST) |
 | 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` | scheduled (`dueAt` 2026-11-21T07:00:00.000Z = 16:00 JST) |
 | 4 | T3 | 2026-11-22 16:00 | fig3.png | 278 | `6afe783e3802f5b9fc68133f` | scheduled (`dueAt` 2026-11-22T07:00:00.000Z = 16:00 JST) |
 | 5 | T4 | 2026-11-23 12:15 | fig4.png | 269 | `6afe784959eff0b616dcc8e6` | scheduled (`dueAt` 2026-11-23T03:15:00.000Z = 12:15 JST; moved from 09:00 to keep 3 hours from the 11/23 08:00 中島まとめ promo) |
 | 6 | T5 | 2026-11-23 15:30 | fig5.png | 267 | `6afe784b749099bdc70ca7c7` | scheduled (`dueAt` 2026-11-23T06:30:00.000Z = 15:30 JST; moved from 12:15 to keep 3 hours from T4 at 12:15) |
-| 7 | T6 | 2026-11-23 15:30 | fig6.png | 265 | `6afe784d59eff0b616dcc9a2` | draft |
+| 7 | T6 | 2026-11-23 18:45 | fig6.png | 265 | `6afe784d59eff0b616dcc9a2` | scheduled (`dueAt` 2026-11-23T09:45:00.000Z = 18:45 JST; moved from 15:30 to keep 3 hours from T5 at 15:30) |
 | 8 | T7 | 2026-11-23 18:45 | fig7.png | 276 | `6afe7850f6b6aa0cd49eb982` | draft |
 | 9 | N0 | 2026-11-24 09:00 | F1.jpg (launch) | 268 | `6afe785bb16549e9b822ec31` | draft |
 | 10 | N2 | 2026-11-24 12:15 | F2.jpg | 231 | `6afe785df6b6aa0cd49ebd5d` | draft |
@@ -79,7 +80,7 @@ All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_po
 
 From 11/23 the cadence is 09:00, 12:15, 15:30, 18:45 (3 hours 15 minutes apart), during reasonable hours.
 
-**Scheduling constraint:** the free plan allows 10 scheduled posts. After T5 was added, the queue is **10/10**. T6 onward must wait until a slot frees (the next opening is after today's 16:00 JST T1 promo goes out). T6's original 11/23 15:30 now coincides with T5, so T6 should take the next plan-pattern slot that stays 3 hours from every other post (likely 11/23 18:45, then T7 and later shift accordingly). Do not exceed 10.
+**Scheduling constraint:** the free plan allows 10 scheduled posts. After T6 was added, the queue is **10/10**. T7 onward must wait until a slot frees (the next opening is after tonight's 20:00 JST Japanese Canly Tech Blog promo goes out). T7's original 11/23 18:45 now coincides with T6, so T7 should take the next plan-pattern slot that stays 3 hours from every other post (likely 11/24 09:00, then N0 and later shift accordingly). Do not exceed 10.
 
 ## Post copy
 
@@ -101,7 +102,7 @@ On the show I used one word, "ontology," for two things. In the general (W3C) se
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig1.png (2000×1125 PNG, HTTP 200, SHA match)
 - Alt: Side-by-side comparison of what counts as “ontology.” Left: ontology in general (W3C standards), with a type layer (classes, properties, constraints; RDF, OWL, SHACL, SPARQL) and optional actual data (knowledge graph). Permissions and writes to business systems are outside the standards' scope. Right: Foundry Ontology (Palantir), where types, contents (objects and links), and components that make things happen (actions, functions, permissions) are all inside what Foundry calls “ontology.” A dotted line marks the two type layers as the same layer. Footer: not better or worse, a difference in how much gets called by the same name.
-- Buffer: `6afe783a3802f5b9fc681246` — scheduled, `dueAt` 2026-11-20T07:00:00.000Z (16:00 JST). Re-fetched: status scheduled; text, image, and alt unchanged.
+- Buffer: `6afe783a3802f5b9fc681246` — sent, `dueAt` 2026-11-20T07:00:00.000Z, `sentAt` 2026-11-20T07:01:03.377Z (16:01 JST). Re-fetched: status sent; text, image, and alt unchanged.
 
 #### T2 — fig2
 
@@ -141,7 +142,7 @@ For connecting an LLM agent, I used a simple rule: AI proposes, humans approve. 
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig6.png (2000×1125 PNG, HTTP 200, SHA match)
 - Alt: AI proposes, humans approve. An LLM agent (Codex) sits on an ontology plate (definitions of types, relationships, actions) and uses ontology_schema, search_objects, traverse_graph, and get_object. The flow: change plan (proposal) — propose_rebooking; pre-approval check — check_plan (conditions and freshness, then waits for approval); human approval — approve_plan (production lead only; not among the agent's tools); commit — commit_rebooking (re-checks approval and premises, then applies in one transaction); audit record (keeps both successes and refusals). A dotted loop: premises changed → can't commit → redo the plan. Footer: conditions for execution and who approves are bound by server-side definitions, not by the prompt. Fictional data; no Palantir products are used.
-- Buffer: `6afe784d59eff0b616dcc9a2` — draft, no dueAt
+- Buffer: `6afe784d59eff0b616dcc9a2` — scheduled, `dueAt` 2026-11-23T09:45:00.000Z (18:45 JST; moved from 15:30). Re-fetched: status scheduled; text, image, and alt unchanged.
 
 #### T7 — fig7
 
