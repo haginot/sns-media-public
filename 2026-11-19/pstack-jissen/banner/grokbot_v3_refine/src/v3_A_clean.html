@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: var(--w); height: var(--h); overflow: hidden;
+    background: #F9FAF8;
+    font-family: "Inter Tight", "Inter", "Noto Sans CJK JP", "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+  .stage { position: relative; width: var(--w); height: var(--h); background: #F9FAF8; overflow: hidden; }
+  .art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+
+  .content {
+    position: relative; z-index: 10; width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding-bottom: calc(var(--s) * 44px);
+  }
+
+  .top-row {
+    display: flex; align-items: center; gap: calc(var(--s) * 12px);
+    margin-bottom: calc(var(--s) * 18px);
+  }
+  .pill-black {
+    background: #0D0E12; color: #FFFFFF; font-family: "Inter", sans-serif;
+    font-weight: 900; font-size: calc(var(--s) * 24px); letter-spacing: -0.02em;
+    padding: calc(var(--s) * 7px) calc(var(--s) * 22px); border-radius: 999px; line-height: 1.1;
+  }
+  .pill-orange {
+    background: #FF5E00; color: #FFFFFF; font-weight: 900; font-size: calc(var(--s) * 21px);
+    padding: calc(var(--s) * 8px) calc(var(--s) * 19px); border-radius: 999px; line-height: 1.1;
+  }
+  .dev-label {
+    font-size: calc(var(--s) * 21px); font-weight: 800; color: #3D4452;
+    letter-spacing: -0.01em; padding-left: calc(var(--s) * 4px);
+  }
+
+  /* Larger, airier hero headline */
+  .hero {
+    text-align: center; line-height: 1.11; letter-spacing: -0.035em;
+    margin-bottom: calc(var(--s) * 24px);
+  }
+  .hero .l1 { display: block; font-size: calc(var(--s) * 86px); font-weight: 900; color: #0E86FF; }
+  .hero .l2 { display: block; font-size: calc(var(--s) * 73px); font-weight: 900; color: #0D0E12; margin-top: calc(var(--s) * 4px); }
+
+  /* Refined soft-border floating quote card (no heavy black outline clutter) */
+  .quote-card {
+    position: relative;
+    background: #FFFFFF;
+    border: calc(var(--s) * 2px) solid #DDE2EC;
+    border-radius: calc(var(--s) * 24px);
+    padding: calc(var(--s) * 18px) calc(var(--s) * 38px) calc(var(--s) * 18px) calc(var(--s) * 44px);
+    box-shadow: 0 calc(var(--s) * 6px) 0 #E4E8F0;
+    text-align: center;
+    margin-bottom: calc(var(--s) * 22px);
+  }
+  .quote-bar {
+    position: absolute; left: calc(var(--s) * 14px); top: calc(var(--s) * 14px); bottom: calc(var(--s) * 14px);
+    width: calc(var(--s) * 7px); border-radius: 999px; background: #FF5E00;
+  }
+  .q-en {
+    font-family: "Inter", sans-serif; font-size: calc(var(--s) * 36px); font-weight: 900;
+    color: #0D0E12; letter-spacing: -0.03em; line-height: 1.15;
+  }
+  .q-en span { color: #FF5E00; }
+  .q-jp {
+    margin-top: calc(var(--s) * 6px); font-size: calc(var(--s) * 26px); font-weight: 900;
+    color: #262C38; letter-spacing: -0.02em; line-height: 1.2;
+  }
+  .q-jp .o { color: #FF5E00; }
+  .q-jp .b { color: #0E86FF; }
+  .q-jp .by { font-size: calc(var(--s) * 18px); font-weight: 700; color: #6B7280; margin-left: calc(var(--s) * 10px); }
+
+  /* Unified sleek dark status dock (dramatically less visual noise!) */
+  .dock {
+    display: inline-flex; align-items: center; gap: calc(var(--s) * 14px);
+    background: #111622; color: #FFFFFF;
+    padding: calc(var(--s) * 10px) calc(var(--s) * 24px);
+    border-radius: 999px;
+    box-shadow: 0 calc(var(--s) * 5px) 0 #D8DEE9;
+    font-size: calc(var(--s) * 19px); font-weight: 800; white-space: nowrap;
+  }
+  .dock-moon { color: #FFD13B; font-weight: 900; }
+  .dock-div { width: calc(var(--s) * 2px); height: calc(var(--s) * 18px); background: #2D374D; border-radius: 999px; }
+  .dock-steps { color: #E2E8F5; }
+  .dock-arr { color: #637394; margin: 0 calc(var(--s) * 4px); }
+  .dock-done {
+    background: #00B89C; color: #FFFFFF; font-weight: 900;
+    padding: calc(var(--s) * 4px) calc(var(--s) * 14px); border-radius: 999px;
+  }
+
+  .footer {
+    position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 20;
+    display: flex; align-items: center; gap: calc(var(--s) * 14px); white-space: nowrap;
+  }
+  .credit { font-size: calc(var(--s) * 18px); font-weight: 700; color: #646D7D; }
+  .sep { color: #CBD2DE; font-weight: 700; font-size: calc(var(--s) * 18px); }
+  .brand { font-size: calc(var(--s) * 20px); font-weight: 900; color: #0D0E12; }
+
+  body.mode-note .hero .l1 { font-size: calc(var(--s) * 78px); }
+  body.mode-note .hero .l2 { font-size: calc(var(--s) * 66px); }
+  body.mode-note .hero { margin-bottom: calc(var(--s) * 18px); }
+  body.mode-note .quote-card { padding: 14px 32px 14px 38px; margin-bottom: 18px; }
+  body.mode-note .q-en { font-size: calc(var(--s) * 32px); }
+  body.mode-note .q-jp { font-size: calc(var(--s) * 23px); }
+  body.mode-note .top-row { margin-bottom: 14px; }
+  body.mode-note .content { padding-bottom: 48px; }
+  body.mode-note .footer { bottom: 44px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <svg class="art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Subtle airy motion rings -->
+    <path d="M -50 430 C 170 210, 440 105, 770 84 C 1110 62, 1390 175, 1650 375"
+          fill="none" stroke="#E5E9F0" stroke-width="3.5" stroke-dasharray="12 16" stroke-linecap="round"/>
+    <path d="M -40 610 C 260 770, 560 832, 880 806 C 1180 780, 1420 655, 1660 475"
+          fill="none" stroke="#E5E9F0" stroke-width="3.5" stroke-dasharray="10 16" stroke-linecap="round"/>
+
+    <!-- Minimal crisp sparkles -->
+    <path d="M 1192 108 Q 1192 128 1212 128 Q 1192 128 1192 148 Q 1192 128 1172 128 Q 1192 128 1192 108 Z" fill="#FF5E00"/>
+    <path d="M 158 408 Q 158 424 174 424 Q 158 424 158 440 Q 158 424 142 424 Q 158 424 158 408 Z" fill="#0E86FF"/>
+    <path d="M 1460 442 Q 1460 458 1476 458 Q 1460 458 1460 474 Q 1460 458 1444 458 Q 1460 458 1460 442 Z" fill="#00B89C"/>
+    <circle cx="965" cy="112" r="7" fill="#FFD13B"/>
+    <circle cx="515" cy="770" r="7" fill="#00B89C"/>
+    <circle cx="1360" cy="402" r="7" fill="#FF2B4A"/>
+
+    <!-- 1. TOP-LEFT: Giant Teal Cloud (slightly bolder corner bleed!) -->
+    <g transform="translate(138, 108) rotate(14) scale(1.06)">
+      <path d="M 95 -105 C 118 -132, 140 -132, 152 -118" fill="none" stroke="#00B89C" stroke-width="11" stroke-linecap="round"/>
+      <circle cx="157" cy="-115" r="14" fill="#00B89C"/>
+      <path d="M -145 -20 C -160 -85, -105 -140, -40 -130 C -10 -175, 78 -172, 108 -122 C 168 -118, 195 -52, 160 2 C 188 60, 145 128, 82 122 C 45 162, -38 158, -72 115 C -135 120, -178 58, -145 -20 Z" fill="#00B89C"/>
+      <g transform="translate(36, 26) rotate(10)">
+        <path d="M -52 12 C -46 -18, -14 -18, -8 12" fill="none" stroke="#FFFFFF" stroke-width="19" stroke-linecap="round"/>
+        <path d="M 14 12 C 20 -18, 52 -18, 58 12" fill="none" stroke="#FFFFFF" stroke-width="19" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 2. UPPER-MID-LEFT: Floating Purple Buddy -->
+    <g transform="translate(462, 128) rotate(-16)">
+      <line x1="0" y1="-60" x2="0" y2="-79" stroke="#8A54FF" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="0" cy="-85" r="10" fill="#8A54FF"/>
+      <circle cx="0" cy="0" r="60" fill="#8A54FF"/>
+      <g transform="translate(8, 13) rotate(24)">
+        <rect x="-24" y="-17" width="16" height="36" rx="8" fill="#FFFFFF"/>
+        <rect x="6" y="-17" width="16" height="36" rx="8" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- 3. TOP-RIGHT: Giant Electric Blue Fluffy Blob -->
+    <g transform="translate(1495, 132) rotate(-14) scale(1.06)">
+      <path d="M -185 -15 C -215 -92, -150 -178, -58 -168 C 5 -225, 125 -212, 168 -135 C 235 -110, 245 8, 185 80 C 205 162, 118 228, 35 198 C -35 232, -145 198, -165 118 C -225 90, -225 18, -185 -15 Z" fill="#0E86FF"/>
+      <g transform="translate(-72, 26) rotate(-6)">
+        <rect x="-56" y="-42" width="32" height="82" rx="16" fill="#FFFFFF"/>
+        <rect x="8" y="-48" width="32" height="82" rx="16" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- Soft-shadow crisp </> badge near Blue -->
+    <g transform="translate(1278, 224) rotate(9)">
+      <rect x="-44" y="-19" width="90" height="44" rx="14" fill="#DCE2EC"/>
+      <rect x="-46" y="-22" width="90" height="44" rx="14" fill="#FFFFFF" stroke="#D5DCE8" stroke-width="2.5"/>
+      <text x="-1" y="7" text-anchor="middle" font-family="M PLUS 1 Code, monospace" font-weight="900" font-size="22" fill="#0E86FF">&lt;/&gt;</text>
+    </g>
+
+    <!-- 4. BOTTOM-LEFT: MASSIVE Jet Black Night-Runner -->
+    <g transform="translate(125, 825) rotate(22) scale(1.05)">
+      <ellipse cx="0" cy="0" rx="285" ry="245" fill="#0B0C0F"/>
+      <g transform="translate(65, -72) rotate(12)">
+        <rect x="-66" y="-54" width="38" height="102" rx="19" fill="#FFFFFF"/>
+        <rect x="14" y="-60" width="38" height="102" rx="19" fill="#FFFFFF"/>
+      </g>
+    </g>
+    <g transform="translate(102, 505) rotate(-14)">
+      <path d="M 18 -26 A 28 28 0 1 0 18 26 A 21 21 0 1 1 18 -26 Z" fill="#FFB800"/>
+    </g>
+    <g font-family="Inter, sans-serif" font-weight="900" fill="#0E86FF">
+      <text x="152" y="532" font-size="24" transform="rotate(-12 152 532)">Z</text>
+      <text x="179" y="508" font-size="30" transform="rotate(-8 179 508)">z</text>
+      <text x="208" y="482" font-size="36" transform="rotate(-5 208 482)">z</text>
+    </g>
+
+    <!-- 5. BOTTOM-RIGHT: MASSIVE Vivid Orange Rounded Triangle -->
+    <g transform="translate(1495, 812) rotate(-18) scale(1.05)">
+      <path d="M -230 140 C -275 45, -210 -125, -85 -220 C 5 -290, 125 -265, 195 -140 C 265 -15, 290 120, 210 215 C 130 310, -185 235, -230 140 Z" fill="#FF5E00"/>
+      <g transform="translate(-75, -45) rotate(6)">
+        <rect x="-58" y="-44" width="34" height="90" rx="17" fill="#FFFFFF"/>
+        <rect x="8" y="-50" width="34" height="90" rx="17" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- 6. LOWER-MID-RIGHT: Floating Coral-Red Heart-Mochi -->
+    <g transform="translate(1118, 772) rotate(13) scale(0.88)">
+      <path d="M 0 64 C -46 38, -74 2, -62 -36 C -52 -66, -16 -68, 0 -42 C 16 -68, 52 -66, 62 -36 C 74 2, 46 38, 0 64 Z" fill="#FF2B4A"/>
+      <g transform="translate(-12, -8) rotate(-8)">
+        <rect x="-18" y="-20" width="14" height="36" rx="7" fill="#FFFFFF"/>
+        <rect x="6" y="-20" width="14" height="36" rx="7" fill="#FFFFFF"/>
+      </g>
+    </g>
+  </svg>
+
+  <div class="content">
+    <div class="top-row">
+      <span class="pill-black">pstack</span>
+      <span class="pill-orange">10分で一撃理解</span>
+      <span class="dev-label">poteto（ローレン・タン）開発</span>
+    </div>
+
+    <h1 class="hero">
+      <span class="l1">寝てる間に自動で動く</span>
+      <span class="l2">AIエージェントを誰でも作れる。</span>
+    </h1>
+
+    <div class="quote-card">
+      <div class="quote-bar"></div>
+      <div class="q-en">“All Code Is <span>Slop</span> (Except Mine).”</div>
+      <div class="q-jp">
+        全てのコードは<span class="o">ゴミ</span><span class="b">（私以外はな）</span>
+        <span class="by">— poteto</span>
+      </div>
+    </div>
+
+    <div class="dock">
+      <span class="dock-moon">☾ Zzz 夜間自律</span>
+      <span class="dock-div"></span>
+      <span class="dock-steps">設計<span class="dock-arr">→</span>実装<span class="dock-arr">→</span>自動テスト・検証</span>
+      <span class="dock-done">朝には完了 ✓</span>
+    </div>
+  </div>
+
+  <div class="footer" id="footer"></div>
+</div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const w = parseInt(p.get('w') || '1600', 10);
+  const h = parseInt(p.get('h') || '900', 10);
+  const mode = p.get('mode') || 'techblog';
+  document.documentElement.style.setProperty('--w', w + 'px');
+  document.documentElement.style.setProperty('--h', h + 'px');
+  document.documentElement.style.setProperty('--s', w / 1600);
+  if (mode === 'note') document.body.classList.add('mode-note');
+  const f = document.getElementById('footer');
+  f.innerHTML = mode === 'techblog'
+    ? '<span class="credit">作図：萩野貴拓</span><span class="sep">|</span><span class="brand">カンリー Techブログ</span>'
+    : '<span class="credit">作図：萩野貴拓</span>';
+</script>
+</body>
+</html>

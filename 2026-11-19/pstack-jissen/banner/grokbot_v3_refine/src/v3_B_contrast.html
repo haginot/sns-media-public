@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: var(--w); height: var(--h); overflow: hidden;
+    background: #F8F9F7;
+    font-family: "Inter Tight", "Inter", "Noto Sans CJK JP", "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage { position: relative; width: var(--w); height: var(--h); background: #F8F9F7; overflow: hidden; }
+  .art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+
+  .content {
+    position: relative; z-index: 10; width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding-bottom: calc(var(--s) * 44px);
+  }
+
+  .top-row {
+    display: flex; align-items: center; gap: calc(var(--s) * 12px);
+    margin-bottom: calc(var(--s) * 16px);
+  }
+  .pill-black {
+    background: #0D0E12; color: #FFFFFF; font-family: "Inter", sans-serif;
+    font-weight: 900; font-size: calc(var(--s) * 24px);
+    padding: calc(var(--s) * 7px) calc(var(--s) * 20px); border-radius: 999px; line-height: 1.1;
+  }
+  .pill-orange {
+    background: #FF5E00; color: #FFFFFF; font-weight: 900; font-size: calc(var(--s) * 21px);
+    padding: calc(var(--s) * 8px) calc(var(--s) * 18px); border-radius: 999px; line-height: 1.1;
+    transform: rotate(-1.6deg);
+    box-shadow: calc(var(--s) * 3px) calc(var(--s) * 3px) 0 #0D0E12;
+  }
+  .dev-label {
+    font-size: calc(var(--s) * 21px); font-weight: 800; color: #262C38;
+    background: #FFFFFF; border: calc(var(--s) * 2px) solid #D8DFE9;
+    padding: calc(var(--s) * 6px) calc(var(--s) * 16px); border-radius: 999px;
+  }
+
+  .hero {
+    text-align: center; line-height: 1.12; letter-spacing: -0.035em;
+    margin-bottom: calc(var(--s) * 22px);
+  }
+  .hero .l1 { display: block; font-size: calc(var(--s) * 84px); font-weight: 900; color: #0E86FF; }
+  .hero .l2 { display: block; font-size: calc(var(--s) * 71px); font-weight: 900; color: #0D0E12; margin-top: calc(var(--s) * 4px); }
+
+  /* HIGH-CONTRAST JET-BLACK QUOTE CARD anchoring the airy bright canvas */
+  .quote-dark {
+    position: relative;
+    background: #0E121D;
+    color: #FFFFFF;
+    border-radius: calc(var(--s) * 24px);
+    padding: calc(var(--s) * 20px) calc(var(--s) * 40px) calc(var(--s) * 20px) calc(var(--s) * 46px);
+    box-shadow: calc(var(--s) * 7px) calc(var(--s) * 7px) 0 #FF5E00;
+    transform: rotate(-0.9deg);
+    text-align: center;
+    margin-bottom: calc(var(--s) * 26px);
+  }
+  .quote-dark-bar {
+    position: absolute; left: calc(var(--s) * 14px); top: calc(var(--s) * 15px); bottom: calc(var(--s) * 15px);
+    width: calc(var(--s) * 8px); border-radius: 999px; background: #FF5E00;
+  }
+  .q-en {
+    font-family: "Inter", sans-serif; font-size: calc(var(--s) * 36px); font-weight: 900;
+    color: #FFFFFF; letter-spacing: -0.03em; line-height: 1.15;
+  }
+  .q-en span { color: #FF7824; }
+  .q-jp {
+    margin-top: calc(var(--s) * 7px); font-size: calc(var(--s) * 26px); font-weight: 900;
+    color: #F2F5FC; letter-spacing: -0.02em; line-height: 1.2;
+  }
+  .q-jp .o { color: #FFD13B; }
+  .q-jp .b { color: #47B4FF; }
+  .q-jp .by { font-size: calc(var(--s) * 18px); font-weight: 700; color: #94A3B8; margin-left: calc(var(--s) * 10px); }
+
+  .flow-row { display: flex; align-items: center; gap: calc(var(--s) * 10px); }
+  .chip {
+    font-size: calc(var(--s) * 19px); font-weight: 900;
+    padding: calc(var(--s) * 8px) calc(var(--s) * 18px); border-radius: 999px; white-space: nowrap;
+  }
+  .chip-night { background: #FFF2C2; color: #0D0E12; border: calc(var(--s) * 2.5px) solid #0D0E12; transform: rotate(-1.8deg); }
+  .chip-step { background: #FFFFFF; color: #111622; border: calc(var(--s) * 2.5px) solid #D0D7E4; }
+  .chip-done {
+    background: #00B89C; color: #FFFFFF; border: calc(var(--s) * 2.5px) solid #0D0E12;
+    box-shadow: calc(var(--s) * 3px) calc(var(--s) * 3px) 0 #0D0E12; transform: rotate(1.6deg);
+  }
+  .arr { color: #94A3B8; font-weight: 900; font-size: calc(var(--s) * 20px); }
+
+  .footer {
+    position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 20;
+    display: flex; align-items: center; gap: calc(var(--s) * 14px); white-space: nowrap;
+  }
+  .credit { font-size: calc(var(--s) * 18px); font-weight: 700; color: #5A6270; }
+  .sep { color: #C4CBD6; font-weight: 700; font-size: calc(var(--s) * 18px); }
+  .brand { font-size: calc(var(--s) * 20px); font-weight: 900; color: #0D0E12; }
+
+  body.mode-note .hero .l1 { font-size: calc(var(--s) * 76px); }
+  body.mode-note .hero .l2 { font-size: calc(var(--s) * 64px); }
+  body.mode-note .hero { margin-bottom: 16px; }
+  body.mode-note .quote-dark { padding: 14px 30px 14px 36px; margin-bottom: 18px; }
+  body.mode-note .q-en { font-size: calc(var(--s) * 31px); }
+  body.mode-note .q-jp { font-size: calc(var(--s) * 23px); }
+  body.mode-note .top-row { margin-bottom: 13px; }
+  body.mode-note .content { padding-bottom: 48px; }
+  body.mode-note .footer { bottom: 44px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <svg class="art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -60 440 C 160 220, 420 115, 750 92 C 1100 66, 1380 180, 1650 380"
+          fill="none" stroke="#E2E6EE" stroke-width="4" stroke-dasharray="12 14" stroke-linecap="round"/>
+    <path d="M -40 600 C 260 760, 560 825, 880 800 C 1180 775, 1420 650, 1660 470"
+          fill="none" stroke="#E2E6EE" stroke-width="4" stroke-dasharray="10 14" stroke-linecap="round"/>
+    <path d="M 332 238 A 150 150 0 0 1 255 316" fill="none" stroke="#00B89C" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+    <path d="M 1255 245 A 170 170 0 0 0 1345 340" fill="none" stroke="#0E86FF" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+    <path d="M 1228 625 A 200 200 0 0 0 1185 725" fill="none" stroke="#FF5E00" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+
+    <path d="M 1190 110 Q 1190 132 1212 132 Q 1190 132 1190 154 Q 1190 132 1168 132 Q 1190 132 1190 110 Z" fill="#FF5E00"/>
+    <path d="M 164 405 Q 164 423 182 423 Q 164 423 164 441 Q 164 423 146 423 Q 164 423 164 405 Z" fill="#0E86FF"/>
+    <path d="M 1455 442 Q 1455 460 1473 460 Q 1455 460 1455 478 Q 1455 460 1437 460 Q 1455 460 1455 442 Z" fill="#00B89C"/>
+    <circle cx="515" cy="765" r="7" fill="#00B89C"/>
+    <circle cx="1358" cy="405" r="7" fill="#FF2B4A"/>
+    <circle cx="965" cy="118" r="7" fill="#FFD13B"/>
+
+    <!-- 1. TOP-LEFT Teal Cloud -->
+    <g transform="translate(152, 114) rotate(14)">
+      <path d="M 95 -105 C 118 -132, 140 -132, 152 -118" fill="none" stroke="#00B89C" stroke-width="11" stroke-linecap="round"/>
+      <circle cx="157" cy="-115" r="14" fill="#00B89C"/>
+      <path d="M -145 -20 C -160 -85, -105 -140, -40 -130 C -10 -175, 78 -172, 108 -122 C 168 -118, 195 -52, 160 2 C 188 60, 145 128, 82 122 C 45 162, -38 158, -72 115 C -135 120, -178 58, -145 -20 Z" fill="#00B89C"/>
+      <g transform="translate(36, 26) rotate(10)">
+        <path d="M -52 12 C -46 -18, -14 -18, -8 12" fill="none" stroke="#FFFFFF" stroke-width="19" stroke-linecap="round"/>
+        <path d="M 14 12 C 20 -18, 52 -18, 58 12" fill="none" stroke="#FFFFFF" stroke-width="19" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <g transform="translate(328, 286) rotate(-11)">
+      <rect x="-25" y="-21" width="54" height="46" rx="14" fill="#0D0E12"/>
+      <rect x="-28" y="-24" width="54" height="46" rx="14" fill="#FFFFFF" stroke="#0D0E12" stroke-width="3"/>
+      <path d="M -11 -1 L -3 7 L 13 -10" fill="none" stroke="#00B89C" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- 2. UPPER-MID-LEFT Purple Buddy -->
+    <g transform="translate(458, 134) rotate(-16)">
+      <line x1="0" y1="-62" x2="0" y2="-82" stroke="#8A54FF" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="0" cy="-88" r="10" fill="#8A54FF"/>
+      <circle cx="0" cy="0" r="62" fill="#8A54FF"/>
+      <g transform="translate(8, 14) rotate(24)">
+        <rect x="-24" y="-18" width="16" height="38" rx="8" fill="#FFFFFF"/>
+        <rect x="6" y="-18" width="16" height="38" rx="8" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- 3. TOP-RIGHT Blue Cloud -->
+    <g transform="translate(1485, 138) rotate(-14)">
+      <path d="M -185 -15 C -215 -92, -150 -178, -58 -168 C 5 -225, 125 -212, 168 -135 C 235 -110, 245 8, 185 80 C 205 162, 118 228, 35 198 C -35 232, -145 198, -165 118 C -225 90, -225 18, -185 -15 Z" fill="#0E86FF"/>
+      <g transform="translate(-72, 26) rotate(-6)">
+        <rect x="-56" y="-42" width="32" height="82" rx="16" fill="#FFFFFF"/>
+        <rect x="8" y="-48" width="32" height="82" rx="16" fill="#FFFFFF"/>
+      </g>
+    </g>
+    <g transform="translate(1258, 250) rotate(9)">
+      <rect x="-43" y="-19" width="92" height="44" rx="14" fill="#0D0E12"/>
+      <rect x="-46" y="-22" width="92" height="44" rx="14" fill="#FFFFFF" stroke="#0D0E12" stroke-width="3"/>
+      <text x="0" y="8" text-anchor="middle" font-family="M PLUS 1 Code, monospace" font-weight="900" font-size="22" fill="#0E86FF">&lt;/&gt;</text>
+    </g>
+
+    <!-- 4. BOTTOM-LEFT Black Night-Runner -->
+    <g transform="translate(132, 822) rotate(22)">
+      <ellipse cx="0" cy="0" rx="285" ry="245" fill="#0B0C0F"/>
+      <g transform="translate(65, -72) rotate(12)">
+        <rect x="-66" y="-54" width="38" height="102" rx="19" fill="#FFFFFF"/>
+        <rect x="14" y="-60" width="38" height="102" rx="19" fill="#FFFFFF"/>
+      </g>
+    </g>
+    <g transform="translate(105, 515) rotate(-14)">
+      <path d="M 18 -26 A 28 28 0 1 0 18 26 A 21 21 0 1 1 18 -26 Z" fill="#FFB800"/>
+    </g>
+    <g font-family="Inter, sans-serif" font-weight="900" fill="#0E86FF">
+      <text x="155" y="542" font-size="24" transform="rotate(-12 155 542)">Z</text>
+      <text x="182" y="518" font-size="30" transform="rotate(-8 182 518)">z</text>
+      <text x="210" y="492" font-size="36" transform="rotate(-5 210 492)">z</text>
+    </g>
+
+    <!-- 5. BOTTOM-RIGHT Vivid Orange -->
+    <g transform="translate(1488, 808) rotate(-18)">
+      <path d="M -230 140 C -275 45, -210 -125, -85 -220 C 5 -290, 125 -265, 195 -140 C 265 -15, 290 120, 210 215 C 130 310, -185 235, -230 140 Z" fill="#FF5E00"/>
+      <g transform="translate(-75, -45) rotate(6)">
+        <rect x="-58" y="-44" width="34" height="90" rx="17" fill="#FFFFFF"/>
+        <rect x="8" y="-50" width="34" height="90" rx="17" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <!-- 6. LOWER-MID-RIGHT Coral Heart -->
+    <g transform="translate(1116, 772) rotate(13) scale(0.86)">
+      <path d="M 0 64 C -46 38, -74 2, -62 -36 C -52 -66, -16 -68, 0 -42 C 16 -68, 52 -66, 62 -36 C 74 2, 46 38, 0 64 Z" fill="#FF2B4A"/>
+      <g transform="translate(-12, -8) rotate(-8)">
+        <rect x="-18" y="-20" width="14" height="36" rx="7" fill="#FFFFFF"/>
+        <rect x="6" y="-20" width="14" height="36" rx="7" fill="#FFFFFF"/>
+      </g>
+    </g>
+  </svg>
+
+  <div class="content">
+    <div class="top-row">
+      <span class="pill-black">pstack</span>
+      <span class="pill-orange">10分で一撃理解</span>
+      <span class="dev-label">poteto（ローレン・タン）開発</span>
+    </div>
+
+    <h1 class="hero">
+      <span class="l1">寝てる間に自動で動く</span>
+      <span class="l2">AIエージェントを誰でも作れる。</span>
+    </h1>
+
+    <div class="quote-dark">
+      <div class="quote-dark-bar"></div>
+      <div class="q-en">“All Code Is <span>Slop</span> (Except Mine).”</div>
+      <div class="q-jp">
+        全てのコードは<span class="o">ゴミ</span><span class="b">（私以外はな）</span>
+        <span class="by">— poteto</span>
+      </div>
+    </div>
+
+    <div class="flow-row">
+      <span class="chip chip-night">☾ Zzz 夜間自律</span>
+      <span class="arr">→</span>
+      <span class="chip chip-step">設計</span>
+      <span class="arr">→</span>
+      <span class="chip chip-step">実装</span>
+      <span class="arr">→</span>
+      <span class="chip chip-step">自動テスト・検証</span>
+      <span class="arr">→</span>
+      <span class="chip chip-done">朝には完了 ✓</span>
+    </div>
+  </div>
+
+  <div class="footer" id="footer"></div>
+</div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const w = parseInt(p.get('w') || '1600', 10);
+  const h = parseInt(p.get('h') || '900', 10);
+  const mode = p.get('mode') || 'techblog';
+  document.documentElement.style.setProperty('--w', w + 'px');
+  document.documentElement.style.setProperty('--h', h + 'px');
+  document.documentElement.style.setProperty('--s', w / 1600);
+  if (mode === 'note') document.body.classList.add('mode-note');
+  const f = document.getElementById('footer');
+  f.innerHTML = mode === 'techblog'
+    ? '<span class="credit">作図：萩野貴拓</span><span class="sep">|</span><span class="brand">カンリー Techブログ</span>'
+    : '<span class="credit">作図：萩野貴拓</span>';
+</script>
+</body>
+</html>
