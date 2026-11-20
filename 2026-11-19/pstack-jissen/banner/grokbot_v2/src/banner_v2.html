@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><title>pstack banner v2 (Grok Bot tone)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #F4F5F7; overflow: hidden; }
+  /* master coordinates are 1600 wide; tech = 1600x900, note = 1600x838 (rendered at 0.8 -> 1280x670) */
+  #stage { position: relative; overflow: hidden; background: #F4F5F7; color: #111318; width: 1600px;
+    font-family: "Inter", "Noto Sans CJK JP", sans-serif; font-feature-settings: "palt";
+    display: flex; flex-direction: column; padding: 56px 80px 58px; }
+  .tech #stage { height: 900px; } .note #stage { height: 838px; padding-top: 50px; padding-bottom: 54px; }
+  .kicker { display: flex; align-items: center; gap: 18px; white-space: nowrap; font-size: 34px; font-weight: 700; }
+  .pill { background: #111318; color: #FFFFFF; border-radius: 999px; font-weight: 700; padding: 6px 24px 9px; font-size: 32px; letter-spacing: -0.01em; }
+  .o { color: #FF6801; } .b { color: #1386FF; }
+  .card { background: #FFFFFF; border: 2px solid #E1E3E8; box-shadow: 3px 3px 0 #D5D8DF; border-radius: 34px; }
+  .foot { display: flex; justify-content: space-between; align-items: flex-end; font-size: 24px; white-space: nowrap; margin-top: auto; }
+  .foot .credit { color: #5F6368; font-size: 23px; }
+  .foot .brand { font-weight: 700; }
+  .note .foot .brand { display: none; }
+  .bots { display: flex; align-items: flex-end; }
+  .stepline { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+  .step { border-radius: 999px; font-weight: 700; color: #FFFFFF; white-space: nowrap; }
+  .arrow { font-weight: 700; }
+
+  /* ---------- A: quote impact ---------- */
+  .A .quote { position: relative; margin-top: 18px; }
+  .A .quote .en { font-family: "Inter", sans-serif; font-weight: 900; letter-spacing: -0.045em; line-height: 1.0; white-space: nowrap; font-size: 134px; }
+  .A .quote .ja { font-weight: 900; letter-spacing: -0.03em; white-space: nowrap; font-size: 60px; margin-top: 8px; }
+  .note.A .quote .en { font-size: 120px; } .note.A .quote .ja { font-size: 54px; margin-top: 4px; }
+  .A .smug { position: absolute; right: 0px; top: 26px; width: 250px; }
+  .note.A .smug { width: 205px; top: 22px; }
+  .A .pay { display: flex; align-items: stretch; margin-top: 22px; margin-bottom: 16px; padding: 20px 20px 20px 40px; min-height: 0; gap: 34px; flex: 1 1 0; }
+  .note.A .pay { margin-top: 16px; margin-bottom: 12px; padding: 16px 16px 16px 36px; }
+  .A .pay .txt { display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+  .A .pay .txt .pill { align-self: flex-start; font-size: 30px; }
+  .A .pay .big { font-weight: 900; font-size: 54px; line-height: 1.2; letter-spacing: -0.03em; white-space: nowrap; }
+  .note.A .pay .big { font-size: 48px; }
+  .night { background: #15203B; border-radius: 24px; position: relative; overflow: hidden; }
+  .A .night { flex: none; width: 520px; margin-left: auto; padding: 14px 22px; display: flex; flex-direction: column; justify-content: space-between; }
+  .night .star { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF; }
+  .A .night .top { height: 40px; display: flex; align-items: center; justify-content: space-between; color: #FFFFFF; font-weight: 700; font-size: 24px; }
+  .A .night .bots { justify-content: space-around; gap: 8px; }
+  .A .night .stepline { justify-content: center; color: #FFFFFF; font-size: 26px; }
+  .A .night .step { padding: 3px 18px 5px; font-size: 26px; }
+  .credit-in { }
+
+  /* ---------- B: benefit punch ---------- */
+  .B h1 { margin-top: 24px; font-weight: 900; letter-spacing: -0.035em; line-height: 1.14; }
+  .B h1 span.l { display: block; white-space: nowrap; }
+  .B .split { display: flex; gap: 30px; margin-top: 30px; margin-bottom: 30px; flex: 1 1 0; }
+  .note.B .split { margin-top: 22px; margin-bottom: 36px; }
+  .B .bubble { position: relative; flex: 1 1 0; padding: 22px 30px 22px 146px; display: flex; flex-direction: column; justify-content: center; }
+  .B .bubble .qm { position: absolute; left: 28px; top: 4px; font-family: "Inter", sans-serif; font-weight: 900; font-size: 190px; color: #FF6801; line-height: 1; }
+  .B .bubble .en { font-family: "Inter", sans-serif; font-weight: 900; font-size: 52px; letter-spacing: -0.035em; line-height: 1.06; white-space: nowrap; }
+  .B .bubble .ja { font-weight: 900; font-size: 38px; margin-top: 12px; letter-spacing: -0.02em; white-space: nowrap; }
+  .B .bubble .who { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-size: 24px; font-weight: 700; color: #5F6368; white-space: nowrap; }
+  .B .bubble .tail { position: absolute; left: 84px; bottom: -26px; width: 40px; height: 28px; }
+  .B .work { flex: none; width: 660px; display: flex; align-items: center; gap: 18px; padding: 22px 26px; }
+  .B .sleep { flex: none; width: 160px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+  .B .sleep .z { color: #FFFFFF; font-weight: 900; font-family: "Inter", sans-serif; font-size: 34px; letter-spacing: 0.02em; }
+  .B .sleep .lbl { color: #FFFFFF; font-weight: 700; font-size: 22px; }
+  .B .work .arrow { font-size: 54px; color: #1386FF; }
+  .B .crew { flex: 1; display: flex; justify-content: space-between; align-items: flex-end; }
+  .B .crew .m { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .B .crew .step { padding: 4px 14px 6px; font-size: 24px; }
+  .B .crew { gap: 10px; }
+</style></head>
+<body class="tech A">
+<div id="stage"></div>
+<script src="chars.js"></script>
+<script>
+const NAVY = '#15203B';
+const STARS = (pts) => pts.map(([x, y]) => `<span class="star" style="left:${x}%;top:${y}%"></span>`).join('');
+const FOOT = `<div class="foot"><span class="credit">作図：萩野貴拓</span><span class="brand">カンリー Techブログ</span></div>`;
+function fit(el, maxW) { // shrink font-size until the widest line fits
+  let fs = parseFloat(getComputedStyle(el).fontSize);
+  const widest = () => Math.max(...[...el.querySelectorAll('.l, .en, .ja, .big')].concat([el]).map((n) => n.scrollWidth));
+  while (widest() > maxW && fs > 20) { fs -= 1; el.style.fontSize = fs + 'px'; }
+}
+window.build = function (variant) {
+  const s = document.getElementById('stage');
+  if (variant === 'A') {
+    s.innerHTML = `
+      <div class="kicker"><span class="pill">pstack 開発者</span><span>poteto（ローレン・タン）</span></div>
+      <div class="quote">
+        <div class="en">“All Code Is <span class="o">Slop</span></div>
+        <div class="en">(Except <span class="b">Mine</span>).”</div>
+        <div class="ja">全てのコードは<span class="o">ゴミ</span>（私以外はな）</div>
+        <div class="smug" id="smug"></div>
+      </div>
+      <div class="pay card">
+        <div class="txt"><span class="pill">10分でわかる pstack</span>
+          <div class="big"><span class="b">寝てる間に</span>自動で動く<br>AIエージェントを、誰でも作れる。</div></div>
+        <div class="night">${STARS([[30, 14], [46, 30], [62, 10], [84, 40], [8, 44]])}
+          <div class="top"><span>${moon(40, NAVY)}</span><span>夜間シフト中</span></div>
+          <div class="bots" id="nbots"></div>
+          <div class="stepline"><span class="step" style="background:#111318;border:2px solid #FFFFFF">設計</span><span class="arrow">→</span><span class="step" style="background:#1386FF">実装</span><span class="arrow">→</span><span class="step" style="background:#FF6801">検証</span></div>
+        </div>
+      </div>${FOOT}`;
+    document.getElementById('smug').innerHTML = bot({ kind: 'mochi', color: '#000000', size: document.getElementById('smug').offsetWidth, look: [-0.85, 0.05] });
+    const nb = document.getElementById('nbots');
+    nb.innerHTML = [['mochi', '#000000', '#FFFFFF', [0.7, 0.2]], ['round', '#1386FF', '', [0.6, 0.3]], ['box', '#FF6801', '', [-0.5, 0.3]]]
+      .map(([k, c, r, l]) => `<div>${bot({ kind: k, color: c, ring: r, size: 72, look: l })}</div>`).join('');
+    fit(document.querySelector('.A .big'), 1440 - 520 - 34 - 66 - 4);
+  } else {
+    s.innerHTML = `
+      <div class="kicker"><span class="pill">10分でわかる pstack</span><span>poteto（ローレン・タン）開発</span></div>
+      <h1 id="hero"><span class="l b">寝てる間に自動で動く</span><span class="l">AIエージェントを、誰でも作れる。</span></h1>
+      <div class="split">
+        <div class="bubble card"><span class="qm">“</span>
+          <div class="en">All Code Is <span class="o">Slop</span><br>(Except Mine).</div>
+          <div class="ja">全てのコードは<span class="o">ゴミ</span>（私以外はな）</div>
+          <div class="who"><span id="pbot"></span>pstack 開発者 poteto（ローレン・タン）</div>
+          <svg class="tail" viewBox="0 0 40 28"><path d="M2 0 L38 0 L6 26 Z" fill="#FFFFFF"/><path d="M2 0 L6 26 L38 0" fill="none" stroke="#E1E3E8" stroke-width="2"/></svg>
+        </div>
+        <div class="work card">
+          <div class="night sleep">${STARS([[18, 12], [80, 18], [84, 92], [12, 92]])}${moon(64, NAVY)}<span class="z">Zzz</span><span class="lbl">あなたは睡眠</span></div>
+          <span class="arrow">→</span>
+          <div class="crew" id="crew"></div>
+        </div>
+      </div>${FOOT}`;
+    document.getElementById('pbot').innerHTML = bot({ kind: 'mochi', color: '#000000', size: 34, look: [0.6, 0] });
+    document.getElementById('crew').innerHTML = [['mochi', '#000000', '設計', '#111318', [0.6, 0.2]], ['round', '#1386FF', '実装', '#1386FF', [0.5, 0.3]], ['box', '#FF6801', 'テスト検証', '#FF6801', [-0.4, 0.3]]]
+      .map(([k, c, t, sc, l]) => `<div class="m">${bot({ kind: k, color: c, size: 92, look: l })}<span class="step" style="background:${sc}">${t}</span></div>`).join('');
+    const h = document.getElementById('hero');
+    h.style.fontSize = (document.body.classList.contains('note') ? 104 : 112) + 'px';
+    fit(h, 1440);
+  }
+};
+const EDGE = (minPx) => { const st = document.getElementById('stage').getBoundingClientRect(); const hits = [];
+  const w = document.createTreeWalker(document.getElementById('stage'), NodeFilter.SHOW_TEXT);
+  while (w.nextNode()) { const n = w.currentNode; if (!n.textContent.trim()) continue; const r = document.createRange(); r.selectNodeContents(n);
+    for (const b of r.getClientRects()) { const c = { l: b.left - st.left, t: b.top - st.top, r: st.right - b.right, b: st.bottom - b.bottom, text: n.textContent.trim().slice(0, 30) };
+      if (c.l < minPx || c.t < minPx || c.r < minPx || c.b < minPx) hits.push(c); } }
+  // overflow: any element whose content is wider/taller than its box
+  document.querySelectorAll('#stage *').forEach((e) => { if (e.tagName === 'svg' || e.closest('svg')) return; if (e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflow === 'hidden') hits.push({ overflow: e.className }); });
+  // children escaping the stage
+  document.querySelectorAll('#stage *').forEach((e) => { const b = e.getBoundingClientRect(); if (b.width && (b.right > st.right + 0.5 || b.bottom > st.bottom + 0.5 || b.left < st.left - 0.5)) hits.push({ escape: e.className || e.tagName, b: [b.left, b.top, b.right, b.bottom] }); });
+  return hits; };
+window.EDGE = EDGE;
+</script>
+</body></html>
