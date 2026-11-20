@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><title>pstack banner v2 B</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #F4F5F7; overflow: hidden; }
+  #stage { position: relative; overflow: hidden; background: #F4F5F7; color: #111111;
+    font-family: "Inter", "Noto Sans CJK JP", sans-serif; font-feature-settings: "palt"; }
+  .tech #stage { width: 1600px; height: 900px; }
+  .note #stage { width: 1280px; height: 670px; }
+
+  .topbar { position: absolute; display: flex; align-items: center; gap: 16px; white-space: nowrap; }
+  .tech .topbar { left: 80px; top: 58px; right: 80px; }
+  .note .topbar { left: 56px; top: 44px; right: 56px; gap: 12px; }
+
+  .pill { display: inline-flex; align-items: center; background: #111111; color: #FFFFFF; border-radius: 999px; font-weight: 800; }
+  .pill.blue { background: #1386FF; }
+  .tech .topbar .pill { padding: 8px 24px 9px; font-size: 28px; }
+  .note .topbar .pill { padding: 5px 18px 6px; font-size: 22px; }
+  .topbar .dev { font-weight: 700; color: #3C4043; }
+  .tech .topbar .dev { font-size: 28px; }
+  .note .topbar .dev { font-size: 22px; }
+
+  .hero-title { position: absolute; font-weight: 900; letter-spacing: -0.035em; line-height: 1.12; color: #111111; }
+  .tech .hero-title { left: 80px; right: 80px; top: 138px; font-size: 92px; }
+  .note .hero-title { left: 56px; right: 56px; top: 96px; font-size: 72px; }
+  .hero-title .hl { color: #1386FF; }
+  .hero-title .l { display: block; white-space: nowrap; }
+
+  .grid { position: absolute; display: flex; align-items: stretch; }
+  .tech .grid { left: 80px; right: 80px; top: 382px; height: 400px; gap: 28px; }
+  .note .grid { left: 56px; right: 56px; top: 284px; height: 310px; gap: 22px; }
+
+  .q-card { flex: 1.12 1 0; background: #FFFFFF; border: 2px solid #E1E3E8; box-shadow: 0 4px 0 #E1E3E8; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+  .tech .q-card { border-radius: 32px; padding: 30px 36px; border-left: 12px solid #FF6801; }
+  .note .q-card { border-radius: 26px; padding: 22px 26px; border-left: 10px solid #FF6801; }
+
+  .q-badge { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; color: #FF6801; white-space: nowrap; }
+  .tech .q-badge { font-size: 24px; }
+  .note .q-badge { font-size: 19px; }
+
+  .q-en { font-family: "Inter", sans-serif; font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; color: #111111; }
+  .tech .q-en { font-size: 46px; }
+  .note .q-en { font-size: 36px; }
+  .q-en .slop { color: #FF6801; }
+
+  .q-jp { font-weight: 900; letter-spacing: -0.025em; line-height: 1.2; color: #111111; white-space: nowrap; }
+  .tech .q-jp { font-size: 38px; }
+  .note .q-jp { font-size: 29px; }
+  .q-jp .slop { color: #FF6801; }
+
+  .q-attr { font-weight: 700; color: #5F6368; white-space: nowrap; }
+  .tech .q-attr { font-size: 23px; }
+  .note .q-attr { font-size: 18px; }
+
+  .v-card { flex: 0.92 1 0; background: #141821; box-shadow: 0 4px 0 #D0D4DC; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+  .tech .v-card { border-radius: 32px; padding: 28px 32px; }
+  .note .v-card { border-radius: 26px; padding: 20px 24px; }
+
+  .v-top { display: flex; align-items: center; justify-content: space-between; white-space: nowrap; }
+  .moon-pill { display: inline-flex; align-items: center; gap: 8px; background: #232A3B; color: #FFB800; border-radius: 999px; font-weight: 800; }
+  .tech .moon-pill { padding: 7px 18px; font-size: 23px; }
+  .note .moon-pill { padding: 5px 14px; font-size: 18px; }
+  .auto-pill { background: #1386FF; color: #FFFFFF; border-radius: 999px; font-weight: 800; }
+  .tech .auto-pill { padding: 7px 18px; font-size: 22px; }
+  .note .auto-pill { padding: 5px 14px; font-size: 17px; }
+
+  .crew { display: flex; align-items: flex-end; justify-content: center; gap: 26px; }
+  .note .crew { gap: 18px; }
+
+  .v-steps { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .v-step { flex: 1 1 0; text-align: center; background: #202736; color: #FFFFFF; border-radius: 14px; font-weight: 800; white-space: nowrap; }
+  .tech .v-step { padding: 12px 10px; font-size: 22px; }
+  .note .v-step { padding: 9px 8px; font-size: 17px; }
+  .v-step.done { background: #00BBA6; color: #111111; }
+
+  .foot { position: absolute; white-space: nowrap; }
+  .tech .foot.credit { left: 82px; bottom: 56px; color: #5F6368; font-size: 22px; font-weight: 500; }
+  .tech .foot.brand { right: 80px; bottom: 56px; color: #111111; font-size: 26px; font-weight: 800; }
+  .note .foot.credit { right: 56px; bottom: 42px; color: #5F6368; font-size: 18px; font-weight: 500; }
+  .note .foot.brand { display: none; }
+</style></head>
+<body class="tech">
+<div id="stage">
+  <div class="topbar">
+    <span class="pill">10分でわかる pstack</span>
+    <span class="dev">poteto（ローレン・タン）開発</span>
+  </div>
+  <h1 class="hero-title">
+    <span class="l"><span class="hl">寝てる間に自動で動く</span></span>
+    <span class="l">AIエージェントを誰でも作れる。</span>
+  </h1>
+  <div class="grid">
+    <div class="q-card">
+      <div class="q-badge">開発者の名言</div>
+      <div class="q-en">“All Code Is <span class="slop">Slop</span><br>(Except Mine).”</div>
+      <div class="q-jp">全てのコードは<span class="slop">ゴミ</span>（私以外はな）</div>
+      <div class="q-attr">— poteto（ローレン・タン）</div>
+    </div>
+    <div class="v-card">
+      <div class="v-top">
+        <span class="moon-pill">
+          <svg width="22" height="22" viewBox="0 0 24 24"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z" fill="#FFB800"/></svg>
+          Zzz 夜間自律
+        </span>
+        <span class="auto-pill">一撃でわかる</span>
+      </div>
+      <div class="crew" id="crew"></div>
+      <div class="v-steps">
+        <span class="v-step">1. 設計・実装</span>
+        <span class="v-step">2. 自動テスト</span>
+        <span class="v-step done">3. 検証完了</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot credit">作図：萩野貴拓</div>
+  <div class="foot brand" id="brand">カンリー Techブログ</div>
+</div>
+<script src="chars.js"></script>
+<script>
+window.renderVariant = function (mode, brand) {
+  document.body.className = mode;
+  document.getElementById('brand').textContent = brand || '';
+  const s = mode === 'tech' ? 1 : 0.78;
+  document.getElementById('crew').innerHTML =
+    bot({ kind: 'box', color: '#FF6801', size: Math.round(98 * s), look: [0.5, -0.1] }) +
+    bot({ kind: 'mochi', color: '#1386FF', size: Math.round(134 * s), look: [0.2, -0.2] }) +
+    bot({ kind: 'round', color: '#FF309C', size: Math.round(102 * s), look: [-0.5, -0.1] });
+};
+</script>
+</body></html>
