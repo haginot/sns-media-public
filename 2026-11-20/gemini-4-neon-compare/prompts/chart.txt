@@ -1,0 +1,7 @@
+Look at the attached chart image and answer. Read values from the chart as precisely as you can (the gridlines are every 5 million JPY on the left axis).
+1. Which month has the highest total sales (A+B+C)? Give the total.
+2. What is Product B's sales in July?
+3. In which month is the operating margin lowest, and what is its value?
+4. List every month in which Product C's sales are higher than Product A's.
+5. Estimate Product C's sales for all 12 months, Jan to Dec, as a comma-separated list of 12 numbers.
+Answer numbered 1-5, concisely. Do not use tools other than viewing the image.

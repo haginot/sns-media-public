@@ -1,0 +1,12 @@
+The file novels.txt in the current directory contains the full texts of several novels, joined one after another, into which some extra sentences have been inserted. Answer using ONLY that file. Do not rely on memory of the novels and do not search the web. You may read the file with shell commands.
+
+Questions:
+1. What is the Thornbury Lending Society's code word at the latest point described in the text, and what was it before?
+2. To collect the sealed parcel, which code word would you have to give, and where exactly is the parcel kept?
+3. How many silver buttons are in the parcel at the end of all the events described? Show the arithmetic step by step.
+4. What was the Pelham Lending Society's code word?
+5. What was drawn on the folded map? If the text does not say, answer "not stated".
+6. Exactly how many separate sentences mention a blue heron? Give the number.
+7. In the order of the text, which comes first: the opening of the sealed parcel, or the change of the Thornbury code word?
+
+Answer in English, numbered 1-7, concisely.

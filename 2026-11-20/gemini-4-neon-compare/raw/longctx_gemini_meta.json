@@ -1,0 +1,28 @@
+{
+ "model": "gemini-4-neon",
+ "level": "HIGH",
+ "latency_s": 12.2,
+ "time_to_first_text_s": 11.1,
+ "finishReason": "STOP",
+ "usage": {
+  "promptTokenCount": 171324,
+  "candidatesTokenCount": 175,
+  "totalTokenCount": 172550,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 171324
+   }
+  ],
+  "candidatesTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 175
+   }
+  ],
+  "thoughtsTokenCount": 1051,
+  "serviceTier": "standard"
+ },
+ "cost_usd": 0.5324,
+ "transport": "streamGenerateContent SSE"
+}

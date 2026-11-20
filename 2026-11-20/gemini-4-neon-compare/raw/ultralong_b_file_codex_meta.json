@@ -1,0 +1,16 @@
+{
+ "usage": {
+  "input_tokens": 74417,
+  "cached_input_tokens": 62976,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 431,
+  "reasoning_output_tokens": 0
+ },
+ "commands": [
+  "/bin/bash -lc 'wc -l -c novels.txt'",
+  "/bin/bash -lc \"rg -in 'Thornbury|Pelham Lending|silver buttons|blue heron|folded map|sealed parcel' novels.txt\"",
+  "/bin/bash -lc \"rg -n -i -C 2 'folded map|reset silver buttons|removed eleven|code word was changed|was finally opened' novels.txt\"",
+  "/bin/bash -lc \"rg -in 'Harrowgate|Ashcombe|heliotrope|larkspur|primrose|copper kettle bridge|\\\\bherons?\\\\b' novels.txt\"",
+  "/bin/bash -lc \"rg -in '\\\\b(parcel|parcels|buttons|maps?)\\\\b' novels.txt\""
+ ]
+}

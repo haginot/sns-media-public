@@ -1,0 +1,23 @@
+**Problem 1.** View each forbidden placement as an edge between a position and a value. The edges with \(|p(i)-i|=1\) form two disjoint paths, each with 10 vertices. Choosing \(j\) disjoint edges on one path amounts to choosing \(j\) nonconsecutive edges among its nine edges, which gives \(\binom{10-j}{j}\) choices. Thus the number \(r_k\) of ways to choose \(k\) compatible forbidden placements is the coefficient of \(x^k\) in
+\[
+(1+9x+28x^2+35x^3+15x^4+x^5)^2.
+\]
+Inclusion–exclusion gives \(\sum_{k=0}^{10}(-1)^k r_k(10-k)!=543597\).
+
+**Problem 2.** Split the positions and values into the ordered halves \((1,2,3,4)\) and \((8,7,6,5)\). In local coordinates within either half, indices 2 and 3 can only map to themselves, while indices 1 and 4 can map to either 1 or 4. Across halves, the four rows allow the first \(4,4,3,2\) columns respectively, in either direction.
+
+Group the subsets of indices that cross by their intersection with \(\{2,3\}\) and by how many of \(\{1,4\}\) they contain. In each half, the outgoing and incoming subsets must belong to the same group \(G\). The remaining indices have \(w_G=2\) internal matchings if both 1 and 4 remain, and \(w_G=1\) otherwise. For groups \(G,H\) in the two halves, let \(M_{GH}\) count the cross-half matchings between their subsets in one direction. The two directions can be chosen independently and have the same count, giving \(w_Gw_HM_{GH}^2\) permutations.
+
+To compute \(M_{GH}\), take each pair of subsets and assign the rows with the fewest allowed columns first. The allowed column sets are nested, so each successive row has one fewer available choice for each row already assigned. Summing the contributions gives
+
+| Number crossing in each direction | 0 | 1 | 2 | 3 | 4 |
+|---|---:|---:|---:|---:|---:|
+| Permutations | 4 | 45 | 228 | 372 | 64 |
+
+The total is \(713\).
+
+**Problem 3.** Aoi, Python, and Java occupy three consecutive slots in that order. If the block starts at slot 1, Swift must be in slot 4 and Go in slot 1, leaving Rust in slot 5 next to Swift. If it starts at slot 3, Swift must be in slot 2 and Go in slot 1, leaving Rust in slot 3 next to Swift. So the block starts at slot 2. Swift is then in slot 2, Go in slot 1, and Rust in slot 5. Ben must take slot 4, since slot 3 uses Python. Chika must follow him in slot 5, which puts Emi in slot 3 and Daiki in slot 1.
+
+ANSWER 1: 543597
+ANSWER 2: 713
+ANSWER 3: 1: Daiki, Go | 2: Aoi, Swift | 3: Emi, Python | 4: Ben, Java | 5: Chika, Rust
