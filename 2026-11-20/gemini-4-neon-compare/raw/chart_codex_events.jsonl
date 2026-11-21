@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1f204-de87-7f91-bff6-a399c7b66328"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"1. December, 172 million JPY.\n2. 44 million JPY.\n3. September, 9.8%.\n4. May, July, August, October, November.\n5. 25, 31, 40, 33, 52, 46, 55, 61, 50, 57, 64, 58 (million JPY)."}}
+{"type":"turn.completed","usage":{"input_tokens":18727,"cached_input_tokens":16512,"cache_write_input_tokens":0,"output_tokens":177,"reasoning_output_tokens":90}}

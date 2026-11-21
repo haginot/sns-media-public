@@ -1,0 +1,1 @@
+longctx codex 7.2 ['gpt-6.2-sol (reasoning high)'] 0

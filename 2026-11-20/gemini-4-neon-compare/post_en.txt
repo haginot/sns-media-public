@@ -1,0 +1,23 @@
+[Main]
+Google's new Gemini 4 Neon vs Claude Opus 5.5 vs GPT-6.2 Sol, same eight tasks.
+
+All three aced every checkable task they ran. At 654k tokens, Neon was faster and cheaper than Claude (30s, ~$2). Neon's Japanese essay ranked last.
+
+Write-up (in Japanese):
+{NOTE_URL}
+
+[Reply 1]
+The tasks:
+- a Brick Breaker game in one HTML file
+- 2 counting problems + a logic puzzle
+- reading a chart image
+- a Japanese explainer for an accountant
+- planted facts in 1 to 4 novels (171k-654k tokens)
+- path tracing in an 80k-token graph
+
+Same prompt, high effort.
+
+[Reply 2]
+At 386k and 654k tokens, Neon and Claude both went 7/7. GPT never got the text: Codex CLI rejects prompts over ~1M characters.
+
+The Japanese ranking was a blind review by all three models. All three, Neon included, put GPT first, though each also scored its own essay.

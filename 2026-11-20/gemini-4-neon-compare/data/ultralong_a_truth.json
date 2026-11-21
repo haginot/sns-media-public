@@ -1,0 +1,76 @@
+{
+ "files": [
+  "data/pp.txt",
+  "data/g158.txt"
+ ],
+ "truth": {
+  "1": "larkspur (before: heliotrope)",
+  "2": "larkspur; behind the counter of the Harrowgate post office",
+  "3": "42-11+4=35",
+  "4": "primrose",
+  "5": "not stated",
+  "6": "7",
+  "7": "the opening of the parcel comes first"
+ },
+ "facts": [
+  [
+   0.06,
+   "The ledger of the Thornbury Lending Society records that its strongbox could be opened only with the code word heliotrope."
+  ],
+  [
+   0.21,
+   "The Pelham Lending Society, a rival club, kept its own strongbox, and its code word was primrose."
+  ],
+  [
+   0.37,
+   "Mr. Ashcombe, the steward, noted that anyone who gives the Thornbury Lending Society's current code word may collect the sealed parcel kept behind the counter of the Harrowgate post office."
+  ],
+  [
+   0.52,
+   "When the sealed parcel from the Harrowgate post office was finally opened, it held exactly forty-two silver buttons and a folded map."
+  ],
+  [
+   0.68,
+   "Captain Ashcombe later removed eleven of the silver buttons from that parcel to have them reset by a jeweller."
+  ],
+  [
+   0.81,
+   "A later entry in the Thornbury Lending Society's ledger records that at Michaelmas the code word was changed from heliotrope to larkspur."
+  ],
+  [
+   0.93,
+   "The jeweller returned four of the reset silver buttons to the parcel a fortnight afterwards."
+  ]
+ ],
+ "herons": [
+  [
+   0.03,
+   "A blue heron was seen standing in the shallows near the copper kettle bridge."
+  ],
+  [
+   0.15,
+   "Someone remarked that the blue heron had come back to the copper kettle bridge."
+  ],
+  [
+   0.29,
+   "At dawn the blue heron stood again beneath the copper kettle bridge."
+  ],
+  [
+   0.44,
+   "The children counted ripples while a blue heron waited by the copper kettle bridge."
+  ],
+  [
+   0.59,
+   "A blue heron rose slowly from the reeds by the copper kettle bridge."
+  ],
+  [
+   0.73,
+   "Once more a blue heron was noticed at the copper kettle bridge, quite still."
+  ],
+  [
+   0.97,
+   "Late in the autumn a blue heron was still to be found at the copper kettle bridge."
+  ]
+ ],
+ "chars": 1610610
+}
