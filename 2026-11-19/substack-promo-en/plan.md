@@ -1,9 +1,9 @@
 # English X promo drafts for two Substack ontology posts
 
-Status: **T0–T1 sent, T2–T6 scheduled, 12 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). T0 and T1 were scheduled at 13:38 JST. T0 went out at 16:30 JST. T2 was scheduled at 18:04 JST at its planned 11/21 16:00. T3 was scheduled at 20:56 JST at its planned 11/22 16:00. At 2026-11-20 09:05 JST the live @haginota queue was 9/10 (the 11/19 23:15 Meta encoder post had already gone out), so T4 was scheduled. Its planned 11/23 09:00 would have been only 1 hour after the 中島聡『2034 未来予測』まとめ X promo (Buffer draft to be published with shareNow at 11/23 08:00), so T4 was placed in the next plan-pattern slot: 11/23 12:15. At 2026-11-20 14:55 JST the 11/20 12:00 Japanese note promo had already gone out (sentAt 12:01 JST), leaving 9/10, so T5 was scheduled. T5's planned 11/23 12:15 coincided with T4, so T5 was placed in the next plan-pattern slot: 11/23 15:30 (3 hours 15 minutes after T4; 7 hours 30 minutes after the 11/23 08:00 中島まとめ promo). At 2026-11-20 18:03 JST the 11/20 16:00 T1 promo had already gone out (sentAt 16:01 JST), leaving 9/10, so T6 was scheduled. T6's planned 11/23 15:30 coincided with T5, so T6 was placed in the next plan-pattern slot: 11/23 18:45 (3 hours 15 minutes after T5; 10 hours 45 minutes after the 11/23 08:00 中島まとめ promo). The remaining 12 stay drafts until a slot opens.
+Status: **T0–T2 sent, T3–T7 scheduled, 11 still drafts.** HAGINO approved scheduling in plan order as slots free (2026-11-19 13:36 JST). T0 and T1 were scheduled at 13:38 JST. T0 went out at 16:30 JST. T2 was scheduled at 18:04 JST at its planned 11/21 16:00, and went out at 16:00 JST (`sentAt` 2026-11-21T07:00:45.476Z). T3 was scheduled at 20:56 JST at its planned 11/22 16:00. At 2026-11-20 09:05 JST the live @haginota queue was 9/10 (the 11/19 23:15 Meta encoder post had already gone out), so T4 was scheduled. Its planned 11/23 09:00 would have been only 1 hour after the 中島聡『2034 未来予測』まとめ X promo (Buffer draft to be published with shareNow at 11/23 08:00), so T4 was placed in the next plan-pattern slot: 11/23 12:15. At 2026-11-20 14:55 JST the 11/20 12:00 Japanese note promo had already gone out (sentAt 12:01 JST), leaving 9/10, so T5 was scheduled. T5's planned 11/23 12:15 coincided with T4, so T5 was placed in the next plan-pattern slot: 11/23 15:30 (3 hours 15 minutes after T4; 7 hours 30 minutes after the 11/23 08:00 中島まとめ promo). At 2026-11-20 18:03 JST the 11/20 16:00 T1 promo had already gone out (sentAt 16:01 JST), leaving 9/10, so T6 was scheduled. T6's planned 11/23 15:30 coincided with T5, so T6 was placed in the next plan-pattern slot: 11/23 18:45 (3 hours 15 minutes after T5; 10 hours 45 minutes after the 11/23 08:00 中島まとめ promo). At 2026-11-22 11:55 JST the live @haginota queue was 9/10 (the 11/21 20:00 Japanese Canly Tech Blog promo had already gone out at 20:01 JST; T2 had also gone out). The three store-industry threads were already scheduled (McDonald's 11/23 21:45, Home Depot/Lowe's 11/24 09:00, Walmart/Target 11/24 12:00), so a Substack promo could be scheduled. T7's planned 11/23 18:45 coincided with T6; the next plan-pattern slots 11/24 09:00 and 11/24 12:15 were within 3 hours of Home Depot/Lowe's (09:00) and Walmart/Target (12:00), so T7 was placed at 11/24 15:30 (3 hours 30 minutes after Walmart/Target; after T6 at 11/23 18:45). The remaining 11 stay drafts until a slot opens.
 
 Channel: @haginota (`6aeb2f32e29c69a1715cb51a`), organization “My organization” (`6ae309778cac57bdae1e3a7d`).  
-Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. T2 scheduled: 2026-11-19 18:04 JST. T3 scheduled: 2026-11-19 20:56 JST. T4 scheduled: 2026-11-20 09:05 JST. T5 scheduled: 2026-11-20 14:55 JST. T6 scheduled: 2026-11-20 18:03 JST. Re-fetched with `get_post`: T0 is `status: sent` (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST); T1 is `status: sent` (`sentAt` 2026-11-20T07:01:03.377Z = 16:01 JST); T2, T3, T4, T5, and T6 are `status: scheduled` with the recorded `dueAt` (T4 at 11/23 12:15, not the original 09:00; T5 at 11/23 15:30, not the original 12:15; T6 at 11/23 18:45, not the original 15:30); text, image URL, and alt are unchanged. The other 12 remain `status: draft`, `dueAt: null`, `sentAt: null`.
+Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:38 JST. T2 scheduled: 2026-11-19 18:04 JST. T3 scheduled: 2026-11-19 20:56 JST. T4 scheduled: 2026-11-20 09:05 JST. T5 scheduled: 2026-11-20 14:55 JST. T6 scheduled: 2026-11-20 18:03 JST. T7 scheduled: 2026-11-22 11:55 JST. Re-fetched with `get_post`: T0 is `status: sent` (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST); T1 is `status: sent` (`sentAt` 2026-11-20T07:01:03.377Z = 16:01 JST); T2 is `status: sent` (`sentAt` 2026-11-21T07:00:45.476Z = 16:00 JST); T3, T4, T5, T6, and T7 are `status: scheduled` with the recorded `dueAt` (T4 at 11/23 12:15, not the original 09:00; T5 at 11/23 15:30, not the original 12:15; T6 at 11/23 18:45, not the original 15:30; T7 at 11/24 15:30, not the original 11/23 18:45); text, image URL, and alt are unchanged. The other 11 remain `status: draft`, `dueAt: null`, `sentAt: null`.
 
 ## Articles
 
@@ -20,7 +20,7 @@ Drafts saved: 2026-11-19 13:16–13:18 JST. T0 and T1 scheduled: 2026-11-19 13:3
 
 ## Buffer context used for spacing (JST)
 
-Last relevant sent posts as of 2026-11-20 18:03 JST on @haginota:
+Last relevant sent posts as of 2026-11-22 11:55 JST on @haginota:
 
 | Time (JST) | What |
 |---|---|
@@ -32,40 +32,44 @@ Last relevant sent posts as of 2026-11-20 18:03 JST on @haginota:
 | 2026-11-20 14:17 | pstack explainer (sent immediately, not from the scheduled queue) |
 | 2026-11-20 14:20 | Gemini 4 Neon (sent immediately, not from the scheduled queue) |
 | 2026-11-20 16:01 | T1 English Substack promo (fig1), already sent (planned 16:00; freed the slot used for T6) |
+| 2026-11-20 20:02 | Japanese Canly Tech Blog ontology promo, already sent (planned 20:00) |
+| 2026-11-21 12:01 | Japanese note ontology promo, already sent (planned 12:00) |
+| 2026-11-21 16:00 | T2 English Substack promo (fig2), already sent (planned 16:00) |
+| 2026-11-21 20:01 | Japanese Canly Tech Blog ontology promo, already sent (planned 20:00; freed the slot used for T7) |
 
 The brief asked to start no earlier than 3 hours after AIO総合研究所's Scrunch posts this afternoon. Those posts had already gone out at 12:03 and 12:23 JST, so the earliest start is **15:23 JST today**.
 
-Live @haginota scheduled queue as of 2026-11-20 18:03 JST (free plan: **10 of 10 slots used**):
+Live @haginota scheduled queue as of 2026-11-22 11:55 JST (free plan: **10 of 10 slots used**):
 
 | Time (JST) | Topic |
 |---|---|
-| 2026-11-20 20:00 | Japanese Canly Tech Blog ontology promo |
-| 2026-11-21 12:00 | Japanese note ontology promo |
-| 2026-11-21 16:00 | T2 English Substack promo (fig2) |
-| 2026-11-21 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-22 12:00 | Japanese note ontology promo |
 | 2026-11-22 16:00 | T3 English Substack promo (fig3) |
 | 2026-11-22 20:00 | Japanese Canly Tech Blog ontology promo |
 | 2026-11-23 12:15 | T4 English Substack promo (fig4) |
 | 2026-11-23 15:30 | T5 English Substack promo (fig5) |
-| 2026-11-23 18:45 | T6 English Substack promo (fig6) — scheduled this turn |
+| 2026-11-23 18:45 | T6 English Substack promo (fig6) |
+| 2026-11-23 21:45 | McDonald's store thread |
+| 2026-11-24 09:00 | Home Depot/Lowe's store thread |
+| 2026-11-24 12:00 | Walmart/Target store thread |
+| 2026-11-24 15:30 | T7 English Substack promo (fig7) — scheduled this turn |
 
-@haginota posts must stay at least 3 hours apart. The 中島聡 X promos are still Buffer drafts and are published with shareNow at 23:00 / 08:00 (next: 11/20 23:00; last: 11/23 08:00 まとめ). They do not occupy scheduled slots, but they still count for spacing. T4's planned 11/23 09:00 would have been 1 hour after that 08:00 post, so T4 is at 11/23 12:15 (4 hours 15 minutes later). T4 is 16 hours 15 minutes after the 11/22 20:00 post.
+@haginota posts must stay at least 3 hours apart. The 中島聡 X promos are published with shareNow at 23:00 / 08:00 (last planned: 11/23 08:00 まとめ) and do not occupy scheduled slots, but they still count for spacing. T4 remains at 11/23 12:15 (4 hours 15 minutes after that 08:00 post). T7 is at 11/24 15:30, after T6 at 11/23 18:45 and 3 hours 30 minutes after the Walmart/Target store thread at 11/24 12:00.
 
 ## Schedule and status
 
-All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 2026-11-20 18:03 JST.
+All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_posts` at 2026-11-22 11:55 JST.
 
 | # | ID | Planned time (JST) | Image | Weighted chars | Buffer id | Status |
 |---|---|---|---|---|---|---|
 | 1 | T0 | 2026-11-19 16:30 | banner_en_1600x900.png | 263 | `6afe7838f6b6aa0cd49eb074` | sent (`sentAt` 2026-11-19T07:30:10.199Z = 16:30 JST) |
 | 2 | T1 | 2026-11-20 16:00 | fig1.png | 272 | `6afe783a3802f5b9fc681246` | sent (`sentAt` 2026-11-20T07:01:03.377Z = 16:01 JST) |
-| 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` | scheduled (`dueAt` 2026-11-21T07:00:00.000Z = 16:00 JST) |
+| 3 | T2 | 2026-11-21 16:00 | fig2.png | 249 | `6afe783c46636f319e880980` | sent (`sentAt` 2026-11-21T07:00:45.476Z = 16:00 JST) |
 | 4 | T3 | 2026-11-22 16:00 | fig3.png | 278 | `6afe783e3802f5b9fc68133f` | scheduled (`dueAt` 2026-11-22T07:00:00.000Z = 16:00 JST) |
 | 5 | T4 | 2026-11-23 12:15 | fig4.png | 269 | `6afe784959eff0b616dcc8e6` | scheduled (`dueAt` 2026-11-23T03:15:00.000Z = 12:15 JST; moved from 09:00 to keep 3 hours from the 11/23 08:00 中島まとめ promo) |
 | 6 | T5 | 2026-11-23 15:30 | fig5.png | 267 | `6afe784b749099bdc70ca7c7` | scheduled (`dueAt` 2026-11-23T06:30:00.000Z = 15:30 JST; moved from 12:15 to keep 3 hours from T4 at 12:15) |
 | 7 | T6 | 2026-11-23 18:45 | fig6.png | 265 | `6afe784d59eff0b616dcc9a2` | scheduled (`dueAt` 2026-11-23T09:45:00.000Z = 18:45 JST; moved from 15:30 to keep 3 hours from T5 at 15:30) |
-| 8 | T7 | 2026-11-23 18:45 | fig7.png | 276 | `6afe7850f6b6aa0cd49eb982` | draft |
+| 8 | T7 | 2026-11-24 15:30 | fig7.png | 276 | `6afe7850f6b6aa0cd49eb982` | scheduled (`dueAt` 2026-11-24T06:30:00.000Z = 15:30 JST; moved from 11/23 18:45 to keep 3 hours from T6 at 18:45 and from the 11/24 09:00 / 12:00 store threads) |
 | 9 | N0 | 2026-11-24 09:00 | F1.jpg (launch) | 268 | `6afe785bb16549e9b822ec31` | draft |
 | 10 | N2 | 2026-11-24 12:15 | F2.jpg | 231 | `6afe785df6b6aa0cd49ebd5d` | draft |
 | 11 | N3 | 2026-11-24 15:30 | F3.jpg | 272 | `6afe785ef6b6aa0cd49ebdc6` | draft |
@@ -80,7 +84,7 @@ All times are Asia/Tokyo (JST). Status was re-checked with `get_post` / `list_po
 
 From 11/23 the cadence is 09:00, 12:15, 15:30, 18:45 (3 hours 15 minutes apart), during reasonable hours.
 
-**Scheduling constraint:** the free plan allows 10 scheduled posts. After T6 was added, the queue is **10/10**. T7 onward must wait until a slot frees (the next opening is after tonight's 20:00 JST Japanese Canly Tech Blog promo goes out). T7's original 11/23 18:45 now coincides with T6, so T7 should take the next plan-pattern slot that stays 3 hours from every other post (likely 11/24 09:00, then N0 and later shift accordingly). Do not exceed 10.
+**Scheduling constraint:** the free plan allows 10 scheduled posts. After T7 was added, the queue is **10/10**. N0 onward must wait until a slot frees (the next opening is after today's 12:00 JST Japanese note promo goes out). N0's original 11/24 09:00 coincides with the Home Depot/Lowe's store thread, and N2's original 11/24 12:15 would be only 15 minutes after Walmart/Target at 12:00; N3's original 11/24 15:30 now coincides with T7. Later drafts should take the next plan-pattern slots that stay 3 hours from every other post (likely starting at 11/24 18:45). Do not exceed 10.
 
 ## Post copy
 
@@ -110,7 +114,7 @@ Inference and validation do different jobs. OWL doesn't treat a fact that isn't 
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig2.png (2000×1125 PNG, HTTP 200, SHA match)
 - Alt: Inference and validation do different jobs. A small graph of ep001 and ep002 (episodes) and guest001, with `features rdfs:range Person` and `sh:class Person / sh:minCount 1`. Left panel, without inference: guest001 is not stated as a Person and fails the class check; ep002 has zero guests and fails minCount. Right panel, with RDFS inference: guest001 is inferred as a Person from range, so that violation goes away; the minCount failure remains. Footer: OWL doesn't treat unstated facts as false (open-world assumption); write required checks in SHACL. Illustrative example, run with pySHACL 0.40.2.
-- Buffer: `6afe783c46636f319e880980` — scheduled, `dueAt` 2026-11-21T07:00:00.000Z (16:00 JST). Re-fetched: status scheduled; text, image, and alt unchanged.
+- Buffer: `6afe783c46636f319e880980` — sent, `sentAt` 2026-11-21T07:00:45.476Z (16:00 JST). Re-fetched earlier as scheduled; now sent. Text, image, and alt were left unchanged.
 
 #### T3 — fig3
 
@@ -150,7 +154,7 @@ People often ask if putting knowledge in ontology form makes agents perform bett
 
 - Image: https://raw.githubusercontent.com/haginot/sns-media-public/e7f16a0b2ff868a414da49afda9e83ba8e87db1c/2026-11-16/zenn-ontology/en/figures/fig7.png (2000×1125 PNG, HTTP 200, SHA match)
 - Alt: What helps first is providing knowledge. Bars, as points of difference vs. no knowledge or vs. plain text: whether knowledge is provided, +25.7 to +49.3; same knowledge in ontology form (high difficulty, main analysis), +2.3 (significant); same (conservative re-analysis), ≈ +2.0 (not significant after correction); procedural work (Experiment II), no bar: the form made no difference. Footer: unpublished, not peer-reviewed; results from a single fictional business; analysis covers 2,117 runs.
-- Buffer: `6afe7850f6b6aa0cd49eb982` — draft, no dueAt
+- Buffer: `6afe7850f6b6aa0cd49eb982` — scheduled, `dueAt` 2026-11-24T06:30:00.000Z (15:30 JST; moved from 11/23 18:45). Re-fetched: status scheduled; text, image, and alt unchanged.
 
 ### Article 2 — Ontology on Japanese TV: The Parts I Didn't Get To
 
