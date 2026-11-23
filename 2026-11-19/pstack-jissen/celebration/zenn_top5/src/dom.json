@@ -1,0 +1,256 @@
+{
+ "sec": [
+  0,
+  319.125,
+  1280,
+  1538.453125
+ ],
+ "head": [
+  200,
+  343.125,
+  87.921875,
+  57.609375
+ ],
+ "items": [
+  {
+   "href": "/nttdata_tech/articles/9562962cc181a1",
+   "title": "自分の代わりに動くAgentへ。Claude CodeとCodexで作る自律改善ハーネス",
+   "rect": [
+    200,
+    432.734375,
+    413.59375,
+    92.015625
+   ],
+   "likes": "168",
+   "text": "自分の代わりに動くAgentへ。Claude CodeとCodexで作る自律改善ハーネス | Kazuma Yoshimoto | 吉本 和真 | in | NTT DATA TECH | 4日前 | 168"
+  },
+  {
+   "href": "/mizchi/articles/mutation-test-quality",
+   "title": "おい、 Mutation Test をやれ。テスト品質を、測るために",
+   "rect": [
+    666.40625,
+    432.734375,
+    413.59375,
+    92
+   ],
+   "likes": "464",
+   "text": "おい、 Mutation Test をやれ。テスト品質を、測るために | mizchi | 6日前 | 464"
+  },
+  {
+   "href": "/andoshin11/articles/ba68b39ef9a8ce",
+   "title": "毎月6,000 AI Agentsを捌くためにキーボードを捨てた話",
+   "rect": [
+    200,
+    556.75,
+    413.59375,
+    92
+   ],
+   "likes": "198",
+   "text": "毎月6,000 AI Agentsを捌くためにキーボードを捨てた話 | Andy | 6日前 | 198"
+  },
+  {
+   "href": "/kusuke/articles/98e178e6824cac",
+   "title": "相次ぐOSSの脆弱性に、とりあえずクラウドWAF入れるだけでだいぶ違う話+Rootlessコンテナもいいぞ",
+   "rect": [
+    666.40625,
+    556.75,
+    413.59375,
+    107.953125
+   ],
+   "likes": "84",
+   "text": "相次ぐOSSの脆弱性に、とりあえずクラウドWAF入れるだけでだいぶ違う話+Rootlessコンテナもいいぞ | Yusuke Kawabata | 4日前 | 84"
+  },
+  {
+   "href": "/canly/articles/ca6875cd79539f",
+   "title": "寝てる間に自動で動くAIエージェントを誰でも作れる：10分でわかる pstack 実践ガイド",
+   "rect": [
+    200,
+    696.703125,
+    413.59375,
+    117.203125
+   ],
+   "likes": "35",
+   "text": "寝てる間に自動で動くAIエージェントを誰でも作れる：10分でわかる pstack 実践ガイド | haginota | in | カンリーテックブログ | 3日前 | 35"
+  },
+  {
+   "href": "/kg_motors_mibot/articles/orca-bot-intro",
+   "title": "Orca Botsが良さそう、何ができるのか",
+   "rect": [
+    666.40625,
+    696.703125,
+    413.59375,
+    92
+   ],
+   "likes": "33",
+   "text": "Orca Botsが良さそう、何ができるのか | Sota Nakamura | in | KGモーターズ Tech Blog | 1日前 | 33"
+  },
+  {
+   "href": "/karamage/articles/73027ee36796dc",
+   "title": "【TLA+】AIにテストケースを書かせるな。ルールを書け",
+   "rect": [
+    200,
+    845.90625,
+    413.59375,
+    92
+   ],
+   "likes": "49",
+   "text": "【TLA+】AIにテストケースを書かせるな。ルールを書け | karamage | 2日前 | 49"
+  },
+  {
+   "href": "/peoplex_blog/articles/vscode-to-claude-desktop",
+   "title": "Claude Desktop 開発のすゝめ",
+   "rect": [
+    666.40625,
+    845.90625,
+    413.59375,
+    92
+   ],
+   "likes": "83",
+   "text": "Claude Desktop 開発のすゝめ | Aki 🚀 Product Engineer @ PeopleX | in | PeopleXテックブログ | 6日前 | 83"
+  },
+  {
+   "href": "/port_inc/articles/ff974c7456f4db",
+   "title": "ローカルLLM入門",
+   "rect": [
+    200,
+    969.90625,
+    413.59375,
+    92
+   ],
+   "likes": "82",
+   "text": "ローカルLLM入門 | tesla | in | ポート株式会社 エンジニアブログ | 6日前 | 82"
+  },
+  {
+   "href": "/omu_tryangle/articles/b5817393592229",
+   "title": "CSS では書きにくいアニメーションを Web Animations API で書く",
+   "rect": [
+    666.40625,
+    969.90625,
+    413.59375,
+    92.015625
+   ],
+   "likes": "52",
+   "text": "CSS では書きにくいアニメーションを Web Animations API で書く | hyakutake | in | TryAngle@大阪公立大学 | 7日前 | 52"
+  },
+  {
+   "href": "/polyco/articles/e05cb28c569801",
+   "title": "mizchi/mutator を入れてみた",
+   "rect": [
+    200,
+    1093.921875,
+    413.59375,
+    92
+   ],
+   "likes": "70",
+   "text": "mizchi/mutator を入れてみた | Tatsunori Nakano | in | 株式会社ポリコ | 7日前 | 70"
+  },
+  {
+   "href": "/dress_code/articles/6c179ae5129131",
+   "title": "tsrs を導入したら oxlint の type-aware linting と typecheck が爆速になった話",
+   "rect": [
+    666.40625,
+    1093.921875,
+    413.59375,
+    117.203125
+   ],
+   "likes": "49",
+   "text": "tsrs を導入したら oxlint の type-aware linting と typecheck が爆速になった話 | ぷーじ | in | DRESS CODE TECH BLOG | 5日前 | 49"
+  },
+  {
+   "href": "/kesin11/articles/20261114_github_issue_artifact",
+   "title": "GitHub IssueにArtifactとしてHTMLとMarkdownを添付できるようになった",
+   "rect": [
+    200,
+    1243.125,
+    413.59375,
+    92
+   ],
+   "likes": "88",
+   "text": "GitHub IssueにArtifactとしてHTMLとMarkdownを添付できるようになった | Kesin11 | 7日前 | 88"
+  },
+  {
+   "href": "/gatechnologies/articles/8bdea59269eb10",
+   "title": "QA生産性を爆上げさせるためのQA AIプラットフォーム構築",
+   "rect": [
+    666.40625,
+    1243.125,
+    413.59375,
+    92.015625
+   ],
+   "likes": "58",
+   "text": "QA生産性を爆上げさせるためのQA AIプラットフォーム構築 | akki | in | 株式会社GA technologies | 7日前 | 58"
+  },
+  {
+   "href": "/turing_motors/articles/cea9e3c85611b2",
+   "title": "物理世界とAIをつなぐ：可視化で学ぶカメラ・座標系・運動制御入門",
+   "rect": [
+    200,
+    1367.140625,
+    413.59375,
+    92.015625
+   ],
+   "likes": "50",
+   "text": "物理世界とAIをつなぐ：可視化で学ぶカメラ・座標系・運動制御入門 | ymg_aq | in | Tech Blog - Turing | 7日前 | 50"
+  },
+  {
+   "href": "/daiaoki/articles/webterm-ai-era-testing",
+   "title": "AIが爆速で開発する時代の、自動テストとの向き合い方",
+   "rect": [
+    666.40625,
+    1367.140625,
+    413.59375,
+    92
+   ],
+   "likes": "20",
+   "text": "AIが爆速で開発する時代の、自動テストとの向き合い方 | Dai | 4日前 | 20"
+  },
+  {
+   "href": "/toiroakr/articles/typescript-content-mapper-codegen",
+   "title": "TypeScript 7.1 の Content Mapper で型の生成コマンドをなくす",
+   "rect": [
+    200,
+    1491.15625,
+    413.59375,
+    92
+   ],
+   "likes": "15",
+   "text": "TypeScript 7.1 の Content Mapper で型の生成コマンドをなくす | toiroakr | 4日前 | 15"
+  },
+  {
+   "href": "/chaki/articles/4545be3475fdb4",
+   "title": "日本のレシートを自宅PCでOCRする：15構成を実レシート11枚で比べた",
+   "rect": [
+    666.40625,
+    1491.15625,
+    413.59375,
+    92
+   ],
+   "likes": "7",
+   "text": "日本のレシートを自宅PCでOCRする：15構成を実レシート11枚で比べた | chaki | 3日前 | 7"
+  },
+  {
+   "href": "/hma2moto/articles/turtle-agent-rules-pros-cons",
+   "title": "CLAUDE.md や SKILL.md のルールを Turtle で書き、ルールの書き間違いや矛盾を lint で検査",
+   "rect": [
+    200,
+    1615.15625,
+    413.59375,
+    107.953125
+   ],
+   "likes": "14",
+   "text": "CLAUDE.md や SKILL.md のルールを Turtle で書き、ルールの書き間違いや矛盾を lint で検査してみた話 | hma2moto | 3日前 | 14"
+  },
+  {
+   "href": "/sonicmoov/articles/8a82ec6c689266",
+   "title": "MacのAI機能、増えすぎでは？APIキー不要の音声操作アプリを作ってみた",
+   "rect": [
+    666.40625,
+    1615.15625,
+    413.59375,
+    92.015625
+   ],
+   "likes": "5",
+   "text": "MacのAI機能、増えすぎでは？APIキー不要の音声操作アプリを作ってみた | takemo101 | in | 株式会社ソニックムーブ | 19時間前 | 5"
+  }
+ ]
+}

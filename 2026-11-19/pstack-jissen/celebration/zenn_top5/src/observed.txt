@@ -1,0 +1,4 @@
+observed_at=2026-11-23 09:56 JST (headless, fresh profile)
+position=5 (Tech trend, DOM order, row 3 left of 2-col grid)
+likes=35
+url=https://zenn.dev/canly/articles/ca6875cd79539f
