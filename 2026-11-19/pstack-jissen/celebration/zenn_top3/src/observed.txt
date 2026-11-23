@@ -1,0 +1,3 @@
+observed_at=2026-11-23 12:59 JST (logged out)
+article_location=Tech section, second row, left column
+The supplied captures show 45 likes. The inset displays the requested 47.
