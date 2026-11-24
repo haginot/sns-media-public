@@ -1,0 +1,1 @@
+japanese claude 18.4 ['claude-opus-5-5'] 0

@@ -1,0 +1,1 @@
+judge_japanese claude 37.8 ['claude-opus-5-5'] 0

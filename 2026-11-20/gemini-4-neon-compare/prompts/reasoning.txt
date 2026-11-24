@@ -1,0 +1,17 @@
+Solve the following three problems by reasoning only. Do not run code, do not use any tools, and do not search. Show a brief derivation for each, then give the final answers on the last three lines in the form "ANSWER 1: ...", "ANSWER 2: ...", "ANSWER 3: ...".
+
+Problem 1. How many permutations p of {1, 2, ..., 10} satisfy |p(i) - i| != 1 for every i? (That is, no number is placed in a position adjacent to its own.)
+
+Problem 2. How many permutations p of {1, 2, ..., 8} satisfy |p(i) - i| is neither 1 nor 2 for every i?
+
+Problem 3. Five people (Aoi, Ben, Chika, Daiki, Emi) give talks in slots 1-5 (one per slot). Each uses a different language: Python, Rust, Go, Java, Swift.
+ (a) Aoi presents immediately before the Python presenter.
+ (b) Ben presents neither first nor last, and does not use Python or Go.
+ (c) The Go presenter presents earlier than both the Swift presenter and the Java presenter.
+ (d) Chika presents later than Ben.
+ (e) Exactly one person presents between Emi and Chika.
+ (f) Daiki's slot number is odd.
+ (g) The Rust presenter and the Swift presenter are not in adjacent slots.
+ (h) The Swift presenter's slot number is even.
+ (i) The Java presenter presents immediately after the Python presenter.
+Give the full assignment (slot: person, language) for slots 1-5.

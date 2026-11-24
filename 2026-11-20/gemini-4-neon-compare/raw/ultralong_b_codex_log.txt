@@ -1,0 +1,1 @@
+ultralong_b codex 0.7 ['gpt-6.2-sol (reasoning high)'] 1

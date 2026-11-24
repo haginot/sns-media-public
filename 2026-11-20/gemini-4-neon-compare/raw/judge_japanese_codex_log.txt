@@ -1,0 +1,1 @@
+judge_japanese codex 29.6 ['gpt-6.2-sol (reasoning high)'] 0

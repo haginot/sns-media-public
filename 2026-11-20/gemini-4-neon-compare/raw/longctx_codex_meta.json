@@ -1,0 +1,16 @@
+{
+ "models": [
+  "gpt-6.2-sol (reasoning high)"
+ ],
+ "usage": {
+  "input_tokens": 187971,
+  "cached_input_tokens": 13696,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 140,
+  "reasoning_output_tokens": 0
+ },
+ "tool_commands": [],
+ "stderr_tail": "",
+ "latency_s": 7.2,
+ "returncode": 0
+}

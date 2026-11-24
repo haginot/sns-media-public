@@ -1,0 +1,25 @@
+{
+ "model": "gemini-4-neon",
+ "level": "HIGH",
+ "latency_s": 137.2,
+ "usage": {
+  "promptTokenCount": 280,
+  "candidatesTokenCount": 17923,
+  "totalTokenCount": 20624,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 280
+   }
+  ],
+  "candidatesTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 17923
+   }
+  ],
+  "thoughtsTokenCount": 2421,
+  "serviceTier": "standard"
+ },
+ "cost_usd": 0.306
+}

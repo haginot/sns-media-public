@@ -1,0 +1,11 @@
+Create a complete, playable "Brick Breaker" game as a single self-contained HTML file (inline CSS and JavaScript only; no external libraries, fonts, images, or network requests).
+Requirements:
+- Canvas rendering at 960x640, crisp on high-DPI screens.
+- Paddle controlled by mouse and by left/right arrow keys; space bar launches the ball.
+- At least 6 rows of colored bricks; some bricks take 2 hits and visibly change when damaged.
+- Particle effects when bricks break, and a short screen shake on each brick hit.
+- Score, lives (3), and level display. Level 2 uses a clearly different brick layout.
+- One power-up type that falls from broken bricks (for example a wider paddle), with a visible timer.
+- A title screen. IMPORTANT: if there is no user input for 2 seconds, start an automatic demo mode in which the AI controls the paddle and plays the game, so the game can be recorded unattended.
+- Sound effects generated with the Web Audio API (only after a user gesture).
+Output only the HTML code in a single ```html code block, with no explanation.
