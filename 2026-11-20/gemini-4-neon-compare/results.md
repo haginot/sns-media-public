@@ -36,7 +36,7 @@
 ※② Gemini の1回目は非ストリーミングで送り、応答前に接続が切れた（`RemoteDisconnected`）。ストリーミングに変えて再実行した2回目の値。1回目が課金されたかは不明。
 入力トークン数はモデルごとに数え方（トークナイザー）が違う。同じ小説1冊の入力が Gemini 171,324、GPT 187,971（Codex の指示 約1.7万を含む→本文は約17.1万）、Claude 250,093（Claude Code の指示 約3千を含む→本文は約24.7万）。
 
-④の採点: 書き手を X/Y/Z に伏せ、Claude と GPT に5観点×5点で採点させた。2者とも順位は GPT > Claude > Gemini。追加（14:55 JST）: Gemini も採点役にした結果、GPT 22点 > Gemini 21点 > Claude 20点（RANKING X, Y, Z）。3者とも GPT を1位にした。平均順位は GPT 1.0、Claude 2.33、Gemini 2.67。採点役が自分の文章を含む採点をしている点は偏りの可能性がある（ただし Claude は自分より GPT を上にした）。
+④の採点: 書き手を X/Y/Z に伏せ、Claude と GPT に5観点×5点で採点させた。2者とも順位は GPT > Claude > Gemini。Claude の合計は GPT 23点・Claude 23点の同点で、Claude は採点文に「経理の実務ですぐ使える具体性と、内容の正確さでXを上位にした」と書いている（raw/judge_japanese_claude.md）。追加（14:55 JST）: Gemini も採点役にした結果、GPT 22点 > Gemini 21点 > Claude 20点（RANKING X, Y, Z）。3者とも GPT を1位にした。平均順位は GPT 1.0、Claude 2.33、Gemini 2.67。採点役が自分の文章を含む採点をしている点は偏りの可能性がある（ただし Claude は自分より GPT を上にした）。
 
 ## 追加テスト（2026-11-19 14:52〜15:05 JST、Gemini 残高チャージ後）
 
@@ -85,9 +85,9 @@
 
 ## ファイル
 - 生の出力: raw/（各モデルの回答 `*_gemini.md` `*_claude.md` `*_codex.md`、メタ情報 `*_meta.json`、Codex のイベントログ `*_codex_events.jsonl`、402 のエラー `*_gemini_error.json`）
-- お題: prompts/、正解データ: data/（chart_truth.json、graphwalk_truth.json、verify_math.py、verify_puzzle.py）
+- お題: prompts/、正解データ: data/（chart_truth.json、graphwalk_truth.json、ultralong_a_truth.json、ultralong_b_truth.json、小説の加工版）
+- 正解の確認スクリプト: verify_math.py、verify_puzzle.py（フォルダ直下）
 - 生成アプリ: apps/brick_{gemini,claude,codex}.html
-- スクリーンショット: shots/{model}_t01/t06/t15/t30.png、shots/long_{model}_grid.png（1〜4分）、shots/apps_triptych.png
-- 動画: shots/app_{model}.mp4（約30秒）、shots/apps_side_by_side.mp4（15秒、3画面横並び）
-- 比較図: figure_compare.png（2000×1125）
-- 実行スクリプト: gem.py（ストリーミング版）、gem_v1_nonstream.py、run_cli.py、run_all.sh、render.py、longplay.py、make_figure.py
+- 公開している静止画: images/（figure_compare.png、apps_triptych.png、chart.png、long_{gemini,claude,codex}_grid.png）
+- 実行時に shots/ へ保存した秒数ごとの画面と、約30秒の動画は、このリポジトリには含めていない
+- 実行スクリプト: gem.py、run_cli.py、build_ultralong.py、render.py、longplay.py、make_figure.py
