@@ -235,7 +235,7 @@ Gemini Developer API の前払い（プリペイド）残高で実行してい�
 
 ## 7. 再現するには
 
-スクリプト一式は [GitHub リポジトリ（2026-11-20/gemini-4-neon-compare）](https://github.com/haginot/sns-media-public/tree/9590a5b22bd2ec0f60c3aafcefb81dfcbcae14a9/2026-11-20/gemini-4-neon-compare) に置いています。プロンプトの全文と正解データの作り方は付録に載せています。作業フォルダの構成は次のとおりです（API キーは含みません）。
+スクリプト一式は [GitHub リポジトリ（2026-11-20/gemini-4-neon-compare）](https://github.com/haginot/sns-media-public/tree/a2636a1ebac308454dd9aca6b6b5dedc62f6eef2/2026-11-20/gemini-4-neon-compare) に置いています。プロンプトの全文と正解データの作り方は付録に載せています。作業フォルダの構成は次のとおりです（API キーは含みません）。
 
 ```text
 prompts/        各課題のプロンプト（3者共通）
@@ -434,7 +434,7 @@ for s in nodes:   # 条件を満たす最初のノードを始点にする
         break
 ```
 
-注意: `nodes` は集合から作ったリストです。Python の文字列のハッシュは起動のたびに変わる（`PYTHONHASHSEED`）ので、今回の実行ではこの並び順を固定していませんでした。`edges = list(edges)` も文字列タプルの集合から作ったリストなので、辺の並びもハッシュに依存します。そのあとの `random.shuffle(edges)` は、並びが違うリストを混ぜることになり、結果の辺の順序は毎回変わります。そのため、`nodes` を `sorted(...)` にするだけでは、同じ辺の順序にも同じ始点にもなりません。このスクリプトをそのまま実行しても、同じ辺リストと始点 f2b1ce は再現できません。同じ課題を再現するには、今回実際に使った辺リストそのものを共有して使う必要があります（約100KB）: [prompts/graphwalk.txt](https://github.com/haginot/sns-media-public/blob/9590a5b22bd2ec0f60c3aafcefb81dfcbcae14a9/2026-11-20/gemini-4-neon-compare/prompts/graphwalk.txt)。新しく作る場合は、`nodes = sorted(...)` に加えて `edges = sorted(edges)` にしてから shuffle するか、`PYTHONHASHSEED=0` を指定してください。
+注意: `nodes` は集合から作ったリストです。Python の文字列のハッシュは起動のたびに変わる（`PYTHONHASHSEED`）ので、今回の実行ではこの並び順を固定していませんでした。`edges = list(edges)` も文字列タプルの集合から作ったリストなので、辺の並びもハッシュに依存します。そのあとの `random.shuffle(edges)` は、並びが違うリストを混ぜることになり、結果の辺の順序は毎回変わります。そのため、`nodes` を `sorted(...)` にするだけでは、同じ辺の順序にも同じ始点にもなりません。このスクリプトをそのまま実行しても、同じ辺リストと始点 f2b1ce は再現できません。同じ課題を再現するには、今回実際に使った辺リストそのものを共有して使う必要があります（約100KB）: [prompts/graphwalk.txt](https://github.com/haginot/sns-media-public/blob/a2636a1ebac308454dd9aca6b6b5dedc62f6eef2/2026-11-20/gemini-4-neon-compare/prompts/graphwalk.txt)。新しく作る場合は、`nodes = sorted(...)` に加えて `edges = sorted(edges)` にしてから shuffle するか、`PYTHONHASHSEED=0` を指定してください。
 
 ### 課題4の採点プロンプト（3つの回答の前に置いた部分）
 
