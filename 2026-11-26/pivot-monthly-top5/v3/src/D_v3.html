@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><style>
+
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-SemiBold.ttf'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-ExtraBold.ttf'); font-weight: 800; font-style: normal; }
+@font-face { font-family: 'ZenOldMincho'; src: url('../fonts/ZenOldMincho-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'ZenOldMincho'; src: url('../fonts/ZenOldMincho-Black.ttf'); font-weight: 900; font-style: normal; }
+@font-face { font-family: 'Cinzel'; src: url('../fonts/Cinzel-Variable.ttf'); font-weight: 400 900; font-style: normal; }
+@font-face { font-family: 'CinzelDec'; src: url('../fonts/CinzelDecorative-Black.ttf'); font-weight: 900; font-style: normal; }
+@font-face { font-family: 'CormorantSC'; src: url('../fonts/CormorantSC-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'PlayfairDisplay'; src: url('../fonts/PlayfairDisplay-VariableFont_wght.ttf'); font-weight: 400 900; font-style: normal; }
+@font-face { font-family: 'PlayfairSC'; src: url('../fonts/PlayfairDisplaySC-Bold.ttf'); font-weight: 700; font-style: normal; }
+
+*{margin:0;box-sizing:border-box}
+body{width:1600px;height:900px;position:relative;overflow:hidden;background:#faf3e6}
+.layer{position:absolute;inset:0;width:1600px;height:900px;pointer-events:none}
+.card{
+  position:absolute;left:60px;top:334px;width:620px;padding:10px;border-radius:16px;
+  background:linear-gradient(145deg,#fff6d4 0%,#d7aa50 28%,#7e5012 52%,#f4da90 76%,#74470e 100%);
+  box-shadow:0 22px 42px rgba(62,40,10,0.28), 0 4px 12px rgba(72,46,12,0.18), inset 0 2px 3px rgba(255,255,255,0.88);
+}
+.card-inner{padding:3px;border-radius:10px;background:#fffdf8}
+.card img{display:block;width:100%;height:auto;border-radius:8px}
+.jolly-fg{
+  transform:scale(1.20);transform-origin:1060px 900px;
+  filter:drop-shadow(-8px 10px 18px rgba(48,30,8,0.28));
+}
+</style></head><body>
+  <div class="layer" style="z-index:1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      
+<defs>
+  <radialGradient id="studioBg" cx="52%" cy="42%" r="72%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="52%"  stop-color="#faf3e6"/>
+    <stop offset="86%"  stop-color="#efe3cd"/>
+    <stop offset="100%" stop-color="#e5d4b6"/>
+  </radialGradient>
+
+  <radialGradient id="spotWarm" cx="50%" cy="44%" r="48%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="60%"  stop-color="#fff8e8" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#fff8e8" stop-opacity="0.0"/>
+  </radialGradient>
+
+  <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#efe3cd" stop-opacity="0.35"/>
+    <stop offset="14%"  stop-color="#fffcf5" stop-opacity="0.88"/>
+    <stop offset="100%" stop-color="#e8d8bc" stop-opacity="0.95"/>
+  </linearGradient>
+
+  <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="8%" y2="100%">
+    <stop offset="0%"   stop-color="#fff9e2"/>
+    <stop offset="16%"  stop-color="#eed07f"/>
+    <stop offset="36%"  stop-color="#b57a1e"/>
+    <stop offset="50%"  stop-color="#693e07"/>
+    <stop offset="57%"  stop-color="#a8701a"/>
+    <stop offset="76%"  stop-color="#f7dc92"/>
+    <stop offset="91%"  stop-color="#bb8328"/>
+    <stop offset="100%" stop-color="#633a06"/>
+  </linearGradient>
+
+  <linearGradient id="goldDiagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#fff7d4"/>
+    <stop offset="22%"  stop-color="#e7c167"/>
+    <stop offset="46%"  stop-color="#87520b"/>
+    <stop offset="56%"  stop-color="#fbefc6"/>
+    <stop offset="78%"  stop-color="#b98126"/>
+    <stop offset="100%" stop-color="#5e3605"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonGrad" x1="0%" y1="0%" x2="100%" y2="12%">
+    <stop offset="0%"   stop-color="#8f5c14"/>
+    <stop offset="14%"  stop-color="#e5be64"/>
+    <stop offset="32%"  stop-color="#fff2c4"/>
+    <stop offset="50%"  stop-color="#c99031"/>
+    <stop offset="70%"  stop-color="#f7dc92"/>
+    <stop offset="86%"  stop-color="#b37a20"/>
+    <stop offset="100%" stop-color="#76480c"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonVert" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f9e39e"/>
+    <stop offset="22%"  stop-color="#dfb55a"/>
+    <stop offset="55%"  stop-color="#b47b21"/>
+    <stop offset="85%"  stop-color="#8b5811"/>
+    <stop offset="100%" stop-color="#6b4109"/>
+  </linearGradient>
+
+  <linearGradient id="goldSpecGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.90"/>
+    <stop offset="28%"  stop-color="#fff4cc" stop-opacity="0.34"/>
+    <stop offset="54%"  stop-color="#ffffff" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+  </linearGradient>
+
+  <linearGradient id="goldSatin" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#f4d992"/>
+    <stop offset="35%"  stop-color="#b9832a"/>
+    <stop offset="65%"  stop-color="#f0d285"/>
+    <stop offset="100%" stop-color="#784b0f"/>
+  </linearGradient>
+
+  <linearGradient id="goldWatermark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#d4ad5d" stop-opacity="0.22"/>
+    <stop offset="50%"  stop-color="#b58632" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#d8b56b" stop-opacity="0.24"/>
+  </linearGradient>
+
+  <linearGradient id="plinthMuted" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f7efe0"/>
+    <stop offset="100%" stop-color="#dfd0b5"/>
+  </linearGradient>
+
+  <radialGradient id="sealIvory" cx="38%" cy="32%" r="68%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="68%"  stop-color="#f8efe0"/>
+    <stop offset="100%" stop-color="#e3cda6"/>
+  </radialGradient>
+
+  <filter id="goldEmbossed" x="-14%" y="-14%" width="128%" height="132%">
+    <feDropShadow dx="0" dy="1.3" stdDeviation="0.4" flood-color="#fffef9" flood-opacity="0.95"/>
+    <feDropShadow dx="1.5" dy="5.5" stdDeviation="4.2" flood-color="#472d08" flood-opacity="0.34"/>
+  </filter>
+
+  <filter id="softShadow" x="-18%" y="-18%" width="136%" height="140%">
+    <feDropShadow dx="2" dy="8" stdDeviation="7" flood-color="#4a310e" flood-opacity="0.24"/>
+  </filter>
+
+  <filter id="deepOverlapShadow" x="-22%" y="-22%" width="144%" height="148%">
+    <feDropShadow dx="3" dy="11" stdDeviation="10" flood-color="#3c2609" flood-opacity="0.30"/>
+  </filter>
+
+  <filter id="badgeShadow" x="-24%" y="-24%" width="148%" height="148%">
+    <feDropShadow dx="2" dy="10" stdDeviation="9" flood-color="#4c320d" flood-opacity="0.28"/>
+  </filter>
+</defs>
+
+      
+      <rect width="1600" height="900" fill="url(#studioBg)"/>
+      <ellipse cx="62%" cy="46%" rx="760" ry="430" fill="url(#spotWarm)"/>
+      <rect x="0" y="828" width="1600" height="72" fill="url(#floorGrad)"/>
+      <line x1="0" y1="828" x2="1600" y2="828" stroke="#caa766" stroke-width="1.0" stroke-opacity="0.45"/>
+      <rect x="22" y="22" width="1556" height="856" rx="14" fill="none" stroke="url(#goldSatin)" stroke-width="1.2" stroke-opacity="0.55"/>
+      <rect x="30" y="30" width="1540" height="840" rx="10" fill="none" stroke="#c8a258" stroke-width="0.6" stroke-opacity="0.32"/>
+    
+
+      <circle cx="1040" cy="540" r="415" fill="none" stroke="url(#goldSatin)" stroke-width="1.6" stroke-opacity="0.44"/>
+      <circle cx="1040" cy="540" r="436" fill="none" stroke="#c8a25a" stroke-width="0.7" stroke-dasharray="4,7" stroke-opacity="0.38"/>
+
+      <!-- Z2: Horizontal champagne-gold magazine sash passing BEHIND Jolly's head & card -->
+      <g filter="url(#softShadow)">
+        <path d="M 38,360 L 1562,360 L 1538,388 L 1562,416 L 38,416 L 62,388 Z" fill="url(#goldRibbonGrad)" stroke="#6c420b" stroke-width="1.0" opacity="0.82"/>
+        <line x1="66" y1="366" x2="1534" y2="366" stroke="#fff7d4" stroke-width="0.8" stroke-opacity="0.7"/>
+      </g>
+
+      <!-- Z2: Monumental Masthead (lower flourish & right edge kiss behind Jolly's crown!) -->
+      <g>
+        <text x="60" y="72" font-family="Cinzel, serif" font-weight="700" font-size="16" letter-spacing="5.2" fill="#6f4e1c">PIVOT MONTHLY OVERALL RANKING · 2026.11</text>
+        <line x1="60" y1="88" x2="720" y2="88" stroke="url(#goldSatin)" stroke-width="1.4"/>
+        <path d="M 734,82 L 735.68,86.32 L 740,88 L 735.68,89.68 L 734,94 L 732.32,89.68 L 728,88 L 732.32,86.32 Z" fill="url(#goldDiagGrad)" stroke="#70450e" stroke-width="0.5"/>
+        <text x="58" y="142" font-family="ShipporiMinchoB1, serif" font-weight="700" font-size="38" letter-spacing="4.2" fill="#231c15"
+              style="font-feature-settings:'palt' 1">月間総合ランキング</text>
+
+        
+    <g filter="url(#goldEmbossed)">
+      
+        <text x="52" y="288.2" text-anchor="start" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="102" letter-spacing="-3"
+              fill="#5b3506" stroke="#5b3506" stroke-width="2.6" stroke-linejoin="round" style="font-feature-settings:'palt' 1">トップ<tspan dx="6" dy="9" font-family="CinzelDec, serif" font-weight="900" font-size="148" letter-spacing="0">5</tspan><tspan dx="7" dy="-9" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="102" letter-spacing="-2">入り</tspan></text>
+        
+      
+        <text x="52" y="286" text-anchor="start" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="102" letter-spacing="-3"
+              fill="url(#goldTextGrad)" stroke="#683f08" stroke-width="1.2" stroke-linejoin="round" style="font-feature-settings:'palt' 1">トップ<tspan dx="6" dy="9" font-family="CinzelDec, serif" font-weight="900" font-size="148" letter-spacing="0">5</tspan><tspan dx="7" dy="-9" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="102" letter-spacing="-2">入り</tspan></text>
+        
+      
+        <text x="52" y="286" text-anchor="start" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="102" letter-spacing="-3"
+              fill="url(#goldSpecGrad)" stroke="none" stroke-width="0" stroke-linejoin="round" style="font-feature-settings:'palt' 1">トップ<tspan dx="6" dy="9" font-family="CinzelDec, serif" font-weight="900" font-size="148" letter-spacing="0">5</tspan><tspan dx="7" dy="-9" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="102" letter-spacing="-2">入り</tspan></text>
+        
+    </g>
+    
+      </g>
+
+      <!-- Z2: Top-Right Laurel Medallion whose hanging ribbon tails tuck BEHIND Jolly's raised waving paw (y~485)! -->
+      
+    <g filter="url(#badgeShadow)">
+      
+        <path d="M 1319.64,314.3872 L 1286.36,561.72 L 1319.64,542.168 L 1348.76,565.6304 L 1348.76,314.3872 Z"
+              fill="url(#goldRibbonVert)" stroke="#6d430b" stroke-width="0.9"/>
+        <path d="M 1361.24,314.3872 L 1361.24,565.6304 L 1390.36,542.168 L 1423.64,561.72 L 1390.36,314.3872 Z"
+              fill="url(#goldRibbonVert)" stroke="#6d430b" stroke-width="0.9"/>
+        
+      <g opacity="1.0"><path d="M 1336.7,348.0 L 1312.0,342.3 L 1289.1,330.6 L 1269.5,313.4 L 1254.7,291.7 L 1245.8,266.8 L 1243.5,240.5 L 1248.0,214.4 L 1258.8,190.5 L 1275.1,170.2 L 1295.6,154.7 L 1318.9,144.8" fill="none" stroke="url(#goldSatin)" stroke-width="2.20" stroke-linecap="round"/>
+<path d="M 1312.0,342.3 Q 1312.4,332.9 1302.8,327.8 Q 1303.3,338.7 1312.0,342.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1312.0,342.3 Q 1303.5,338.4 1295.2,345.3 Q 1305.4,349.0 1312.0,342.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1289.1,330.6 Q 1291.6,321.1 1283.3,313.4 Q 1281.4,324.6 1289.1,330.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1289.1,330.6 Q 1281.3,324.8 1271.0,329.6 Q 1280.6,335.5 1289.1,330.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1269.5,313.4 Q 1274.1,304.4 1267.8,294.5 Q 1263.4,305.4 1269.5,313.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1269.5,313.4 Q 1262.9,305.8 1251.4,307.9 Q 1259.8,316.1 1269.5,313.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1254.7,291.7 Q 1261.4,283.8 1257.7,272.3 Q 1250.7,282.2 1254.7,291.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1254.7,291.7 Q 1249.9,282.6 1237.9,281.8 Q 1244.4,291.9 1254.7,291.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1245.8,266.8 Q 1254.2,260.6 1253.4,248.4 Q 1244.2,256.5 1245.8,266.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1245.8,266.8 Q 1243.2,256.7 1231.6,253.0 Q 1235.7,264.5 1245.8,266.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1243.5,240.5 Q 1253.2,236.3 1255.2,224.3 Q 1244.4,230.0 1243.5,240.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1243.5,240.5 Q 1243.3,230.0 1232.9,223.6 Q 1234.2,235.7 1243.5,240.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1248.0,214.4 Q 1258.2,212.8 1262.9,201.7 Q 1251.2,204.6 1248.0,214.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1248.0,214.4 Q 1250.3,204.3 1241.7,195.8 Q 1240.1,207.8 1248.0,214.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1258.8,190.5 Q 1268.8,191.4 1275.7,181.9 Q 1264.0,181.8 1258.8,190.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1258.8,190.5 Q 1263.4,181.5 1257.2,171.5 Q 1252.7,182.4 1258.8,190.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1275.1,170.2 Q 1284.2,173.5 1292.7,166.0 Q 1281.8,163.0 1275.1,170.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1275.1,170.2 Q 1281.6,162.9 1277.8,152.2 Q 1271.0,161.3 1275.1,170.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1295.6,154.7 Q 1303.2,160.1 1312.7,154.8 Q 1303.3,149.3 1295.6,154.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1295.6,154.7 Q 1303.5,149.6 1302.1,138.9 Q 1293.5,145.5 1295.6,154.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1318.9,144.8 Q 1324.6,151.8 1334.4,148.7 Q 1327.2,141.3 1318.9,144.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1318.9,144.8 Q 1327.5,142.1 1328.3,131.9 Q 1318.8,135.8 1318.9,144.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1373.3,348.0 L 1398.0,342.3 L 1420.9,330.6 L 1440.5,313.4 L 1455.3,291.7 L 1464.2,266.8 L 1466.5,240.5 L 1462.0,214.4 L 1451.2,190.5 L 1434.9,170.2 L 1414.4,154.7 L 1391.1,144.8" fill="none" stroke="url(#goldSatin)" stroke-width="2.20" stroke-linecap="round"/>
+<path d="M 1398.0,342.3 Q 1406.7,338.7 1407.2,327.8 Q 1397.6,332.9 1398.0,342.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1398.0,342.3 Q 1404.6,349.0 1414.8,345.3 Q 1406.5,338.4 1398.0,342.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1420.9,330.6 Q 1428.6,324.6 1426.7,313.4 Q 1418.4,321.1 1420.9,330.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1420.9,330.6 Q 1429.4,335.5 1439.0,329.6 Q 1428.7,324.8 1420.9,330.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1440.5,313.4 Q 1446.6,305.4 1442.2,294.5 Q 1435.9,304.4 1440.5,313.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1440.5,313.4 Q 1450.2,316.1 1458.6,307.9 Q 1447.1,305.8 1440.5,313.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1455.3,291.7 Q 1459.3,282.2 1452.3,272.3 Q 1448.6,283.8 1455.3,291.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1455.3,291.7 Q 1465.6,291.9 1472.1,281.8 Q 1460.1,282.6 1455.3,291.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1464.2,266.8 Q 1465.8,256.5 1456.6,248.4 Q 1455.8,260.6 1464.2,266.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1464.2,266.8 Q 1474.3,264.5 1478.4,253.0 Q 1466.8,256.7 1464.2,266.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1466.5,240.5 Q 1465.6,230.0 1454.8,224.3 Q 1456.8,236.3 1466.5,240.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1466.5,240.5 Q 1475.8,235.7 1477.1,223.6 Q 1466.7,230.0 1466.5,240.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1462.0,214.4 Q 1458.8,204.6 1447.1,201.7 Q 1451.8,212.8 1462.0,214.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1462.0,214.4 Q 1469.9,207.8 1468.3,195.8 Q 1459.7,204.3 1462.0,214.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1451.2,190.5 Q 1446.0,181.8 1434.3,181.9 Q 1441.2,191.4 1451.2,190.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1451.2,190.5 Q 1457.3,182.4 1452.8,171.5 Q 1446.6,181.5 1451.2,190.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1434.9,170.2 Q 1428.2,163.0 1417.3,166.0 Q 1425.8,173.5 1434.9,170.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1434.9,170.2 Q 1439.0,161.3 1432.2,152.2 Q 1428.4,162.9 1434.9,170.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1414.4,154.7 Q 1406.7,149.3 1397.3,154.8 Q 1406.8,160.1 1414.4,154.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1414.4,154.7 Q 1416.5,145.5 1407.9,138.9 Q 1406.5,149.6 1414.4,154.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1391.1,144.8 Q 1382.8,141.3 1375.6,148.7 Q 1385.4,151.8 1391.1,144.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1391.1,144.8 Q 1391.2,135.8 1381.7,131.9 Q 1382.5,142.1 1391.1,144.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1355,124.9408 L 1358.035136,131.390464 L 1364.4848,134.4256 L 1358.035136,137.460736 L 1355,143.9104 L 1351.964864,137.460736 L 1345.5152,134.4256 L 1351.964864,131.390464 Z" fill="url(#goldDiagGrad)" stroke="#70450e" stroke-width="0.6"/></g>
+      <circle cx="1355" cy="244" r="85.05120000000001" fill="url(#goldDiagGrad)" stroke="#6b410a" stroke-width="1.5"/>
+      <circle cx="1355" cy="244" r="76.25280000000001" fill="url(#sealIvory)" stroke="url(#goldSatin)" stroke-width="1.9"/>
+      <circle cx="1355" cy="244" r="68.432" fill="none" stroke="#b98632" stroke-width="0.7" stroke-dasharray="2.6,3"/>
+      <text x="1355" y="203.9184" text-anchor="middle" font-family="Cinzel, serif" font-weight="700" font-size="11.648" letter-spacing="3.3280000000000003" fill="#6e4b16">PIVOT</text>
+      <line x1="1325.672" y1="211.73919999999998" x2="1384.328" y2="211.73919999999998" stroke="url(#goldSatin)" stroke-width="0.9"/>
+      <text x="1355" y="230.3136" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="16.12" letter-spacing="3.12" fill="#2e1e08">TOP</text>
+      <text x="1355" y="281.1488" text-anchor="middle" font-family="CinzelDec, serif" font-weight="900" font-size="54.08" fill="url(#goldTextGrad)" stroke="#603a07" stroke-width="0.936">5</text>
+      <text x="1355" y="300.7008" text-anchor="middle" font-family="Cinzel, serif" font-weight="700" font-size="10.92" letter-spacing="2.2880000000000003" fill="#6b4b1b">2026 . 11</text>
+      
+    <g filter="url(#softShadow)">
+      <path d="M 1236.1904,333.336 L 1261.6496,333.336 L 1261.6496,364.536 L 1231.9472,364.536 L 1246.7984,349.6016 Z" fill="#70440b"/>
+      <path d="M 1473.8096,333.336 L 1448.3504,333.336 L 1448.3504,364.536 L 1478.0528,364.536 L 1463.2016,349.6016 Z" fill="#70440b"/>
+      <rect x="1248.92" y="327.096" width="212.16" height="33.28" rx="5.2" fill="url(#goldRibbonGrad)" stroke="#6c420b" stroke-width="0.9"/>
+      <rect x="1251.0" y="329.176" width="208.0" height="29.12" rx="3.64" fill="none" stroke="#fff4cc" stroke-opacity="0.72" stroke-width="0.8"/>
+      <text x="1355" y="349.3936" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="11.96" letter-spacing="2.08" fill="#2b1904">MONTHLY AWARD</text>
+    </g>
+    
+    </g>
+    
+    </svg>
+    </div>
+  <div class="card" style="z-index:3"><div class="card-inner"><img src="thumb.png"/></div></div>
+  <img class="layer jolly-fg" style="z-index:4" src="../layers/compD_clean.png"/>
+  <div class="layer" style="z-index:5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      
+<defs>
+  <radialGradient id="studioBg" cx="52%" cy="42%" r="72%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="52%"  stop-color="#faf3e6"/>
+    <stop offset="86%"  stop-color="#efe3cd"/>
+    <stop offset="100%" stop-color="#e5d4b6"/>
+  </radialGradient>
+
+  <radialGradient id="spotWarm" cx="50%" cy="44%" r="48%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="60%"  stop-color="#fff8e8" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#fff8e8" stop-opacity="0.0"/>
+  </radialGradient>
+
+  <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#efe3cd" stop-opacity="0.35"/>
+    <stop offset="14%"  stop-color="#fffcf5" stop-opacity="0.88"/>
+    <stop offset="100%" stop-color="#e8d8bc" stop-opacity="0.95"/>
+  </linearGradient>
+
+  <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="8%" y2="100%">
+    <stop offset="0%"   stop-color="#fff9e2"/>
+    <stop offset="16%"  stop-color="#eed07f"/>
+    <stop offset="36%"  stop-color="#b57a1e"/>
+    <stop offset="50%"  stop-color="#693e07"/>
+    <stop offset="57%"  stop-color="#a8701a"/>
+    <stop offset="76%"  stop-color="#f7dc92"/>
+    <stop offset="91%"  stop-color="#bb8328"/>
+    <stop offset="100%" stop-color="#633a06"/>
+  </linearGradient>
+
+  <linearGradient id="goldDiagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#fff7d4"/>
+    <stop offset="22%"  stop-color="#e7c167"/>
+    <stop offset="46%"  stop-color="#87520b"/>
+    <stop offset="56%"  stop-color="#fbefc6"/>
+    <stop offset="78%"  stop-color="#b98126"/>
+    <stop offset="100%" stop-color="#5e3605"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonGrad" x1="0%" y1="0%" x2="100%" y2="12%">
+    <stop offset="0%"   stop-color="#8f5c14"/>
+    <stop offset="14%"  stop-color="#e5be64"/>
+    <stop offset="32%"  stop-color="#fff2c4"/>
+    <stop offset="50%"  stop-color="#c99031"/>
+    <stop offset="70%"  stop-color="#f7dc92"/>
+    <stop offset="86%"  stop-color="#b37a20"/>
+    <stop offset="100%" stop-color="#76480c"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonVert" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f9e39e"/>
+    <stop offset="22%"  stop-color="#dfb55a"/>
+    <stop offset="55%"  stop-color="#b47b21"/>
+    <stop offset="85%"  stop-color="#8b5811"/>
+    <stop offset="100%" stop-color="#6b4109"/>
+  </linearGradient>
+
+  <linearGradient id="goldSpecGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.90"/>
+    <stop offset="28%"  stop-color="#fff4cc" stop-opacity="0.34"/>
+    <stop offset="54%"  stop-color="#ffffff" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+  </linearGradient>
+
+  <linearGradient id="goldSatin" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#f4d992"/>
+    <stop offset="35%"  stop-color="#b9832a"/>
+    <stop offset="65%"  stop-color="#f0d285"/>
+    <stop offset="100%" stop-color="#784b0f"/>
+  </linearGradient>
+
+  <linearGradient id="goldWatermark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#d4ad5d" stop-opacity="0.22"/>
+    <stop offset="50%"  stop-color="#b58632" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#d8b56b" stop-opacity="0.24"/>
+  </linearGradient>
+
+  <linearGradient id="plinthMuted" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f7efe0"/>
+    <stop offset="100%" stop-color="#dfd0b5"/>
+  </linearGradient>
+
+  <radialGradient id="sealIvory" cx="38%" cy="32%" r="68%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="68%"  stop-color="#f8efe0"/>
+    <stop offset="100%" stop-color="#e3cda6"/>
+  </radialGradient>
+
+  <filter id="goldEmbossed" x="-14%" y="-14%" width="128%" height="132%">
+    <feDropShadow dx="0" dy="1.3" stdDeviation="0.4" flood-color="#fffef9" flood-opacity="0.95"/>
+    <feDropShadow dx="1.5" dy="5.5" stdDeviation="4.2" flood-color="#472d08" flood-opacity="0.34"/>
+  </filter>
+
+  <filter id="softShadow" x="-18%" y="-18%" width="136%" height="140%">
+    <feDropShadow dx="2" dy="8" stdDeviation="7" flood-color="#4a310e" flood-opacity="0.24"/>
+  </filter>
+
+  <filter id="deepOverlapShadow" x="-22%" y="-22%" width="144%" height="148%">
+    <feDropShadow dx="3" dy="11" stdDeviation="10" flood-color="#3c2609" flood-opacity="0.30"/>
+  </filter>
+
+  <filter id="badgeShadow" x="-24%" y="-24%" width="148%" height="148%">
+    <feDropShadow dx="2" dy="10" stdDeviation="9" flood-color="#4c320d" flood-opacity="0.28"/>
+  </filter>
+</defs>
+
+
+      <!-- Z5: Gold Laurel TOP 5 Seal overlapping Top-Right Corner of Thumbnail Card -->
+      
+    <g filter="url(#deepOverlapShadow)">
+      <g opacity="1.0"><path d="M 663.8,388.3 L 648.3,385.3 L 634.2,376.6 L 623.9,363.2 L 619.2,346.6 L 620.9,329.5 L 628.7,314.4 L 641.1,303.5 L 655.9,297.8" fill="none" stroke="url(#goldSatin)" stroke-width="1.28" stroke-linecap="round"/>
+<path d="M 648.3,385.3 Q 649.0,379.8 643.6,376.2 Q 643.4,382.6 648.3,385.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 648.3,385.3 Q 643.4,382.6 638.1,386.2 Q 644.0,388.8 648.3,385.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 634.2,376.6 Q 636.6,371.3 632.6,365.8 Q 630.4,372.2 634.2,376.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 634.2,376.6 Q 630.1,372.5 623.6,374.1 Q 628.7,378.5 634.2,376.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 623.9,363.2 Q 627.9,358.7 625.9,351.9 Q 621.7,357.6 623.9,363.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 623.9,363.2 Q 621.2,357.8 614.2,357.1 Q 617.9,363.1 623.9,363.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 619.2,346.6 Q 624.4,343.6 624.8,336.5 Q 619.0,340.5 619.2,346.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 619.2,346.6 Q 618.3,340.6 611.9,337.6 Q 613.4,344.5 619.2,346.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 620.9,329.5 Q 626.8,328.4 629.4,321.8 Q 622.6,323.7 620.9,329.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 620.9,329.5 Q 622.1,323.6 617.0,318.8 Q 616.2,325.8 620.9,329.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 628.7,314.4 Q 634.5,315.4 638.8,310.1 Q 632.0,309.6 628.7,314.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 628.7,314.4 Q 631.8,309.5 628.5,303.5 Q 625.5,309.6 628.7,314.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 641.1,303.5 Q 645.9,306.3 651.3,302.7 Q 645.4,300.0 641.1,303.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 641.1,303.5 Q 645.5,300.1 644.1,293.8 Q 639.5,298.2 641.1,303.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 655.9,297.8 Q 659.2,301.8 664.9,300.0 Q 660.7,295.8 655.9,297.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 655.9,297.8 Q 660.9,296.3 661.4,290.3 Q 655.8,292.6 655.9,297.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 680.2,388.3 L 695.7,385.3 L 709.8,376.6 L 720.1,363.2 L 724.8,346.6 L 723.1,329.5 L 715.3,314.4 L 702.9,303.5 L 688.1,297.8" fill="none" stroke="url(#goldSatin)" stroke-width="1.28" stroke-linecap="round"/>
+<path d="M 695.7,385.3 Q 700.6,382.6 700.4,376.2 Q 695.0,379.8 695.7,385.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 695.7,385.3 Q 700.0,388.8 705.9,386.2 Q 700.6,382.6 695.7,385.3 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 709.8,376.6 Q 713.6,372.2 711.4,365.8 Q 707.4,371.3 709.8,376.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 709.8,376.6 Q 715.3,378.5 720.4,374.1 Q 713.9,372.5 709.8,376.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 720.1,363.2 Q 722.3,357.6 718.1,351.9 Q 716.1,358.7 720.1,363.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 720.1,363.2 Q 726.1,363.1 729.8,357.1 Q 722.8,357.8 720.1,363.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 724.8,346.6 Q 725.0,340.5 719.2,336.5 Q 719.6,343.6 724.8,346.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 724.8,346.6 Q 730.6,344.5 732.1,337.6 Q 725.7,340.6 724.8,346.6 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 723.1,329.5 Q 721.4,323.7 714.6,321.8 Q 717.2,328.4 723.1,329.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 723.1,329.5 Q 727.8,325.8 727.0,318.8 Q 721.9,323.6 723.1,329.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 715.3,314.4 Q 712.0,309.6 705.2,310.1 Q 709.5,315.4 715.3,314.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 715.3,314.4 Q 718.5,309.6 715.5,303.5 Q 712.2,309.5 715.3,314.4 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 702.9,303.5 Q 698.6,300.0 692.7,302.7 Q 698.1,306.3 702.9,303.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 702.9,303.5 Q 704.5,298.2 699.9,293.8 Q 698.5,300.1 702.9,303.5 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 688.1,297.8 Q 683.3,295.8 679.1,300.0 Q 684.8,301.8 688.1,297.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 688.1,297.8 Q 688.2,292.6 682.6,290.3 Q 683.1,296.3 688.1,297.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 672,287.13 L 673.7632,290.8768 L 677.51,292.64 L 673.7632,294.40319999999997 L 672,298.15 L 670.2368,294.40319999999997 L 666.49,292.64 L 670.2368,290.8768 Z" fill="url(#goldDiagGrad)" stroke="#70450e" stroke-width="0.6"/></g>
+      <circle cx="672" cy="342" r="42" fill="url(#goldDiagGrad)" stroke="#623a08" stroke-width="1.3"/>
+      <circle cx="672" cy="342" r="36.12" fill="url(#sealIvory)" stroke="url(#goldSatin)" stroke-width="1.3"/>
+      <text x="672" y="334" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="11.5" letter-spacing="2.2" fill="#5e3d11">TOP</text>
+      <text x="672" y="364" text-anchor="middle" font-family="CinzelDec, serif" font-weight="900" font-size="30" fill="url(#goldTextGrad)" stroke="#5c3607" stroke-width="0.7">5</text>
+    </g>
+    
+
+      <!-- Z5: Sculpted Episode Nameplate overlapping ONLY bottom gold molding (y=656..664), leaving PIVOT NEWS 100% clear! -->
+      <g filter="url(#deepOverlapShadow)">
+        <rect x="60" y="664" width="526" height="104" rx="12" fill="#fffdf8" stroke="url(#goldSatin)" stroke-width="2.0"/>
+        <rect x="67" y="671" width="512" height="90" rx="8" fill="none" stroke="#c8a45f" stroke-width="0.75" stroke-opacity="0.55"/>
+        <rect x="84" y="685" width="224" height="22" rx="4" fill="url(#goldRibbonGrad)" stroke="#6a410a" stroke-width="0.6"/>
+        <text x="196" y="700" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="10.5" letter-spacing="2.0" fill="#281603">FEATURED EPISODE · TOP 5</text>
+        <text x="322" y="700" font-family="Cinzel, serif" font-weight="700" font-size="11.5" letter-spacing="2.4" fill="#7c5924">2026.11</text>
+        <text x="84" y="742" font-family="ShipporiMinchoB1, serif" font-weight="800" font-size="30.5" letter-spacing="1.2" fill="#1e1710"
+              style="font-feature-settings:'palt' 1">Meta「Muse」解説</text>
+      </g>
+
+      <text x="60" y="860" font-family="ShipporiMinchoB1, serif" font-weight="600" font-size="16" letter-spacing="2.2" fill="#634f37">作図：萩野貴拓</text>
+    </svg>
+    </div>
+</body></html>

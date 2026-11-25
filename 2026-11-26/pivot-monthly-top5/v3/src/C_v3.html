@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><style>
+
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-SemiBold.ttf'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-ExtraBold.ttf'); font-weight: 800; font-style: normal; }
+@font-face { font-family: 'ZenOldMincho'; src: url('../fonts/ZenOldMincho-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'ZenOldMincho'; src: url('../fonts/ZenOldMincho-Black.ttf'); font-weight: 900; font-style: normal; }
+@font-face { font-family: 'Cinzel'; src: url('../fonts/Cinzel-Variable.ttf'); font-weight: 400 900; font-style: normal; }
+@font-face { font-family: 'CinzelDec'; src: url('../fonts/CinzelDecorative-Black.ttf'); font-weight: 900; font-style: normal; }
+@font-face { font-family: 'CormorantSC'; src: url('../fonts/CormorantSC-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'PlayfairDisplay'; src: url('../fonts/PlayfairDisplay-VariableFont_wght.ttf'); font-weight: 400 900; font-style: normal; }
+@font-face { font-family: 'PlayfairSC'; src: url('../fonts/PlayfairDisplaySC-Bold.ttf'); font-weight: 700; font-style: normal; }
+
+*{margin:0;box-sizing:border-box}
+body{width:1600px;height:900px;position:relative;overflow:hidden;background:#faf3e6}
+.layer{position:absolute;inset:0;width:1600px;height:900px;pointer-events:none}
+.card{
+  position:absolute;left:470px;top:240px;width:660px;padding:10px;border-radius:16px;
+  background:linear-gradient(145deg,#fff6d4 0%,#d7aa50 28%,#7e5012 52%,#f4da90 76%,#74470e 100%);
+  box-shadow:0 22px 44px rgba(62,40,10,0.28), 0 4px 12px rgba(72,46,12,0.18), inset 0 2px 3px rgba(255,255,255,0.88);
+}
+.card-inner{padding:3px;border-radius:10px;background:#fffdf8}
+.card img{display:block;width:100%;height:auto;border-radius:8px}
+.fg-glass{filter:drop-shadow(-3px 8px 10px rgba(48,30,8,0.28))}
+</style></head><body>
+  <div class="layer" style="z-index:1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      
+<defs>
+  <radialGradient id="studioBg" cx="52%" cy="42%" r="72%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="52%"  stop-color="#faf3e6"/>
+    <stop offset="86%"  stop-color="#efe3cd"/>
+    <stop offset="100%" stop-color="#e5d4b6"/>
+  </radialGradient>
+
+  <radialGradient id="spotWarm" cx="50%" cy="44%" r="48%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="60%"  stop-color="#fff8e8" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#fff8e8" stop-opacity="0.0"/>
+  </radialGradient>
+
+  <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#efe3cd" stop-opacity="0.35"/>
+    <stop offset="14%"  stop-color="#fffcf5" stop-opacity="0.88"/>
+    <stop offset="100%" stop-color="#e8d8bc" stop-opacity="0.95"/>
+  </linearGradient>
+
+  <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="8%" y2="100%">
+    <stop offset="0%"   stop-color="#fff9e2"/>
+    <stop offset="16%"  stop-color="#eed07f"/>
+    <stop offset="36%"  stop-color="#b57a1e"/>
+    <stop offset="50%"  stop-color="#693e07"/>
+    <stop offset="57%"  stop-color="#a8701a"/>
+    <stop offset="76%"  stop-color="#f7dc92"/>
+    <stop offset="91%"  stop-color="#bb8328"/>
+    <stop offset="100%" stop-color="#633a06"/>
+  </linearGradient>
+
+  <linearGradient id="goldDiagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#fff7d4"/>
+    <stop offset="22%"  stop-color="#e7c167"/>
+    <stop offset="46%"  stop-color="#87520b"/>
+    <stop offset="56%"  stop-color="#fbefc6"/>
+    <stop offset="78%"  stop-color="#b98126"/>
+    <stop offset="100%" stop-color="#5e3605"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonGrad" x1="0%" y1="0%" x2="100%" y2="12%">
+    <stop offset="0%"   stop-color="#8f5c14"/>
+    <stop offset="14%"  stop-color="#e5be64"/>
+    <stop offset="32%"  stop-color="#fff2c4"/>
+    <stop offset="50%"  stop-color="#c99031"/>
+    <stop offset="70%"  stop-color="#f7dc92"/>
+    <stop offset="86%"  stop-color="#b37a20"/>
+    <stop offset="100%" stop-color="#76480c"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonVert" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f9e39e"/>
+    <stop offset="22%"  stop-color="#dfb55a"/>
+    <stop offset="55%"  stop-color="#b47b21"/>
+    <stop offset="85%"  stop-color="#8b5811"/>
+    <stop offset="100%" stop-color="#6b4109"/>
+  </linearGradient>
+
+  <linearGradient id="goldSpecGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.90"/>
+    <stop offset="28%"  stop-color="#fff4cc" stop-opacity="0.34"/>
+    <stop offset="54%"  stop-color="#ffffff" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+  </linearGradient>
+
+  <linearGradient id="goldSatin" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#f4d992"/>
+    <stop offset="35%"  stop-color="#b9832a"/>
+    <stop offset="65%"  stop-color="#f0d285"/>
+    <stop offset="100%" stop-color="#784b0f"/>
+  </linearGradient>
+
+  <linearGradient id="goldWatermark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#d4ad5d" stop-opacity="0.22"/>
+    <stop offset="50%"  stop-color="#b58632" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#d8b56b" stop-opacity="0.24"/>
+  </linearGradient>
+
+  <linearGradient id="plinthMuted" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f7efe0"/>
+    <stop offset="100%" stop-color="#dfd0b5"/>
+  </linearGradient>
+
+  <radialGradient id="sealIvory" cx="38%" cy="32%" r="68%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="68%"  stop-color="#f8efe0"/>
+    <stop offset="100%" stop-color="#e3cda6"/>
+  </radialGradient>
+
+  <filter id="goldEmbossed" x="-14%" y="-14%" width="128%" height="132%">
+    <feDropShadow dx="0" dy="1.3" stdDeviation="0.4" flood-color="#fffef9" flood-opacity="0.95"/>
+    <feDropShadow dx="1.5" dy="5.5" stdDeviation="4.2" flood-color="#472d08" flood-opacity="0.34"/>
+  </filter>
+
+  <filter id="softShadow" x="-18%" y="-18%" width="136%" height="140%">
+    <feDropShadow dx="2" dy="8" stdDeviation="7" flood-color="#4a310e" flood-opacity="0.24"/>
+  </filter>
+
+  <filter id="deepOverlapShadow" x="-22%" y="-22%" width="144%" height="148%">
+    <feDropShadow dx="3" dy="11" stdDeviation="10" flood-color="#3c2609" flood-opacity="0.30"/>
+  </filter>
+
+  <filter id="badgeShadow" x="-24%" y="-24%" width="148%" height="148%">
+    <feDropShadow dx="2" dy="10" stdDeviation="9" flood-color="#4c320d" flood-opacity="0.28"/>
+  </filter>
+</defs>
+
+      
+      <rect width="1600" height="900" fill="url(#studioBg)"/>
+      <ellipse cx="50%" cy="44%" rx="760" ry="430" fill="url(#spotWarm)"/>
+      <rect x="0" y="824" width="1600" height="76" fill="url(#floorGrad)"/>
+      <line x1="0" y1="824" x2="1600" y2="824" stroke="#caa766" stroke-width="1.0" stroke-opacity="0.45"/>
+      <rect x="22" y="22" width="1556" height="856" rx="14" fill="none" stroke="url(#goldSatin)" stroke-width="1.2" stroke-opacity="0.55"/>
+      <rect x="30" y="30" width="1540" height="840" rx="10" fill="none" stroke="#c8a258" stroke-width="0.6" stroke-opacity="0.32"/>
+    
+
+      <circle cx="800" cy="435" r="395" fill="none" stroke="url(#goldSatin)" stroke-width="1.6" stroke-opacity="0.45"/>
+      <circle cx="800" cy="435" r="415" fill="none" stroke="#c8a25a" stroke-width="0.7" stroke-dasharray="4,7" stroke-opacity="0.40"/>
+      <circle cx="800" cy="435" r="338" fill="none" stroke="url(#goldSatin)" stroke-width="1.0" stroke-opacity="0.32"/>
+
+      <!-- Z2: Wide champagne-gold celebration ribbon wings passing BEHIND the side Jollys -->
+      <g filter="url(#softShadow)">
+        <path d="M 190,638 L 1410,638 L 1380,676 L 1410,714 L 190,714 L 220,676 Z" fill="url(#goldRibbonGrad)" stroke="#6d430b" stroke-width="1.0" opacity="0.88"/>
+        <line x1="228" y1="645" x2="1372" y2="645" stroke="#fff7d4" stroke-width="0.9" stroke-opacity="0.7"/>
+        <line x1="228" y1="707" x2="1372" y2="707" stroke="#75490e" stroke-width="0.8" stroke-opacity="0.55"/>
+      </g>
+    </svg>
+    </div>
+  <img class="layer" style="z-index:2" src="../layers/compC_clean.png"/>
+  <div class="layer" style="z-index:3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      
+<defs>
+  <radialGradient id="studioBg" cx="52%" cy="42%" r="72%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="52%"  stop-color="#faf3e6"/>
+    <stop offset="86%"  stop-color="#efe3cd"/>
+    <stop offset="100%" stop-color="#e5d4b6"/>
+  </radialGradient>
+
+  <radialGradient id="spotWarm" cx="50%" cy="44%" r="48%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="60%"  stop-color="#fff8e8" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#fff8e8" stop-opacity="0.0"/>
+  </radialGradient>
+
+  <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#efe3cd" stop-opacity="0.35"/>
+    <stop offset="14%"  stop-color="#fffcf5" stop-opacity="0.88"/>
+    <stop offset="100%" stop-color="#e8d8bc" stop-opacity="0.95"/>
+  </linearGradient>
+
+  <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="8%" y2="100%">
+    <stop offset="0%"   stop-color="#fff9e2"/>
+    <stop offset="16%"  stop-color="#eed07f"/>
+    <stop offset="36%"  stop-color="#b57a1e"/>
+    <stop offset="50%"  stop-color="#693e07"/>
+    <stop offset="57%"  stop-color="#a8701a"/>
+    <stop offset="76%"  stop-color="#f7dc92"/>
+    <stop offset="91%"  stop-color="#bb8328"/>
+    <stop offset="100%" stop-color="#633a06"/>
+  </linearGradient>
+
+  <linearGradient id="goldDiagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#fff7d4"/>
+    <stop offset="22%"  stop-color="#e7c167"/>
+    <stop offset="46%"  stop-color="#87520b"/>
+    <stop offset="56%"  stop-color="#fbefc6"/>
+    <stop offset="78%"  stop-color="#b98126"/>
+    <stop offset="100%" stop-color="#5e3605"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonGrad" x1="0%" y1="0%" x2="100%" y2="12%">
+    <stop offset="0%"   stop-color="#8f5c14"/>
+    <stop offset="14%"  stop-color="#e5be64"/>
+    <stop offset="32%"  stop-color="#fff2c4"/>
+    <stop offset="50%"  stop-color="#c99031"/>
+    <stop offset="70%"  stop-color="#f7dc92"/>
+    <stop offset="86%"  stop-color="#b37a20"/>
+    <stop offset="100%" stop-color="#76480c"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonVert" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f9e39e"/>
+    <stop offset="22%"  stop-color="#dfb55a"/>
+    <stop offset="55%"  stop-color="#b47b21"/>
+    <stop offset="85%"  stop-color="#8b5811"/>
+    <stop offset="100%" stop-color="#6b4109"/>
+  </linearGradient>
+
+  <linearGradient id="goldSpecGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.90"/>
+    <stop offset="28%"  stop-color="#fff4cc" stop-opacity="0.34"/>
+    <stop offset="54%"  stop-color="#ffffff" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+  </linearGradient>
+
+  <linearGradient id="goldSatin" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#f4d992"/>
+    <stop offset="35%"  stop-color="#b9832a"/>
+    <stop offset="65%"  stop-color="#f0d285"/>
+    <stop offset="100%" stop-color="#784b0f"/>
+  </linearGradient>
+
+  <linearGradient id="goldWatermark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#d4ad5d" stop-opacity="0.22"/>
+    <stop offset="50%"  stop-color="#b58632" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#d8b56b" stop-opacity="0.24"/>
+  </linearGradient>
+
+  <linearGradient id="plinthMuted" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f7efe0"/>
+    <stop offset="100%" stop-color="#dfd0b5"/>
+  </linearGradient>
+
+  <radialGradient id="sealIvory" cx="38%" cy="32%" r="68%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="68%"  stop-color="#f8efe0"/>
+    <stop offset="100%" stop-color="#e3cda6"/>
+  </radialGradient>
+
+  <filter id="goldEmbossed" x="-14%" y="-14%" width="128%" height="132%">
+    <feDropShadow dx="0" dy="1.3" stdDeviation="0.4" flood-color="#fffef9" flood-opacity="0.95"/>
+    <feDropShadow dx="1.5" dy="5.5" stdDeviation="4.2" flood-color="#472d08" flood-opacity="0.34"/>
+  </filter>
+
+  <filter id="softShadow" x="-18%" y="-18%" width="136%" height="140%">
+    <feDropShadow dx="2" dy="8" stdDeviation="7" flood-color="#4a310e" flood-opacity="0.24"/>
+  </filter>
+
+  <filter id="deepOverlapShadow" x="-22%" y="-22%" width="144%" height="148%">
+    <feDropShadow dx="3" dy="11" stdDeviation="10" flood-color="#3c2609" flood-opacity="0.30"/>
+  </filter>
+
+  <filter id="badgeShadow" x="-24%" y="-24%" width="148%" height="148%">
+    <feDropShadow dx="2" dy="10" stdDeviation="9" flood-color="#4c320d" flood-opacity="0.28"/>
+  </filter>
+</defs>
+
+
+      <g>
+        <line x1="418" y1="52" x2="588" y2="52" stroke="url(#goldSatin)" stroke-width="1.3"/>
+        <text x="800" y="58" text-anchor="middle" font-family="Cinzel, serif" font-weight="700" font-size="14.5" letter-spacing="4.6" fill="#704d19">PIVOT MONTHLY RANKING · 2026.11</text>
+        <line x1="1012" y1="52" x2="1182" y2="52" stroke="url(#goldSatin)" stroke-width="1.3"/>
+
+        <text x="800" y="100" text-anchor="middle" font-family="ShipporiMinchoB1, serif" font-weight="700" font-size="33" letter-spacing="5.5" fill="#231c15"
+              style="font-feature-settings:'palt' 1">月間総合ランキング</text>
+
+        <!-- Ornamental gold rules flanking monumental トップ5入り (NO duplicate stacked laurel!) -->
+        <line x1="398" y1="168" x2="508" y2="168" stroke="url(#goldSatin)" stroke-width="1.5"/>
+        <path d="M 398,161 L 399.96,166.04 L 405,168 L 399.96,169.96 L 398,175 L 396.04,169.96 L 391,168 L 396.04,166.04 Z" fill="url(#goldDiagGrad)" stroke="#70450e" stroke-width="0.5"/>
+        <line x1="1092" y1="168" x2="1202" y2="168" stroke="url(#goldSatin)" stroke-width="1.5"/>
+        <path d="M 1202,161 L 1203.96,166.04 L 1209,168 L 1203.96,169.96 L 1202,175 L 1200.04,169.96 L 1195,168 L 1200.04,166.04 Z" fill="url(#goldDiagGrad)" stroke="#70450e" stroke-width="0.5"/>
+
+        
+    <g filter="url(#goldEmbossed)">
+      
+        <text x="800" y="198.2" text-anchor="middle" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="80" letter-spacing="-3"
+              fill="#5b3506" stroke="#5b3506" stroke-width="2.6" stroke-linejoin="round" style="font-feature-settings:'palt' 1">トップ<tspan dx="5" dy="9" font-family="CinzelDec, serif" font-weight="900" font-size="118" letter-spacing="0">5</tspan><tspan dx="6" dy="-9" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="80" letter-spacing="-2">入り</tspan></text>
+        
+      
+        <text x="800" y="196" text-anchor="middle" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="80" letter-spacing="-3"
+              fill="url(#goldTextGrad)" stroke="#683f08" stroke-width="1.2" stroke-linejoin="round" style="font-feature-settings:'palt' 1">トップ<tspan dx="5" dy="9" font-family="CinzelDec, serif" font-weight="900" font-size="118" letter-spacing="0">5</tspan><tspan dx="6" dy="-9" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="80" letter-spacing="-2">入り</tspan></text>
+        
+      
+        <text x="800" y="196" text-anchor="middle" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="80" letter-spacing="-3"
+              fill="url(#goldSpecGrad)" stroke="none" stroke-width="0" stroke-linejoin="round" style="font-feature-settings:'palt' 1">トップ<tspan dx="5" dy="9" font-family="CinzelDec, serif" font-weight="900" font-size="118" letter-spacing="0">5</tspan><tspan dx="6" dy="-9" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="80" letter-spacing="-2">入り</tspan></text>
+        
+    </g>
+    
+      </g>
+    </svg>
+    </div>
+  <div class="card" style="z-index:3"><div class="card-inner"><img src="thumb.png"/></div></div>
+  <div class="layer" style="z-index:4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      
+<defs>
+  <radialGradient id="studioBg" cx="52%" cy="42%" r="72%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="52%"  stop-color="#faf3e6"/>
+    <stop offset="86%"  stop-color="#efe3cd"/>
+    <stop offset="100%" stop-color="#e5d4b6"/>
+  </radialGradient>
+
+  <radialGradient id="spotWarm" cx="50%" cy="44%" r="48%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="60%"  stop-color="#fff8e8" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#fff8e8" stop-opacity="0.0"/>
+  </radialGradient>
+
+  <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#efe3cd" stop-opacity="0.35"/>
+    <stop offset="14%"  stop-color="#fffcf5" stop-opacity="0.88"/>
+    <stop offset="100%" stop-color="#e8d8bc" stop-opacity="0.95"/>
+  </linearGradient>
+
+  <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="8%" y2="100%">
+    <stop offset="0%"   stop-color="#fff9e2"/>
+    <stop offset="16%"  stop-color="#eed07f"/>
+    <stop offset="36%"  stop-color="#b57a1e"/>
+    <stop offset="50%"  stop-color="#693e07"/>
+    <stop offset="57%"  stop-color="#a8701a"/>
+    <stop offset="76%"  stop-color="#f7dc92"/>
+    <stop offset="91%"  stop-color="#bb8328"/>
+    <stop offset="100%" stop-color="#633a06"/>
+  </linearGradient>
+
+  <linearGradient id="goldDiagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#fff7d4"/>
+    <stop offset="22%"  stop-color="#e7c167"/>
+    <stop offset="46%"  stop-color="#87520b"/>
+    <stop offset="56%"  stop-color="#fbefc6"/>
+    <stop offset="78%"  stop-color="#b98126"/>
+    <stop offset="100%" stop-color="#5e3605"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonGrad" x1="0%" y1="0%" x2="100%" y2="12%">
+    <stop offset="0%"   stop-color="#8f5c14"/>
+    <stop offset="14%"  stop-color="#e5be64"/>
+    <stop offset="32%"  stop-color="#fff2c4"/>
+    <stop offset="50%"  stop-color="#c99031"/>
+    <stop offset="70%"  stop-color="#f7dc92"/>
+    <stop offset="86%"  stop-color="#b37a20"/>
+    <stop offset="100%" stop-color="#76480c"/>
+  </linearGradient>
+
+  <linearGradient id="goldRibbonVert" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f9e39e"/>
+    <stop offset="22%"  stop-color="#dfb55a"/>
+    <stop offset="55%"  stop-color="#b47b21"/>
+    <stop offset="85%"  stop-color="#8b5811"/>
+    <stop offset="100%" stop-color="#6b4109"/>
+  </linearGradient>
+
+  <linearGradient id="goldSpecGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.90"/>
+    <stop offset="28%"  stop-color="#fff4cc" stop-opacity="0.34"/>
+    <stop offset="54%"  stop-color="#ffffff" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+  </linearGradient>
+
+  <linearGradient id="goldSatin" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#f4d992"/>
+    <stop offset="35%"  stop-color="#b9832a"/>
+    <stop offset="65%"  stop-color="#f0d285"/>
+    <stop offset="100%" stop-color="#784b0f"/>
+  </linearGradient>
+
+  <linearGradient id="goldWatermark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#d4ad5d" stop-opacity="0.22"/>
+    <stop offset="50%"  stop-color="#b58632" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#d8b56b" stop-opacity="0.24"/>
+  </linearGradient>
+
+  <linearGradient id="plinthMuted" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#f7efe0"/>
+    <stop offset="100%" stop-color="#dfd0b5"/>
+  </linearGradient>
+
+  <radialGradient id="sealIvory" cx="38%" cy="32%" r="68%">
+    <stop offset="0%"   stop-color="#fffefb"/>
+    <stop offset="68%"  stop-color="#f8efe0"/>
+    <stop offset="100%" stop-color="#e3cda6"/>
+  </radialGradient>
+
+  <filter id="goldEmbossed" x="-14%" y="-14%" width="128%" height="132%">
+    <feDropShadow dx="0" dy="1.3" stdDeviation="0.4" flood-color="#fffef9" flood-opacity="0.95"/>
+    <feDropShadow dx="1.5" dy="5.5" stdDeviation="4.2" flood-color="#472d08" flood-opacity="0.34"/>
+  </filter>
+
+  <filter id="softShadow" x="-18%" y="-18%" width="136%" height="140%">
+    <feDropShadow dx="2" dy="8" stdDeviation="7" flood-color="#4a310e" flood-opacity="0.24"/>
+  </filter>
+
+  <filter id="deepOverlapShadow" x="-22%" y="-22%" width="144%" height="148%">
+    <feDropShadow dx="3" dy="11" stdDeviation="10" flood-color="#3c2609" flood-opacity="0.30"/>
+  </filter>
+
+  <filter id="badgeShadow" x="-24%" y="-24%" width="148%" height="148%">
+    <feDropShadow dx="2" dy="10" stdDeviation="9" flood-color="#4c320d" flood-opacity="0.28"/>
+  </filter>
+</defs>
+
+
+      <!-- Z4: Clean single Gold Laurel TOP 5 Seal overlapping Top-Right Corner of Thumbnail Card -->
+      
+    <g filter="url(#deepOverlapShadow)">
+      <g opacity="1.0"><path d="M 1115.4,290.5 L 1099.2,287.2 L 1084.5,278.2 L 1073.8,264.1 L 1068.9,246.8 L 1070.7,229.0 L 1078.9,213.2 L 1091.7,201.8 L 1107.1,195.7" fill="none" stroke="url(#goldSatin)" stroke-width="1.28" stroke-linecap="round"/>
+<path d="M 1099.2,287.2 Q 1099.9,281.7 1094.5,278.2 Q 1094.3,284.6 1099.2,287.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1099.2,287.2 Q 1094.3,284.5 1089.1,288.1 Q 1094.9,290.8 1099.2,287.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1084.5,278.2 Q 1086.9,272.8 1082.9,267.4 Q 1080.7,273.8 1084.5,278.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1084.5,278.2 Q 1080.5,274.0 1073.9,275.6 Q 1079.0,280.1 1084.5,278.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1073.8,264.1 Q 1077.8,259.6 1075.9,252.8 Q 1071.7,258.5 1073.8,264.1 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1073.8,264.1 Q 1071.1,258.7 1064.2,258.0 Q 1067.8,264.0 1073.8,264.1 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1068.9,246.8 Q 1074.2,243.8 1074.6,236.7 Q 1068.7,240.7 1068.9,246.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1068.9,246.8 Q 1068.1,240.8 1061.6,237.8 Q 1063.2,244.7 1068.9,246.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1070.7,229.0 Q 1076.7,227.8 1079.2,221.3 Q 1072.4,223.2 1070.7,229.0 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1070.7,229.0 Q 1071.9,223.1 1066.8,218.3 Q 1066.0,225.2 1070.7,229.0 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1078.9,213.2 Q 1084.6,214.2 1088.9,208.9 Q 1082.1,208.4 1078.9,213.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1078.9,213.2 Q 1081.9,208.2 1078.6,202.3 Q 1075.6,208.4 1078.9,213.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1091.7,201.8 Q 1096.5,204.5 1101.9,200.9 Q 1096.0,198.3 1091.7,201.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1091.7,201.8 Q 1096.1,198.3 1094.7,192.1 Q 1090.1,196.5 1091.7,201.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1107.1,195.7 Q 1110.4,199.7 1116.1,197.9 Q 1112.0,193.7 1107.1,195.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1107.1,195.7 Q 1112.1,194.2 1112.6,188.2 Q 1107.1,190.5 1107.1,195.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1132.6,290.5 L 1148.8,287.2 L 1163.5,278.2 L 1174.2,264.1 L 1179.1,246.8 L 1177.3,229.0 L 1169.1,213.2 L 1156.3,201.8 L 1140.9,195.7" fill="none" stroke="url(#goldSatin)" stroke-width="1.28" stroke-linecap="round"/>
+<path d="M 1148.8,287.2 Q 1153.7,284.6 1153.5,278.2 Q 1148.1,281.7 1148.8,287.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1148.8,287.2 Q 1153.1,290.8 1158.9,288.1 Q 1153.7,284.5 1148.8,287.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1163.5,278.2 Q 1167.3,273.8 1165.1,267.4 Q 1161.1,272.8 1163.5,278.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1163.5,278.2 Q 1169.0,280.1 1174.1,275.6 Q 1167.5,274.0 1163.5,278.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1174.2,264.1 Q 1176.3,258.5 1172.1,252.8 Q 1170.2,259.6 1174.2,264.1 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1174.2,264.1 Q 1180.2,264.0 1183.8,258.0 Q 1176.9,258.7 1174.2,264.1 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1179.1,246.8 Q 1179.3,240.7 1173.4,236.7 Q 1173.8,243.8 1179.1,246.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1179.1,246.8 Q 1184.8,244.7 1186.4,237.8 Q 1179.9,240.8 1179.1,246.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1177.3,229.0 Q 1175.6,223.2 1168.8,221.3 Q 1171.3,227.8 1177.3,229.0 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1177.3,229.0 Q 1182.0,225.2 1181.2,218.3 Q 1176.1,223.1 1177.3,229.0 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1169.1,213.2 Q 1165.9,208.4 1159.1,208.9 Q 1163.4,214.2 1169.1,213.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1169.1,213.2 Q 1172.4,208.4 1169.4,202.3 Q 1166.1,208.2 1169.1,213.2 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1156.3,201.8 Q 1152.0,198.3 1146.1,200.9 Q 1151.5,204.5 1156.3,201.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1156.3,201.8 Q 1157.9,196.5 1153.3,192.1 Q 1151.9,198.3 1156.3,201.8 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1140.9,195.7 Q 1136.0,193.7 1131.9,197.9 Q 1137.6,199.7 1140.9,195.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1140.9,195.7 Q 1140.9,190.5 1135.4,188.2 Q 1135.9,194.2 1140.9,195.7 Z" fill="url(#goldDiagGrad)" stroke="#73480f" stroke-width="0.55"/>
+<path d="M 1124,184.89000000000001 L 1125.7632,188.6368 L 1129.51,190.4 L 1125.7632,192.16320000000002 L 1124,195.91 L 1122.2368,192.16320000000002 L 1118.49,190.4 L 1122.2368,188.6368 Z" fill="url(#goldDiagGrad)" stroke="#70450e" stroke-width="0.6"/></g>
+      <circle cx="1124" cy="242" r="44" fill="url(#goldDiagGrad)" stroke="#623a08" stroke-width="1.3"/>
+      <circle cx="1124" cy="242" r="37.839999999999996" fill="url(#sealIvory)" stroke="url(#goldSatin)" stroke-width="1.3"/>
+      <text x="1124" y="234" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="11.5" letter-spacing="2.2" fill="#5e3d11">TOP</text>
+      <text x="1124" y="264" text-anchor="middle" font-family="CinzelDec, serif" font-weight="900" font-size="30" fill="url(#goldTextGrad)" stroke="#5c3607" stroke-width="0.7">5</text>
+    </g>
+    
+
+      <!-- Z4: Satin Ribbon Banner wrapping across bottom frame molding (y=574..610) -->
+      <g filter="url(#deepOverlapShadow)">
+        <path d="M 434,582 L 468,582 L 468,618 L 424,618 L 442,600 Z" fill="#6d430b"/>
+        <path d="M 1166,582 L 1132,582 L 1132,618 L 1176,618 L 1158,600 Z" fill="#6d430b"/>
+        <rect x="466" y="574" width="668" height="36" rx="6" fill="url(#goldRibbonGrad)" stroke="#683f09" stroke-width="1.1"/>
+        <rect x="470" y="578" width="660" height="28" rx="4" fill="none" stroke="#fff6d4" stroke-opacity="0.72" stroke-width="0.8"/>
+        <text x="800" y="597" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="13" letter-spacing="4.2" fill="#261503">OFFICIAL TOP 5 · MONTHLY AWARD</text>
+      </g>
+
+      <!-- Z4: Sculpted Episode Nameplate (wider wings so both foreground flute & coupe glass cross edges cleanly!) -->
+      <g filter="url(#deepOverlapShadow)">
+        <rect x="512" y="632" width="576" height="84" rx="12" fill="#fffdf8" stroke="url(#goldSatin)" stroke-width="2.0"/>
+        <rect x="519" y="639" width="562" height="70" rx="8" fill="none" stroke="#c8a45f" stroke-width="0.75" stroke-opacity="0.55"/>
+        <text x="800" y="660" text-anchor="middle" font-family="Cinzel, serif" font-weight="700" font-size="11.5" letter-spacing="3.0" fill="#7d5922">PIVOT PROGRAM · 2026.11</text>
+        <text x="800" y="695" text-anchor="middle" font-family="ShipporiMinchoB1, serif" font-weight="800" font-size="27.5" letter-spacing="1.4" fill="#1e1710"
+              style="font-feature-settings:'palt' 1">Meta「Muse」解説</text>
+      </g>
+
+      <text x="800" y="862" text-anchor="middle" font-family="ShipporiMinchoB1, serif" font-weight="600" font-size="16" letter-spacing="2.2" fill="#634f37">作図：萩野貴拓</text>
+    </svg>
+    </div>
+  <img class="layer" style="z-index:5" src="../layers/C_fg_left_glass.png"/>
+  <img class="layer" style="z-index:5" src="../layers/C_fg_sitting_flute.png"/>
+  <img class="layer fg-glass" style="z-index:5;transform:scale(1.035);transform-origin:1360px 900px" src="../layers/C_fg_right.png"/>
+</body></html>
