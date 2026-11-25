@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><style>
+
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-SemiBold.ttf'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'ShipporiMinchoB1'; src: url('../fonts/ShipporiMinchoB1-ExtraBold.ttf'); font-weight: 800; font-style: normal; }
+@font-face { font-family: 'ZenOldMincho'; src: url('../fonts/ZenOldMincho-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'ZenOldMincho'; src: url('../fonts/ZenOldMincho-Black.ttf'); font-weight: 900; font-style: normal; }
+@font-face { font-family: 'Cinzel'; src: url('../fonts/Cinzel-Variable.ttf'); font-weight: 400 900; font-style: normal; }
+@font-face { font-family: 'CinzelDec'; src: url('../fonts/CinzelDecorative-Black.ttf'); font-weight: 900; font-style: normal; }
+@font-face { font-family: 'CormorantSC'; src: url('../fonts/CormorantSC-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'PlayfairDisplay'; src: url('../fonts/PlayfairDisplay-VariableFont_wght.ttf'); font-weight: 400 900; font-style: normal; }
+@font-face { font-family: 'PlayfairSC'; src: url('../fonts/PlayfairDisplaySC-Bold.ttf'); font-weight: 700; font-style: normal; }
+
+*{margin:0;box-sizing:border-box}
+body{width:1600px;height:900px;background:#f7f1e6 url(compA_base.png) left top/1600px 900px no-repeat;position:relative;overflow:hidden}
+svg{position:absolute;inset:0;width:1600px;height:900px;display:block}
+</style></head><body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      
+<defs>
+  <!-- Deep high-contrast metallic champagne gold for crisp legibility on ivory -->
+  <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="8%" y2="100%">
+    <stop offset="0%"   stop-color="#fff8dc"/>
+    <stop offset="18%"  stop-color="#eccb77"/>
+    <stop offset="38%"  stop-color="#b47a1f"/>
+    <stop offset="50%"  stop-color="#6e4309"/>
+    <stop offset="56%"  stop-color="#a66f19"/>
+    <stop offset="74%"  stop-color="#f5d88b"/>
+    <stop offset="90%"  stop-color="#b98126"/>
+    <stop offset="100%" stop-color="#683e08"/>
+  </linearGradient>
+
+  <linearGradient id="goldDiagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#fff6d1"/>
+    <stop offset="22%"  stop-color="#e5be63"/>
+    <stop offset="46%"  stop-color="#8b560e"/>
+    <stop offset="56%"  stop-color="#faecc0"/>
+    <stop offset="78%"  stop-color="#b98227"/>
+    <stop offset="100%" stop-color="#623a07"/>
+  </linearGradient>
+
+  <linearGradient id="goldSpecGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.88"/>
+    <stop offset="26%"  stop-color="#fff4cc" stop-opacity="0.32"/>
+    <stop offset="52%"  stop-color="#ffffff" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+  </linearGradient>
+
+  <linearGradient id="goldSatin" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#f2d68d"/>
+    <stop offset="35%"  stop-color="#b9842c"/>
+    <stop offset="65%"  stop-color="#eed082"/>
+    <stop offset="100%" stop-color="#7c4f11"/>
+  </linearGradient>
+
+  <radialGradient id="sealIvory" cx="40%" cy="35%" r="65%">
+    <stop offset="0%"   stop-color="#fffdf8"/>
+    <stop offset="68%"  stop-color="#f8efe0"/>
+    <stop offset="100%" stop-color="#e6d2ad"/>
+  </radialGradient>
+
+  <filter id="goldEmbossed" x="-12%" y="-12%" width="124%" height="128%">
+    <feDropShadow dx="0" dy="1.4" stdDeviation="0.5" flood-color="#fffef8" flood-opacity="0.95"/>
+    <feDropShadow dx="0" dy="4.5" stdDeviation="3.8" flood-color="#4e320b" flood-opacity="0.34"/>
+  </filter>
+
+  <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%">
+    <feDropShadow dx="0" dy="6" stdDeviation="6.5" flood-color="#4e3410" flood-opacity="0.20"/>
+  </filter>
+
+  <filter id="badgeShadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#5a3d14" flood-opacity="0.24"/>
+  </filter>
+</defs>
+
+      <rect x="24" y="24" width="1552" height="852" rx="14" fill="none" stroke="url(#goldSatin)" stroke-width="1.1" stroke-opacity="0.48"/>
+
+      <!-- LEFT COLUMN -->
+      <g>
+        <text x="56" y="84" font-family="Cinzel, serif" font-weight="700" font-size="15.5" letter-spacing="4" fill="#7c5920">PIVOT MONTHLY RANKING</text>
+        <text x="56" y="111" font-family="CormorantSC, Cinzel, serif" font-weight="400" font-size="15.5" letter-spacing="4.2" fill="#9a7435">OVERALL  ·  2026.11</text>
+        <line x1="56" y1="128" x2="396" y2="128" stroke="url(#goldSatin)" stroke-width="1.5"/>
+
+        <text x="54" y="188" font-family="ShipporiMinchoB1, serif" font-weight="700" font-size="35" letter-spacing="3.5" fill="#231c15"
+              style="font-feature-settings:'palt' 1">月間総合ランキング</text>
+
+        
+    <g filter="url(#goldEmbossed)">
+      <text x="50" y="304" text-anchor="start" fill="url(#goldTextGrad)" stroke="#633c09" stroke-width="1.5" paint-order="stroke fill"
+            style="font-feature-settings:'palt' 1">
+        <tspan font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="76" letter-spacing="-3">トップ</tspan><tspan dx="5" dy="1" font-family="CinzelDec, PlayfairDisplay, serif" font-weight="900" font-size="110" fill="url(#goldDiagGrad)">5</tspan><tspan dx="5" dy="-1" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="76" letter-spacing="-2">入り</tspan>
+      </text>
+      <text x="50" y="303.0" text-anchor="start" fill="url(#goldSpecGrad)"
+            style="font-feature-settings:'palt' 1">
+        <tspan font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="76" letter-spacing="-3">トップ</tspan><tspan dx="5" dy="1" font-family="CinzelDec, PlayfairDisplay, serif" font-weight="900" font-size="110">5</tspan><tspan dx="5" dy="-1" font-family="ZenOldMincho, ShipporiMinchoB1, serif" font-weight="900" font-size="76" letter-spacing="-2">入り</tspan>
+      </text>
+    </g>
+
+        <line x1="56" y1="342" x2="396" y2="342" stroke="url(#goldSatin)" stroke-width="1.2"/>
+        <circle cx="226" cy="342" r="3.8" fill="url(#goldDiagGrad)" stroke="#754911" stroke-width="0.5"/>
+
+        <rect x="56" y="368" width="340" height="78" rx="10" fill="#fffdf7" fill-opacity="0.92" stroke="url(#goldSatin)" stroke-width="1.4" filter="url(#softShadow)"/>
+        <text x="76" y="395" font-family="Cinzel, serif" font-weight="700" font-size="11" letter-spacing="3.2" fill="#825e23">FEATURED EPISODE</text>
+        <text x="76" y="427" font-family="ShipporiMinchoB1, serif" font-weight="800" font-size="25.5" letter-spacing="1" fill="#221b14"
+              style="font-feature-settings:'palt' 1">Meta「Muse」解説</text>
+
+        <text x="56" y="852" font-family="ShipporiMinchoB1, serif" font-weight="600" font-size="16" letter-spacing="2.2" fill="#6f5d46">作図：萩野貴拓</text>
+      </g>
+
+      <!-- RIGHT COLUMN -->
+      <g>
+        
+    <g filter="url(#badgeShadow)">
+      <path d="M 1354.2,332.8 L 1330.3,327.3 L 1308.0,316.0 L 1289.0,299.4 L 1274.6,278.3 L 1266.0,254.2 L 1263.7,228.6 L 1268.1,203.3 L 1278.6,180.0 L 1294.4,160.3 L 1314.4,145.4 L 1337.0,135.8" fill="none" stroke="url(#goldSatin)" stroke-width="2.20" stroke-linecap="round"/>
+<path d="M 1330.3,327.3 Q 1330.7,318.0 1321.1,312.9 Q 1321.6,323.7 1330.3,327.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1330.3,327.3 Q 1321.7,323.4 1313.5,330.4 Q 1323.7,334.0 1330.3,327.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1308.0,316.0 Q 1310.5,306.6 1302.2,298.9 Q 1300.3,310.1 1308.0,316.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1308.0,316.0 Q 1300.2,310.2 1289.9,315.0 Q 1299.6,321.0 1308.0,316.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1289.0,299.4 Q 1293.6,290.4 1287.3,280.5 Q 1282.9,291.4 1289.0,299.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1289.0,299.4 Q 1282.4,291.8 1270.8,293.9 Q 1279.3,302.1 1289.0,299.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1274.6,278.3 Q 1281.3,270.4 1277.5,259.0 Q 1270.6,268.8 1274.6,278.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1274.6,278.3 Q 1269.8,269.2 1257.7,268.4 Q 1264.3,278.5 1274.6,278.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1266.0,254.2 Q 1274.4,247.9 1273.5,235.7 Q 1264.4,243.8 1266.0,254.2 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1266.0,254.2 Q 1263.3,244.1 1251.7,240.3 Q 1255.8,251.8 1266.0,254.2 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1263.7,228.6 Q 1273.4,224.4 1275.4,212.4 Q 1264.6,218.1 1263.7,228.6 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1263.7,228.6 Q 1263.5,218.1 1253.1,211.7 Q 1254.4,223.8 1263.7,228.6 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1268.1,203.3 Q 1278.3,201.6 1283.0,190.5 Q 1271.3,193.4 1268.1,203.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1268.1,203.3 Q 1270.4,193.2 1261.8,184.7 Q 1260.1,196.6 1268.1,203.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1278.6,180.0 Q 1288.6,181.0 1295.5,171.4 Q 1283.8,171.3 1278.6,180.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1278.6,180.0 Q 1283.2,171.0 1276.9,161.1 Q 1272.5,172.0 1278.6,180.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1294.4,160.3 Q 1303.6,163.7 1312.1,156.2 Q 1301.1,153.2 1294.4,160.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1294.4,160.3 Q 1301.0,153.1 1297.2,142.4 Q 1290.3,151.5 1294.4,160.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1314.4,145.4 Q 1322.0,150.8 1331.5,145.5 Q 1322.1,140.0 1314.4,145.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1314.4,145.4 Q 1322.3,140.3 1320.9,129.5 Q 1312.3,136.2 1314.4,145.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1337.0,135.8 Q 1342.7,142.8 1352.5,139.7 Q 1345.3,132.3 1337.0,135.8 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1337.0,135.8 Q 1345.6,133.1 1346.4,122.9 Q 1336.8,126.8 1337.0,135.8 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1389.8,332.8 L 1413.7,327.3 L 1436.0,316.0 L 1455.0,299.4 L 1469.4,278.3 L 1478.0,254.2 L 1480.3,228.6 L 1475.9,203.3 L 1465.4,180.0 L 1449.6,160.3 L 1429.6,145.4 L 1407.0,135.8" fill="none" stroke="url(#goldSatin)" stroke-width="2.20" stroke-linecap="round"/>
+<path d="M 1413.7,327.3 Q 1422.4,323.7 1422.9,312.9 Q 1413.3,318.0 1413.7,327.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1413.7,327.3 Q 1420.3,334.0 1430.5,330.4 Q 1422.3,323.4 1413.7,327.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1436.0,316.0 Q 1443.7,310.1 1441.8,298.9 Q 1433.5,306.6 1436.0,316.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1436.0,316.0 Q 1444.4,321.0 1454.1,315.0 Q 1443.8,310.2 1436.0,316.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1455.0,299.4 Q 1461.1,291.4 1456.7,280.5 Q 1450.4,290.4 1455.0,299.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1455.0,299.4 Q 1464.7,302.1 1473.2,293.9 Q 1461.6,291.8 1455.0,299.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1469.4,278.3 Q 1473.4,268.8 1466.5,259.0 Q 1462.7,270.4 1469.4,278.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1469.4,278.3 Q 1479.7,278.5 1486.3,268.4 Q 1474.2,269.2 1469.4,278.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1478.0,254.2 Q 1479.6,243.8 1470.5,235.7 Q 1469.6,247.9 1478.0,254.2 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1478.0,254.2 Q 1488.2,251.8 1492.3,240.3 Q 1480.7,244.1 1478.0,254.2 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1480.3,228.6 Q 1479.4,218.1 1468.6,212.4 Q 1470.6,224.4 1480.3,228.6 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1480.3,228.6 Q 1489.6,223.8 1490.9,211.7 Q 1480.5,218.1 1480.3,228.6 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1475.9,203.3 Q 1472.7,193.4 1461.0,190.5 Q 1465.7,201.6 1475.9,203.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1475.9,203.3 Q 1483.9,196.6 1482.2,184.7 Q 1473.6,193.2 1475.9,203.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1465.4,180.0 Q 1460.2,171.3 1448.5,171.4 Q 1455.4,181.0 1465.4,180.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1465.4,180.0 Q 1471.5,172.0 1467.1,161.1 Q 1460.8,171.0 1465.4,180.0 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1449.6,160.3 Q 1442.9,153.2 1431.9,156.2 Q 1440.4,163.7 1449.6,160.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1449.6,160.3 Q 1453.7,151.5 1446.8,142.4 Q 1443.0,153.1 1449.6,160.3 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1429.6,145.4 Q 1421.9,140.0 1412.5,145.5 Q 1422.0,150.8 1429.6,145.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1429.6,145.4 Q 1431.7,136.2 1423.1,129.5 Q 1421.7,140.3 1429.6,145.4 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1407.0,135.8 Q 1398.7,132.3 1391.5,139.7 Q 1401.3,142.8 1407.0,135.8 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1407.0,135.8 Q 1407.2,126.8 1397.6,122.9 Q 1398.4,133.1 1407.0,135.8 Z" fill="url(#goldDiagGrad)" stroke="#7a4e12" stroke-width="0.55"/>
+<path d="M 1372,116.14399999999998 L 1375.035136,122.59366399999998 L 1381.4848,125.62879999999997 L 1375.035136,128.66393599999998 L 1372,135.11359999999996 L 1368.964864,128.66393599999998 L 1362.5152,125.62879999999997 L 1368.964864,122.59366399999998 Z" fill="url(#goldDiagGrad)" stroke="#754911" stroke-width="0.6"/>
+      <circle cx="1372" cy="232" r="88.02560000000001" fill="url(#goldSatin)" stroke="#6f450f" stroke-width="1.456"/>
+      <circle cx="1372" cy="232" r="80.3712" fill="url(#sealIvory)" stroke="#b88837" stroke-width="1.248"/>
+      <circle cx="1372" cy="232" r="73.67360000000001" fill="none" stroke="#c89b4b" stroke-dasharray="3.12 3.12" stroke-width="0.936"/>
+      <text x="1372" y="196.64" text-anchor="middle" font-family="Cinzel, serif" font-weight="700" font-size="11.96" letter-spacing="3.536" fill="#6e4e1c">PIVOT</text>
+      <line x1="1342.88" y1="204.96" x2="1401.12" y2="204.96" stroke="#c29747" stroke-width="1.04"/>
+      <text x="1372" y="225.76" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="17.16" letter-spacing="3.952" fill="#3d290c">TOP</text>
+      <text x="1372" y="275.68" text-anchor="middle" font-family="CinzelDec, Cinzel, serif" font-weight="900" font-size="56.160000000000004" fill="url(#goldDiagGrad)" stroke="#683e08" stroke-width="1.04">5</text>
+      <text x="1372" y="296.48" text-anchor="middle" font-family="Cinzel, serif" font-weight="700" font-size="10.92" letter-spacing="2.6" fill="#6e4e1c">2026 . 11</text>
+      
+    <g filter="url(#softShadow)">
+      <path d="M 1257.8496,319.568 L 1282.3104,319.568 L 1282.3104,350.768 L 1253.7728,350.768 L 1268.0416,335.8336 Z" fill="#7c4e11"/>
+      <path d="M 1486.1504,319.568 L 1461.6896,319.568 L 1461.6896,350.768 L 1490.2272,350.768 L 1475.9584,335.8336 Z" fill="#7c4e11"/>
+      <rect x="1270.08" y="313.328" width="203.84" height="33.28" rx="5.2" fill="url(#goldDiagGrad)" stroke="#6f450f" stroke-width="1.248"/>
+      <rect x="1273.1999999999998" y="316.448" width="197.6" height="27.04" rx="3.12" fill="none" stroke="#fff7da" stroke-opacity="0.72" stroke-width="0.8320000000000001"/>
+      <text x="1372" y="335.62559999999996" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="11.96" letter-spacing="2.392" fill="#321f05">MONTHLY AWARD</text>
+    </g>
+    </g>
+        
+    <g>
+      <rect x="1210" y="476" width="322" height="213" rx="12"
+            fill="#fffdf8" fill-opacity="0.9" stroke="url(#goldSatin)" stroke-width="1.4" filter="url(#softShadow)"/>
+      <text x="1228" y="501" font-family="Cinzel, serif" font-weight="800" font-size="11" letter-spacing="2.6" fill="#7c5920">MONTHLY OVERALL TOP 5</text>
+      <line x1="1228" y1="513" x2="1514" y2="513" stroke="#d9bc82" stroke-width="0.9"/>
+      
+              <rect x="1228" y="532" width="286" height="22" rx="4.5" fill="#f5ede0" stroke="#dcc7a2" stroke-width="0.9"/>
+              <circle cx="1241" cy="543.0" r="3.2" fill="#c39f61" opacity="0.72"/>
+              <rect x="1254" y="541.0" width="238" height="4" rx="2" fill="#d8c199" opacity="0.8"/>
+            
+              <rect x="1228" y="563" width="286" height="22" rx="4.5" fill="#f5ede0" stroke="#dcc7a2" stroke-width="0.9"/>
+              <circle cx="1241" cy="574.0" r="3.2" fill="#c39f61" opacity="0.72"/>
+              <rect x="1254" y="572.0" width="222" height="4" rx="2" fill="#d8c199" opacity="0.8"/>
+            
+              <rect x="1228" y="594" width="286" height="22" rx="4.5" fill="#f5ede0" stroke="#dcc7a2" stroke-width="0.9"/>
+              <circle cx="1241" cy="605.0" r="3.2" fill="#c39f61" opacity="0.72"/>
+              <rect x="1254" y="603.0" width="206" height="4" rx="2" fill="#d8c199" opacity="0.8"/>
+            
+              <rect x="1228" y="625" width="286" height="22" rx="4.5" fill="#f5ede0" stroke="#dcc7a2" stroke-width="0.9"/>
+              <circle cx="1241" cy="636.0" r="3.2" fill="#c39f61" opacity="0.72"/>
+              <rect x="1254" y="634.0" width="190" height="4" rx="2" fill="#d8c199" opacity="0.8"/>
+            
+              <g filter="url(#softShadow)">
+                <rect x="1224" y="654" width="294" height="30" rx="6" fill="url(#goldDiagGrad)" stroke="#6f450f" stroke-width="1.1"/>
+                <path d="M 1242,662 L 1244.5,667.5 L 1250.5,668 L 1246,672 L 1247.5,678 L 1242,674.8 L 1236.5,678 L 1238,672 L 1233.5,668 L 1239.5,667.5 Z"
+                      fill="#fffaf0" stroke="#6f450f" stroke-width="0.6"/>
+                <text x="1258" y="673.5" font-family="Cinzel, serif" font-weight="800" font-size="11.5" letter-spacing="1.8" fill="#321f05">MUSE · TOP 5 IN</text>
+                <text x="1508" y="673" text-anchor="end" font-family="Cinzel, serif" font-weight="800" font-size="10.5" letter-spacing="1.2" fill="#4b2f08">▲ UP</text>
+              </g>
+    </g>
+      </g>
+    </svg>
+    </body></html>
